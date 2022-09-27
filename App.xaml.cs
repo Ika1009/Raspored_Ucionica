@@ -10,6 +10,7 @@ namespace Raspored_Ucionica
 {
     /// <summary>
     /// Interaction logic for App.xaml
+    /// 
     /// </summary>
     public partial class App : Application
     {
