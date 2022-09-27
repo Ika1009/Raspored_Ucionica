@@ -19,15 +19,7 @@ namespace Raspored_Ucionica
         public MainWindow()
         {
             InitializeComponent();
-            MainPageViewModel mainPageViewModel = new MainPageViewModel();
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < 32; j++)
-                {
-                    labelaa.Content += $"{mainPageViewModel.Ponedeljak_raspored.RasporedCasova[i][j]} ";
-                }
-                labelaa.Content += " | \n";
-            }        
+            MainPageViewModel mainPageViewModel = new MainPageViewModel();   
         }
     }
 }
