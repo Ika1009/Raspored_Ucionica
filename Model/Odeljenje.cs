@@ -4,7 +4,7 @@ namespace Raspored_Ucionica.Model
     public class Odeljenje
     {
         static int brojac_odeljenja = 0;
-        readonly int id;
+        private readonly int id;
         int broj_ucenika;
         int? id_ucionice;
         string ime_odeljenja;

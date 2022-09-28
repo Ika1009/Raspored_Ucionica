@@ -10,23 +10,40 @@ namespace Raspored_Ucionica
         {
             rezultatiPonedeljak = new();
         }
-        public void spajanjeOdeljenja(string imeCasa, string imeUcionice, int i, int j) // kad se odeljenja spajaju zajedno
+        public void SpajanjeOdeljenja(string imeCasa, string imeUcionice, int i, int j) // kad se odeljenja spajaju zajedno
         {
             lista_ucionica[lista_odeljenja[i + 1].Id_ucionice.Value].Slobodna = true; // oslobadja se njihova ucionica
-            int index = lista_ucionica.IndexOf(lista_ucionica.First(ucionica => ucionica.Ime_ucionice == imeUcionice));
-            rezultatiPonedeljak[i][j] = lista_ucionica[index].Ime_ucionice;
+            Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
+            rezultatiPonedeljak[i][j] = ucionica.Ime_ucionice;
             lista_ucionica[index].Slobodna = false; // ucionica ne moze da se koristi za druge predmete, ali moze za isti kad se spoji
         }
-        public void drziOdeljenje(int i, int j)
+        public void DrziOdeljenje(int i, int j)
         {
-            if (lista_odeljenja[i+1].Id_ucionice is not null) // nije lutajuce
+            if (lista_odeljenja[i + 1].Id_ucionice is not null) // nije lutajuce
             {
                 lista_ucionica[lista_odeljenja[i + 1].Id_ucionice.Value].Slobodna = false;
                 rezultatiPonedeljak[i][j] = lista_ucionica[lista_odeljenja[i + 1].Id_ucionice.Value].Ime_ucionice;
             }
             else // lutajuce
             {
-
+                Ucionica slobodna = lista_ucionica.First(ucionica => ucionica.Slobodna == true);
+                rezultatiPonedeljak[i][j] = slobodna.Ime_ucionice;
+                slobodna = slobodna.Slobodna = false;
+            }
+        }
+        public void OslobodiLutajuceUcionice()
+        {
+            bool oslobodi;
+            foreach(Ucionica ucionica1 in lista_ucionica)
+            {
+                oslobodi = true;
+                foreach (Odeljenje odeljenje1 in lista_odeljenja)
+                {
+                    if (odeljenje1.Id_ucionice == ucionica1.Id)
+                        oslobodi = false;
+                }
+                if (oslobodi)
+                    ucionica1.Slobodna = true;
             }
         }
         public void NapraviRaspored()
@@ -37,24 +54,22 @@ namespace Raspored_Ucionica
                     continue;
 
                 if(Ponedeljak.RasporedCasova[0][i] == "reg")
-                {
                     drziOdeljenje(0, i);
-                }
 
                 else if (Ponedeljak.RasporedCasova[0][i] == "verska")
-                {
                     spajanjeOdeljenja(Ponedeljak.RasporedCasova[0][i], "biblioteka", 0, i);
-                } 
+
                 else if(Ponedeljak.RasporedCasova[0][i] == "izborni")
                 {
 
                 }
             }
+
             for (int i = 1; i < 8; i++) // za ponedeljak
             {
+                OslobodiLutajuceUcionice();
                 for(var j = 0; j < 32; j++)
                 {
-
 
                 }
             }

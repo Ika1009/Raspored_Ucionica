@@ -19,7 +19,8 @@ namespace Raspored_Ucionica
         public MainWindow()
         {
             InitializeComponent();
-            MainPageViewModel mainPageViewModel = new MainPageViewModel();
+            DataContext = new MainPageViewModel();
+            //this.DataSource = new MainPageViewModel();
         }
     }
 }

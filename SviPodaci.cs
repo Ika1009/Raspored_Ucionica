@@ -64,13 +64,6 @@ namespace Raspored_Ucionica
                 new Ucionica("41", 36, true),
                 new Ucionica("9", 40, true),
                 new Ucionica("10", 40, true),
-                
-                
-          
-                
-                
-                                
-
 
             };
             lista_odeljenja = new()
