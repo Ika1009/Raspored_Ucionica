@@ -20,7 +20,6 @@ namespace Raspored_Ucionica
         {
             InitializeComponent();
             DataContext = new MainPageViewModel();
-            //this.DataSource = new MainPageViewModel();
         }
     }
 }
