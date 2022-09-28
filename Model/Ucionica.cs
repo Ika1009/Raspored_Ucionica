@@ -15,7 +15,7 @@ namespace Raspored_Ucionica.Model
             {
                 ime_ucionice = value;
             }
-        }
+        }//evo
         public int Id
         {
             get => id;
