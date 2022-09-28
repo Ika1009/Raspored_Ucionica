@@ -128,8 +128,8 @@ namespace Raspored_Ucionica
                 new Odeljenje("II-7",29, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "42").Id),
                 new Odeljenje("II-8",31, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "26").Id),
                 new Odeljenje("III-1", 20, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "35").Id),
-                new Odeljenje("III-2",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id),
-                new Odeljenje("III-3",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "11").Id),
+                /*new Odeljenje("III-2",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id), // ovde negde je problem
+                new Odeljenje("III-3",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "11").Id), // iskomentirajte pa testirajte da vidite gde je
                 new Odeljenje("III-4",23, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "21").Id),
                 new Odeljenje("III-5",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "40").Id),
                 new Odeljenje("III-6",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "32").Id),
@@ -142,7 +142,7 @@ namespace Raspored_Ucionica
                 new Odeljenje("IV-5",30, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "1").Id),
                 new Odeljenje("IV-6",27, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "2").Id),
                 new Odeljenje("IV-7",37, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "9").Id),
-                new Odeljenje("IV-8",36, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "41").Id),
+                new Odeljenje("IV-8",36, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "41").Id),*/
             };
         }
     }
