@@ -4,24 +4,24 @@ namespace Raspored_Ucionica
 {
     public class SviPodaci
     {
-        public readonly List<Odeljenje>? lista_odeljenja;
-        public readonly List<Ucionica>? lista_ucionica;
-        public readonly Raspored? Ponedeljak_raspored;
+        protected readonly List<Odeljenje>? lista_odeljenja;
+        protected readonly List<Ucionica>? lista_ucionica;
+        protected readonly Raspored? Ponedeljak;
         public SviPodaci()
         {
             List<List<string>> list = new()
             {
-                new List<string>() {"info", "", "", "", "izborni", "", "", "", "", "verska", "", "izborni", "izborni", "verska", "izborni", "", "", "", "", "izborni","pr.nauke", "", "", "", "", "", "", "info", "", "", "mni", ""},
-                new List<string>() {"info", "mat", "mat", "mat", "mat", "nem", "geo", "info", "ist", "eng", "bio", "bio", "n/f/i/r", "fiz", "n/f/i/r", "mat", "fiz", "dmat", "srp", "","prnauke", "eng", "mat", "geo", "g1", "", "hem/bio", "info", "hem", "info", "srp", "fv"},
-                new List<string>() {"mat", "info", "lat", "hem", "geo", "bio", "nem", "info", "fiz", "ist", "fv", "nem/eng", "mat", "bio/fiz", "mat", "geo", "dmat", "mat", "eng", "eng/info","srp", "fv", "mat", "bio", "socio", "mat", "hem/bio", "mat", "mat", "info", "srp", "muz"},
-                new List<string>() {"mat", "info", "fiz", "n/f/r", "n/f/i/r", "muz", "info", "n/f/i/r", "srp", "fiz", "hem", "mat", "ist", "bio", "eng", "srp", "mat", "mat", "fiz", "fiz/info","geo", "hem", "eng/info", "mat", "mat", "srp", "mat", "mat", "socio", "bio", "fv", "srp"},
-                new List<string>() {"eng", "hem", "srp", "bio", "ist", "geo", "info", "mat", "srp", "mat", "mat", "mat", "hem/info", "hem", "fv", "srp", "mat", "info", "bio/fiz", "geo","mat", "info/fiz", "eng", "fv", "bio", "srp", "bio", "nem/fiz/f", "n/f/e", "fiz", "nem/eng", "ist"},
-                new List<string>() {"fv", "geo", "hem", "ist", "srp", "izborni", "mat", "geo", "mat", "srp", "info", "fiz/hem", "hem/info", "mat", "lat", "psiho", "eng", "info", "bio", "bio","mat", "geo", "fv", "srp", "fiz", "bio", "info/fiz", "srp", "filo", "n/f/e", "ist", "n/f/e"},
-                new List<string>() { "srp", "fv", "geo", "fv", "lat", "", "jmk", "bio", "psiho", "srp", "info", "ist", "info", "psiho", "verska", "verska", "srp", "info", "hem", "nem", "savteh", "bio", "bio/strani", "izborni", "n/fiz/f", "srp", "eng", "info/fiz", "srp", "fiz", "filo", "", "mat"},
-                new List<string>() { "info", "srp", "fv", "izborni", "", "", "", "fv", "izborni", "izborni", "", "jmk", "info", "geo", "", "", "bio", "info", "", "", "", "", "izborni", "", "srp", "fiz", "eng", "", "verska", "verska", "", "mni"}
+                new List<string>() {"info", "", "", "", "reg", "", "", "", "", "verska", "", "reg", "reg", "verska", "reg", "", "", "", "", "reg","reg", "", "", "", "", "", "", "info", "", "", "reg", ""},
+                new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "ist", "reg", "reg", "reg", "n/f/i/r", "reg", "n/f/i/r", "reg", "reg", "reg", "reg", "","prnauke", "reg", "reg", "reg", "g1", "", "hem/reg", "info", "hem", "info", "reg", "fv"},
+                new List<string>() {"reg", "info", "reg", "hem", "reg", "reg", "reg", "info", "reg", "ist", "fv", "reg/reg", "reg", "reg/reg", "reg", "reg", "dreg", "reg", "reg", "reg/info","reg", "fv", "reg", "reg", "reg", "reg", "hem/reg", "reg", "reg", "info", "reg", "reg"},
+                new List<string>() {"reg", "info", "reg", "n/f/r", "n/f/i/r", "reg", "info", "n/f/i/r", "reg", "reg", "hem", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/info","reg", "hem", "reg/info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg"},
+                new List<string>() {"reg", "hem", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "hem/info", "hem", "fv", "reg", "reg", "info", "reg/reg", "reg","reg", "info/reg", "reg", "fv", "reg", "reg", "reg", "nem/reg/f", "n/f/e", "reg", "nem/reg", "reg"},
+                new List<string>() {"fv", "reg", "hem", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg/hem", "hem/info", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg", "reg", "fv", "reg", "reg", "reg", "info/reg", "reg", "reg", "n/f/e", "reg", "n/f/e"},
+                new List<string>() { "reg", "fv", "reg", "fv", "reg", "", "reg", "reg", "reg", "reg", "info", "reg", "info", "reg", "verska", "verska", "reg", "info", "hem", "reg", "reg", "reg", "reg/strani", "reg", "n/reg/f", "reg", "reg", "info/reg", "reg", "reg", "reg", "", "reg"},
+                new List<string>() { "info", "reg", "fv", "reg", "", "", "", "fv", "reg", "reg", "", "reg", "info", "reg", "", "", "reg", "info", "", "", "", "", "reg", "", "reg", "reg", "reg", "", "verska", "verska", "", "reg"}
             };
 
-            Ponedeljak_raspored = new(list);
+            Ponedeljak = new(list);
             
             lista_ucionica = new()
             {
@@ -78,7 +78,7 @@ namespace Raspored_Ucionica
                 new Odeljenje("I-1", 19),
                 new Odeljenje("I-2",19),
                 new Odeljenje("I-3",18),
-                new Odeljenje("I-4",30, 28),
+                new Odeljenje("I-4",30, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "28").Id), // svuda da se stavi
                 new Odeljenje("I-5",35, 31),
                 new Odeljenje("I-6",35, 10),
                 new Odeljenje("I-7",32, 25),
@@ -88,7 +88,7 @@ namespace Raspored_Ucionica
                 new Odeljenje("II-3",17),
                 new Odeljenje("II-4",28, 27),
                 new Odeljenje("II-5",34, 24),
-                new Odeljenje("II-6",39, 20),
+                new Odeljenje("II-6",36, 20),
                 new Odeljenje("II-7",29, 42),
                 new Odeljenje("II-8",31, 26),
                 new Odeljenje("III-1", 20, 35),
@@ -106,7 +106,7 @@ namespace Raspored_Ucionica
                 new Odeljenje("IV-5",30, 1),
                 new Odeljenje("IV-6",27, 2),
                 new Odeljenje("IV-7",37, 9),
-                new Odeljenje("IV-8",39, 41),
+                new Odeljenje("IV-8",36, 41),
             };
         }
     }

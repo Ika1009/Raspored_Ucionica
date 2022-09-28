@@ -19,7 +19,7 @@ namespace Raspored_Ucionica
         public MainWindow()
         {
             InitializeComponent();
-            MainPageViewModel mainPageViewModel = new MainPageViewModel();   
+            MainPageViewModel mainPageViewModel = new MainPageViewModel();
         }
     }
 }
