@@ -20,6 +20,7 @@ namespace Raspored_Ucionica
                 new List<string>() { "reg", "fv", "reg", "fv", "reg", "", "reg", "reg", "reg", "reg", "info", "reg", "info", "reg", "verska", "verska", "reg", "info", "hem", "reg", "reg", "reg", "reg/strani", "reg", "n/reg/f", "reg", "reg", "info/reg", "reg", "reg", "reg", "", "reg"},
                 new List<string>() { "info", "reg", "fv", "reg", "", "", "", "fv", "reg", "reg", "", "reg", "info", "reg", "", "", "reg", "info", "", "", "", "", "reg", "", "reg", "reg", "reg", "", "verska", "verska", "", "reg"}
             });
+         
             
             lista_ucionica = new()
             {
@@ -66,38 +67,38 @@ namespace Raspored_Ucionica
             };
             lista_odeljenja = new()
             {
-                new Odeljenje("I-1", 19),
-                new Odeljenje("I-2",19),
-                new Odeljenje("I-3",18),
+                new Odeljenje("I-1", 19),//lutajuca
+                new Odeljenje("I-2",19),//lutajuca
+                new Odeljenje("I-3",18),//lutajuca
                 new Odeljenje("I-4",30, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "28").Id), // svuda da se stavi
-                new Odeljenje("I-5",35, 31),
-                new Odeljenje("I-6",35, 10),
-                new Odeljenje("I-7",32, 25),
-                new Odeljenje("I-8",29, 37),
-                new Odeljenje("II-1", 19),
-                new Odeljenje("II-2",20),
-                new Odeljenje("II-3",17),
-                new Odeljenje("II-4",28, 27),
-                new Odeljenje("II-5",34, 24),
-                new Odeljenje("II-6",36, 20),
-                new Odeljenje("II-7",29, 42),
-                new Odeljenje("II-8",31, 26),
-                new Odeljenje("III-1", 20, 35),
-                new Odeljenje("III-2",18, 39),
-                new Odeljenje("III-3",18, 11),
-                new Odeljenje("III-4",23, 21),
-                new Odeljenje("III-5",35, 40),
-                new Odeljenje("III-6",35, 32),
-                new Odeljenje("III-7",31, 13),
-                new Odeljenje("III-8",32, 36),
-                new Odeljenje("IV-1", 19, 30),
-                new Odeljenje("IV-2",21, 33),
-                new Odeljenje("IV-3",19, 19),
-                new Odeljenje("IV-4",29, 3),
-                new Odeljenje("IV-5",30, 1),
-                new Odeljenje("IV-6",27, 2),
-                new Odeljenje("IV-7",37, 9),
-                new Odeljenje("IV-8",36, 41),
+                new Odeljenje("I-5",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "31").Id),
+                new Odeljenje("I-6",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "10").Id),
+                new Odeljenje("I-7",32, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "25").Id),
+                new Odeljenje("I-8",29, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "37").Id),
+                new Odeljenje("II-1", 19),//lutajuca
+                new Odeljenje("II-2",20),//lutajuca
+                new Odeljenje("II-3",17),//lutajuca
+                new Odeljenje("II-4",28, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "27").Id),
+                new Odeljenje("II-5",34, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "24").Id),
+                new Odeljenje("II-6",36, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "20").Id),
+                new Odeljenje("II-7",29, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "42").Id),
+                new Odeljenje("II-8",31, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "26").Id),
+                new Odeljenje("III-1", 20, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "35").Id),
+                new Odeljenje("III-2",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id),
+                new Odeljenje("III-3",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "11").Id),
+                new Odeljenje("III-4",23, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "21").Id),
+                new Odeljenje("III-5",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "40").Id),
+                new Odeljenje("III-6",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "32").Id),
+                new Odeljenje("III-7",31, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "13").Id),
+                new Odeljenje("III-8",32, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "36").Id),
+                new Odeljenje("IV-1", 19, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "30").Id),
+                new Odeljenje("IV-2",21, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "33").Id),
+                new Odeljenje("IV-3",19, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "19").Id),
+                new Odeljenje("IV-4",29, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "3").Id),
+                new Odeljenje("IV-5",30, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "1").Id),
+                new Odeljenje("IV-6",27, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "2").Id),
+                new Odeljenje("IV-7",37, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "9").Id),
+                new Odeljenje("IV-8",36, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "41").Id),
             };
         }
     }
