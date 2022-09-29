@@ -41,6 +41,7 @@ namespace Raspored_Ucionica.Model
         public Odeljenje(string imeOdeljenjaUnos, int brojucenikaUnos, int unosUcionica)
         {
             id = brojac_odeljenja + 1;
+            brojac_odeljenja++;
             Broj_ucenika = brojucenikaUnos;
             Id_ucionice = unosUcionica;
             Ime_odeljenja = imeOdeljenjaUnos;
@@ -48,6 +49,7 @@ namespace Raspored_Ucionica.Model
         public Odeljenje(string imeOdeljenjaUnos, int brojucenikaUnos)
         {
             id = brojac_odeljenja + 1;
+            brojac_odeljenja++;
             Broj_ucenika = brojucenikaUnos;
             Id_ucionice = null;
             Ime_odeljenja = imeOdeljenjaUnos;

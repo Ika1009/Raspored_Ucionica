@@ -3,7 +3,7 @@ namespace Raspored_Ucionica.Model
 {
     public class Ucionica
     {
-        static readonly int brojac_ucionice = 0;
+        static int brojac_ucionice = 0;
         readonly int id;
         bool slobodna;
         int velicina;
@@ -42,6 +42,7 @@ namespace Raspored_Ucionica.Model
         public Ucionica(string ime_ucionice, int velicinaUnos, bool slobodnaUnos)
         {
             id = brojac_ucionice + 1;
+            brojac_ucionice++;
             Velicina = velicinaUnos;
             Slobodna = slobodnaUnos;
             Ime_ucionice = ime_ucionice;
