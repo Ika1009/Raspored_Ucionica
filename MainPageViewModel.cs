@@ -1,11 +1,16 @@
 ﻿using Raspored_Ucionica.Model;
+using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Raspored_Ucionica
 {
-    public class MainPageViewModel : SviPodaci
+    public class MainPageViewModel : SviPodaci, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         List<List<string>> rezultatiPonedeljak;
+
         public MainPageViewModel()
         {
             rezultatiPonedeljak = new();
@@ -18,7 +23,7 @@ namespace Raspored_Ucionica
             rezultatiPonedeljak[i][j] = ucionica.Ime_ucionice;
             ucionica.Slobodna = false; // ucionica ne moze da se koristi za druge predmete, ali moze za isti kad se spoji
         }
-        public void DrziOdeljenje(int i, int j)
+        public void DrziOdeljenje(int i, int j) // nalazi slobodnu ucionicu za oba odeljenja
         {
             if (lista_odeljenja![i + 1].Id_ucionice is not null) // nije lutajuce
             {
@@ -47,17 +52,18 @@ namespace Raspored_Ucionica
                     ucionicaTemp.Slobodna = true;
             }
         }
-        public void OslobodiUcionicu(int j)
+        public void OslobodiUcionicu(int i, int j)
         {
             Ucionica ucionicaTemp = lista_ucionica!.First(ucionica => ucionica.Id == lista_odeljenja![j].Id_ucionice);
             ucionicaTemp.Slobodna = true;
+            rezultatiPonedeljak[i][j] = ponedeljak!.RasporedCasova[i][j];
             
         }
         public void NapraviRaspored()
         {
             for (int i = 0; i < 32; i++) //za nulti cas
             {
-                if (ponedeljak.RasporedCasova[0][i] == "")
+                if (ponedeljak!.RasporedCasova[0][i] == "")
                     continue;
 
                 if(ponedeljak.RasporedCasova[0][i] == "reg")
@@ -72,13 +78,25 @@ namespace Raspored_Ucionica
                 OslobodiLutajuceUcionice();
                 for (var j = 0; j < 32; j++)
                 {
-                    if (ponedeljak.RasporedCasova[i][j] == "" || ponedeljak.RasporedCasova[i][j] == "fv" || ponedeljak.RasporedCasova[i][j] == "info")
+                    if (ponedeljak!.RasporedCasova[i][j] == "" || ponedeljak.RasporedCasova[i][j] == "fv" || ponedeljak.RasporedCasova[i][j] == "info")
                     {
-                        if(lista_odeljenja![j].Id_ucionice is not null)
-                            OslobodiUcionicu(j);
-
-
+                        if(lista_odeljenja![j].Id_ucionice is not null) // nije lutajuce
+                            OslobodiUcionicu(i, j);
                     }
+                    else if(ponedeljak!.RasporedCasova[i][j] == "reg")
+                    {
+                        DrziOdeljenje(i, j);
+                    } 
+                    /*else if (ponedeljak!.RasporedCasova[i][j].Contains('/'))
+                    {
+                        string cas = ponedeljak!.RasporedCasova[i][j];
+                        if (cas.Count(c => (c == '/')) == 1)
+                        {
+
+                        }
+                    }*/
+                    // fali za hemiju, jezike, gradjansko
+
                 }
             }
         }
