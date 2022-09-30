@@ -14,7 +14,7 @@ namespace Raspored_Ucionica
         }
         public void SpajanjeOdeljenja(string imeCasa, string imeUcionice, int i, int j) // kad se odeljenja spajaju zajedno
         {
-            lista_ucionica![lista_odeljenja![i + 1].Id_ucionice!.Value].Slobodna = true; // oslobadja se njihova ucionica
+            lista_ucionica![lista_odeljenja![i].Id_ucionice!.Value].Slobodna = true; // oslobadja se njihova ucionica
 
             Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
             rezultatiPonedeljak[i][j] = ucionica.Ime_ucionice;
@@ -22,10 +22,10 @@ namespace Raspored_Ucionica
         }
         public void DrziOdeljenje(int i, int j) // nalazi slobodnu ucionicu za oba odeljenja
         {
-            if (lista_odeljenja![i + 1].Id_ucionice is not null) // nije lutajuce
+            if (lista_odeljenja![j].Id_ucionice is not null) // nije lutajuce
             {
-                lista_ucionica![lista_odeljenja![i + 1].Id_ucionice!.Value].Slobodna = false;
-                rezultatiPonedeljak[i][j] = lista_ucionica[lista_odeljenja[i + 1].Id_ucionice!.Value].Ime_ucionice;
+                lista_ucionica![lista_odeljenja![j].Id_ucionice!.Value].Slobodna = false;
+                rezultatiPonedeljak[i][j] = lista_ucionica[lista_odeljenja[j].Id_ucionice!.Value].Ime_ucionice;
             }
             else // lutajuce
             {
@@ -61,7 +61,10 @@ namespace Raspored_Ucionica
             for (int i = 0; i < 32; i++) //za nulti cas
             {
                 if (ponedeljak!.RasporedCasova[0][i] == "")
-                    continue;
+                    rezultatiPonedeljak[0][i] = "/";
+
+                if (ponedeljak!.RasporedCasova[0][i] == "info")
+                    rezultatiPonedeljak[0][i] = "info";
 
                 if (ponedeljak.RasporedCasova[0][i] == "reg")
                     DrziOdeljenje(0, i);
@@ -79,6 +82,10 @@ namespace Raspored_Ucionica
                     {
                         if (lista_odeljenja![j].Id_ucionice is not null) // nije lutajuce
                             OslobodiUcionicu(i, j);
+                        if (ponedeljak!.RasporedCasova[i][j] == "info")
+                            rezultatiPonedeljak[i][j] = "info";
+                        if (ponedeljak!.RasporedCasova[i][j] == "fv")
+                            rezultatiPonedeljak[i][j] = "fv";
                     }
                     else if (ponedeljak!.RasporedCasova[i][j] == "reg")
                     {
