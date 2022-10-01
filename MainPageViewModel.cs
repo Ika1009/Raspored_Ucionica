@@ -37,7 +37,7 @@ namespace Raspored_Ucionica
                 lista_ucionica![lista_odeljenja[i].Id_ucionice!.Value].Slobodna = true;// oslobadja se njihova ucionica
             
 
-            Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
+            Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
             rezultatiPonedeljak[i][j] = ucionica.Ime_ucionice;
             ucionica.Slobodna = false; // ucionica ne moze da se koristi za druge predmete, ali moze za isti kad se spoji
         }
@@ -127,14 +127,17 @@ namespace Raspored_Ucionica
                                 DrziOdeljenje(i, j);
                             }
                             if (trenutno == "i")
-                                rezultatiPonedeljak[i][j] = "jezicka1";
+                                rezultatiPonedeljak[i][j] += " jezicka1";
                             if (trenutno == "r")
-                                rezultatiPonedeljak[i][j] = "jezicka2";
+                                rezultatiPonedeljak[i][j] += " jezicka2";
                             if (trenutno == "f" && biblioteka.Slobodna == true)
-                                rezultatiPonedeljak[i][j] = "biblioteka";
+                                rezultatiPonedeljak[i][j] += " biblioteka";
                             if (trenutno == "f" && biblioteka.Slobodna == false)
-                                rezultatiPonedeljak[i][j] = "biblioteka";
-
+                            {
+                                Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
+                                rezultatiPonedeljak[i][j] += slobodna.Ime_ucionice;
+                                slobodna.Slobodna = false;
+                            }
 
                         }
 
