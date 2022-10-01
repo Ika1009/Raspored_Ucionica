@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Raspored_Ucionica"
         mc:Ignorable="d"
-        Title="Raspored Casova" Height="900" Width="800">
+        Title="Raspored Casova" Height="900" Width="1200">
     <Grid Margin="10,10,0,-6">
         <Label x:Name="naslovLabel" Content="Распоред одељења по учионицама" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F"/>
         <Label x:Name="podNaslovLabel" Content="Гимназија &quot;Бора Станковић&quot;" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A"/>
@@ -1196,19 +1196,9 @@
 
 
 
-        <ListView ItemsSource="{Binding RezultatiPonedeljak}" Margin="0,336,10,242">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ListView ItemsSource="{Binding}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Title}" />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+
+        <DataGrid AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Center" Margin="0,357,0,0" Name="rezultatiPon" VerticalAlignment="Top" Width="auto" />
+
 
 
 
