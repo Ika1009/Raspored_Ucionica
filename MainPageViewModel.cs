@@ -1,16 +1,20 @@
 ﻿using Raspored_Ucionica.Model;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace Raspored_Ucionica
 {
+
     public class MainPageViewModel : SviPodaci
     {
         // public event PropertyChangedEventHandler? PropertyChanged;
-        List<List<string>> rezultatiPonedeljak;
-
+        public List<List<string>> rezultatiPonedeljak;
         public MainPageViewModel()
         {
             rezultatiPonedeljak = new();
+            NapraviRaspored();
         }
         public void SpajanjeOdeljenja(string imeCasa, string imeUcionice, int i, int j) // kad se odeljenja spajaju zajedno
         {
