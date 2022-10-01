@@ -1196,7 +1196,20 @@
 
 
 
-        <DataGrid Height="264" HorizontalAlignment="Center" Margin="0,385,0,0" Name="rezultatiPon" VerticalAlignment="Top" Width="770" />
+        <ListView ItemsSource="{Binding RezultatiPonedeljak}" Margin="0,336,10,242">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ListView ItemsSource="{Binding}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
 
 
 
