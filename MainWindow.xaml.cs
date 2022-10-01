@@ -20,54 +20,42 @@ namespace Raspored_Ucionica
     public partial class MainWindow : Window
     {
 
-        /*public class Rezultati
-        {
-            public string? imeOdeljenja { get; set; }
-            public string? ucionica { get; set; }
-           // public Collection<string>? kurac { get; set; }
-        }
-        private List<Rezultati> LoadCollectionData()
-        {
-            List<Rezultati> authors = new List<Rezultati>();
-            Collection<string> kolekcija = new Collection<string>() { "1", "2" };
-            authors.Add(new Rezultati()
-            {
-                imeOdeljenja = "I1",
-                ucionica = "23",
-                //kurac = kolekcija.In
-            }) ;
-
-            
-
-            return authors;
-        }*/
+        
         public MainWindow()
         {
             InitializeComponent();
             DataTable dt = new DataTable();
+            DataTable dt2 = new DataTable();
             int nbColumns = 32;
             int nbRows = 8;
             MainPageViewModel viewModel = new MainPageViewModel();
-            for (int i = 1; i <= nbColumns; i++)
+            //dt.Columns.Add("");
+            for (int i = 0; i < nbColumns; i++)
             {
-                dt.Columns.Add(i.ToString(), typeof(string));
-                
+                dt.Columns.Add((i/8+1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
+                dt2.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
             }
             
 
             for (int row = 0; row < nbRows; row++)
             {
                 //dt.Rows.Add(row.ToString() + ".cas");
+                DataRow dr2 = dt2.NewRow();
                 DataRow dr = dt.NewRow();
                 for (int col = 0; col < nbColumns; col++)
                 {
                     
-                    dr[col] = viewModel.RezultatiPonedeljak[row][col];
+                    dr[col] = viewModel.rezultatiPonedeljak[row][col];
+                    dr2[col] = viewModel.rezultatiUtorak[row][col];
                 }
                 dt.Rows.Add(dr);
+                dt2.Rows.Add(dr2);
             }
 
             rezultatiPon.ItemsSource = dt.DefaultView;
+            rezultatiUto.ItemsSource = dt2.DefaultView;
+
+           
         }
 
     }
