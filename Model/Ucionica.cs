@@ -8,6 +8,7 @@ namespace Raspored_Ucionica.Model
         bool slobodna;
         int velicina;
         string ime_ucionice;
+        bool? tip;
         public string Ime_ucionice
         {
             get => ime_ucionice;
@@ -39,6 +40,24 @@ namespace Raspored_Ucionica.Model
             }
         }
 
+        public bool? Tip
+        {
+            get => tip;
+            set
+            {
+                tip = value;
+            }
+        }
+
+        public Ucionica(string ime_ucionice, int velicinaUnos, bool slobodnaUnos, bool tipUnos)
+        {
+            id = brojac_ucionice + 1;
+            brojac_ucionice++;
+            Velicina = velicinaUnos;
+            Slobodna = slobodnaUnos;
+            Ime_ucionice = ime_ucionice;
+            Tip = tipUnos;
+        }
         public Ucionica(string ime_ucionice, int velicinaUnos, bool slobodnaUnos)
         {
             id = brojac_ucionice + 1;
@@ -46,6 +65,7 @@ namespace Raspored_Ucionica.Model
             Velicina = velicinaUnos;
             Slobodna = slobodnaUnos;
             Ime_ucionice = ime_ucionice;
+            Tip = null;
         }
     }
 }

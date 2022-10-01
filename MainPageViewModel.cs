@@ -18,12 +18,24 @@ namespace Raspored_Ucionica
         }
         public MainPageViewModel()
         {
-            rezultatiPonedeljak = new();
+            rezultatiPonedeljak = new()
+            {
+                new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
+                new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
+                new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
+                new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
+                new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
+                new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
+                new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
+                new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
+            };
             NapraviRaspored();
         }
         public void SpajanjeOdeljenja(string imeCasa, string imeUcionice, int i, int j) // kad se odeljenja spajaju zajedno
         {
-            lista_ucionica![lista_odeljenja![i].Id_ucionice!.Value].Slobodna = true; // oslobadja se njihova ucionica
+            if(lista_odeljenja![i].Id_ucionice is not null)
+                lista_ucionica![lista_odeljenja[i].Id_ucionice!.Value].Slobodna = true;// oslobadja se njihova ucionica
+            
 
             Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
             rezultatiPonedeljak[i][j] = ucionica.Ime_ucionice;
@@ -38,7 +50,7 @@ namespace Raspored_Ucionica
             }
             else // lutajuce
             {
-                Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true);
+                Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                 rezultatiPonedeljak[i][j] = slobodna.Ime_ucionice;
                 slobodna.Slobodna = false;
             }
@@ -95,23 +107,45 @@ namespace Raspored_Ucionica
                             rezultatiPonedeljak[i][j] = "info";
                         if (ponedeljak!.RasporedCasova[i][j] == "fv")
                             rezultatiPonedeljak[i][j] = "fv";
+                        else
+                            rezultatiPonedeljak[i][j] = ".";
                     }
                     else if (ponedeljak!.RasporedCasova[i][j] == "reg")
                     {
                         DrziOdeljenje(i, j);
                     }
-                    /*else if (ponedeljak!.RasporedCasova[i][j].Contains('/'))
+                    else if (ponedeljak!.RasporedCasova[i][j].Contains('/'))
                     {
                         string cas = ponedeljak!.RasporedCasova[i][j];
-                        if (cas.Count(c => (c == '/')) == 1)
+                        int brojac = cas.Count(c => c == '/');
+                        for (int c = 0; c <= brojac; c++)
                         {
+                            string trenutno = cas.Split("/")[c];
+                            Ucionica biblioteka = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "biblioteka");
+                            if (trenutno == "reg" || trenutno == "n")
+                            {
+                                DrziOdeljenje(i, j);
+                            }
+                            if (trenutno == "i")
+                                rezultatiPonedeljak[i][j] = "jezicka1";
+                            if (trenutno == "r")
+                                rezultatiPonedeljak[i][j] = "jezicka2";
+                            if (trenutno == "f" && biblioteka.Slobodna == true)
+                                rezultatiPonedeljak[i][j] = "biblioteka";
+                            if (trenutno == "f" && biblioteka.Slobodna == false)
+                                rezultatiPonedeljak[i][j] = "biblioteka";
+
 
                         }
-                    }*/
+
+                    }
+
+                }
+       
                     // fali za hemiju, jezike, gradjansko
 
                 }
             }
         }
-    }
+    
 }
