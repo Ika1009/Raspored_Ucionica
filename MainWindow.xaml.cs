@@ -46,14 +46,14 @@ namespace Raspored_Ucionica
                 {
                     
                     dr[col] = viewModel.rezultatiPonedeljak[row][col];
-                    //dr2[col] = viewModel.rezultatiUtorak[row][col];
+                    dr2[col] = viewModel.rezultatiUtorak[row][col];
                 }
                 dt.Rows.Add(dr);
                 dt2.Rows.Add(dr2);
             }
 
             rezultatiPon.ItemsSource = dt.DefaultView;
-            //rezultatiUto.ItemsSource = dt2.DefaultView;
+            rezultatiUto.ItemsSource = dt2.DefaultView;
 
            
         }
