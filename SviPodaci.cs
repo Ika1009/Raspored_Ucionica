@@ -13,12 +13,12 @@ namespace Raspored_Ucionica
             ponedeljak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"info", "", "", "", "reg", "", "", "", "", "verska", "", "reg", "reg", "verska", "reg", "", "", "", "", "reg","reg", "", "", "", "", "", "", "info", "", "", "reg", ""},
-                new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "ist", "reg", "reg", "reg", "n/f/i/r", "reg", "n/f/i/r", "reg", "reg", "reg", "reg", "","reg", "reg", "reg", "reg", "g1", "", "hem/reg", "info", "hem", "info", "reg", "fv"},
-                new List<string>() {"reg", "info", "reg", "hem", "reg", "reg", "reg", "info", "reg", "ist", "fv", "reg/reg", "reg", "reg/reg", "reg", "reg", "dreg", "reg", "reg", "reg/info","reg", "fv", "reg", "reg", "reg", "reg", "hem/reg", "reg", "reg", "info", "reg", "reg"},
+                new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "n/f/i/r", "reg", "n/f/i/r", "reg", "reg", "reg", "reg", "","reg", "reg", "reg", "reg", "g1", "", "reg/hem", "info", "hem", "info", "reg", "fv"},
+                new List<string>() {"reg", "info", "reg", "hem", "reg", "reg", "reg", "info", "reg", "reg", "fv", "reg/reg", "reg", "reg/reg", "reg", "reg", "dreg", "reg", "reg", "reg/info","reg", "fv", "reg", "reg", "reg", "reg", "reg/hem", "reg", "reg", "info", "reg", "reg"},
                 new List<string>() {"reg", "info", "reg", "n/f/r", "n/f/i/r", "reg", "info", "n/f/i/r", "reg", "reg", "hem", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/info","reg", "hem", "reg/info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg"},
-                new List<string>() {"reg", "hem", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "hem/info", "hem", "fv", "reg", "reg", "info", "reg/reg", "reg","reg", "info/reg", "reg", "fv", "reg", "reg", "reg", "nem/reg/f", "n/f/e", "reg", "nem/reg", "reg"},
-                new List<string>() {"fv", "reg", "hem", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg/hem", "hem/info", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg", "reg", "fv", "reg", "reg", "reg", "info/reg", "reg", "reg", "n/f/e", "reg", "n/f/e"},
-                new List<string>() { "reg", "fv", "reg", "fv", "reg", "", "reg", "reg", "reg", "reg", "info", "reg", "info", "reg", "verska", "verska", "reg", "info", "hem", "reg", "reg", "reg", "reg/strani", "reg", "n/reg/f", "reg", "reg", "info/reg", "reg", "reg", "reg", "", "reg"},
+                new List<string>() {"reg", "hem", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "info/hem", "hem", "fv", "reg", "reg", "info", "reg/reg", "reg","reg", "info/reg", "reg", "fv", "reg", "reg", "reg", "nem/reg/f", "n/f/e", "reg", "nem/reg", "reg"},
+                new List<string>() {"fv", "reg", "hem", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg/hem", "info/hem", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg", "reg", "fv", "reg", "reg", "reg", "info/reg", "reg", "reg", "n/f/e", "reg", "n/f/e"},
+                new List<string>() { "reg", "fv", "reg", "fv", "reg", "", "reg", "reg", "reg", "reg", "info", "reg", "info", "reg", "verska", "verska", "reg", "info", "hem", "reg", "reg", "reg", "reg/strani", "reg", "n/reg/f", "reg", "reg", "reg/info", "reg", "reg", "reg", "", "reg"},
                 new List<string>() { "info", "reg", "fv", "reg", "", "", "", "fv", "reg", "reg", "", "reg", "info", "reg", "", "", "reg", "info", "", "", "", "", "reg", "", "reg", "reg", "reg", "", "verska", "verska", "", "reg"}
             });
 
@@ -31,53 +31,49 @@ namespace Raspored_Ucionica
                 new List<string>() {"info", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg/reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv","reg", "reg", "reg", "reg/info", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg"},
                 new List<string>() {"info", "reg", "reg/hem", "reg", "fv", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "info", "reg", "reg","reg/reg", "reg", "reg", "reg/info", "info", "fv", "reg", "reg", "reg", "reg", "reg", "reg"},
                 new List<string>() { "info", "reg", "reg/hem", "reg", "reg", "fv", "reg", "reg", "reg", "info", "reg", "info", "reg/reg", "reg", "reg", "fv", "info", "reg", "info", "verska","reg", "reg", "verska", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg"},
-                new List<string>() { "", "reg", "reg", "", "reg", "verska", "fv", "verska", "reg", "reg", "reg", "info", "g(valentina)", "reg", "reg", "reg", "info","reg" ,"info", "reg", "fv", "", "", "", "info", "g(vojin)", "g(vojin)","g(vojin)" ,"reg", "", "reg/info", ""}
+                new List<string>() { "", "reg", "reg", "", "reg", "verska", "fv", "verska", "reg", "reg", "reg", "info", "g2", "reg", "reg", "reg", "info","reg" ,"info", "reg", "fv", "", "", "", "info", "g1", "g1","g1" ,"reg", "", "reg/info", ""}
             });
             sreda = new(new List<List<string>>
             {
-                new List<string>() {"", "g(sonja)", "", "", "", "", "g(sonja)", "", "", "", "", "", "reg", "info", "", "", "", "", "verska(zoran)", "","", "", "", "verska(zoran)", "", "", "", "", "reg", "info", "reg", ""},
+                new List<string>() {"", "g3", "", "", "", "", "g3", "", "", "", "", "", "reg", "info", "", "", "", "", "g4", "","", "", "", "g4", "", "", "", "", "reg", "info", "reg", ""},
                 new List<string>() {"reg", "fv", "reg", "n/f", "n/f", "reg", "reg", "n/f", "info", "info", "reg", "reg", "reg", "info", "reg", "reg", "info", "info", "reg", "reg","reg", "reg", "reg", "fv", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg"},
                 new List<string>() {"fv", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "info", "reg", "reg","reg" ,"reg/hem", "reg", "reg","info", "info", "reg", "reg", "reg", "reg","fv", "reg", "reg", "reg", "reg", "n/f", "n/f/i/r", "reg", "n/i/r", "reg"},
                 new List<string>() {"reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "reg", "reg", "reg/hem", "reg", "reg", "info", "info", "reg", "n/f","reg", "n/f/i/r", "reg", "n/f/i/r", "fv", "info", "reg", "reg/reg", "reg", "reg", "reg", "reg"},
                 new List<string>() {"reg", "reg", "info", "fv", "reg", "reg", "reg", "reg", "reg", "info", "reg", "fv", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg","reg/hem", "reg", "reg", "info", "reg", "reg", "reg/reg", "reg", "n/f", "reg", "n/f"},
                 new List<string>() {"reg", "reg", "info", "reg", "reg", "fv", "reg", "reg", "fv", "info", "reg", "reg", "reg/reg", "n/e", "reg", "reg", "reg", "info", "reg", "reg","reg", "info/hem", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/reg"},
                 new List<string>() { "reg", "reg", "reg", "info", "reg", "info", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg","fv", "reg", "reg", "reg", "reg", "reg", "reg", "verska", "fv", "reg", "reg", "reg"},
-                new List<string>() { "reg", "verska", "", "info", "fv", "info", "verska", "reg", "reg", "", "reg", "reg", "fv", "reg", "g(valentina)", "reg", "reg", "info", "reg", "","reg", "reg", "reg", "reg", "reg", "reg", "reg", "", "", "", "reg/info", ""}           
+                new List<string>() { "reg", "verska", "", "info", "fv", "info", "verska", "reg", "reg", "", "reg", "reg", "fv", "reg", "g2", "reg", "reg", "info", "reg", "","reg", "reg", "reg", "reg", "reg", "reg", "reg", "", "", "", "reg/info", ""}
             });
             cetvrtak = new(new List<List<string>>
             {
-                new List<string>() { "g(sonja)", "", "", "", "", "g(sonja)", "", "", "", "", "", "", "", "", "", "", "g(zoran)", "g(zoran)", "", "reg","", "", "", "", "", "info", "reg", "", "", "reg", "reg", "reg"},               
-                new List<string>() { "reg", "reg", "fv", "reg", "info", "reg", "reg", "reg", "info","reg","g(maja)", "verska", "reg", "g(maja)", "reg", "reg", "fv", "reg", "reg", "reg/reg", "reg","reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "info/reg"},                
-                new List<string>() { "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "info","reg" ,"reg","info/hem", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "reg", "reg","reg", "reg", "reg", "info", "reg", "fv", "reg", "reg/reg", "reg", "reg"},               
+                new List<string>() { "g3", "", "", "", "", "g3", "", "", "", "", "", "", "", "", "", "", "g4", "g4", "", "reg","", "", "", "", "", "info", "reg", "", "", "reg", "reg", "reg"},
+                new List<string>() { "reg", "reg", "fv", "reg", "info", "reg", "reg", "reg", "info","reg","g5", "verska", "reg", "g5", "reg", "reg", "fv", "reg", "reg", "reg/reg", "reg","reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "info/reg"},
+                new List<string>() { "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "info","reg" ,"reg","info/hem", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "reg", "reg","reg", "reg", "reg", "info", "reg", "fv", "reg", "reg/reg", "reg", "reg"},
                 new List<string>() { "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "info/hem", "reg", "reg", "info", "reg", "reg", "reg", "reg/reg", "reg","reg", "reg", "reg", "reg", "reg", "info", "fv", "reg", "reg/reg", "fv", "reg", "reg"},
                 new List<string>() { "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg/hem","reg", "reg/reg","fv", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg","reg", "reg/reg", "fv", "info", "reg", "reg", "reg/reg", "reg", "reg", "reg"},
-                new List<string>() { "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "reg/hem", "reg/reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv", "reg", "reg", "reg"},               
-                new List<string>() {  "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "fv", "reg/reg", "reg", "info", "info", "reg", "info/hem", "reg","verska", "g(zoran)", "reg", "reg", "reg", "info", "", "reg", "reg", "reg/reg", "", "reg"},
-                new List<string>() {  "verska", "info", "reg", "info", "verska", "reg", "", "reg", "", "fv", "reg", "g(valentina)", "", "reg", "", "reg","reg", "reg", "info/hem", "reg", "","", "reg/reg","reg" ,"", "info", "", "reg", "reg", "reg", "", ""}
+                new List<string>() { "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "reg/hem", "reg/reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv", "reg", "reg", "reg"},
+                new List<string>() {  "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "fv", "reg/reg", "reg", "info", "info", "reg", "info/hem", "reg","verska", "g4", "reg", "reg", "reg", "info", "", "reg", "reg", "reg/reg", "", "reg"},
+                new List<string>() {  "verska", "info", "reg", "info", "verska", "reg", "", "reg", "", "fv", "reg", "g2", "", "reg", "", "reg","reg", "reg", "info/hem", "reg", "","", "reg/reg","reg" ,"", "info", "", "reg", "reg", "reg", "", ""}
             });
             petak = new(new List<List<string>>
             {
-                new List<string>() { "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "", "", "", "", "", "", "", "", "", ""},
-                new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "ist", "reg", "reg", "reg", "n/f/i/r", "reg", "n/f/i/r", "reg", "reg", "reg", "reg", "","prnauke", "reg", "reg", "reg", "g1", "", "hem/reg", "info", "hem", "info", "reg", "fv"},
-                new List<string>() {"reg", "info", "reg", "hem", "reg", "reg", "reg", "info", "reg", "ist", "fv", "reg/reg", "reg", "reg/reg", "reg", "reg", "dreg", "reg", "reg", "reg/info","reg", "fv", "reg", "reg", "reg", "reg", "hem/reg", "reg", "reg", "info", "reg", "reg"},
-                new List<string>() {"reg", "info", "reg", "n/f/r", "n/f/i/r", "reg", "info", "n/f/i/r", "reg", "reg", "hem", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/info","reg", "hem", "reg/info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg"},
-                new List<string>() {"reg", "hem", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "hem/info", "hem", "fv", "reg", "reg", "info", "reg/reg", "reg","reg", "info/reg", "reg", "fv", "reg", "reg", "reg", "nem/reg/f", "n/f/e", "reg", "nem/reg", "reg"},
-                new List<string>() {"fv", "reg", "hem", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg/hem", "hem/info", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg", "reg", "fv", "reg", "reg", "reg", "info/reg", "reg", "reg", "n/f/e", "reg", "n/f/e"},
-                new List<string>() { "reg", "fv", "reg", "fv", "reg", "", "reg", "reg", "reg", "reg", "info", "reg", "info", "reg", "verska", "verska", "reg", "info", "hem", "reg", "reg", "reg", "reg/strani", "reg", "n/reg/f", "reg", "reg", "info/reg", "reg", "reg", "reg", "", "reg"},
-                new List<string>() { "info", "reg", "fv", "reg", "", "", "", "fv", "reg", "reg", "", "reg", "info", "reg", "", "", "reg", "info", "", "", "", "", "reg", "", "reg", "reg", "reg", "", "verska", "verska", "", "reg"}
+                new List<string>() { "", "", "", "", "", "", "", "g3", "verska", "", "", "", "verska", "", "reg", "", "", "", "", "","g1", "", "", "", "", "", "", "info", "", "", "", "reg"},
+                new List<string>() {"info", "info", "", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg/reg", "reg", "reg", "reg", "reg", "reg", "info", "fv", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "", "info", "info", "reg", "", "reg"},
+                new List<string>() {"info", "info", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "fv", "reg", "reg", "reg", "reg", "reg", "fv", "info", "reg", "reg/reg", "reg"},
+                new List<string>() {"reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "n/e", "info", "reg", "fv", "reg","info/hem", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "reg", "reg", "reg", "reg"},
+                new List<string>() {"reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg/reg", "reg", "fv", "info", "reg", "reg", "reg","reg/hem", "reg", "reg/info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv"},
+                new List<string>() {"reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/info"},
+                new List<string>() { "reg", "info", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "fv", "g(katarina)", "g1"},
+                new List<string>() { "", "", "", "reg", "reg", "reg", "", "", "fv", "reg", "", "", "", "", "", "g2", "info", "reg", "", "","", "reg", "", "", "verska", "verska", "verska", "reg", "reg", "", "", ""}
             });
 
 
             lista_ucionica = new()
             {
-                new Ucionica("P4", 15, true), // je isto sto i hemijski kabinet...
-                new Ucionica("hemijski_kabinet", 15, true),
-                new Ucionica("6", 16, true),
+                new Ucionica("P4", 15, true, true), // je isto sto i hemijski kabinet...
                 new Ucionica("23b", 16, true),
-                new Ucionica("5", 20, true),
-                new Ucionica("23a", 20, true),
-                new Ucionica("jezicka1", 20, true),
-                new Ucionica("jezicka2", 20, true),
+                new Ucionica("jezicka1", 20, true, true),
+                new Ucionica("jezicka2", 20, true, true),
                 new Ucionica("8", 20, true),
                 new Ucionica("22", 22, true),
                 new Ucionica("11", 22, true),
@@ -86,13 +82,12 @@ namespace Raspored_Ucionica
                 new Ucionica("7", 24, true),
                 new Ucionica("30", 24, true),
                 new Ucionica("33", 24, true),
-                new Ucionica("biblioteka", 25, true),
+                new Ucionica("biblioteka", 25, true, true),
                 new Ucionica("10", 26, true),
                 new Ucionica("21", 26, true),
                 new Ucionica("35", 26, true),
                 new Ucionica("39", 28, true),
                 new Ucionica("P3", 28, true),
-                new Ucionica("multimedijska", 30, true),
                 new Ucionica("P1", 30, true),
                 new Ucionica("28", 30, true),
                 new Ucionica("42", 30, true),
@@ -128,12 +123,12 @@ namespace Raspored_Ucionica
                 new Odeljenje("II-3",17),//lutajuca
                 new Odeljenje("II-4",28, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "27").Id),
                 new Odeljenje("II-5",34, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "24").Id),
-                new Odeljenje("II-6",36, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "20").Id), 
+                new Odeljenje("II-6",36, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "20").Id),
                 new Odeljenje("II-7",29, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "42").Id),
                 new Odeljenje("II-8",31, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "26").Id),
                 new Odeljenje("III-1", 20, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "35").Id),
-                new Odeljenje("III-2",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id), 
-                new Odeljenje("III-3",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "11").Id), 
+                new Odeljenje("III-2",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id),
+                new Odeljenje("III-3",18, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "11").Id),
                 new Odeljenje("III-4",23, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "21").Id),
                 new Odeljenje("III-5",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "40").Id),
                 new Odeljenje("III-6",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "32").Id),
