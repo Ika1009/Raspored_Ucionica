@@ -10,7 +10,12 @@ namespace Raspored_Ucionica
     public class MainPageViewModel : SviPodaci
     {
         // public event PropertyChangedEventHandler? PropertyChanged;
-        public List<List<string>> rezultatiPonedeljak;
+        private List<List<string>> rezultatiPonedeljak;
+        public List<List<string>> RezultatiPonedeljak 
+        { 
+            get => rezultatiPonedeljak; 
+            set => rezultatiPonedeljak = value; 
+        }
         public MainPageViewModel()
         {
             rezultatiPonedeljak = new()

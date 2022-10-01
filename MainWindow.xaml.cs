@@ -44,7 +44,7 @@ namespace Raspored_Ucionica
         public MainWindow()
         {
             InitializeComponent();
-            DataTable dt = new DataTable();
+            /*DataTable dt = new DataTable();
             int nbColumns = 32;
             int nbRows = 8;
             MainPageViewModel viewModel = new MainPageViewModel();
@@ -56,7 +56,7 @@ namespace Raspored_Ucionica
             /*for(int i = 0; i < nbRows; i++)
             {
                 dt.Rows.Add(i.ToString() + ".cas");
-            }*/
+            }
 
             for (int row = 0; row < nbRows; row++)
             {
@@ -69,7 +69,9 @@ namespace Raspored_Ucionica
                 dt.Rows.Add(dr);
             }
 
-            rezultatiPon.ItemsSource = dt.DefaultView;
+            rezultatiPon.ItemsSource = dt.DefaultView;*/
+            MainPageViewModel mainPageViewModel = new MainPageViewModel();
+            DataContext = mainPageViewModel.RezultatiPonedeljak;
         }
 
     }
