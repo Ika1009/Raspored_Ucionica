@@ -3,7 +3,7 @@ namespace Raspored_Ucionica.Model
 {
     public class Ucionica
     {
-        static int brojac_ucionice = 0;
+        static int brojac_ucionice = -1;
         readonly int id;
         bool slobodna;
         int velicina;
