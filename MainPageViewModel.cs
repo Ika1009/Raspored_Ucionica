@@ -15,9 +15,15 @@ namespace Raspored_Ucionica
         {
             rezultatiPonedeljak = new();
             rezultatiUtorak = new();
+            rezultatiSreda = new();
+            rezultatiCetvrtak = new();
+            rezultatiPetak = new();
 
             rezultatiPonedeljak = NapraviRaspored(ponedeljak);
             rezultatiUtorak = NapraviRaspored(utorak);
+            rezultatiSreda = NapraviRaspored(ponedeljak);
+            rezultatiCetvrtak = NapraviRaspored(utorak);
+            rezultatiPetak = NapraviRaspored(ponedeljak);
         }
         public List<List<string>> NapraviRaspored(Raspored? dan)
         {
