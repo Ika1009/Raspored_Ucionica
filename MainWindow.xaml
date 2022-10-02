@@ -1198,9 +1198,10 @@
 
 
         <DataGrid AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Center" Margin="0,357,0,0" Name="rezultatiPon" VerticalAlignment="Top" Width="auto" />
-        <DataGrid AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Center" Margin="0,580,0,0" Name="rezultatiUto" VerticalAlignment="Top" Width="auto" />
-
-
+        <DataGrid AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Margin="783,580,0,0" Name="rezultatiUto" VerticalAlignment="Top" Width="auto" />
+        <DataGrid AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Margin="964,357,0,0" Name="rezultatiSre" VerticalAlignment="Top" Width="auto" />
+        <DataGrid AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Margin="272,580,0,0" Name="rezultatiCet" VerticalAlignment="Top" Width="auto" />
+        <DataGrid AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Margin="272,357,0,0" Name="rezultatiPet" VerticalAlignment="Top" Width="auto" />
 
 
 
