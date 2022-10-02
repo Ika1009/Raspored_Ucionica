@@ -85,7 +85,6 @@ namespace Raspored_Ucionica
             }
             void ZatvoriStaticneUcionice()
             {
-                bool oslobodi;
                 foreach (Ucionica ucionicaTemp in lista_ucionica!)
                 {
                     foreach (Odeljenje odeljenje1 in lista_odeljenja!)
@@ -213,6 +212,7 @@ namespace Raspored_Ucionica
                         SpajanjeOdeljenja(dan.RasporedCasova[i][j], "biblioteka", i, j);
                     else if (dan!.RasporedCasova[i][j].Contains('/'))
                     {
+                        lista_ucionica!.Last().Slobodna = true;
                         rezultati[i][j] = "";
                         string cas = dan!.RasporedCasova[i][j];
                         int brojac = cas.Count(c => c == '/');
@@ -234,7 +234,7 @@ namespace Raspored_Ucionica
                                 if (provera) // provara da li je vec uso ovde
                                 {
                                     Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
-                                    rezultati[i][j] += slobodna.Ime_ucionice;
+                                    rezultati[i][j] += "/" + slobodna.Ime_ucionice;
                                     slobodna.Slobodna = false;
                                 }
                                 else
@@ -250,8 +250,8 @@ namespace Raspored_Ucionica
                                 else
                                     rezultati[i][j] += "/info";
                             }
-                            else if (trenutno == "verska")
-                                rezultati[i][j] += "bibl";
+                            else if (trenutno == "/verska")
+                                rezultati[i][j] += "/bibl";
                             else if (trenutno == "g1")
                                 Gradjansko("g1", ref g1Ima, ref imeUcioniceZaGradjansko1, i, j);
                             else if (trenutno == "g2")
