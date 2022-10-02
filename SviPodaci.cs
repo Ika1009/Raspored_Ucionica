@@ -105,7 +105,7 @@ namespace Raspored_Ucionica
                 new Ucionica("41", 36, false),
                 new Ucionica("9", 40, false),
                 new Ucionica("10", 40, false),
-                new Ucionica("svecana sala",100,true),
+                new Ucionica("svecana sala",40,true),
 
             };
             lista_odeljenja = new()
