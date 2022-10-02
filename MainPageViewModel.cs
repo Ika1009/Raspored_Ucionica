@@ -22,9 +22,9 @@ namespace Raspored_Ucionica
 
             rezultatiPonedeljak = NapraviRaspored(ponedeljak);
             rezultatiUtorak = NapraviRaspored(utorak);
-            rezultatiSreda = NapraviRaspored(ponedeljak);
-            rezultatiCetvrtak = NapraviRaspored(utorak);
-            rezultatiPetak = NapraviRaspored(ponedeljak);
+            rezultatiSreda = NapraviRaspored(sreda);
+            rezultatiCetvrtak = NapraviRaspored(cetvrtak);
+            rezultatiPetak = NapraviRaspored(petak);
         }
         public List<List<string>> NapraviRaspored(Raspored? dan)
         {
