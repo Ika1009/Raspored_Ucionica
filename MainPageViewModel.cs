@@ -78,12 +78,38 @@ namespace Raspored_Ucionica
                         ucionicaTemp.Slobodna = true;
                 }
             }
+            void ZatvoriStaticneUcionice()
+            {
+                bool oslobodi;
+                foreach (Ucionica ucionicaTemp in lista_ucionica!)
+                {
+                    foreach (Odeljenje odeljenje1 in lista_odeljenja!)
+                    {
+                        if (odeljenje1.Id_ucionice == ucionicaTemp.Id)
+                        {
+                            ucionicaTemp.Slobodna = false;
+                        }
+                    }
+                }
+            }
             void OslobodiUcionicu(int i, int j)
             {
                 Ucionica ucionicaTemp = lista_ucionica!.First(ucionica => ucionica.Id == lista_odeljenja![j].Id_ucionice);
                 ucionicaTemp.Slobodna = true;
                 rezultati[i][j] = ponedeljak!.RasporedCasova[i][j];
 
+            }
+            void OslobodiSveUcionice(int i)
+            {
+                for (int j = 0; j < 32; j++)
+                {
+                    if (dan!.RasporedCasova[i][j] == "" || dan.RasporedCasova[i][j] == "fv" || dan.RasporedCasova[i][j] == "info" 
+                        || dan!.RasporedCasova[i][j] == "hem/info" || dan!.RasporedCasova[i][j] == "info/hem")
+                    {
+                        if (lista_odeljenja![j].Id_ucionice is not null) // nije lutajuce
+                            OslobodiUcionicu(i, j);
+                    }
+                }
             }
 
             for (int i = 0; i < 32; i++) //za nulti cas
@@ -105,23 +131,18 @@ namespace Raspored_Ucionica
             for (int i = 1; i < 8; i++) // za dan
             {
                 OslobodiLutajuceUcionice();
+                ZatvoriStaticneUcionice();
+                OslobodiSveUcionice(i);
                 for (var j = 0; j < 32; j++)
                 {
-                    if (dan!.RasporedCasova[i][j] == "" || dan.RasporedCasova[i][j] == "fv" || dan.RasporedCasova[i][j] == "info")
-                    {
-                        if (lista_odeljenja![j].Id_ucionice is not null) // nije lutajuce
-                            OslobodiUcionicu(i, j);
-                        if (dan!.RasporedCasova[i][j] == "info")
-                            rezultati[i][j] = "info";
-                        else if (dan!.RasporedCasova[i][j] == "fv")
-                            rezultati[i][j] = "fv";
-                        else
-                            rezultati[i][j] = ".";
-                    }
-                    else if (dan!.RasporedCasova[i][j] == "reg")
+                    if (dan!.RasporedCasova[i][j] == "reg")
                     {
                         DrziOdeljenje(i, j);
                     }
+                    else if (dan!.RasporedCasova[i][j] == "info")
+                        rezultati[i][j] = "info";
+                    else if (dan!.RasporedCasova[i][j] == "fv")
+                        rezultati[i][j] = "fv";
                     else if (dan!.RasporedCasova[i][j].Contains('/'))
                     {
                         string cas = dan!.RasporedCasova[i][j];
@@ -131,7 +152,9 @@ namespace Raspored_Ucionica
                             bool provera = false;
                             string trenutno = cas.Split("/")[c];
                             Ucionica biblioteka = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "biblioteka");
-                            if (trenutno == "reg" || trenutno == "n")
+                            if (trenutno == "hem")
+                                rezultati[i][j] += "hem kabinet";
+                            else if (trenutno == "reg" || trenutno == "n")
                             {
                                 if (provera) // provara da li je vec uso ovde
                                 {
@@ -160,6 +183,8 @@ namespace Raspored_Ucionica
                         }
 
                     }
+                    else
+                        rezultati[i][j] = ".";
 
                 }
 
