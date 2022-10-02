@@ -265,7 +265,7 @@ namespace Raspored_Ucionica
                             else if (trenutno == "f" && biblioteka.Slobodna == false)
                             {
                                 Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
-                                rezultati[i][j] += slobodna.Ime_ucionice;
+                                rezultati[i][j] += "/" + slobodna.Ime_ucionice;
                                 slobodna.Slobodna = false;
                             }
 
