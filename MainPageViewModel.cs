@@ -46,25 +46,23 @@ namespace Raspored_Ucionica
                     lista_ucionica![lista_odeljenja[i].Id_ucionice!.Value].Slobodna = true;// oslobadja se njihova ucionica
 
                 Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
-                if(rezultati[i][j].IndexOf('.') != -1)
-                    rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('.'));
 
-                rezultati[i][j] += ucionica.Ime_ucionice;
+                rezultati[i][j] += ucionica.Ime_ucionice + "/";
                 ucionica.Slobodna = false; // ucionica ne moze da se koristi za druge predmete, ali moze za isti kad se spoji
             }
+
             void DrziOdeljenje(int i, int j) // nalazi slobodnu ucionicu za oba odeljenja
             {
-                if (rezultati[i][j].IndexOf('.') != -1)
-                    rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('.'));
+                
                 if (lista_odeljenja![j].Id_ucionice is not null) // nije lutajuce
                 {
                     lista_ucionica![lista_odeljenja![j].Id_ucionice!.Value].Slobodna = false;
-                    rezultati[i][j] += lista_ucionica[lista_odeljenja[j].Id_ucionice!.Value].Ime_ucionice;
+                    rezultati[i][j] += lista_ucionica[lista_odeljenja[j].Id_ucionice!.Value].Ime_ucionice + "/";
                 }
                 else // lutajuce
                 {
                     Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
-                    rezultati[i][j] += slobodna.Ime_ucionice;
+                    rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
             }
@@ -234,7 +232,7 @@ namespace Raspored_Ucionica
                                 if (provera) // provara da li je vec uso ovde
                                 {
                                     Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
-                                    rezultati[i][j] += "/" + slobodna.Ime_ucionice;
+                                    rezultati[i][j] += slobodna.Ime_ucionice +"/";
                                     slobodna.Slobodna = false;
                                 }
                                 else
@@ -334,6 +332,17 @@ namespace Raspored_Ucionica
                 }
 
                 // fali za hemiju, jezike, gradjansko  
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 32; j++)
+                {
+                    if (rezultati[i][j].IndexOf('.') != -1)
+                        rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('.'), 1);
+                    if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].IndexOf('/') == rezultati[i][j].Length-1)
+                        rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('/'), 1);
+                    
+                }
             }
             return rezultati;
         }
