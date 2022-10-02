@@ -11,11 +11,6 @@ namespace Raspored_Ucionica
     {
         // public event PropertyChangedEventHandler? PropertyChanged;
         public List<List<string>> rezultatiPonedeljak, rezultatiUtorak, rezultatiSreda, rezultatiCetvrtak, rezultatiPetak;
-        public List<List<string>> RezultatiPonedeljak 
-        { 
-            get => rezultatiPonedeljak; 
-            set => rezultatiPonedeljak = value; 
-        }
         public MainPageViewModel()
         {
             rezultatiPonedeljak = new()
@@ -155,7 +150,7 @@ namespace Raspored_Ucionica
                             OslobodiUcionicu(i, j);
                         if (ponedeljak!.RasporedCasova[i][j] == "info")
                             rezultatiPonedeljak[i][j] = "info";
-                        if (ponedeljak!.RasporedCasova[i][j] == "fv")
+                        else if (ponedeljak!.RasporedCasova[i][j] == "fv")
                             rezultatiPonedeljak[i][j] = "fv";
                         else
                             rezultatiPonedeljak[i][j] = ".";
@@ -188,15 +183,10 @@ namespace Raspored_Ucionica
                                 rezultatiPonedeljak[i][j] += slobodna.Ime_ucionice;
                                 slobodna.Slobodna = false;
                             }
-
                         }
-
                     }
-
                 }
-
                 // fali za hemiju, jezike, gradjansko
-
             }
         }
         public void NapraviRasporedUto()
