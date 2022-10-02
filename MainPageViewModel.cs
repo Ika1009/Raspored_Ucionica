@@ -85,6 +85,7 @@ namespace Raspored_Ucionica
                 rezultati[i][j] = ponedeljak!.RasporedCasova[i][j];
 
             }
+
             for (int i = 0; i < 32; i++) //za nulti cas
             {
 
