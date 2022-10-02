@@ -48,9 +48,9 @@ namespace Raspored_Ucionica
                 //dt.Rows.Add(row.ToString() + ".cas");
                 DataRow dr2 = dt2.NewRow();
                 DataRow dr = dt.NewRow();
-                /*DataRow dr3 = dt3.NewRow();
-                DataRow dr4 = dt4.NewRow();
-                DataRow dr5 = dt5.NewRow();*/
+                DataRow dr3 = dt3.NewRow();
+                DataRow dr4 = dt.NewRow();
+                DataRow dr5 = dt2.NewRow();
                 for (int col = 0; col < nbColumns; col++)
                 {
                     
