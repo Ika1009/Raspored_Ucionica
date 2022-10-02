@@ -96,7 +96,7 @@ namespace Raspored_Ucionica
             {
                 Ucionica ucionicaTemp = lista_ucionica!.First(ucionica => ucionica.Id == lista_odeljenja![j].Id_ucionice);
                 ucionicaTemp.Slobodna = true;
-                rezultati[i][j] = ponedeljak!.RasporedCasova[i][j];
+                //rezultati[i][j] = ponedeljak!.RasporedCasova[i][j];
 
             }
             void OslobodiSveUcionice(int i)
@@ -145,6 +145,7 @@ namespace Raspored_Ucionica
                         rezultati[i][j] = "fv";
                     else if (dan!.RasporedCasova[i][j].Contains('/'))
                     {
+                        rezultati[i][j] = "";
                         string cas = dan!.RasporedCasova[i][j];
                         int brojac = cas.Count(c => c == '/');
                         for (int c = 0; c <= brojac; c++)
