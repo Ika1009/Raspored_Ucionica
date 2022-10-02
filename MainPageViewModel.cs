@@ -46,7 +46,10 @@ namespace Raspored_Ucionica
                     lista_ucionica![lista_odeljenja[i].Id_ucionice!.Value].Slobodna = true;// oslobadja se njihova ucionica
 
                 Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
-                rezultati[i][j] = ucionica.Ime_ucionice;
+                if(rezultati[i][j].IndexOf('.') != -1)
+                    rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('.'));
+
+                rezultati[i][j] += ucionica.Ime_ucionice;
                 ucionica.Slobodna = false; // ucionica ne moze da se koristi za druge predmete, ali moze za isti kad se spoji
             }
             void DrziOdeljenje(int i, int j) // nalazi slobodnu ucionicu za oba odeljenja
