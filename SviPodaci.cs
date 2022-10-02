@@ -81,7 +81,6 @@ namespace Raspored_Ucionica
                 new Ucionica("33", 24, false),
             //  new Ucionica("7", 24, true),
                 new Ucionica("30", 24, false),
-         //      new Ucionica("33", 24, true),
                 new Ucionica("biblioteka", 25, true, true),
           //    new Ucionica("10", 26, true),
                 new Ucionica("21", 26, false),

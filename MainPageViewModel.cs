@@ -85,6 +85,7 @@ namespace Raspored_Ucionica
                 rezultati[i][j] = ponedeljak!.RasporedCasova[i][j];
 
             }
+
             for (int i = 0; i < 32; i++) //za nulti cas
             {
 
@@ -127,19 +128,29 @@ namespace Raspored_Ucionica
                         int brojac = cas.Count(c => c == '/');
                         for (int c = 0; c <= brojac; c++)
                         {
+                            bool provera = false;
                             string trenutno = cas.Split("/")[c];
                             Ucionica biblioteka = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "biblioteka");
                             if (trenutno == "reg" || trenutno == "n")
                             {
+                                if (provera) // provara da li je vec uso ovde
+                                {
+                                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
+                                    rezultati[i][j] += slobodna.Ime_ucionice;
+                                    slobodna.Slobodna = false;
+                                }
+                                provera = true;
                                 DrziOdeljenje(i, j);
                             }
-                            if (trenutno == "i")
-                                rezultati[i][j] += " jezicka1";
-                            if (trenutno == "r")
-                                rezultati[i][j] += " jezicka2";
-                            if (trenutno == "f" && biblioteka.Slobodna == true)
-                                rezultati[i][j] += " biblioteka";
-                            if (trenutno == "f" && biblioteka.Slobodna == false)
+                            else if (trenutno == "info")
+                                rezultati[i][j] += "/info";
+                            else if (trenutno == "i")
+                                rezultati[i][j] += "/jezicka1";
+                            else if (trenutno == "r")
+                                rezultati[i][j] += "/jezicka2";
+                            else if (trenutno == "f" && biblioteka.Slobodna == true)
+                                rezultati[i][j] += "/biblioteka";
+                            else if (trenutno == "f" && biblioteka.Slobodna == false)
                             {
                                 Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                                 rezultati[i][j] += slobodna.Ime_ucionice;
