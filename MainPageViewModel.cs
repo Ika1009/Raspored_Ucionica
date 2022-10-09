@@ -181,7 +181,7 @@ namespace Raspored_Ucionica
                 while (id >= 0)
                 {
                     Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id);
-                    if (ucionica.Slobodna = true)
+                    if (ucionica.Slobodna == true)
                     {
                         Slobodne[k][i] += ucionica.Ime_ucionice + " ";
                     }
@@ -251,6 +251,7 @@ namespace Raspored_Ucionica
                     }
                     SpajanjeOdeljenja("g5", imeUcioniceZaGradjansko5, 0, i);
                 }
+                NadjiSlobodne(0);
 
             }
             //!!//
