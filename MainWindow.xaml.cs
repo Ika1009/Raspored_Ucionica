@@ -24,15 +24,32 @@ namespace Raspored_Ucionica
         public MainWindow()
         {
             InitializeComponent();
+            DataTable Slobonde = new DataTable();
             DataTable dt = new DataTable();
             DataTable dt2 = new DataTable();
             DataTable dt3 = new DataTable();
             DataTable dt4 = new DataTable();
             DataTable dt5 = new DataTable();
+            int slobodna_kolone = 5, slobodna_redovi = 8;
             int nbColumns = 32;
             int nbRows = 8;
             MainPageViewModel viewModel = new MainPageViewModel();
             //dt.Columns.Add("");
+            for (int row = 0; row < slobodna_redovi; row++)
+            {
+                DataRow dr = Slobonde.NewRow();
+                for (int col = 0; col < slobodna_kolone; col++)
+                {
+                    dr[col] = viewModel.rezultatiSlobodne[row][col];
+                }
+                Slobonde.Rows.Add(dr);
+            }
+            rezultatiSlob.ItemsSource = Slobonde.DefaultView;
+
+            
+                
+                
+                
             for (int i = 0; i < nbColumns; i++)
             {
                 dt.Columns.Add((i/8+1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
@@ -67,11 +84,11 @@ namespace Raspored_Ucionica
                 dt5.Rows.Add(dr5);
             }
 
-            rezultatiPon.ItemsSource = dt.DefaultView;
+            /*rezultatiPon.ItemsSource = dt.DefaultView;
             rezultatiUto.ItemsSource = dt2.DefaultView;
             rezultatiSre.ItemsSource = dt3.DefaultView;
             rezultatiCet.ItemsSource = dt4.DefaultView;
-            rezultatiPet.ItemsSource = dt5.DefaultView;
+            rezultatiPet.ItemsSource = dt5.DefaultView;*/
         }
 
     }
