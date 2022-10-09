@@ -44,8 +44,8 @@ namespace Raspored_Ucionica
             };
             void SpajanjeOdeljenja(string imeCasa, string imeUcionice, int i, int j) // kad se odeljenja spajaju zajedno
             {
-                if (lista_odeljenja![i].Id_ucionice is not null)
-                    lista_ucionica![lista_odeljenja[i].Id_ucionice!.Value].Slobodna = true;// oslobadja se njihova ucionica
+                //if (lista_odeljenja![i].Id_ucionice is not null)
+                //    lista_ucionica![lista_odeljenja[i].Id_ucionice!.Value].Slobodna = true;// oslobadja se njihova ucionica
 
                 Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
 
