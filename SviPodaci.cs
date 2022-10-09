@@ -8,10 +8,10 @@ namespace Raspored_Ucionica
         protected readonly List<Odeljenje>? lista_odeljenja;
         protected readonly List<Ucionica>? lista_ucionica;
         protected readonly Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
-        protected readonly Kabineti? pon, uto, sre, cet, pet;
+        protected readonly Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
         public SviPodaci()
         {
-            pon = new(new List<List<string>> // optimizovao
+            Kponedeljak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"},
                 new List<string>() {"true", "false", "false", "false", "false", "false", "false", "false"},
@@ -19,7 +19,7 @@ namespace Raspored_Ucionica
                 new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"},
                 new List<string>() {"true", "false", "false", "false", "false", "false", "false", "true"},
             });
-            uto = new(new List<List<string>> // optimizovao
+            Kutorak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"},
                 new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"},
@@ -27,7 +27,7 @@ namespace Raspored_Ucionica
                 new List<string>() {"true", "false", "false", "false", "false", "false", "false", "false"},
                 new List<string>() {"true", "true", "false", "false", "false", "false", "false", "false"},
             });
-            sre = new(new List<List<string>> // optimizovao
+            Ksreda = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"true", "false", "false", "false", "false", "false", "false", "false"},
                 new List<string>() {"true", "false", "false", "false", "false", "false", "false", "false"},
@@ -35,7 +35,7 @@ namespace Raspored_Ucionica
                 new List<string>() {"true", "false", "false", "false", "false", "false", "false", "false"},
                 new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"},
             });
-            cet = new(new List<List<string>> // optimizovao
+            Kcetvrtak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"true", "false", "false", "false", "false", "false", "false", "false"},
                 new List<string>() {"true", "false", "false", "false", "false", "false", "false", "false"},
@@ -43,7 +43,7 @@ namespace Raspored_Ucionica
                 new List<string>() {"true", "true", "true", "false", "false", "false", "false", "true"},
                 new List<string>() {"true", "false", "false", "false", "true", "true", "false", "false"},
             });
-            pet = new(new List<List<string>> // optimizovao
+            Kpetak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"true", "false", "false", "false", "false", "false", "true", "true"},
                 new List<string>() {"false", "false", "false", "false", "false", "true", "true", "true"},
@@ -113,10 +113,9 @@ namespace Raspored_Ucionica
             {
                 new Ucionica("P4", 15, true, true), 
                 new Ucionica("23b", 20, false),
-                new Ucionica("jezicka1", 16, true, true),
-                new Ucionica("jezicka2", 24, true, true),
                 new Ucionica("8", 20, true),
                 new Ucionica("11", 22, false),
+                new Ucionica("jezicka2", 24, true, true),
                 new Ucionica("33", 24, false),
                 new Ucionica("30", 24, false),
                 new Ucionica("biblioteka", 25, true, true),
