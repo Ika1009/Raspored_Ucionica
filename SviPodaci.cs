@@ -111,7 +111,8 @@ namespace Raspored_Ucionica
 
             lista_ucionica = new()
             {
-                new Ucionica("P4", 15, true, true), 
+                new Ucionica("P4", 15, true, true),
+                new Ucionica("jezicka1", 16, true, true),
                 new Ucionica("23b", 20, false),
                 new Ucionica("8", 20, true),
                 new Ucionica("11", 22, false),
