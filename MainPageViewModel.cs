@@ -138,7 +138,7 @@ namespace Raspored_Ucionica
                     {
                         if (Kdan.RasporedKabineta[k][i] == "true")
                         {
-                            rezultati[i][j] = "I" + k + " ";
+                            rezultati[i][j] += "I" + k + " ";
                             Kdan.RasporedKabineta[k][i] = "false";
                             break;
                         }
@@ -163,6 +163,31 @@ namespace Raspored_Ucionica
                     imanjeCasa = true;
                 }
                 SpajanjeOdeljenja(imeCasa, imeUcioniceZaGradjansko, i, j);
+            }
+            void NadjiSlobodne(int i)
+            {
+                int id = lista_ucionica!.Last().Id;
+                int k;
+                if (dan == ponedeljak)
+                    k = 0;
+                else if (dan == utorak)
+                    k = 1;
+                else if (dan == sreda)
+                    k = 2;
+                else if (dan == cetvrtak)
+                    k = 3;
+                else
+                    k = 4;
+                while (id >= 0)
+                {
+                    Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id);
+                    if (ucionica.Slobodna == true)
+                    {
+                        Slobodne[k][i] += ucionica.Ime_ucionice + " ";
+                    }
+                    id--;
+                }
+
             }
             for (int i = 0; i < 32; i++) //za nulti cas
             {
@@ -226,6 +251,7 @@ namespace Raspored_Ucionica
                     }
                     SpajanjeOdeljenja("g5", imeUcioniceZaGradjansko5, 0, i);
                 }
+                NadjiSlobodne(0);
 
             }
             //!!//
@@ -244,6 +270,7 @@ namespace Raspored_Ucionica
                 OslobodiJezickeUcionice(i);
                 for (var j = 0; j < 32; j++)
                 {
+                    //lista_ucionica!.Last().Slobodna = true;
                     if (dan!.RasporedCasova[i][j] == "reg")
                     {
                         DrziOdeljenje(i, j);
@@ -256,7 +283,7 @@ namespace Raspored_Ucionica
                         SpajanjeOdeljenja(dan.RasporedCasova[i][j], "biblioteka", i, j);
                     else if (dan!.RasporedCasova[i][j].Contains('/'))
                     {
-                        lista_ucionica!.Last().Slobodna = true;
+                        
                         rezultati[i][j] = "";
                         string cas = dan!.RasporedCasova[i][j];
                         int brojac = cas.Count(c => c == '/');
@@ -377,6 +404,7 @@ namespace Raspored_Ucionica
                         rezultati[i][j] = ".";
 
                 }
+                NadjiSlobodne(i);
 
             }
             for (int i = 0; i < 8; i++)
@@ -390,6 +418,7 @@ namespace Raspored_Ucionica
                     
                 }
             }
+            
             return rezultati;
         }
     }
