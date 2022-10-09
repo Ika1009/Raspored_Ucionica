@@ -20,7 +20,7 @@ namespace Raspored_Ucionica
     public partial class MainWindow : Window
     {
 
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -43,8 +43,10 @@ namespace Raspored_Ucionica
             int nbRows = 8;
             for (int i = 0; i < kolona; i++)
             {
+
                 if (i == 0)
                 {
+                    //SvSala.Columns.Add("Понедељак");
                     Slobodne.Columns.Add("Понедељак");
                     Prvo1.Columns.Add("Понедељак");
                     Prvo2.Columns.Add("Понедељак");
@@ -55,6 +57,7 @@ namespace Raspored_Ucionica
                 }
                 else if (i == 1)
                 {
+                    //SvSala.Columns.Add("Уторак");
                     Slobodne.Columns.Add("Уторак");
                     Prvo1.Columns.Add("Уторак");
                     Prvo2.Columns.Add("Уторак");
@@ -65,6 +68,7 @@ namespace Raspored_Ucionica
                 }
                 else if (i == 2)
                 {
+                    //SvSala.Columns.Add("Среда");
                     Slobodne.Columns.Add("Среда");
                     Prvo1.Columns.Add("Среда");
                     Prvo2.Columns.Add("Среда");
@@ -75,6 +79,7 @@ namespace Raspored_Ucionica
                 }
                 else if (i == 3)
                 {
+                    //SvSala.Columns.Add("Четвртак");
                     Slobodne.Columns.Add("Четвртак");
                     Prvo1.Columns.Add("Четвртак");
                     Prvo2.Columns.Add("Четвртак");
@@ -85,6 +90,7 @@ namespace Raspored_Ucionica
                 }
                 else
                 {
+                    //SvSala.Columns.Add("Петак");
                     Slobodne.Columns.Add("Петак");
                     Prvo1.Columns.Add("Петак");
                     Prvo2.Columns.Add("Петак");
@@ -95,18 +101,75 @@ namespace Raspored_Ucionica
                 }
 
             }
+            for (int row = 0; row < redovi; row++)
+            {
+                SvSala.Columns.Add(row.ToString());
+            }
+
+            for (int row = 0; row < kolona; row++)
+            {
+                DataRow drr = SvSala.NewRow();
+                for (int col = 0; col < redovi; col++)
+                {
+
+                    for (int i = 0; i < nbColumns; i++)
+                    {
+                        if (row == 0)
+                        {
+                            if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala") /*|| viewModel.rezultatiUtorak[col][i].Contains("svecana sala") || viewModel.rezultatiSreda[col][i].Contains("svecana sala") || viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala") || viewModel.rezultatiPetak[col][i].Contains("svecana sala")*/)
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+
+                        else if (row == 1)
+                        {
+                            if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+                        else if (row == 2)
+                        {
+                            if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+                        else if (row == 3)
+                        {
+                            if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+                        else
+                        {
+                            if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+                    }
+
+                }
+                SvSala.Rows.Add(drr);
+            }
             //dt.Columns.Add("");
             for (int row = 0; row < redovi; row++)
             {
                 DataRow dr = Slobodne.NewRow();
+
                 DataRow prvo1 = Prvo1.NewRow();
                 DataRow prvo2 = Prvo2.NewRow();
                 DataRow prvo3 = Prvo3.NewRow();
                 DataRow drugo1 = Drugo1.NewRow();
                 DataRow drugo2 = Drugo2.NewRow();
                 DataRow drugo3 = Drugo3.NewRow();
+
                 for (int col = 0; col < kolona; col++)
                 {
+
                     dr[col] = viewModel.Slobodne[row][col];
                     if (col == 0)
                     {
@@ -117,7 +180,7 @@ namespace Raspored_Ucionica
                         drugo2[col] = viewModel.rezultatiPonedeljak[row][8];
                         drugo3[col] = viewModel.rezultatiPonedeljak[row][9];
                     }
-                    else if(col == 1)
+                    else if (col == 1)
                     {
                         prvo1[col] = viewModel.rezultatiUtorak[row][0];
                         prvo2[col] = viewModel.rezultatiUtorak[row][1];
@@ -126,7 +189,7 @@ namespace Raspored_Ucionica
                         drugo2[col] = viewModel.rezultatiUtorak[row][8];
                         drugo3[col] = viewModel.rezultatiUtorak[row][9];
                     }
-                    else if(col == 2)
+                    else if (col == 2)
                     {
                         prvo1[col] = viewModel.rezultatiSreda[row][0];
                         prvo2[col] = viewModel.rezultatiSreda[row][1];
@@ -135,7 +198,7 @@ namespace Raspored_Ucionica
                         drugo2[col] = viewModel.rezultatiSreda[row][8];
                         drugo3[col] = viewModel.rezultatiSreda[row][9];
                     }
-                    else if(col == 3)
+                    else if (col == 3)
                     {
                         prvo1[col] = viewModel.rezultatiCetvrtak[row][0];
                         prvo2[col] = viewModel.rezultatiCetvrtak[row][1];
@@ -155,6 +218,7 @@ namespace Raspored_Ucionica
                     }
                 }
                 Slobodne.Rows.Add(dr);
+
                 Prvo1.Rows.Add(prvo1);
                 Prvo2.Rows.Add(prvo2);
                 Prvo3.Rows.Add(prvo3);
@@ -169,14 +233,14 @@ namespace Raspored_Ucionica
             d1.ItemsSource = Drugo1.DefaultView;
             d2.ItemsSource = Drugo2.DefaultView;
             d3.ItemsSource = Drugo3.DefaultView;
+            rezultatiSv.ItemsSource = SvSala.DefaultView;
+            rezultatiSlob.ItemsSource = Slobodne.DefaultView;
 
 
 
-            
-            
+
             for (int i = 0; i < nbColumns; i++)
             {
-                SvSala.Columns.Add((i/8+1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
                 dt.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
                 dt2.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
                 dt3.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
@@ -186,7 +250,7 @@ namespace Raspored_Ucionica
             //dt.Columns.Add("");
             for (int row = 0; row < nbRows; row++)
             {
-                DataRow drr = SvSala.NewRow();
+
                 DataRow dr2 = dt2.NewRow();
                 DataRow dr = dt.NewRow();
                 DataRow dr3 = dt3.NewRow();
@@ -199,20 +263,7 @@ namespace Raspored_Ucionica
                     dr3[col] = viewModel.rezultatiSreda[row][col];
                     dr4[col] = viewModel.rezultatiCetvrtak[row][col];
                     dr5[col] = viewModel.rezultatiPetak[row][col];
-
-
-                    if (viewModel.rezultatiPonedeljak[row][col].Contains("svecana sala") || viewModel.rezultatiUtorak[row][col].Contains("svecana sala") || viewModel.rezultatiSreda[row][col].Contains("svecana sala") || viewModel.rezultatiCetvrtak[row][col].Contains("svecana sala") || viewModel.rezultatiPetak[row][col].Contains("svecana sala"))
-                    {
-                        drr[col] = "svecana sala";
-                    }
-                    else
-                    {
-                        drr[col] = "/";
-                    }
-
-
                 }
-                SvSala.Rows.Add(drr);
                 dt.Rows.Add(dr);
                 dt2.Rows.Add(dr2);
                 dt3.Rows.Add(dr3);
@@ -228,8 +279,6 @@ namespace Raspored_Ucionica
             rezultatiSre.ItemsSource = dt3.DefaultView;
             rezultatiCet.ItemsSource = dt4.DefaultView;
             rezultatiPet.ItemsSource = dt5.DefaultView;
-            rezultatiSv.ItemsSource = SvSala.DefaultView;
-            rezultatiSlob.ItemsSource = Slobodne.DefaultView;
 
         }
 
