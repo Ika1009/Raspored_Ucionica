@@ -8,7 +8,7 @@ namespace Raspored_Ucionica.Model
 {
     public class Raspored
     {
-        readonly List<List<string>> rasporedCasova = new(260);
+        readonly List<List<string>> rasporedCasova = new(45);
 
         public List<List<string>> RasporedCasova
         {
