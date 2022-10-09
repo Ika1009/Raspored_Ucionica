@@ -115,6 +115,21 @@ namespace Raspored_Ucionica
                     }
                 }
             }
+            void OslobodiJezickeUcionice(int i)
+            {
+                bool Da_Li_Se_Koristi_J2 = false;
+                for (int j = 0; j < 32; j++)
+                {
+                    int duzina = dan.RasporedCasova[i][j].Count(x => x == '/');
+                    for(int k=0; k<=duzina; k++)
+                    {
+                        string trenutno = dan.RasporedCasova[i][j].Split("/")[k];
+                        if(trenutno == "r") { Da_Li_Se_Koristi_J2 = true; }
+                    }  
+                }
+                if (!Da_Li_Se_Koristi_J2) { lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "jezicka2").Tip = null; }
+
+            }
             void Gradjansko(string imeCasa, ref bool imanjeCasa, ref string imeUcioniceZaGradjansko, int i, int j)
             {
                 if (!imanjeCasa)
@@ -188,14 +203,20 @@ namespace Raspored_Ucionica
                 }
 
             }
+            //!!//
+            //MAIN FUNKCIJA//
+            //!!!//
              for (int i = 1; i < 8; i++) // za dan
             {
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
                 string imeUcioniceZaFrancuski="", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
                 bool imanjeCasaFrancuski = false;
+                Ucionica jezicka2 = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "jezicka2");
+                jezicka2.Tip = true;
                 ZatvoriStaticneUcionice();
                 OslobodiLutajuceUcionice();
                 OslobodiSveUcionice(i);
+                OslobodiJezickeUcionice(i);
                 for (var j = 0; j < 32; j++)
                 {
                     if (dan!.RasporedCasova[i][j] == "reg")
