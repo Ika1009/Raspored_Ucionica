@@ -25,6 +25,7 @@ namespace Raspored_Ucionica
         {
             InitializeComponent();
             DataTable Slobodne = new DataTable();
+            DataTable SvSala = new DataTable();
             DataTable dt = new DataTable();
             DataTable dt2 = new DataTable();
             DataTable dt3 = new DataTable();
@@ -52,9 +53,33 @@ namespace Raspored_Ucionica
             rezultatiSlob.ItemsSource = Slobodne.DefaultView;
 
             
-                
-                
-                
+            
+            for (int i = 0; i < nbColumns; i++)
+            {
+                SvSala.Columns.Add((i/8+1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
+
+            }
+            //dt.Columns.Add("");
+            for (int row = 0; row < nbRows; row++)
+            {
+                DataRow dr = SvSala.NewRow();
+                for (int col = 0; col < nbColumns; col++)
+                {
+                    if (viewModel.rezultatiPonedeljak[row][col].Contains("svecana sala"))
+                    {
+                        dr[col] = "svecana sala";
+                    }
+                    else
+                    {
+                        dr[col] = "/";
+                    }
+                }
+                SvSala.Rows.Add(dr);
+            }
+            rezultatiSv.ItemsSource = SvSala.DefaultView;
+
+
+
             for (int i = 0; i < nbColumns; i++)
             {
                 dt.Columns.Add((i/8+1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
