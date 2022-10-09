@@ -19,18 +19,18 @@
             <ComboBoxItem Content="5"/>
             <ComboBoxItem Content="6"/>
         </ComboBox>
-        <Label x:Name="checkboxLabel" Content="Изаберите лутајућa одељења: " HorizontalAlignment="Left" Margin="104,192,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="198" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" Height="25"/>
-        <CheckBox Content="I-1" HorizontalAlignment="Left" Margin="112,238,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="I-2" HorizontalAlignment="Left" Margin="112,273,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="I-3" HorizontalAlignment="Left" Margin="112,312,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="II-1" HorizontalAlignment="Left" Margin="182,238,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="II-2" HorizontalAlignment="Left" Margin="182,273,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="II-3" HorizontalAlignment="Left" Margin="182,312,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="III-1" HorizontalAlignment="Left" Margin="262,238,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="III-2" HorizontalAlignment="Left" Margin="262,273,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="III-3" HorizontalAlignment="Left" Margin="262,312,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="IV-1" HorizontalAlignment="Left" Margin="348,238,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="IV-2" HorizontalAlignment="Left" Margin="348,273,0,0" VerticalAlignment="Top"/>
-        <CheckBox Content="IV-3" HorizontalAlignment="Left" Margin="348,312,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="checkboxLabel" Content="Изаберите лутајућa одељења: " HorizontalAlignment="Left" Margin="104,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="198" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" Height="25"/>
+        <CheckBox Content="I-1" HorizontalAlignment="Left" Margin="112,219,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="I-2" HorizontalAlignment="Left" Margin="112,254,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="I-3" HorizontalAlignment="Left" Margin="112,293,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="II-1" HorizontalAlignment="Left" Margin="182,219,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="II-2" HorizontalAlignment="Left" Margin="182,254,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="II-3" HorizontalAlignment="Left" Margin="182,293,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="III-1" HorizontalAlignment="Left" Margin="262,219,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="III-2" HorizontalAlignment="Left" Margin="262,254,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="III-3" HorizontalAlignment="Left" Margin="262,293,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="IV-1" HorizontalAlignment="Left" Margin="348,219,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="IV-2" HorizontalAlignment="Left" Margin="348,254,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="IV-3" HorizontalAlignment="Left" Margin="348,293,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
