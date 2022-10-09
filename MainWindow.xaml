@@ -11,9 +11,10 @@
         <Grid Height="auto">
             <Label x:Name="naslovLabel" Content="Распоред одељења по учионицама" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F"/>
             <Label x:Name="podNaslovLabel" Content="Гимназија &quot;Бора Станковић&quot;" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A"/>
-            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Left" Name="rezultatiSlob" VerticalAlignment="Top" Width="914" Margin="126,186,0,0" />
-            <!--<Label  Content="Понедељак" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="126,152,0,0"/>
-            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Left" Name="rezultatiPon" VerticalAlignment="Top" Width="914" Margin="126,186,0,0" />
+            <Label  Content="Слободне учионице (без сб. сале)" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="134,1550,0,0"/>
+            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Left" Name="rezultatiSlob" VerticalAlignment="Top" Width="914" Margin="126,1584,0,0" />
+            <Label  Content="Понедељак" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="126,172,0,0"/>
+            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Left" Name="rezultatiPon" VerticalAlignment="Top" Width="914" Margin="126,206,0,0" />
             <Label  Content="Уторак" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="126,428,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Left" Margin="126,462,0,0" Name="rezultatiUto" VerticalAlignment="Top" Width="914" />
             <Label  Content="Среда" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="134,709,0,0"/>
@@ -21,8 +22,8 @@
             <Label  Content="Четвртак" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="134,1002,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Center" Margin="0,1036,0,0" Name="rezultatiCet" VerticalAlignment="Top" Width="914" />
             <Label  Content="Петак" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="134,1272,0,0"/>
-            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Center" Margin="0,1306,0,0" Name="rezultatiPet" VerticalAlignment="Top" Width="914" />-->
-            <FlowDocumentScrollViewer UseLayoutRounding="True" Margin="126,1550,127,109" VerticalScrollBarVisibility="Disabled">
+            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="200" HorizontalAlignment="Center" Margin="0,1306,0,0" Name="rezultatiPet" VerticalAlignment="Top" Width="914" />
+            <!--<FlowDocumentScrollViewer UseLayoutRounding="True" Margin="126,1550,127,109" VerticalScrollBarVisibility="Disabled">
                 <FlowDocumentScrollViewer.Resources>
                     <Style TargetType="TableCell">
                         <Setter Property="FontFamily" Value="Verdana"/>
@@ -260,7 +261,7 @@
 
                     </Table>
                 </FlowDocument>
-            </FlowDocumentScrollViewer>
+            </FlowDocumentScrollViewer>-->
         </Grid>
     </ScrollViewer>
 </Window>

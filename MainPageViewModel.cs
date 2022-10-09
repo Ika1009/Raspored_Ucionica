@@ -13,6 +13,8 @@ namespace Raspored_Ucionica
     {
         // public event PropertyChangedEventHandler? PropertyChanged;
         public List<List<string>> rezultatiPonedeljak, rezultatiUtorak, rezultatiSreda, rezultatiCetvrtak, rezultatiPetak;
+        public List<List<string>> Slobodne;
+
         public MainPageViewModel()
         {
             rezultatiPonedeljak = new();
@@ -20,7 +22,14 @@ namespace Raspored_Ucionica
             rezultatiSreda = new();
             rezultatiCetvrtak = new();
             rezultatiPetak = new();
-
+            Slobodne = new()
+            {
+                new List<string>() {"", ".", ".", ".", ".", ".", ".", "."},
+                new List<string>() {"", ".", ".", ".", ".", ".", ".", "."},
+                new List<string>() {"", ".", ".", ".", ".", ".", ".", "." },
+                new List<string>() {"", ".", ".", ".", ".", ".", ".", "." },
+                new List<string>() {"", ".", ".", ".", ".", ".", ".", "." }
+            };
             rezultatiPonedeljak = NapraviRaspored(ponedeljak, Kponedeljak);
             rezultatiUtorak = NapraviRaspored(utorak, Kutorak);
             rezultatiSreda = NapraviRaspored(sreda, Ksreda);
@@ -42,15 +51,7 @@ namespace Raspored_Ucionica
                 new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
                 new List<string>(){".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".",},
             };
-            List<List<string>> Slobodne;
-            Slobodne = new(new List<List<string>>
-            {
-                new List<string>() {"", "", "", "", "", "", "", ""},
-                new List<string>() {"", "", "", "", "", "", "", ""},
-                new List<string>() {"", "", "", "", "", "", "", ""},
-                new List<string>() {"", "", "", "", "", "", "", ""},
-                new List<string>() {"", "", "", "", "", "", "", ""}
-            });
+
             void SpajanjeOdeljenja(string imeCasa, string imeUcionice, int i, int j) // kad se odeljenja spajaju zajedno
             {
                 //if (lista_odeljenja![i].Id_ucionice is not null)
@@ -271,13 +272,15 @@ namespace Raspored_Ucionica
                     }
                     SpajanjeOdeljenja("g5", imeUcioniceZaGradjansko5, 0, i);
                 }
-                NadjiSlobodne(0);
+
 
             }
+            //NadjiSlobodne(0);
+            
             //!!//
             //!GLAVNA FOR PETLJA!//
             //!!!//
-             for (int i = 1; i < 8; i++) // za dan
+            for (int i = 1; i < 8; i++) // za dan
             {
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
                 string imeUcioniceZaFrancuski="", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
