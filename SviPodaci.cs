@@ -7,9 +7,9 @@ namespace Raspored_Ucionica
     {
         protected readonly List<Odeljenje>? lista_odeljenja;
         protected readonly List<Ucionica>? lista_ucionica;
+        protected readonly List<Ucionica>? lista_prioriteta;
         protected readonly Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
         protected readonly Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
-        protected readonly List<List<string>> Slobodne;
         public SviPodaci()
         {
             Kponedeljak = new(new List<List<string>> // optimizovao
@@ -108,26 +108,19 @@ namespace Raspored_Ucionica
                 new List<string>() { "reg", "info", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "fv", "verska/g2", "verska/g1"},
                 new List<string>() { "", "", "", "reg", "reg", "reg", "", "", "fv", "reg", "", "", "", "", "", "g2", "info", "reg", "", "","", "reg", "", "", "verska", "verska", "verska", "reg", "reg", "", "", ""}
             });
-            Slobodne = new(new List<List<string>>
-            {
-                new List<string>() {"", "", "", "", "", "", "", ""},
-                new List<string>() {"", "", "", "", "", "", "", ""},
-                new List<string>() {"", "", "", "", "", "", "", ""},
-                new List<string>() {"", "", "", "", "", "", "", ""},
-                new List<string>() {"", "", "", "", "", "", "", ""}
-            });
-
+            
+            
 
             lista_ucionica = new()
             {
                 new Ucionica("P4", 15, true, true),
                 new Ucionica("jezicka1", 16, true, true),
-                new Ucionica("23b", 20, false),
                 new Ucionica("8", 20, true),
+                new Ucionica("23b", 20, false),
                 new Ucionica("11", 22, false),
-                new Ucionica("jezicka2", 24, true, true),
                 new Ucionica("33", 24, false),
                 new Ucionica("30", 24, false),
+                new Ucionica("jezicka2", 24, true, true),
                 new Ucionica("biblioteka", 25, true, true),
                 new Ucionica("21", 26, false),
                 new Ucionica("35", 26, false),
@@ -154,6 +147,7 @@ namespace Raspored_Ucionica
                 new Ucionica("svecana sala",40,true),
 
             };
+           
             lista_odeljenja = new()
             {
                 new Odeljenje("I-1", 19),//lutajuca
