@@ -138,7 +138,7 @@ namespace Raspored_Ucionica
                     {
                         if (Kdan.RasporedKabineta[k][i] == "true")
                         {
-                            rezultati[i][j] = "I" + k + " ";
+                            rezultati[i][j] += "I" + k + " ";
                             Kdan.RasporedKabineta[k][i] = "false";
                             break;
                         }
@@ -244,6 +244,7 @@ namespace Raspored_Ucionica
                 OslobodiJezickeUcionice(i);
                 for (var j = 0; j < 32; j++)
                 {
+                    //lista_ucionica!.Last().Slobodna = true;
                     if (dan!.RasporedCasova[i][j] == "reg")
                     {
                         DrziOdeljenje(i, j);
@@ -256,7 +257,7 @@ namespace Raspored_Ucionica
                         SpajanjeOdeljenja(dan.RasporedCasova[i][j], "biblioteka", i, j);
                     else if (dan!.RasporedCasova[i][j].Contains('/'))
                     {
-                        lista_ucionica!.Last().Slobodna = true;
+                        
                         rezultati[i][j] = "";
                         string cas = dan!.RasporedCasova[i][j];
                         int brojac = cas.Count(c => c == '/');

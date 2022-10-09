@@ -9,6 +9,7 @@ namespace Raspored_Ucionica
         protected readonly List<Ucionica>? lista_ucionica;
         protected readonly Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
         protected readonly Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
+        protected readonly List<List<string>> Slobodne;
         public SviPodaci()
         {
             Kponedeljak = new(new List<List<string>> // optimizovao
@@ -106,6 +107,14 @@ namespace Raspored_Ucionica
                 new List<string>() {"reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/info"},
                 new List<string>() { "reg", "info", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "fv", "verska/g2", "verska/g1"},
                 new List<string>() { "", "", "", "reg", "reg", "reg", "", "", "fv", "reg", "", "", "", "", "", "g2", "info", "reg", "", "","", "reg", "", "", "verska", "verska", "verska", "reg", "reg", "", "", ""}
+            });
+            Slobodne = new(new List<List<string>>
+            {
+                new List<string>() {"", "", "", "", "", "", "", ""},
+                new List<string>() {"", "", "", "", "", "", "", ""},
+                new List<string>() {"", "", "", "", "", "", "", ""},
+                new List<string>() {"", "", "", "", "", "", "", ""},
+                new List<string>() {"", "", "", "", "", "", "", ""}
             });
 
 
