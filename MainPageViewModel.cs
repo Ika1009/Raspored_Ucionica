@@ -164,6 +164,31 @@ namespace Raspored_Ucionica
                 }
                 SpajanjeOdeljenja(imeCasa, imeUcioniceZaGradjansko, i, j);
             }
+            void NadjiSlobodne(int i)
+            {
+                int id = lista_ucionica!.Last().Id;
+                int k;
+                if (dan == ponedeljak)
+                    k = 0;
+                else if (dan == utorak)
+                    k = 1;
+                else if (dan == sreda)
+                    k = 2;
+                else if (dan == cetvrtak)
+                    k = 3;
+                else
+                    k = 4;
+                while (id >= 0)
+                {
+                    Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id);
+                    if (ucionica.Slobodna = true)
+                    {
+                        Slobodne[k][i] += ucionica.Ime_ucionice + " ";
+                    }
+                    id--;
+                }
+
+            }
             for (int i = 0; i < 32; i++) //za nulti cas
             {
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
@@ -378,6 +403,7 @@ namespace Raspored_Ucionica
                         rezultati[i][j] = ".";
 
                 }
+                NadjiSlobodne(i);
 
             }
             for (int i = 0; i < 8; i++)
@@ -391,6 +417,7 @@ namespace Raspored_Ucionica
                     
                 }
             }
+            
             return rezultati;
         }
     }
