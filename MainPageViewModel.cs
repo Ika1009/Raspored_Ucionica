@@ -24,11 +24,14 @@ namespace Raspored_Ucionica
             rezultatiPetak = new();
             Slobodne = new()
             {
-                new List<string>() {"", ".", ".", ".", ".", ".", ".", "."},
-                new List<string>() {"", ".", ".", ".", ".", ".", ".", "."},
-                new List<string>() {"", ".", ".", ".", ".", ".", ".", "." },
-                new List<string>() {"", ".", ".", ".", ".", ".", ".", "." },
-                new List<string>() {"", ".", ".", ".", ".", ".", ".", "." }
+                new List<string>() {"", "", "", "", ""},
+                new List<string>() {"", ".", ".", ".", "."},
+                new List<string>() {"", ".", ".", ".", "."},
+                new List<string>() {"", ".", ".", ".", "."},
+                new List<string>() {"", ".", ".", ".", "."},
+                new List<string>() {"", ".", ".", ".", "."},
+                new List<string>() {"", ".", ".", ".", "."},
+                new List<string>() {"", ".", ".", ".", "."}
             };
             rezultatiPonedeljak = NapraviRaspored(ponedeljak, Kponedeljak);
             rezultatiUtorak = NapraviRaspored(utorak, Kutorak);
@@ -204,7 +207,7 @@ namespace Raspored_Ucionica
                     Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id);
                     if (ucionica.Slobodna == true)
                     {
-                        Slobodne[k][i] += ucionica.Ime_ucionice + " ";
+                        Slobodne[i][k] += ucionica.Ime_ucionice + " ";
                     }
                     id--;
                 }
