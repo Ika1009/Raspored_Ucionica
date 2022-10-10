@@ -24,270 +24,338 @@ namespace Raspored_Ucionica
         {
             InitializeComponent();
 
-                MainPageViewModel viewModel = new MainPageViewModel(inputViewModel);
-                DataTable Staticne = new DataTable();
-                DataTable Slobodne = new DataTable();
-                DataTable SvSala = new DataTable();
-                DataTable dt = new DataTable();
-                DataTable dt2 = new DataTable();
-                DataTable dt3 = new DataTable();
-                DataTable dt4 = new DataTable();
-                DataTable dt5 = new DataTable();
-                DataTable Prvo1 = new DataTable();
-                DataTable Prvo2 = new DataTable();
-                DataTable Prvo3 = new DataTable();
-                DataTable Drugo1 = new DataTable();
-                DataTable Drugo2 = new DataTable();
-                DataTable Drugo3 = new DataTable();
-                int kolona = 5, redovi = 8;
-                int nbColumns = 32;
-                int nbRows = 8;
-                for (int row = 0; row < redovi; row++)
+            MainPageViewModel viewModel = new MainPageViewModel(inputViewModel);
+            DataTable Staticne = new DataTable();
+            DataTable Slobodne = new DataTable();
+            DataTable SvSala = new DataTable();
+            DataTable dt = new DataTable();
+            DataTable dt2 = new DataTable();
+            DataTable dt3 = new DataTable();
+            DataTable dt4 = new DataTable();
+            DataTable dt5 = new DataTable();
+            DataTable Prvo1 = new DataTable();
+            DataTable Prvo2 = new DataTable();
+            DataTable Prvo3 = new DataTable();
+            DataTable Drugo1 = new DataTable();
+            DataTable Drugo2 = new DataTable();
+            DataTable Drugo3 = new DataTable();
+            int kolona = 5, redovi = 8, prva = 0, druga = 0, treca = 0, cetvrta = 0, peta = 0, sesta = 0;
+            int nbColumns = 32;
+            int nbRows = 8;
+            int za_labele_index = 0;
+            for (int i = 0; i < nbColumns; i++)
+            {
+                if (viewModel.lista_odeljenja[i].Id_ucionice == null)
                 {
-                    SvSala.Columns.Add(row.ToString());
-                }
-                for (int row = 0; row < kolona; row++)
-                {
-                    DataRow drr = SvSala.NewRow();
-                    for (int col = 0; col < redovi; col++)
+                    if (za_labele_index == 0)
                     {
-
-                        for (int i = 0; i < nbColumns; i++)
-                        {
-                            if (row == 0)
-                            {
-                                if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala") /*|| viewModel.rezultatiUtorak[col][i].Contains("svecana sala") || viewModel.rezultatiSreda[col][i].Contains("svecana sala") || viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala") || viewModel.rezultatiPetak[col][i].Contains("svecana sala")*/)
-                                {
-                                    drr[col] += "zauzeta";
-                                }
-                            }
-
-                            else if (row == 1)
-                            {
-                                if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
-                                {
-                                    drr[col] += "zauzeta";
-                                }
-                            }
-                            else if (row == 2)
-                            {
-                                if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
-                                {
-                                    drr[col] += "zauzeta";
-                                }
-                            }
-                            else if (row == 3)
-                            {
-                                if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
-                                {
-                                    drr[col] += "zauzeta";
-                                }
-                            }
-                            else
-                            {
-                                if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
-                                {
-                                    drr[col] += "zauzeta";
-                                }
-                            }
-                        }
-
+                        prva = ((int)viewModel.lista_odeljenja[i].Id);
+                        za_labele_index++;
                     }
-                    SvSala.Rows.Add(drr);
-                }
-                for (int i = 0; i < kolona; i++)
-                {
-                    if (i == 0)
+                    else if (za_labele_index == 1)
                     {
-                        //SvSala.Columns.Add("Понедељак");
-                        Slobodne.Columns.Add("Понедељак");
-                        Prvo1.Columns.Add("Понедељак");
-                        Prvo2.Columns.Add("Понедељак");
-                        Prvo3.Columns.Add("Понедељак");
-                        Drugo1.Columns.Add("Понедељак");
-                        Drugo2.Columns.Add("Понедељак");
-                        Drugo3.Columns.Add("Понедељак");
+                        druga = viewModel.lista_odeljenja[i].Id;
+                        za_labele_index++;
                     }
-                    else if (i == 1)
+                    else if (za_labele_index == 1)
                     {
-                        //SvSala.Columns.Add("Уторак");
-                        Slobodne.Columns.Add("Уторак");
-                        Prvo1.Columns.Add("Уторак");
-                        Prvo2.Columns.Add("Уторак");
-                        Prvo3.Columns.Add("Уторак");
-                        Drugo1.Columns.Add("Уторак");
-                        Drugo2.Columns.Add("Уторак");
-                        Drugo3.Columns.Add("Уторак");
+                        treca = viewModel.lista_odeljenja[i].Id;
+                        za_labele_index++;
                     }
-                    else if (i == 2)
+                    else if (za_labele_index == 1)
                     {
-                        //SvSala.Columns.Add("Среда");
-                        Slobodne.Columns.Add("Среда");
-                        Prvo1.Columns.Add("Среда");
-                        Prvo2.Columns.Add("Среда");
-                        Prvo3.Columns.Add("Среда");
-                        Drugo1.Columns.Add("Среда");
-                        Drugo2.Columns.Add("Среда");
-                        Drugo3.Columns.Add("Среда");
+                        cetvrta = viewModel.lista_odeljenja[i].Id;
+                        za_labele_index++;
                     }
-                    else if (i == 3)
+                    else if (za_labele_index == 1)
                     {
-                        //SvSala.Columns.Add("Четвртак");
-                        Slobodne.Columns.Add("Четвртак");
-                        Prvo1.Columns.Add("Четвртак");
-                        Prvo2.Columns.Add("Четвртак");
-                        Prvo3.Columns.Add("Четвртак");
-                        Drugo1.Columns.Add("Четвртак");
-                        Drugo2.Columns.Add("Четвртак");
-                        Drugo3.Columns.Add("Четвртак");
+                        peta = viewModel.lista_odeljenja[i].Id;
+                        za_labele_index++;
                     }
                     else
                     {
-                        //SvSala.Columns.Add("Петак");
-                        Slobodne.Columns.Add("Петак");
-                        Prvo1.Columns.Add("Петак");
-                        Prvo2.Columns.Add("Петак");
-                        Prvo3.Columns.Add("Петак");
-                        Drugo1.Columns.Add("Петак");
-                        Drugo2.Columns.Add("Петак");
-                        Drugo3.Columns.Add("Петак");
+                        sesta = viewModel.lista_odeljenja[i].Id;
+                        za_labele_index++;
                     }
-
                 }
-                for (int row = 0; row < redovi; row++)
+            }
+
+            for (int row = 0; row < redovi; row++)
+            {
+                SvSala.Columns.Add(row.ToString());
+            }
+            for (int row = 0; row < kolona; row++)
+            {
+                DataRow drr = SvSala.NewRow();
+                for (int col = 0; col < redovi; col++)
                 {
-                    DataRow dr = Slobodne.NewRow();
 
-                    DataRow prvo1 = Prvo1.NewRow();
-                    DataRow prvo2 = Prvo2.NewRow();
-                    DataRow prvo3 = Prvo3.NewRow();
-                    DataRow drugo1 = Drugo1.NewRow();
-                    DataRow drugo2 = Drugo2.NewRow();
-                    DataRow drugo3 = Drugo3.NewRow();
-
-                    for (int col = 0; col < kolona; col++)
+                    for (int i = 0; i < nbColumns; i++)
                     {
+                        if (row == 0)
+                        {
+                            if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala") /*|| viewModel.rezultatiUtorak[col][i].Contains("svecana sala") || viewModel.rezultatiSreda[col][i].Contains("svecana sala") || viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala") || viewModel.rezultatiPetak[col][i].Contains("svecana sala")*/)
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
 
-                        dr[col] = viewModel.Slobodne[row][col];
-                        if (col == 0)
+                        else if (row == 1)
                         {
-                            prvo1[col] = viewModel.rezultatiPonedeljak[row][0];
-                            prvo2[col] = viewModel.rezultatiPonedeljak[row][1];
-                            prvo3[col] = viewModel.rezultatiPonedeljak[row][2];
-                            drugo1[col] = viewModel.rezultatiPonedeljak[row][8];
-                            drugo2[col] = viewModel.rezultatiPonedeljak[row][9];
-                            drugo3[col] = viewModel.rezultatiPonedeljak[row][10];
+                            if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
                         }
-                        else if (col == 1)
+                        else if (row == 2)
                         {
-                            prvo1[col] = viewModel.rezultatiUtorak[row][0];
-                            prvo2[col] = viewModel.rezultatiUtorak[row][1];
-                            prvo3[col] = viewModel.rezultatiUtorak[row][2];
-                            drugo1[col] = viewModel.rezultatiUtorak[row][8];
-                            drugo2[col] = viewModel.rezultatiUtorak[row][9];
-                            drugo3[col] = viewModel.rezultatiUtorak[row][10];
+                            if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
                         }
-                        else if (col == 2)
+                        else if (row == 3)
                         {
-                            prvo1[col] = viewModel.rezultatiSreda[row][0];
-                            prvo2[col] = viewModel.rezultatiSreda[row][1];
-                            prvo3[col] = viewModel.rezultatiSreda[row][2];
-                            drugo1[col] = viewModel.rezultatiSreda[row][8];
-                            drugo2[col] = viewModel.rezultatiSreda[row][9];
-                            drugo3[col] = viewModel.rezultatiSreda[row][10];
-                        }
-                        else if (col == 3)
-                        {
-                            prvo1[col] = viewModel.rezultatiCetvrtak[row][0];
-                            prvo2[col] = viewModel.rezultatiCetvrtak[row][1];
-                            prvo3[col] = viewModel.rezultatiCetvrtak[row][2];
-                            drugo1[col] = viewModel.rezultatiCetvrtak[row][8];
-                            drugo2[col] = viewModel.rezultatiCetvrtak[row][9];
-                            drugo3[col] = viewModel.rezultatiCetvrtak[row][10];
+                            if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
                         }
                         else
                         {
-                            prvo1[col] = viewModel.rezultatiPetak[row][0];
-                            prvo2[col] = viewModel.rezultatiPetak[row][1];
-                            prvo3[col] = viewModel.rezultatiPetak[row][2];
-                            drugo1[col] = viewModel.rezultatiPetak[row][8];
-                            drugo2[col] = viewModel.rezultatiPetak[row][9];
-                            drugo3[col] = viewModel.rezultatiPetak[row][10];
+                            if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
                         }
                     }
-                    Slobodne.Rows.Add(dr);
 
-                    Prvo1.Rows.Add(prvo1);
-                    Prvo2.Rows.Add(prvo2);
-                    Prvo3.Rows.Add(prvo3);
-                    Drugo1.Rows.Add(drugo1);
-                    Drugo2.Rows.Add(drugo2);
-                    Drugo3.Rows.Add(drugo3);
+                }
+                SvSala.Rows.Add(drr);
+            }
+            for (int i = 0; i < kolona; i++)
+            {
+                if (i == 0)
+                {
+                    //SvSala.Columns.Add("Понедељак");
+                    Slobodne.Columns.Add("Понедељак");
+                    Prvo1.Columns.Add("Понедељак");
+                    Prvo2.Columns.Add("Понедељак");
+                    Prvo3.Columns.Add("Понедељак");
+                    Drugo1.Columns.Add("Понедељак");
+                    Drugo2.Columns.Add("Понедељак");
+                    Drugo3.Columns.Add("Понедељак");
+                }
+                else if (i == 1)
+                {
+                    //SvSala.Columns.Add("Уторак");
+                    Slobodne.Columns.Add("Уторак");
+                    Prvo1.Columns.Add("Уторак");
+                    Prvo2.Columns.Add("Уторак");
+                    Prvo3.Columns.Add("Уторак");
+                    Drugo1.Columns.Add("Уторак");
+                    Drugo2.Columns.Add("Уторак");
+                    Drugo3.Columns.Add("Уторак");
+                }
+                else if (i == 2)
+                {
+                    //SvSala.Columns.Add("Среда");
+                    Slobodne.Columns.Add("Среда");
+                    Prvo1.Columns.Add("Среда");
+                    Prvo2.Columns.Add("Среда");
+                    Prvo3.Columns.Add("Среда");
+                    Drugo1.Columns.Add("Среда");
+                    Drugo2.Columns.Add("Среда");
+                    Drugo3.Columns.Add("Среда");
+                }
+                else if (i == 3)
+                {
+                    //SvSala.Columns.Add("Четвртак");
+                    Slobodne.Columns.Add("Четвртак");
+                    Prvo1.Columns.Add("Четвртак");
+                    Prvo2.Columns.Add("Четвртак");
+                    Prvo3.Columns.Add("Четвртак");
+                    Drugo1.Columns.Add("Четвртак");
+                    Drugo2.Columns.Add("Четвртак");
+                    Drugo3.Columns.Add("Четвртак");
+                }
+                else
+                {
+                    //SvSala.Columns.Add("Петак");
+                    Slobodne.Columns.Add("Петак");
+                    Prvo1.Columns.Add("Петак");
+                    Prvo2.Columns.Add("Петак");
+                    Prvo3.Columns.Add("Петак");
+                    Drugo1.Columns.Add("Петак");
+                    Drugo2.Columns.Add("Петак");
+                    Drugo3.Columns.Add("Петак");
                 }
 
-                p1.ItemsSource = Prvo1.DefaultView;
-                p2.ItemsSource = Prvo2.DefaultView;
-                p3.ItemsSource = Prvo3.DefaultView;
-                d1.ItemsSource = Drugo1.DefaultView;
-                d2.ItemsSource = Drugo2.DefaultView;
-                d3.ItemsSource = Drugo3.DefaultView;
-                rezultatiSv.ItemsSource = SvSala.DefaultView;
-                rezultatiSlob.ItemsSource = Slobodne.DefaultView;
+            }
+            for (int row = 0; row < redovi; row++)
+            {
+                DataRow dr = Slobodne.NewRow();
 
-
-                DataRow stati = Staticne.NewRow();
-                //ispis za rezultate
-                for (int i = 0; i < nbColumns; i++)
+                DataRow prvo1 = Prvo1.NewRow();
+                DataRow prvo2 = Prvo2.NewRow();
+                DataRow prvo3 = Prvo3.NewRow();
+                DataRow drugo1 = Drugo1.NewRow();
+                DataRow drugo2 = Drugo2.NewRow();
+                DataRow drugo3 = Drugo3.NewRow();
+                for (int col = 0; col < kolona; col++)
                 {
-                    Staticne.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
-                    if (viewModel.lista_odeljenja[i].Id_ucionice == null)
+
+                    dr[col] = viewModel.Slobodne[row][col];
+                    if (col == 0)
                     {
-                        stati[i] += "Lutajuce";
+                        prvo1[col] = viewModel.rezultatiPonedeljak[row][prva];
+                        prvo2[col] = viewModel.rezultatiPonedeljak[row][druga];
+                        prvo3[col] = viewModel.rezultatiPonedeljak[row][treca];
+                        drugo1[col] = viewModel.rezultatiPonedeljak[row][cetvrta];
+                        drugo2[col] = viewModel.rezultatiPonedeljak[row][peta];
+                        drugo3[col] = viewModel.rezultatiPonedeljak[row][sesta];
+                    }
+                    else if (col == 1)
+                    {
+                        prvo1[col] = viewModel.rezultatiUtorak[row][prva];
+                        prvo2[col] = viewModel.rezultatiUtorak[row][druga];
+                        prvo3[col] = viewModel.rezultatiUtorak[row][treca];
+                        drugo1[col] = viewModel.rezultatiUtorak[row][cetvrta];
+                        drugo2[col] = viewModel.rezultatiUtorak[row][peta];
+                        drugo3[col] = viewModel.rezultatiUtorak[row][sesta];
+                    }
+                    else if (col == 2)
+                    {
+                        prvo1[col] = viewModel.rezultatiSreda[row][prva];
+                        prvo2[col] = viewModel.rezultatiSreda[row][druga];
+                        prvo3[col] = viewModel.rezultatiSreda[row][treca];
+                        drugo1[col] = viewModel.rezultatiSreda[row][cetvrta];
+                        drugo2[col] = viewModel.rezultatiSreda[row][peta];
+                        drugo3[col] = viewModel.rezultatiSreda[row][sesta];
+                    }
+                    else if (col == 3)
+                    {
+                        prvo1[col] = viewModel.rezultatiCetvrtak[row][prva];
+                        prvo2[col] = viewModel.rezultatiCetvrtak[row][druga];
+                        prvo3[col] = viewModel.rezultatiCetvrtak[row][treca];
+                        drugo1[col] = viewModel.rezultatiCetvrtak[row][cetvrta];
+                        drugo2[col] = viewModel.rezultatiCetvrtak[row][peta];
+                        drugo3[col] = viewModel.rezultatiCetvrtak[row][sesta];
                     }
                     else
                     {
-                        stati[i] += viewModel.lista_ucionica.First(ucionica => ucionica.Id == viewModel.lista_odeljenja[i].Id_ucionice).Ime_ucionice;
+                        prvo1[col] = viewModel.rezultatiPetak[row][prva];
+                        prvo2[col] = viewModel.rezultatiPetak[row][druga];
+                        prvo3[col] = viewModel.rezultatiPetak[row][treca];
+                        drugo1[col] = viewModel.rezultatiPetak[row][cetvrta];
+                        drugo2[col] = viewModel.rezultatiPetak[row][peta];
+                        drugo3[col] = viewModel.rezultatiPetak[row][sesta];
                     }
-
-                    dt.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
-                    dt2.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
-                    dt3.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
-                    dt4.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
-                    dt5.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
                 }
-                Staticne.Rows.Add(stati);
-                for (int row = 0; row < nbRows; row++)
+                Slobodne.Rows.Add(dr);
+
+                Prvo1.Rows.Add(prvo1);
+                Prvo2.Rows.Add(prvo2);
+                Prvo3.Rows.Add(prvo3);
+                Drugo1.Rows.Add(drugo1);
+                Drugo2.Rows.Add(drugo2);
+                Drugo3.Rows.Add(drugo3);
+            }
+
+            p1.ItemsSource = Prvo1.DefaultView;
+            p2.ItemsSource = Prvo2.DefaultView;
+            p3.ItemsSource = Prvo3.DefaultView;
+            d1.ItemsSource = Drugo1.DefaultView;
+            d2.ItemsSource = Drugo2.DefaultView;
+            d3.ItemsSource = Drugo3.DefaultView;
+            rezultatiSv.ItemsSource = SvSala.DefaultView;
+            rezultatiSlob.ItemsSource = Slobodne.DefaultView;
+
+
+            DataRow stati = Staticne.NewRow();
+            //ispis za rezultate
+            za_labele_index = 0;
+            for (int i = 0; i < nbColumns; i++)
+            {
+                Staticne.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                if (viewModel.lista_odeljenja[i].Id_ucionice == null)
+                {
+                    stati[i] += "Lutajuce";
+                    if(za_labele_index == 0)
+                    {
+                        prvaLabel.Content = viewModel.lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 1)
+                    {
+                        drugaLabel.Content = viewModel.lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 2)
+                    {
+                        trecaLabel.Content = viewModel.lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 3)
+                    {
+                        cetvrtaLabel.Content = viewModel.lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 4)
+                    {
+                        petaLabel.Content = viewModel.lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else
+                    {
+                        sestaLabel.Content = viewModel.lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                }
+                else
+                {
+                    stati[i] += viewModel.lista_ucionica.First(ucionica => ucionica.Id == viewModel.lista_odeljenja[i].Id_ucionice).Ime_ucionice;
+                }
+
+                dt.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                dt2.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                dt3.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                dt4.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                dt5.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+            }
+            Staticne.Rows.Add(stati);
+            for (int row = 0; row < nbRows; row++)
+            {
+
+                DataRow dr2 = dt2.NewRow();
+                DataRow dr = dt.NewRow();
+                DataRow dr3 = dt3.NewRow();
+                DataRow dr4 = dt4.NewRow();
+                DataRow dr5 = dt5.NewRow();
+                for (int col = 0; col < nbColumns; col++)
                 {
 
-                    DataRow dr2 = dt2.NewRow();
-                    DataRow dr = dt.NewRow();
-                    DataRow dr3 = dt3.NewRow();
-                    DataRow dr4 = dt4.NewRow();
-                    DataRow dr5 = dt5.NewRow();
-                    for (int col = 0; col < nbColumns; col++)
-                    {
-
-                        dr[col] = viewModel.rezultatiPonedeljak[row][col];
-                        dr2[col] = viewModel.rezultatiUtorak[row][col];
-                        dr3[col] = viewModel.rezultatiSreda[row][col];
-                        dr4[col] = viewModel.rezultatiCetvrtak[row][col];
-                        dr5[col] = viewModel.rezultatiPetak[row][col];
-                    }
-                    dt.Rows.Add(dr);
-                    dt2.Rows.Add(dr2);
-                    dt3.Rows.Add(dr3);
-                    dt4.Rows.Add(dr4);
-                    dt5.Rows.Add(dr5);
+                    dr[col] = viewModel.rezultatiPonedeljak[row][col];
+                    dr2[col] = viewModel.rezultatiUtorak[row][col];
+                    dr3[col] = viewModel.rezultatiSreda[row][col];
+                    dr4[col] = viewModel.rezultatiCetvrtak[row][col];
+                    dr5[col] = viewModel.rezultatiPetak[row][col];
                 }
+                dt.Rows.Add(dr);
+                dt2.Rows.Add(dr2);
+                dt3.Rows.Add(dr3);
+                dt4.Rows.Add(dr4);
+                dt5.Rows.Add(dr5);
+            }
 
 
 
-                staticne.ItemsSource = Staticne.DefaultView;
-                /*rezultatiPon.ItemsSource = dt.DefaultView;
-                rezultatiUto.ItemsSource = dt2.DefaultView;
-                rezultatiSre.ItemsSource = dt3.DefaultView;
-                rezultatiCet.ItemsSource = dt4.DefaultView;
-                rezultatiPet.ItemsSource = dt5.DefaultView;*/
+            staticne.ItemsSource = Staticne.DefaultView;
+            /*rezultatiPon.ItemsSource = dt.DefaultView;
+            rezultatiUto.ItemsSource = dt2.DefaultView;
+            rezultatiSre.ItemsSource = dt3.DefaultView;
+            rezultatiCet.ItemsSource = dt4.DefaultView;
+            rezultatiPet.ItemsSource = dt5.DefaultView;*/
 
         }
 
