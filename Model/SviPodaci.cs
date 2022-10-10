@@ -4,8 +4,8 @@ namespace Raspored_Ucionica.Model
 {
     public class SviPodaci
     {
-        protected readonly List<Odeljenje>? lista_odeljenja;
-        protected readonly List<Ucionica>? lista_ucionica;
+        public readonly List<Odeljenje>? lista_odeljenja;
+        public readonly List<Ucionica>? lista_ucionica;
         protected readonly List<Ucionica>? lista_prioriteta;
         protected readonly Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
         protected readonly Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
