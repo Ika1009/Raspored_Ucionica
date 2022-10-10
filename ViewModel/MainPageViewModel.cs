@@ -14,9 +14,10 @@ namespace Raspored_Ucionica.ViewModel
         // public event PropertyChangedEventHandler? PropertyChanged;
         public List<List<string>> rezultatiPonedeljak, rezultatiUtorak, rezultatiSreda, rezultatiCetvrtak, rezultatiPetak;
         public List<List<string>> Slobodne;
-
-        public MainPageViewModel()
+        InputWindowViewModel inputViewModel;
+        public MainPageViewModel(InputWindowViewModel inputVM)
         {
+            inputViewModel = inputVM;
             rezultatiPonedeljak = new();
             rezultatiUtorak = new();
             rezultatiSreda = new();

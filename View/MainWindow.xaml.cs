@@ -20,10 +20,10 @@ namespace Raspored_Ucionica
 
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(InputWindowViewModel inputViewModel)
         {
             InitializeComponent();
-            MainPageViewModel viewModel = new MainPageViewModel();
+            MainPageViewModel viewModel = new MainPageViewModel(inputViewModel);
             DataTable Staticne = new DataTable();
             DataTable Slobodne = new DataTable();
             DataTable SvSala = new DataTable();

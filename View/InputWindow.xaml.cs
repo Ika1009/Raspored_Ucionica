@@ -28,7 +28,7 @@ namespace Raspored_Ucionica
 
         private void noviwindowButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(viewModel);
             mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             mainWindow.Show();
             Close();

@@ -152,7 +152,7 @@ namespace Raspored_Ucionica.Model
                 new Odeljenje("I-1", 19),//lutajuca
                 new Odeljenje("I-2",19),//lutajuca
                 new Odeljenje("I-3",18),//lutajuca
-                new Odeljenje("I-4",30, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "28").Id), // svuda da se stavi
+                new Odeljenje("I-4",30, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "28").Id),
                 new Odeljenje("I-5",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "31").Id),
                 new Odeljenje("I-6",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "10").Id),
                 new Odeljenje("I-7",32, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "25").Id),
