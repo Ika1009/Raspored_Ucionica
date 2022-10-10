@@ -194,7 +194,18 @@ namespace Raspored_Ucionica.ViewModel
         }
         public InputWindowViewModel()
         {
-            checked11 = false;
+            Checked11 = false;
+            Checked12 = false;
+            Checked13 = false;
+            Checked21 = false;
+            Checked22 = false;
+            Checked23 = false;
+            Checked31 = false;
+            Checked32 = false;
+            Checked33 = false;
+            Checked41 = false;
+            Checked42 = false;
+            Checked43 = false;
             Broj_lutajucih = 0;
         }
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

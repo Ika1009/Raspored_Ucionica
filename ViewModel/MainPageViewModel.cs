@@ -18,27 +18,83 @@ namespace Raspored_Ucionica.ViewModel
         public MainPageViewModel(InputWindowViewModel inputVM)
         {
             inputViewModel = inputVM;
+            IzaberiLutajuce();
+            List<Odeljenje> lista_odeljenjaSort;
+            lista_odeljenjaSort = lista_odeljenja.OrderBy(x => x.Broj_ucenika).ToList();
+            for (int i = 0; i >= 31; i++)
+            {
+                if (lista_odeljenjaSort[i].Id_ucionice != null)
+                {
+                    if (lista_odeljenjaSort[i].Ime_odeljenja == "III-2")
+                    {
+                        lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == "39").Id;
+                        Ucionica temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
+                        temp.Slobodna = false;
+                    }
+                    Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
+                    lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == ucionica.Ime_ucionice).Id;
+                    ucionica.Slobodna = false;
+                }
+            }
             rezultatiPonedeljak = new();
             rezultatiUtorak = new();
             rezultatiSreda = new();
             rezultatiCetvrtak = new();
             rezultatiPetak = new();
             Slobodne = new()
-            {
-                new List<string>() {"", "", "", "", ""},
-                new List<string>() {"", ".", ".", ".", "."},
-                new List<string>() {"", ".", ".", ".", "."},
-                new List<string>() {"", ".", ".", ".", "."},
-                new List<string>() {"", ".", ".", ".", "."},
-                new List<string>() {"", ".", ".", ".", "."},
-                new List<string>() {"", ".", ".", ".", "."},
-                new List<string>() {"", ".", ".", ".", "."}
-            };
+        {
+            new List<string>() {"", "", "", "", ""},
+            new List<string>() {"", ".", ".", ".", "."},
+            new List<string>() {"", ".", ".", ".", "."},
+            new List<string>() {"", ".", ".", ".", "."},
+            new List<string>() {"", ".", ".", ".", "."},
+            new List<string>() {"", ".", ".", ".", "."},
+            new List<string>() {"", ".", ".", ".", "."},
+            new List<string>() {"", ".", ".", ".", "."}
+        };
             rezultatiPonedeljak = NapraviRaspored(ponedeljak, Kponedeljak);
             rezultatiUtorak = NapraviRaspored(utorak, Kutorak);
             rezultatiSreda = NapraviRaspored(sreda, Ksreda);
             rezultatiCetvrtak = NapraviRaspored(cetvrtak, Kcetvrtak);
             rezultatiPetak = NapraviRaspored(petak, Kpetak);
+            
+            
+            
+        }
+        public void IzaberiLutajuce()
+        {
+            int br = 0;
+            void DodajLutajuce(string imeOdeljenja) // dodaje mu stalnu ucionicu
+            {
+                Odeljenje odeljenjeTemp;
+                odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == imeOdeljenja);
+                odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![br];
+                br++;
+            }
+            if (!inputViewModel.Checked11)
+                DodajLutajuce("I-1");
+            if (!inputViewModel.Checked12)
+                DodajLutajuce("I-2");
+            if (!inputViewModel.Checked13)
+                DodajLutajuce("I-3");
+            if (!inputViewModel.Checked21)
+                DodajLutajuce("II-1");
+            if (!inputViewModel.Checked22)
+                DodajLutajuce("II-2");
+            if (!inputViewModel.Checked23)
+                DodajLutajuce("II-3");
+            if (!inputViewModel.Checked31)
+                DodajLutajuce("III-1");
+            if (!inputViewModel.Checked32)
+                DodajLutajuce("III-2");
+            if (!inputViewModel.Checked33)
+                DodajLutajuce("III-3");
+            if (!inputViewModel.Checked41)
+                DodajLutajuce("IV-1");
+            if (!inputViewModel.Checked42)
+                DodajLutajuce("IV-2");
+            if (!inputViewModel.Checked43)
+                DodajLutajuce("IV-3");
         }
         public List<List<string>> NapraviRaspored(Raspored? dan, Kabineti? Kdan)
         {
