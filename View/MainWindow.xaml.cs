@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Raspored_Ucionica.Model;
+using Raspored_Ucionica.ViewModel;
 
 namespace Raspored_Ucionica
 {
@@ -19,8 +20,6 @@ namespace Raspored_Ucionica
 
     public partial class MainWindow : Window
     {
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -43,7 +42,6 @@ namespace Raspored_Ucionica
             int nbRows = 8;
             for (int i = 0; i < kolona; i++)
             {
-
                 if (i == 0)
                 {
                     //SvSala.Columns.Add("Понедељак");
@@ -282,5 +280,12 @@ namespace Raspored_Ucionica
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            InputWindow window1 = new InputWindow();
+            window1.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window1.Show();
+            Close();
+        }
     }
 }

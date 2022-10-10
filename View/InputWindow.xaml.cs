@@ -11,18 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Raspored_Ucionica.ViewModel;
 
 namespace Raspored_Ucionica
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
-    public partial class Window1 : Window
+    public partial class InputWindow : Window
     {
-        public Window1()
+        InputWindowViewModel viewModel;
+        public InputWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            viewModel = new();
         }
 
         private void noviwindowButton_Click(object sender, RoutedEventArgs e)
@@ -32,5 +32,6 @@ namespace Raspored_Ucionica
             mainWindow.Show();
             Close();
         }
+
     }
 }

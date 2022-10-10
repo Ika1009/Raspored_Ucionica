@@ -1,7 +1,6 @@
-﻿using Raspored_Ucionica.Model;
-using System.Windows.Data;
+﻿using System.Windows.Data;
 
-namespace Raspored_Ucionica
+namespace Raspored_Ucionica.Model
 {
     public class SviPodaci
     {
@@ -108,46 +107,46 @@ namespace Raspored_Ucionica
                 new List<string>() { "reg", "info", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "fv", "verska/g2", "verska/g1"},
                 new List<string>() { "", "", "", "reg", "reg", "reg", "", "", "fv", "reg", "", "", "", "", "", "g2", "info", "reg", "", "","", "reg", "", "", "verska", "verska", "verska", "reg", "reg", "", "", ""}
             });
-            
-            
+
+
 
             lista_ucionica = new()
             {
                 new Ucionica("P4", 15, true, true),
                 new Ucionica("jezicka1", 16, true, true),
                 new Ucionica("8", 20, true),
-                new Ucionica("23b", 20, false),
-                new Ucionica("11", 22, false),
-                new Ucionica("33", 24, false),
-                new Ucionica("30", 24, false),
+                new Ucionica("23b", 20, true),
+                new Ucionica("11", 22, true),
+                new Ucionica("33", 24, true),
+                new Ucionica("30", 24, true),
                 new Ucionica("jezicka2", 24, true, true),
                 new Ucionica("biblioteka", 25, true, true),
-                new Ucionica("21", 26, false),
-                new Ucionica("35", 26, false),
-                new Ucionica("39", 28, false),
-                new Ucionica("P3", 28, false),
-                new Ucionica("P1", 30, false),
-                new Ucionica("28", 30, false),
-                new Ucionica("42", 30, false),
-                new Ucionica("13", 32, false),
-                new Ucionica("25", 32, false),
-                new Ucionica("26", 32, false),
-                new Ucionica("27", 32, false),
-                new Ucionica("37", 32, false),
-                new Ucionica("24", 35, false),
-                new Ucionica("P2", 36, false),
-                new Ucionica("20", 36, false),
-                new Ucionica("31", 36, false),
-                new Ucionica("32", 36, false),
-                new Ucionica("36", 36, false),
-                new Ucionica("40", 36, false),
-                new Ucionica("41", 36, false),
-                new Ucionica("9", 40, false),
-                new Ucionica("10", 40, false),
+                new Ucionica("21", 26, true),
+                new Ucionica("35", 26, true),
+                new Ucionica("39", 28, true),
+                new Ucionica("P3", 28, true),
+                new Ucionica("P1", 30, true),
+                new Ucionica("28", 30, true),
+                new Ucionica("42", 30, true),
+                new Ucionica("13", 32, true),
+                new Ucionica("25", 32, true),
+                new Ucionica("26", 32, true),
+                new Ucionica("27", 32, true),
+                new Ucionica("37", 32, true),
+                new Ucionica("24", 35, true),
+                new Ucionica("P2", 36, true),
+                new Ucionica("31", 36, true),
+                new Ucionica("32", 36, true),
+                new Ucionica("36", 36, true),
+                new Ucionica("40", 36, true),
+                new Ucionica("41", 36, true),
+                   new Ucionica("20", 36, true),
+                new Ucionica("9", 40, true),
+                new Ucionica("10", 40, true),
                 new Ucionica("svecana sala",40,true),
 
             };
-           
+
             lista_odeljenja = new()
             {
                 new Odeljenje("I-1", 19),//lutajuca
@@ -184,6 +183,23 @@ namespace Raspored_Ucionica
                 new Odeljenje("IV-7",37, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "9").Id),
                 new Odeljenje("IV-8",36, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "41").Id),
             };
+            List<Odeljenje> lista_odeljenjaSort;
+            lista_odeljenjaSort = lista_odeljenja.OrderBy(x => x.Broj_ucenika).ToList();
+            for(int i=0; i>=31; i++)
+            {
+                if (lista_odeljenjaSort[i].Id_ucionice != null)
+                {
+                    if (lista_odeljenjaSort[i].Ime_odeljenja == "III-2")
+                    {
+                        lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == "39").Id;
+                        Ucionica temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
+                        temp.Slobodna = false;
+                    }
+                    Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
+                    lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == ucionica.Ime_ucionice).Id;
+                    ucionica.Slobodna = false;
+                }
+            }
         }
     }
 }
