@@ -174,45 +174,45 @@ namespace Raspored_Ucionica
                             prvo1[col] = viewModel.rezultatiPonedeljak[row][0];
                             prvo2[col] = viewModel.rezultatiPonedeljak[row][1];
                             prvo3[col] = viewModel.rezultatiPonedeljak[row][2];
-                            drugo1[col] = viewModel.rezultatiPonedeljak[row][7];
-                            drugo2[col] = viewModel.rezultatiPonedeljak[row][8];
-                            drugo3[col] = viewModel.rezultatiPonedeljak[row][9];
+                            drugo1[col] = viewModel.rezultatiPonedeljak[row][8];
+                            drugo2[col] = viewModel.rezultatiPonedeljak[row][9];
+                            drugo3[col] = viewModel.rezultatiPonedeljak[row][10];
                         }
                         else if (col == 1)
                         {
                             prvo1[col] = viewModel.rezultatiUtorak[row][0];
                             prvo2[col] = viewModel.rezultatiUtorak[row][1];
                             prvo3[col] = viewModel.rezultatiUtorak[row][2];
-                            drugo1[col] = viewModel.rezultatiUtorak[row][7];
-                            drugo2[col] = viewModel.rezultatiUtorak[row][8];
-                            drugo3[col] = viewModel.rezultatiUtorak[row][9];
+                            drugo1[col] = viewModel.rezultatiUtorak[row][8];
+                            drugo2[col] = viewModel.rezultatiUtorak[row][9];
+                            drugo3[col] = viewModel.rezultatiUtorak[row][10];
                         }
                         else if (col == 2)
                         {
                             prvo1[col] = viewModel.rezultatiSreda[row][0];
                             prvo2[col] = viewModel.rezultatiSreda[row][1];
                             prvo3[col] = viewModel.rezultatiSreda[row][2];
-                            drugo1[col] = viewModel.rezultatiSreda[row][7];
-                            drugo2[col] = viewModel.rezultatiSreda[row][8];
-                            drugo3[col] = viewModel.rezultatiSreda[row][9];
+                            drugo1[col] = viewModel.rezultatiSreda[row][8];
+                            drugo2[col] = viewModel.rezultatiSreda[row][9];
+                            drugo3[col] = viewModel.rezultatiSreda[row][10];
                         }
                         else if (col == 3)
                         {
                             prvo1[col] = viewModel.rezultatiCetvrtak[row][0];
                             prvo2[col] = viewModel.rezultatiCetvrtak[row][1];
                             prvo3[col] = viewModel.rezultatiCetvrtak[row][2];
-                            drugo1[col] = viewModel.rezultatiCetvrtak[row][7];
-                            drugo2[col] = viewModel.rezultatiCetvrtak[row][8];
-                            drugo3[col] = viewModel.rezultatiCetvrtak[row][9];
+                            drugo1[col] = viewModel.rezultatiCetvrtak[row][8];
+                            drugo2[col] = viewModel.rezultatiCetvrtak[row][9];
+                            drugo3[col] = viewModel.rezultatiCetvrtak[row][10];
                         }
                         else
                         {
                             prvo1[col] = viewModel.rezultatiPetak[row][0];
                             prvo2[col] = viewModel.rezultatiPetak[row][1];
                             prvo3[col] = viewModel.rezultatiPetak[row][2];
-                            drugo1[col] = viewModel.rezultatiPetak[row][7];
-                            drugo2[col] = viewModel.rezultatiPetak[row][8];
-                            drugo3[col] = viewModel.rezultatiPetak[row][9];
+                            drugo1[col] = viewModel.rezultatiPetak[row][8];
+                            drugo2[col] = viewModel.rezultatiPetak[row][9];
+                            drugo3[col] = viewModel.rezultatiPetak[row][10];
                         }
                     }
                     Slobodne.Rows.Add(dr);
