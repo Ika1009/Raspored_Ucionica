@@ -1,7 +1,6 @@
-﻿using Raspored_Ucionica.Model;
-using System.Windows.Data;
+﻿using System.Windows.Data;
 
-namespace Raspored_Ucionica
+namespace Raspored_Ucionica.Model
 {
     public class SviPodaci
     {
@@ -108,8 +107,8 @@ namespace Raspored_Ucionica
                 new List<string>() { "reg", "info", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "fv", "verska/g2", "verska/g1"},
                 new List<string>() { "", "", "", "reg", "reg", "reg", "", "", "fv", "reg", "", "", "", "", "", "g2", "info", "reg", "", "","", "reg", "", "", "verska", "verska", "verska", "reg", "reg", "", "", ""}
             });
-            
-            
+
+
 
             lista_ucionica = new()
             {
@@ -147,7 +146,7 @@ namespace Raspored_Ucionica
                 new Ucionica("svecana sala",40,true),
 
             };
-           
+
             lista_odeljenja = new()
             {
                 new Odeljenje("I-1", 19),//lutajuca

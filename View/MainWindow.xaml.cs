@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Raspored_Ucionica.Model;
+using Raspored_Ucionica.ViewModel;
 
 namespace Raspored_Ucionica
 {
