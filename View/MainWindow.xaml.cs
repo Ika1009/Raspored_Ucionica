@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Raspored_Ucionica.Model;
+using Raspored_Ucionica.ViewModel;
 
 namespace Raspored_Ucionica
 {
@@ -282,5 +283,12 @@ namespace Raspored_Ucionica
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 window1 = new Window1();
+            window1.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window1.Show();
+            Close();
+        }
     }
 }

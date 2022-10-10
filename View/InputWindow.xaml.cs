@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Raspored_Ucionica
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
     public partial class Window1 : Window
     {
         public Window1()
@@ -32,5 +29,6 @@ namespace Raspored_Ucionica
             mainWindow.Show();
             Close();
         }
+
     }
 }

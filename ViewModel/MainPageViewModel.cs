@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 
-namespace Raspored_Ucionica
+namespace Raspored_Ucionica.ViewModel
 {
 
     public class MainPageViewModel : SviPodaci
@@ -41,7 +41,7 @@ namespace Raspored_Ucionica
         }
         public List<List<string>> NapraviRaspored(Raspored? dan, Kabineti? Kdan)
         {
- 
+
             List<List<string>> rezultati;
             rezultati = new()
             {
@@ -68,7 +68,7 @@ namespace Raspored_Ucionica
 
             void DrziOdeljenje(int i, int j) // nalazi slobodnu ucionicu za oba odeljenja
             {
-                
+
                 if (lista_odeljenja![j].Id_ucionice is not null) // nije lutajuce
                 {
                     lista_ucionica![lista_odeljenja![j].Id_ucionice!.Value].Slobodna = false;
@@ -119,7 +119,7 @@ namespace Raspored_Ucionica
                 for (int j = 0; j < 32; j++)
                 {
                     if (dan!.RasporedCasova[i][j] == "." || dan!.RasporedCasova[i][j] == "" || dan.RasporedCasova[i][j] == "fv" || dan.RasporedCasova[i][j] == "info" ||
-                        dan!.RasporedCasova[i][j] == "hem/info" || dan!.RasporedCasova[i][j] == "info/hem" || 
+                        dan!.RasporedCasova[i][j] == "hem/info" || dan!.RasporedCasova[i][j] == "info/hem" ||
                         dan!.RasporedCasova[i][j] == "g1" || dan!.RasporedCasova[i][j] == "g2" || dan!.RasporedCasova[i][j] == "g3" ||
                         dan!.RasporedCasova[i][j] == "g4" || dan!.RasporedCasova[i][j] == "g5")
                     {
@@ -134,11 +134,11 @@ namespace Raspored_Ucionica
                 for (int j = 0; j < 32; j++)
                 {
                     int duzina = dan.RasporedCasova[i][j].Count(x => x == '/');
-                    for(int k=0; k<=duzina; k++)
+                    for (int k = 0; k <= duzina; k++)
                     {
                         string trenutno = dan.RasporedCasova[i][j].Split("/")[k];
-                        if(trenutno == "r") { Da_Li_Se_Koristi_J2 = true; }
-                    }  
+                        if (trenutno == "r") { Da_Li_Se_Koristi_J2 = true; }
+                    }
                 }
                 if (!Da_Li_Se_Koristi_J2) { lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "jezicka2").Tip = null; }
 
@@ -166,7 +166,7 @@ namespace Raspored_Ucionica
                         }
                     }
                 }
-                else if(lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
+                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
                 {
                     Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
                     rezultati[i][j] += slobodna.Ime_ucionice + " ";
@@ -183,7 +183,7 @@ namespace Raspored_Ucionica
             {
                 if (!imanjeCasa)
                 {
-                    imeUcioniceZaGradjansko = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"  ).Last().Ime_ucionice;
+                    imeUcioniceZaGradjansko = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                     imanjeCasa = true;
                 }
                 SpajanjeOdeljenja(imeCasa, imeUcioniceZaGradjansko, i, j);
@@ -231,7 +231,7 @@ namespace Raspored_Ucionica
 
                 else if (dan!.RasporedCasova[0][i] == "g1")
                 {
-                    if(!g1Ima)
+                    if (!g1Ima)
                     {
                         imeUcioniceZaGradjansko1 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                         g1Ima = true;
@@ -243,7 +243,7 @@ namespace Raspored_Ucionica
                 {
                     if (!g2Ima)
                     {
-                        imeUcioniceZaGradjansko2 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"   ).Last().Ime_ucionice;
+                        imeUcioniceZaGradjansko2 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                         g2Ima = true;
                     }
                     SpajanjeOdeljenja("g2", imeUcioniceZaGradjansko2, 0, i);
@@ -252,7 +252,7 @@ namespace Raspored_Ucionica
                 {
                     if (!g3Ima)
                     {
-                        imeUcioniceZaGradjansko3 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"   ).Last().Ime_ucionice;
+                        imeUcioniceZaGradjansko3 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                         g3Ima = true;
                     }
                     SpajanjeOdeljenja("g3", imeUcioniceZaGradjansko3, 0, i);
@@ -261,7 +261,7 @@ namespace Raspored_Ucionica
                 {
                     if (!g4Ima)
                     {
-                        imeUcioniceZaGradjansko4 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"    ).Last().Ime_ucionice;
+                        imeUcioniceZaGradjansko4 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                         g4Ima = true;
                     }
                     SpajanjeOdeljenja("g4", imeUcioniceZaGradjansko4, 0, i);
@@ -270,7 +270,7 @@ namespace Raspored_Ucionica
                 {
                     if (!g5Ima)
                     {
-                        imeUcioniceZaGradjansko5 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"   ).Last().Ime_ucionice;
+                        imeUcioniceZaGradjansko5 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                         g5Ima = true;
                     }
                     SpajanjeOdeljenja("g5", imeUcioniceZaGradjansko5, 0, i);
@@ -279,14 +279,14 @@ namespace Raspored_Ucionica
 
             }
             //NadjiSlobodne(0);
-            
+
             //!!//
             //!GLAVNA FOR PETLJA!//
             //!!!//
             for (int i = 1; i < 8; i++) // za dan
             {
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
-                string imeUcioniceZaFrancuski="", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
+                string imeUcioniceZaFrancuski = "", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
                 bool imanjeCasaFrancuski = false;
                 Ucionica jezicka2 = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "jezicka2");
                 jezicka2.Tip = true;
@@ -309,7 +309,7 @@ namespace Raspored_Ucionica
                         SpajanjeOdeljenja(dan.RasporedCasova[i][j], "biblioteka", i, j);
                     else if (dan!.RasporedCasova[i][j].Contains('/'))
                     {
-                        
+
                         rezultati[i][j] = "";
                         string cas = dan!.RasporedCasova[i][j];
                         int brojac = cas.Count(c => c == '/');
@@ -370,21 +370,21 @@ namespace Raspored_Ucionica
                             {
                                 if (!imanjeCasaFrancuski)
                                 {
-                                    imeUcioniceZaFrancuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"   ).Last().Ime_ucionice;
+                                    imeUcioniceZaFrancuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                                     imanjeCasaFrancuski = true;
                                 }
                                 SpajanjeOdeljenja("f", imeUcioniceZaFrancuski, i, j);
                             }
 
                         }
-                    
+
                     }
 
                     else if (dan!.RasporedCasova[i][j] == "g1")
                     {
                         if (!g1Ima)
                         {
-                            imeUcioniceZaGradjansko1 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"   ).Last().Ime_ucionice;
+                            imeUcioniceZaGradjansko1 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                             g1Ima = true;
                         }
                         SpajanjeOdeljenja("g1", imeUcioniceZaGradjansko1, i, j);
@@ -394,7 +394,7 @@ namespace Raspored_Ucionica
                     {
                         if (!g2Ima)
                         {
-                            imeUcioniceZaGradjansko2 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"   ).Last().Ime_ucionice;
+                            imeUcioniceZaGradjansko2 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                             g2Ima = true;
                         }
                         SpajanjeOdeljenja("g2", imeUcioniceZaGradjansko2, i, j);
@@ -403,7 +403,7 @@ namespace Raspored_Ucionica
                     {
                         if (!g3Ima)
                         {
-                            imeUcioniceZaGradjansko3 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"    ).Last().Ime_ucionice;
+                            imeUcioniceZaGradjansko3 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                             g3Ima = true;
                         }
                         SpajanjeOdeljenja("g3", imeUcioniceZaGradjansko3, i, i);
@@ -412,7 +412,7 @@ namespace Raspored_Ucionica
                     {
                         if (!g4Ima)
                         {
-                            imeUcioniceZaGradjansko4 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"   ).Last().Ime_ucionice;
+                            imeUcioniceZaGradjansko4 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                             g4Ima = true;
                         }
                         SpajanjeOdeljenja("g4", imeUcioniceZaGradjansko4, i, j);
@@ -421,7 +421,7 @@ namespace Raspored_Ucionica
                     {
                         if (!g5Ima)
                         {
-                            imeUcioniceZaGradjansko5 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala"   ).Last().Ime_ucionice;
+                            imeUcioniceZaGradjansko5 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                             g5Ima = true;
                         }
                         SpajanjeOdeljenja("g5", imeUcioniceZaGradjansko5, i, j);
@@ -439,16 +439,16 @@ namespace Raspored_Ucionica
                 {
                     if (rezultati[i][j].IndexOf('.') != -1)
                         rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('.'), 1);
-                    if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].IndexOf('/') == rezultati[i][j].Length-1)
+                    if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].IndexOf('/') == rezultati[i][j].Length - 1)
                         rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('/'), 1);
-                    
+
                 }
             }
-            
+
             return rezultati;
         }
     }
 
 }
 
-    
+
