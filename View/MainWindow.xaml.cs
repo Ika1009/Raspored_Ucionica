@@ -24,6 +24,7 @@ namespace Raspored_Ucionica
         {
             InitializeComponent();
             MainPageViewModel viewModel = new MainPageViewModel();
+            DataTable Staticne = new DataTable();
             DataTable Slobodne = new DataTable();
             DataTable SvSala = new DataTable();
             DataTable dt = new DataTable();
@@ -40,6 +41,59 @@ namespace Raspored_Ucionica
             int kolona = 5, redovi = 8;
             int nbColumns = 32;
             int nbRows = 8;
+            for (int row = 0; row < redovi; row++)
+            {
+                SvSala.Columns.Add(row.ToString());
+            }
+            for (int row = 0; row < kolona; row++)
+            {
+                DataRow drr = SvSala.NewRow();
+                for (int col = 0; col < redovi; col++)
+                {
+
+                    for (int i = 0; i < nbColumns; i++)
+                    {
+                        if (row == 0)
+                        {
+                            if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala") /*|| viewModel.rezultatiUtorak[col][i].Contains("svecana sala") || viewModel.rezultatiSreda[col][i].Contains("svecana sala") || viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala") || viewModel.rezultatiPetak[col][i].Contains("svecana sala")*/)
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+
+                        else if (row == 1)
+                        {
+                            if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+                        else if (row == 2)
+                        {
+                            if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+                        else if (row == 3)
+                        {
+                            if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+                        else
+                        {
+                            if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += "zauzeta";
+                            }
+                        }
+                    }
+
+                }
+                SvSala.Rows.Add(drr);
+            }
             for (int i = 0; i < kolona; i++)
             {
                 if (i == 0)
@@ -99,61 +153,6 @@ namespace Raspored_Ucionica
                 }
 
             }
-            for (int row = 0; row < redovi; row++)
-            {
-                SvSala.Columns.Add(row.ToString());
-            }
-
-            for (int row = 0; row < kolona; row++)
-            {
-                DataRow drr = SvSala.NewRow();
-                for (int col = 0; col < redovi; col++)
-                {
-
-                    for (int i = 0; i < nbColumns; i++)
-                    {
-                        if (row == 0)
-                        {
-                            if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala") /*|| viewModel.rezultatiUtorak[col][i].Contains("svecana sala") || viewModel.rezultatiSreda[col][i].Contains("svecana sala") || viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala") || viewModel.rezultatiPetak[col][i].Contains("svecana sala")*/)
-                            {
-                                drr[col] += "zauzeta";
-                            }
-                        }
-
-                        else if (row == 1)
-                        {
-                            if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
-                            {
-                                drr[col] += "zauzeta";
-                            }
-                        }
-                        else if (row == 2)
-                        {
-                            if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
-                            {
-                                drr[col] += "zauzeta";
-                            }
-                        }
-                        else if (row == 3)
-                        {
-                            if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
-                            {
-                                drr[col] += "zauzeta";
-                            }
-                        }
-                        else
-                        {
-                            if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
-                            {
-                                drr[col] += "zauzeta";
-                            }
-                        }
-                    }
-
-                }
-                SvSala.Rows.Add(drr);
-            }
-            //dt.Columns.Add("");
             for (int row = 0; row < redovi; row++)
             {
                 DataRow dr = Slobodne.NewRow();
@@ -235,17 +234,27 @@ namespace Raspored_Ucionica
             rezultatiSlob.ItemsSource = Slobodne.DefaultView;
 
 
-
-
+            DataRow stati = Staticne.NewRow();
+            //ispis za rezultate
             for (int i = 0; i < nbColumns; i++)
             {
-                dt.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
-                dt2.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
-                dt3.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
-                dt4.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
-                dt5.Columns.Add((i / 8 + 1).ToString() + "-" + (i % 8 + 1).ToString(), typeof(string));
+                Staticne.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                if (viewModel.lista_odeljenja[i].Id_ucionice == null)
+                {
+                    stati[i] += "Lutajuce";
+                }
+                else
+                {
+                    stati[i] += viewModel.lista_ucionica.First(ucionica => ucionica.Id == viewModel.lista_odeljenja[i].Id_ucionice).Ime_ucionice;
+                }
+
+                dt.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                dt2.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                dt3.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                dt4.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
+                dt5.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
             }
-            //dt.Columns.Add("");
+            Staticne.Rows.Add(stati);
             for (int row = 0; row < nbRows; row++)
             {
 
@@ -256,6 +265,7 @@ namespace Raspored_Ucionica
                 DataRow dr5 = dt5.NewRow();
                 for (int col = 0; col < nbColumns; col++)
                 {
+
                     dr[col] = viewModel.rezultatiPonedeljak[row][col];
                     dr2[col] = viewModel.rezultatiUtorak[row][col];
                     dr3[col] = viewModel.rezultatiSreda[row][col];
@@ -271,13 +281,12 @@ namespace Raspored_Ucionica
 
 
 
-
-            rezultatiPon.ItemsSource = dt.DefaultView;
+            staticne.ItemsSource = Staticne.DefaultView;
+            /*rezultatiPon.ItemsSource = dt.DefaultView;
             rezultatiUto.ItemsSource = dt2.DefaultView;
             rezultatiSre.ItemsSource = dt3.DefaultView;
             rezultatiCet.ItemsSource = dt4.DefaultView;
-            rezultatiPet.ItemsSource = dt5.DefaultView;
-
+            rezultatiPet.ItemsSource = dt5.DefaultView;*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
