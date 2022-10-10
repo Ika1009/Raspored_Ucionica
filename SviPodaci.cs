@@ -159,8 +159,8 @@ namespace Raspored_Ucionica
                 new Odeljenje("I-7",32, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "25").Id),
                 new Odeljenje("I-8",29, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "37").Id),
                 new Odeljenje("II-1", 19),//lutajuca
-                new Odeljenje("II-2",20),//lutajuca
-                //new Odeljenje("II-3",17, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "29").Id),//lutajuca
+                //new Odeljenje("II-2",20,lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "svecana sala").Id), 
+                new Odeljenje("II-2",20),//lutajuca              
                 new Odeljenje("II-3",17),//lutajuca
                 new Odeljenje("II-4",28, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "27").Id),
                 new Odeljenje("II-5",34, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "24").Id),
