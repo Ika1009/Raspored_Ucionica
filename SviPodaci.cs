@@ -184,6 +184,16 @@ namespace Raspored_Ucionica
                 new Odeljenje("IV-7",37, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "9").Id),
                 new Odeljenje("IV-8",36, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "41").Id),
             };
+            List<Odeljenje> lista_odeljenjaSort;
+            lista_odeljenjaSort = lista_odeljenja.OrderBy(x => x.Broj_ucenika).ToList();
+            for(int i=31; i>=0; i--)
+            {
+                if (lista_odeljenjaSort[i].Id_ucionice != null)
+                {
+                    Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
+                    lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == ucionica.Ime_ucionice).Id;
+                }
+            }
         }
     }
 }
