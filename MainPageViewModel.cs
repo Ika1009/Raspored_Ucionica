@@ -164,17 +164,17 @@ namespace Raspored_Ucionica
                             Kdan.RasporedKabineta[k][i] = "false";
                             break;
                         }
-                        //else
-                        //{
-                        //    MessageBox.Show("Nemoguć raspored.");
-                        //}
                     }
+                }
+                else if(lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
+                {
+                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
+                    rezultati[i][j] += slobodna.Ime_ucionice + " ";
+                    slobodna.Slobodna = false;
                 }
                 else
                 {
-                    Odeljenje odeljenje = lista_odeljenja.First(odeljenje => odeljenje.Id == j);
-                    int velicina_odeljenja = odeljenje.Broj_ucenika - 2;
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && (ucionica.Velicina > velicina_odeljenja || ucionica.Velicina == velicina_odeljenja));
+                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                     rezultati[i][j] += slobodna.Ime_ucionice + " ";
                     slobodna.Slobodna = false;
                 }
