@@ -135,12 +135,12 @@ namespace Raspored_Ucionica.Model
                 new Ucionica("37", 32, true),
                 new Ucionica("24", 35, true),
                 new Ucionica("P2", 36, true),
-                new Ucionica("20", 36, true),
                 new Ucionica("31", 36, true),
                 new Ucionica("32", 36, true),
                 new Ucionica("36", 36, true),
                 new Ucionica("40", 36, true),
                 new Ucionica("41", 36, true),
+                   new Ucionica("20", 36, true),
                 new Ucionica("9", 40, true),
                 new Ucionica("10", 40, true),
                 new Ucionica("svecana sala",40,true),
@@ -185,12 +185,18 @@ namespace Raspored_Ucionica.Model
             };
             List<Odeljenje> lista_odeljenjaSort;
             lista_odeljenjaSort = lista_odeljenja.OrderBy(x => x.Broj_ucenika).ToList();
-            for(int i=31; i>=0; i--)
+            for(int i=0; i>=31; i++)
             {
                 if (lista_odeljenjaSort[i].Id_ucionice != null)
                 {
-                    Ucionica ucionica = lista_ucionica.Last(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
-                    lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.Last(trazeno => trazeno.Ime_ucionice == ucionica.Ime_ucionice).Id;
+                    if (lista_odeljenjaSort[i].Ime_odeljenja == "III-2")
+                    {
+                        lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == "39").Id;
+                        Ucionica temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
+                        temp.Slobodna = false;
+                    }
+                    Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
+                    lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == ucionica.Ime_ucionice).Id;
                     ucionica.Slobodna = false;
                 }
             }
