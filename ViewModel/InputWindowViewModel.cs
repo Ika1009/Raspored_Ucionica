@@ -18,7 +18,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked11 = value;
-                Broj_lutajucih++;
+                if(value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
             }
         }
@@ -29,7 +32,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked12 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
             }
         }
@@ -40,7 +46,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked13 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
             }
         }
@@ -51,7 +60,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked21 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -62,7 +74,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked22 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -73,7 +88,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked23 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -84,7 +102,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked31 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -95,7 +116,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked32 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -106,7 +130,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked33 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -117,7 +144,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked41 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -128,7 +158,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked42 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -139,7 +172,10 @@ namespace Raspored_Ucionica.ViewModel
             set
             {
                 checked43 = value;
-                Broj_lutajucih++;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
                 NotifyPropertyChanged();
                 }
             }
@@ -158,7 +194,18 @@ namespace Raspored_Ucionica.ViewModel
         }
         public InputWindowViewModel()
         {
-            checked11 = false;
+            Checked11 = false;
+            Checked12 = false;
+            Checked13 = false;
+            Checked21 = false;
+            Checked22 = false;
+            Checked23 = false;
+            Checked31 = false;
+            Checked32 = false;
+            Checked33 = false;
+            Checked41 = false;
+            Checked42 = false;
+            Checked43 = false;
             Broj_lutajucih = 0;
         }
         private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

@@ -28,10 +28,17 @@ namespace Raspored_Ucionica
 
         private void noviwindowButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            mainWindow.Show();
-            Close();
+            try
+            {
+                MainWindow mainWindow = new MainWindow(viewModel);
+                mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                mainWindow.Show();
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Doslo je do problema, proverite da li postoji resenje za odgovarajuci izbor lutajucih ucionica!\nGreska: " + ex.Message, "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void Checkovanje(object sender, RoutedEventArgs e)
         {
