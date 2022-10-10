@@ -282,11 +282,11 @@ namespace Raspored_Ucionica
 
 
             staticne.ItemsSource = Staticne.DefaultView;
-            rezultatiPon.ItemsSource = dt.DefaultView;
+            /*rezultatiPon.ItemsSource = dt.DefaultView;
             rezultatiUto.ItemsSource = dt2.DefaultView;
             rezultatiSre.ItemsSource = dt3.DefaultView;
             rezultatiCet.ItemsSource = dt4.DefaultView;
-            rezultatiPet.ItemsSource = dt5.DefaultView;
+            rezultatiPet.ItemsSource = dt5.DefaultView;*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
