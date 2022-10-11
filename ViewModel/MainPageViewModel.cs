@@ -23,7 +23,7 @@ namespace Raspored_Ucionica.ViewModel
             lista_odeljenjaSort = lista_odeljenja.OrderByDescending(x => x.Broj_ucenika).ToList();
             foreach (Odeljenje odeljenje in lista_odeljenjaSort)
             {
-                if(odeljenje.Ime_odeljenja.Contains("3") == false && odeljenje.Ime_odeljenja.Contains("2") == false && odeljenje.Ime_odeljenja.Contains("1") == false)
+                if(odeljenje.Ime_odeljenja.Contains("3") == false && odeljenje.Ime_odeljenja.Contains("2") == false && odeljenje.Ime_odeljenja.Contains("1") == false && odeljenje.Ime_odeljenja != "III-4")
                 {
                     IzaberiStaticno(odeljenje.Ime_odeljenja, odeljenje.Broj_ucenika);
                 }
@@ -79,9 +79,12 @@ namespace Raspored_Ucionica.ViewModel
             {
                 Random random = new();
                 Odeljenje odeljenjeTemp;
+                Ucionica ucionicaTemp;
                 odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == imeOdeljenja);
                 int rendomBroj = random.Next(0, lista_id_ucionica_slobodnih_za_staticne!.Count - 1);
                 odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![rendomBroj];
+                ucionicaTemp = lista_ucionica.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice);
+                ucionicaTemp.Slobodna = false;
                 lista_id_ucionica_slobodnih_za_staticne.RemoveAt(rendomBroj);
                 br++;
             }
