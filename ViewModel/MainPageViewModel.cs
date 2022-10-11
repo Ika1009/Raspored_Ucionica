@@ -410,7 +410,7 @@ namespace Raspored_Ucionica.ViewModel
                                     rezultati[i][j] += "/info";
                             }
                             else if (trenutno == "/verska")
-                                rezultati[i][j] += "/bibl";
+                                rezultati[i][j] += "/bibl" + "/";
                             else if (trenutno == "g1")
                                 Gradjansko("g1", ref g1Ima, ref imeUcioniceZaGradjansko1, i, j);
                             else if (trenutno == "g2")
@@ -426,7 +426,7 @@ namespace Raspored_Ucionica.ViewModel
                             else if (trenutno == "r")
                                 rezultati[i][j] += "/j2";
                             else if (trenutno == "f" && biblioteka.Slobodna == true)
-                                rezultati[i][j] += "/bibl";
+                                rezultati[i][j] += "/bibl" + "/";
                             else if (trenutno == "f" && biblioteka.Slobodna == false)
                             {
                                 if (!imanjeCasaFrancuski)
