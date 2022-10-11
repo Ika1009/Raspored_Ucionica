@@ -109,7 +109,6 @@ namespace Raspored_Ucionica
                                 }
                                 dr[col] += "\n";
                             }
-                            else
 
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala"))
                             {
@@ -192,7 +191,6 @@ namespace Raspored_Ucionica
                 SvSala.Rows.Add(drr);
                 Grupe.Rows.Add(dr);
             }
-
             for (int i = 0; i < kolona; i++)
             {
                 if (i == 0)
