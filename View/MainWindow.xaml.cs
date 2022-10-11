@@ -57,17 +57,17 @@ namespace Raspored_Ucionica
                         druga = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
                     }
-                    else if (za_labele_index == 1)
+                    else if (za_labele_index == 2)
                     {
                         treca = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
                     }
-                    else if (za_labele_index == 1)
+                    else if (za_labele_index == 3)
                     {
                         cetvrta = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
                     }
-                    else if (za_labele_index == 1)
+                    else if (za_labele_index == 4)
                     {
                         peta = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
