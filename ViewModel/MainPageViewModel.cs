@@ -69,9 +69,12 @@ namespace Raspored_Ucionica.ViewModel
             int br = 0;
             void DodajLutajuce(string imeOdeljenja) // dodaje mu stalnu ucionicu
             {
+                Random random = new();
                 Odeljenje odeljenjeTemp;
                 odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == imeOdeljenja);
-                odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![br];
+                int rendomBroj = random.Next(0, lista_id_ucionica_slobodnih_za_staticne!.Count - 1);
+                odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![rendomBroj];
+                lista_id_ucionica_slobodnih_za_staticne.RemoveAt(rendomBroj);
                 br++;
             }
             if (!inputViewModel.Checked11)
@@ -89,7 +92,7 @@ namespace Raspored_Ucionica.ViewModel
             if (!inputViewModel.Checked31)
                 DodajLutajuce("III-1");
             if (!inputViewModel.Checked32)
-                DodajLutajuce("III-2");
+                DodajLutajuce("III-4");
             if (!inputViewModel.Checked33)
                 DodajLutajuce("III-3");
             if (!inputViewModel.Checked41)
@@ -410,7 +413,7 @@ namespace Raspored_Ucionica.ViewModel
                                     rezultati[i][j] += "/info";
                             }
                             else if (trenutno == "/verska")
-                                rezultati[i][j] += "/bibl";
+                                rezultati[i][j] += "/bibl" + "/";
                             else if (trenutno == "g1")
                                 Gradjansko("g1", ref g1Ima, ref imeUcioniceZaGradjansko1, i, j);
                             else if (trenutno == "g2")
@@ -426,7 +429,7 @@ namespace Raspored_Ucionica.ViewModel
                             else if (trenutno == "r")
                                 rezultati[i][j] += "/j2";
                             else if (trenutno == "f" && biblioteka.Slobodna == true)
-                                rezultati[i][j] += "/bibl";
+                                rezultati[i][j] += "/bibl" + "/";
                             else if (trenutno == "f" && biblioteka.Slobodna == false)
                             {
                                 if (!imanjeCasaFrancuski)
