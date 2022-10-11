@@ -25,6 +25,7 @@ namespace Raspored_Ucionica
             InitializeComponent();
 
             MainPageViewModel viewModel = new MainPageViewModel(inputViewModel);
+            SviPodaci sviPodaci = new SviPodaci();
             DataTable Grupe = new DataTable();
             DataTable Staticne = new DataTable();
             DataTable Slobodne = new DataTable();
@@ -99,7 +100,14 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
                             {
-                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
+
+                                string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
                             }
                             else
 
@@ -113,7 +121,14 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiUtorak[col][i].Contains("/"))
                             {
-                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
+                                string[] niz = viewModel.rezultatiUtorak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
+
                             }
                             if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
                             {
@@ -124,7 +139,13 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiSreda[col][i].Contains("/"))
                             {
-                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
+                                string[] niz = viewModel.rezultatiSreda[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
                             }
                             if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
                             {
@@ -135,7 +156,13 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("/"))
                             {
-                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
+                                string[] niz = viewModel.rezultatiCetvrtak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
                             }
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
                             {
@@ -146,7 +173,13 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiPetak[col][i].Contains("/"))
                             {
-                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
+                                string[] niz = viewModel.rezultatiPetak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
                             }
                             if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
                             {
