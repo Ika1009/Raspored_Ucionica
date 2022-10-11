@@ -20,22 +20,30 @@ namespace Raspored_Ucionica.ViewModel
             inputViewModel = inputVM;
             IzaberiLutajuce();
             List<Odeljenje> lista_odeljenjaSort;
-            lista_odeljenjaSort = lista_odeljenja.OrderBy(x => x.Broj_ucenika).ToList();
-            for (int i = 0; i >= 31; i++)
+            lista_odeljenjaSort = lista_odeljenja.OrderByDescending(x => x.Broj_ucenika).ToList();
+            foreach (Odeljenje odeljenje in lista_odeljenjaSort)
             {
-                if (lista_odeljenjaSort[i].Id_ucionice != null)
+                if(odeljenje.Ime_odeljenja.Contains("3") == false && odeljenje.Ime_odeljenja.Contains("2") == false && odeljenje.Ime_odeljenja.Contains("1") == false)
                 {
-                    if (lista_odeljenjaSort[i].Ime_odeljenja == "III-2")
-                    {
-                        lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == "39").Id;
-                        Ucionica temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
-                        temp.Slobodna = false;
-                    }
-                    Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
-                    lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == ucionica.Ime_ucionice).Id;
-                    ucionica.Slobodna = false;
+                    IzaberiStaticno(odeljenje.Ime_odeljenja, odeljenje.Broj_ucenika);
                 }
             }
+            
+            //for (int i = 0; i >= 31; i++)
+            //{
+            //    if (lista_odeljenjaSort[i].Id_ucionice != null)
+            //    {
+            //        if (lista_odeljenjaSort[i].Ime_odeljenja == "III-2")
+            //        {
+            //            lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == "39").Id;
+            //            Ucionica temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
+            //            temp.Slobodna = false;
+            //        }
+            //        Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
+            //        lista_odeljenjaSort[i].Id_ucionice = lista_ucionica.First(trazeno => trazeno.Ime_ucionice == ucionica.Ime_ucionice).Id;
+            //        ucionica.Slobodna = false;
+            //    }
+            //}
             rezultatiPonedeljak = new();
             rezultatiUtorak = new();
             rezultatiSreda = new();
@@ -66,7 +74,7 @@ namespace Raspored_Ucionica.ViewModel
         }
         public void IzaberiLutajuce()
         {
-            int br = 0;
+            int br = 0; 
             void DodajLutajuce(string imeOdeljenja) // dodaje mu stalnu ucionicu
             {
                 Random random = new();
@@ -101,6 +109,27 @@ namespace Raspored_Ucionica.ViewModel
                 DodajLutajuce("IV-2");
             if (!inputViewModel.Checked43)
                 DodajLutajuce("IV-3");
+        }
+        public void IzaberiStaticno(string Ime_odeljenja, int Velicina_odeljenja)
+        {
+            List<Ucionica> lista_mogucih = new List<Ucionica>();
+            Random random = new();
+            Odeljenje odeljenjeTemp;
+            odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == Ime_odeljenja);
+            
+            
+            foreach(Ucionica ucionica in lista_ucionica)
+            {
+                if(ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Velicina > (Velicina_odeljenja - 3))
+                {
+                    lista_mogucih.Add(ucionica);
+                }
+            }
+            int rendomBroj = random.Next(0, lista_mogucih!.Count - 1);
+            Ucionica Odabrana = lista_mogucih[rendomBroj];
+            odeljenjeTemp.Id_ucionice = Odabrana.Id;
+            Odabrana.Slobodna = false;
+            lista_mogucih.Clear();
         }
         public List<List<string>> NapraviRaspored(Raspored? dan, Kabineti? Kdan)
         {
@@ -208,7 +237,7 @@ namespace Raspored_Ucionica.ViewModel
             }
             void DrziLutajuce(int i, int j)
             {
-                if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana") is null)
+                if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null) is null)
                 {
                     for (int k = 0; k < 5; k++)
                     {
