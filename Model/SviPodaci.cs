@@ -8,7 +8,7 @@ namespace Raspored_Ucionica.Model
         public readonly List<Ucionica>? lista_ucionica;
         public readonly List<int>? lista_id_ucionica_slobodnih_za_staticne;
         protected readonly List<Ucionica>? lista_prioriteta;
-        protected readonly Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
+        public readonly Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
         protected readonly Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
         public SviPodaci()
         {

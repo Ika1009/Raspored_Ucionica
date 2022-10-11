@@ -25,6 +25,7 @@ namespace Raspored_Ucionica
             InitializeComponent();
 
             MainPageViewModel viewModel = new MainPageViewModel(inputViewModel);
+            SviPodaci sviPodaci = new SviPodaci();
             DataTable Grupe = new DataTable();
             DataTable Staticne = new DataTable();
             DataTable Slobodne = new DataTable();
@@ -99,12 +100,16 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
+
+                                string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
                             }
-                            else
-                            {
-                                dr[col] += "/";
-                            }
+
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala"))
                             {
                                 drr[col] += "zauzeta";
@@ -115,11 +120,14 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiUtorak[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
-                            }
-                            else
-                            {
-                                dr[col] += "/";
+                                string[] niz = viewModel.rezultatiUtorak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
+
                             }
                             if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
                             {
@@ -130,11 +138,13 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiSreda[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
-                            }
-                            else
-                            {
-                                dr[col] += "/";
+                                string[] niz = viewModel.rezultatiSreda[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
                             }
                             if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
                             {
@@ -145,11 +155,13 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
-                            }
-                            else
-                            {
-                                dr[col] += "/";
+                                string[] niz = viewModel.rezultatiCetvrtak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
                             }
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
                             {
@@ -160,11 +172,13 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiPetak[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
-                            }
-                            else
-                            {
-                                dr[col] += "/";
+                                string[] niz = viewModel.rezultatiPetak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                foreach (string s in niz)
+                                {
+                                    dr[col] += s + ", ";
+                                }
+                                dr[col] += "\n";
                             }
                             if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
                             {
@@ -177,7 +191,6 @@ namespace Raspored_Ucionica
                 SvSala.Rows.Add(drr);
                 Grupe.Rows.Add(dr);
             }
-
             for (int i = 0; i < kolona; i++)
             {
                 if (i == 0)
