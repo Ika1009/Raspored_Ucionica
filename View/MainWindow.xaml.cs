@@ -25,6 +25,7 @@ namespace Raspored_Ucionica
             InitializeComponent();
 
             MainPageViewModel viewModel = new MainPageViewModel(inputViewModel);
+            DataTable Grupe = new DataTable();
             DataTable Staticne = new DataTable();
             DataTable Slobodne = new DataTable();
             DataTable SvSala = new DataTable();
@@ -83,9 +84,11 @@ namespace Raspored_Ucionica
             for (int row = 0; row < redovi; row++)
             {
                 SvSala.Columns.Add(row.ToString());
+                Grupe.Columns.Add(row.ToString());
             }
             for (int row = 0; row < kolona; row++)
             {
+                DataRow dr = Grupe.NewRow();
                 DataRow drr = SvSala.NewRow();
                 for (int col = 0; col < redovi; col++)
                 {
@@ -94,7 +97,15 @@ namespace Raspored_Ucionica
                     {
                         if (row == 0)
                         {
-                            if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala") /*|| viewModel.rezultatiUtorak[col][i].Contains("svecana sala") || viewModel.rezultatiSreda[col][i].Contains("svecana sala") || viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala") || viewModel.rezultatiPetak[col][i].Contains("svecana sala")*/)
+                            if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
+                            {
+                                dr[col] += "grupa";
+                            }
+                            else
+                            {
+                                dr[col] += "/";
+                            }
+                            if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala"))
                             {
                                 drr[col] += "zauzeta";
                             }
@@ -102,6 +113,14 @@ namespace Raspored_Ucionica
 
                         else if (row == 1)
                         {
+                            if (viewModel.rezultatiUtorak[col][i].Contains("/"))
+                            {
+                                dr[col] += "grupa";
+                            }
+                            else
+                            {
+                                dr[col] += "/";
+                            }
                             if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
                             {
                                 drr[col] += "zauzeta";
@@ -109,6 +128,14 @@ namespace Raspored_Ucionica
                         }
                         else if (row == 2)
                         {
+                            if (viewModel.rezultatiSreda[col][i].Contains("/"))
+                            {
+                                dr[col] += "grupa";
+                            }
+                            else
+                            {
+                                dr[col] += "/";
+                            }
                             if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
                             {
                                 drr[col] += "zauzeta";
@@ -116,6 +143,14 @@ namespace Raspored_Ucionica
                         }
                         else if (row == 3)
                         {
+                            if (viewModel.rezultatiCetvrtak[col][i].Contains("/"))
+                            {
+                                dr[col] += "grupa";
+                            }
+                            else
+                            {
+                                dr[col] += "/";
+                            }
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
                             {
                                 drr[col] += "zauzeta";
@@ -123,6 +158,14 @@ namespace Raspored_Ucionica
                         }
                         else
                         {
+                            if (viewModel.rezultatiPetak[col][i].Contains("/"))
+                            {
+                                dr[col] += "grupa";
+                            }
+                            else
+                            {
+                                dr[col] += "/";
+                            }
                             if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
                             {
                                 drr[col] += "zauzeta";
@@ -132,7 +175,9 @@ namespace Raspored_Ucionica
 
                 }
                 SvSala.Rows.Add(drr);
+                Grupe.Rows.Add(dr);
             }
+
             for (int i = 0; i < kolona; i++)
             {
                 if (i == 0)
@@ -270,6 +315,7 @@ namespace Raspored_Ucionica
             d3.ItemsSource = Drugo3.DefaultView;
             rezultatiSv.ItemsSource = SvSala.DefaultView;
             rezultatiSlob.ItemsSource = Slobodne.DefaultView;
+            rezultatiGrupe.ItemsSource = Grupe.DefaultView;
 
 
             DataRow stati = Staticne.NewRow();

@@ -42,6 +42,8 @@
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Center" Name="rezultatiSlob" VerticalAlignment="Top" Width="auto" MaxWidth="900" Margin="0,1158,0,0"/>
             <Label  Content="Распоред статичних одељења" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="320" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="0,150,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Center" Margin="0,200,0,0" Name="staticne" VerticalAlignment="Top" Width="auto" MaxWidth="900" />
+            <Label  Content="Групе" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="126,3236,0,0"/>
+            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" x:Name="rezultatiGrupe" VerticalAlignment="Top" Width="auto" Margin="50,3294,0,0" />
         </Grid>
     </ScrollViewer>
 </Window>
