@@ -99,12 +99,10 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
                             }
                             else
-                            {
-                                dr[col] += "/";
-                            }
+
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala"))
                             {
                                 drr[col] += "zauzeta";
@@ -115,11 +113,7 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiUtorak[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
-                            }
-                            else
-                            {
-                                dr[col] += "/";
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
                             }
                             if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
                             {
@@ -130,11 +124,7 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiSreda[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
-                            }
-                            else
-                            {
-                                dr[col] += "/";
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
                             }
                             if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
                             {
@@ -145,11 +135,7 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
-                            }
-                            else
-                            {
-                                dr[col] += "/";
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
                             }
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
                             {
@@ -160,11 +146,7 @@ namespace Raspored_Ucionica
                         {
                             if (viewModel.rezultatiPetak[col][i].Contains("/"))
                             {
-                                dr[col] += "grupa";
-                            }
-                            else
-                            {
-                                dr[col] += "/";
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + "-\n";
                             }
                             if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
                             {
