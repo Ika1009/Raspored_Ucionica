@@ -19,6 +19,8 @@ namespace Raspored_Ucionica.ViewModel
         {
             inputViewModel = inputVM;
             IzaberiLutajuce();
+            Ucionica Temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
+            Temp.Slobodna = false;
             List<Odeljenje> lista_odeljenjaSort;
             lista_odeljenjaSort = lista_odeljenja.OrderByDescending(x => x.Broj_ucenika).ToList();
             foreach (Odeljenje odeljenje in lista_odeljenjaSort)
