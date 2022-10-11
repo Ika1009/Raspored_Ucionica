@@ -86,7 +86,7 @@ namespace Raspored_Ucionica.ViewModel
             if (!inputViewModel.Checked31)
                 DodajLutajuce("III-1");
             if (!inputViewModel.Checked32)
-                DodajLutajuce("III-2");
+                DodajLutajuce("III-4");
             if (!inputViewModel.Checked33)
                 DodajLutajuce("III-3");
             if (!inputViewModel.Checked41)
