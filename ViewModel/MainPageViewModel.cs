@@ -57,7 +57,10 @@ namespace Raspored_Ucionica.ViewModel
             rezultatiSreda = NapraviRaspored(sreda, Ksreda);
             rezultatiCetvrtak = NapraviRaspored(cetvrtak, Kcetvrtak);
             rezultatiPetak = NapraviRaspored(petak, Kpetak);
-            
+            foreach (Ucionica ucionica in lista_ucionica)
+            {
+                ucionica.Slobodna = true;
+            }
             
             
         }
@@ -202,7 +205,7 @@ namespace Raspored_Ucionica.ViewModel
             }
             void DrziLutajuce(int i, int j)
             {
-                if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null) is null)
+                if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana") is null)
                 {
                     for (int k = 0; k < 5; k++)
                     {
@@ -217,22 +220,23 @@ namespace Raspored_Ucionica.ViewModel
                                 case 3: a = "Sremac"; break;
                                 case 4: a = "Multimedijalna"; break;
                             }
-                            rezultati[i][j] += a + " ";
+                            rezultati[i][j] += a + "/";
                             Kdan.RasporedKabineta[k][i] = "false";
                             break;
                         }
                     }
                 }
+                //Funkcija za korišćenje osmice
                 //else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
                 //{
                 //    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
-                //    rezultati[i][j] += slobodna.Ime_ucionice + " ";
+                //    rezultati[i][j] += slobodna.Ime_ucionice + "/";
                 //    slobodna.Slobodna = false;
                 //}
                 else
                 {
                     Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
-                    rezultati[i][j] += slobodna.Ime_ucionice + " ";
+                    rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
             }
@@ -264,7 +268,7 @@ namespace Raspored_Ucionica.ViewModel
                     Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id);
                     if (ucionica.Slobodna == true)
                     {
-                        Slobodne[i][k] += ucionica.Ime_ucionice + " ";
+                        Slobodne[i][k] += ucionica.Ime_ucionice + "/";
                     }
                     id--;
                 }
@@ -496,8 +500,12 @@ namespace Raspored_Ucionica.ViewModel
                 {
                     if (rezultati[i][j].IndexOf('.') != -1)
                         rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('.'), 1);
-                    if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].IndexOf('/') == rezultati[i][j].Length - 1)
-                        rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('/'), 1);
+                    if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].LastIndexOf('/') == rezultati[i][j].Length - 1)
+                        rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].LastIndexOf('/'));
+                    if (rezultati[i][j].IndexOf("//") != -1)
+                    {
+                        rezultati[i][j] = rezultati[i][j].Replace("//", "/");
+                    }
 
                 }
             }

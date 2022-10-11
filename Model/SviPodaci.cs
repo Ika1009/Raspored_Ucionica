@@ -141,7 +141,7 @@ namespace Raspored_Ucionica.Model
                 new Ucionica("36", 36, true),
                 new Ucionica("40", 36, true),
                 new Ucionica("41", 36, true),
-                   new Ucionica("20", 36, true),
+                new Ucionica("20", 36, true),
                 new Ucionica("9", 40, true),
                 new Ucionica("10", 40, true),
                 new Ucionica("svecana sala",40,true),
