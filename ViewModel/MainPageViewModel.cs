@@ -223,12 +223,12 @@ namespace Raspored_Ucionica.ViewModel
                         }
                     }
                 }
-                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
-                {
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
-                    rezultati[i][j] += slobodna.Ime_ucionice + " ";
-                    slobodna.Slobodna = false;
-                }
+                //else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
+                //{
+                //    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
+                //    rezultati[i][j] += slobodna.Ime_ucionice + " ";
+                //    slobodna.Slobodna = false;
+                //}
                 else
                 {
                     Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
