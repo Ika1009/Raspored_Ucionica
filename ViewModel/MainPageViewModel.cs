@@ -323,6 +323,7 @@ namespace Raspored_Ucionica.ViewModel
                     {
                         Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == odeljenje.Id_ucionice);
                         Cos.Add(ucionica.Ime_ucionice);
+                        ucionica.Slobodna = false;
                     }
                     else
                     {
@@ -331,6 +332,7 @@ namespace Raspored_Ucionica.ViewModel
                         {
                             Ucionica trazena = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                             Cos.Add(trazena.Ime_ucionice);
+                            trazena.Slobodna = false;
                         }
                         else
                         {
@@ -338,11 +340,13 @@ namespace Raspored_Ucionica.ViewModel
                             if (trazena.Slobodna == true)
                             {
                                 Cos.Add(trazena.Ime_ucionice);
+                                trazena.Slobodna = false;
                             }
                             else
                             {
                                 Ucionica nadjena = lista_ucionica.Last(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                                 Cos.Add(nadjena.Ime_ucionice);
+                                nadjena.Slobodna = false;
                             }
                         }
                        
