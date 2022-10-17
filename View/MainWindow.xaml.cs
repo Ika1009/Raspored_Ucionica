@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Xps.Packaging;
 using Raspored_Ucionica.Model;
 using Raspored_Ucionica.ViewModel;
 
@@ -52,7 +55,7 @@ namespace Raspored_Ucionica
                 {
                     if (za_labele_index == 0)
                     {
-                        prva = ((int)viewModel.lista_odeljenja[i].Id);
+                        prva = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
                     }
                     else if (za_labele_index == 1)
@@ -554,6 +557,43 @@ namespace Raspored_Ucionica
             window1.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             window1.Show();
             Close();
+        }
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+            var a = this.Width;
+            //TestPage fixedPage = new TestPage();
+            btn.Visibility = Visibility.Collapsed;
+            FixedDocument fixedDoc = new FixedDocument();
+            PageContent pageContent = new PageContent();
+            FixedPage fixedPage = new FixedPage();
+
+
+
+            PrintDialog printDlg = new PrintDialog();
+            Size pageSize = new Size(printDlg.PrintableAreaWidth, printDlg.PrintableAreaHeight - 100);
+
+
+            var visual = ((System.Windows.Controls.Panel)this.Content).Children[0] as UIElement;
+            ((System.Windows.Controls.Panel)this.Content).Children.Remove(visual);
+            fixedPage.Children.Add(visual);
+
+            ((System.Windows.Markup.IAddChild)pageContent).AddChild(fixedPage);
+
+            fixedDoc.Pages.Add(pageContent);
+
+
+            // write to PDF file
+            string tempFilename = "temp.xps";
+            File.Delete(tempFilename);
+            XpsDocument xpsd = new XpsDocument(tempFilename, FileAccess.ReadWrite);
+            System.Windows.Xps.XpsDocumentWriter xw = XpsDocument.CreateXpsDocumentWriter(xpsd);
+            xw.Write(fixedDoc);
+            xpsd.Close();
+            PdfSharp.Xps.XpsConverter.Convert(tempFilename, "D:/testing.pdf", 1);
+            Process.Start("D:/testing.pdf");
+
+            btn.Visibility = Visibility.Visible;
         }
     }
 }
