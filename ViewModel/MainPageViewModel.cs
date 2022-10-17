@@ -316,6 +316,7 @@ namespace Raspored_Ucionica.ViewModel
             }
             void NadjiCos()
             {
+                List<Ucionica> osloboditi = new List<Ucionica>();
                 for (int i = 0; i < 32; i++)
                 {
                     Odeljenje odeljenje = lista_odeljenja.First(odeljenje => odeljenje.Id == i);
@@ -323,7 +324,6 @@ namespace Raspored_Ucionica.ViewModel
                     {
                         Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == odeljenje.Id_ucionice);
                         Cos.Add(ucionica.Ime_ucionice);
-                        ucionica.Slobodna = false;
                     }
                     else
                     {
@@ -333,6 +333,7 @@ namespace Raspored_Ucionica.ViewModel
                             Ucionica trazena = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                             Cos.Add(trazena.Ime_ucionice);
                             trazena.Slobodna = false;
+                            osloboditi.Add(trazena);
                         }
                         else
                         {
@@ -341,16 +342,22 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 Cos.Add(trazena.Ime_ucionice);
                                 trazena.Slobodna = false;
+                                osloboditi.Add(trazena);
                             }
                             else
                             {
                                 Ucionica nadjena = lista_ucionica.Last(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                                 Cos.Add(nadjena.Ime_ucionice);
                                 nadjena.Slobodna = false;
+                                osloboditi.Add(nadjena);
                             }
                         }
                        
                     }
+                }
+                foreach (Ucionica ucionica in osloboditi)
+                {
+                    ucionica.Slobodna = true;
                 }
             }
             for (int i = 0; i < 32; i++) //za nulti cas
