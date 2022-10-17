@@ -289,6 +289,7 @@ namespace Raspored_Ucionica.ViewModel
             void NadjiSlobodne(int i)
             {
                 int id = lista_ucionica!.Last().Id;
+                id--;
                 int k;
                 if (dan == ponedeljak)
                     k = 0;
@@ -302,7 +303,7 @@ namespace Raspored_Ucionica.ViewModel
                     k = 4;
                 while (id >= 0)
                 {
-                    Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id);
+                    Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id && ucionica.Tip is null);
                     if (ucionica.Slobodna == true)
                     {
                         Slobodne[i][k] += ucionica.Ime_ucionice + "/";
