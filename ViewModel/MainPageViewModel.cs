@@ -19,13 +19,13 @@ namespace Raspored_Ucionica.ViewModel
         {
             inputViewModel = inputVM;
             IzaberiLutajuce();
-            Ucionica Temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
-            Temp.Slobodna = false;
+            //Ucionica Temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
+            //Temp.Slobodna = false;
             List<Odeljenje> lista_odeljenjaSort;
             lista_odeljenjaSort = lista_odeljenja.OrderByDescending(x => x.Broj_ucenika).ToList();
             foreach (Odeljenje odeljenje in lista_odeljenjaSort)
             {
-                if(odeljenje.Ime_odeljenja.Contains("3") == false && odeljenje.Ime_odeljenja.Contains("2") == false && odeljenje.Ime_odeljenja.Contains("1") == false && odeljenje.Ime_odeljenja != "III-4")
+                if(odeljenje.Ime_odeljenja.Contains("3") == false && odeljenje.Ime_odeljenja.Contains("2") == false && odeljenje.Ime_odeljenja.Contains("1") == false)
                 {
                     IzaberiStaticno(odeljenje.Ime_odeljenja, odeljenje.Broj_ucenika);
                 }
@@ -105,7 +105,7 @@ namespace Raspored_Ucionica.ViewModel
             if (!inputViewModel.Checked31)
                 DodajLutajuce("III-1");
             if (!inputViewModel.Checked32)
-                DodajLutajuce("III-4");
+                DodajLutajuce("III-2");
             if (!inputViewModel.Checked33)
                 DodajLutajuce("III-3");
             if (!inputViewModel.Checked41)
@@ -264,12 +264,12 @@ namespace Raspored_Ucionica.ViewModel
                     }
                 }
                 //Funkcija za korišćenje osmice
-                //else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
-                //{
-                //    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
-                //    rezultati[i][j] += slobodna.Ime_ucionice + "/";
-                //    slobodna.Slobodna = false;
-                //}
+                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
+                {
+                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
+                    rezultati[i][j] += slobodna.Ime_ucionice + "/";
+                    slobodna.Slobodna = false;
+                }
                 else
                 {
                     Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
