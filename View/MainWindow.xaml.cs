@@ -149,7 +149,7 @@ namespace Raspored_Ucionica
                                 string[] ime = viewModel.utorak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiUtorak[col][i].Split("/");
                                 dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
+                                if (viewModel.utorak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
@@ -193,7 +193,7 @@ namespace Raspored_Ucionica
                                 string[] ime = viewModel.sreda.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiSreda[col][i].Split("/");
                                 dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
+                                if (viewModel.sreda.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
@@ -236,7 +236,7 @@ namespace Raspored_Ucionica
                                 string[] ime = viewModel.cetvrtak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiCetvrtak[col][i].Split("/");
                                 dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
+                                if (viewModel.cetvrtak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
@@ -279,7 +279,7 @@ namespace Raspored_Ucionica
                                 string[] ime = viewModel.petak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiPetak[col][i].Split("/");
                                 dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
+                                if (viewModel.petak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
