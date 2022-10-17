@@ -444,7 +444,7 @@ namespace Raspored_Ucionica.ViewModel
                                 if (string.IsNullOrEmpty(rezultati[i][j]))
                                     rezultati[i][j] = "info";
                                 else
-                                    rezultati[i][j] += "/info";
+                                    rezultati[i][j] += "/info/";
                             }
                             else if (trenutno == "/verska")
                                 rezultati[i][j] += "/bibl" + "/";
