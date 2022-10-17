@@ -474,7 +474,7 @@ namespace Raspored_Ucionica.ViewModel
                             else if (trenutno == "info")
                             {
                                 if (string.IsNullOrEmpty(rezultati[i][j]))
-                                    rezultati[i][j] = "info";
+                                    rezultati[i][j] = "info/";
                                 else
                                     rezultati[i][j] += "/info/";
                             }
