@@ -590,7 +590,7 @@ namespace Raspored_Ucionica
             System.Windows.Xps.XpsDocumentWriter xw = XpsDocument.CreateXpsDocumentWriter(xpsd);
             xw.Write(fixedDoc);
             xpsd.Close();
-            PdfSharp.Xps.XpsConverter.Convert(tempFilename, "D:/testing.pdf", 1);
+            //PdfSharp.Xps.XpsConverter.Convert(tempFilename, "D:/testing.pdf", 1);
             Process.Start("D:/testing.pdf");
 
             btn.Visibility = Visibility.Visible;
