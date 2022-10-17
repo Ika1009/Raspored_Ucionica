@@ -62,6 +62,7 @@ namespace Raspored_Ucionica
                     {
                         druga = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
+
                     }
                     else if (za_labele_index == 2)
                     {
@@ -72,20 +73,28 @@ namespace Raspored_Ucionica
                     {
                         cetvrta = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
+
                     }
                     else if (za_labele_index == 4)
                     {
                         peta = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
+
                     }
                     else
                     {
                         sesta = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
+
                     }
                 }
             }
-
+            prvaLabela.Content = viewModel.Cos[prva].ToString();
+            drugaLabela.Content = viewModel.Cos[druga].ToString();
+            trecaLabela.Content = viewModel.Cos[treca].ToString();
+            cetvrtaLabela.Content = viewModel.Cos[cetvrta].ToString();
+            petaLabela.Content = viewModel.Cos[peta].ToString();
+            sestaLabela.Content = viewModel.Cos[sesta].ToString();
             for (int row = 0; row < redovi; row++)
             {
                 SvSala.Columns.Add(row.ToString());
