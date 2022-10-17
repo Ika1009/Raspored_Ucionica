@@ -14,7 +14,7 @@ namespace Raspored_Ucionica.ViewModel
         public event PropertyChangedEventHandler? PropertyChanged;
         public List<List<string>> rezultatiPonedeljak, rezultatiUtorak, rezultatiSreda, rezultatiCetvrtak, rezultatiPetak;
         public List<List<string>> Slobodne;
-        //public List<string> Cos;
+        public List<string> Cos = new List<string>();
         InputWindowViewModel inputViewModel;
         public MainPageViewModel(InputWindowViewModel inputVM)
         {
@@ -63,7 +63,7 @@ namespace Raspored_Ucionica.ViewModel
             new List<string>() {"", ".", ".", ".", "."},
             new List<string>() {"", ".", ".", ".", "."}
             };
-            //List<string> Cos = new List<string>(32);
+            
             rezultatiPonedeljak = NapraviRaspored(ponedeljak, Kponedeljak);
             rezultatiUtorak = NapraviRaspored(utorak, Kutorak);
             rezultatiSreda = NapraviRaspored(sreda, Ksreda);
@@ -314,31 +314,41 @@ namespace Raspored_Ucionica.ViewModel
                 }
 
             }
-            //void NadjiCos()
-            //{
-            //    for (int i = 0; i < 32; i++)
-            //    {
-            //        Odeljenje odeljenje = lista_odeljenja.First(odeljenje => odeljenje.Id == i);
-            //        if (odeljenje.Id_ucionice is not null)
-            //        {
-            //            Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == odeljenje.Id_ucionice);
-            //            Cos.Add(ucionica.Ime_ucionice);
-            //        }
-            //        else
-            //        {
-            //            string ime = ponedeljak.RasporedCasova[4][i];
-            //            Ucionica ucionica = lista_ucionica.FirstOrDefault(ucionica => ucionica.Ime_ucionice == ime);
-            //            if (ucionica is not null && ucionica.Slobodna == true)
-            //            {
-            //                Cos.Add(ucionica.Ime_ucionice);
-            //            }
-            //            else
-            //            {
-            //                Cos.Add(lista_ucionica.Last(ucionica => ucionica.Slobodna == true).Ime_ucionice);
-            //            }
-            //        }
-            //    }
-            //}
+            void NadjiCos()
+            {
+                for (int i = 0; i < 32; i++)
+                {
+                    Odeljenje odeljenje = lista_odeljenja.First(odeljenje => odeljenje.Id == i);
+                    if (odeljenje.Id_ucionice is not null)
+                    {
+                        Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == odeljenje.Id_ucionice);
+                        Cos.Add(ucionica.Ime_ucionice);
+                    }
+                    else
+                    {
+                        string ime = rezultatiPonedeljak[3][i];
+                        if(ime.Contains('/'))
+                        {
+                            Ucionica trazena = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
+                            Cos.Add(trazena.Ime_ucionice);
+                        }
+                        else
+                        {
+                            Ucionica trazena = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == ime);
+                            if (trazena.Slobodna == true)
+                            {
+                                Cos.Add(trazena.Ime_ucionice);
+                            }
+                            else
+                            {
+                                Ucionica nadjena = lista_ucionica.Last(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
+                                Cos.Add(nadjena.Ime_ucionice);
+                            }
+                        }
+                       
+                    }
+                }
+            }
             for (int i = 0; i < 32; i++) //za nulti cas
             {
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
@@ -420,10 +430,10 @@ namespace Raspored_Ucionica.ViewModel
                 OslobodiLutajuceUcionice();
                 OslobodiSveUcionice(i);
                 OslobodiJezickeUcionice(i);
-                //if (dan == ponedeljak && i == 4)
-                //{
-                //    NadjiCos();
-                //}
+                if (dan == ponedeljak && i == 4)
+                {
+                    NadjiCos();
+                }
                 for (var j = 0; j < 32; j++)
                 {
                     //lista_ucionica!.Last().Slobodna = true;
