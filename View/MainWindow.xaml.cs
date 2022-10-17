@@ -99,17 +99,41 @@ namespace Raspored_Ucionica
                     {
                         if (row == 0)
                         {
+                            string[] ime = viewModel.ponedeljak.RasporedCasova[col][i].Split("/");
+                            string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
                             {
-                                string[] ime = viewModel.ponedeljak.RasporedCasova[col][i].Split("/");
-                                string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
-                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
-                                for(int j = 0; j < niz.Length; j++)
+                                if (viewModel.rezultatiPonedeljak[col][i] == "reg/reg")
                                 {
-                                    dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                    for(int j = 0; j < niz.Length; j++)
+                                    {   
+                                        if(j % 2 == 0) 
+                                        {
+                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                        }
+                                        else{
+                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
                                 }
-                                dr[col] += "\n";
+                                else 
+                                {
+                                    dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                    for(int j = 0; j < niz.Length; j++)
+                                    {   
+                                        if(ime[j] == "reg") 
+                                        {
+                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                        }
+                                        else{
+                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
                             }
+                        
 
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala"))
                             {
