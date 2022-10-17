@@ -6,25 +6,50 @@
         xmlns:viewmodel="clr-namespace:Raspored_Ucionica.ViewModel"
         xmlns:local="clr-namespace:Raspored_Ucionica"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
+        Title="Window1" Height="650" Width="800">
     <Grid>
         <Label x:Name="naslovLabel" Content="Распоред одељења по учионицама" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F"/>
         <Label x:Name="podNaslovLabel" Content="Гимназија &quot;Бора Станковић&quot;" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A"/>
-        <Button x:Name="noviwindowButton" Content="Направи распоред" HorizontalAlignment="Center" Margin="0,355,0,0" Width="136" Click="noviwindowButton_Click" Height="42" VerticalAlignment="Top"/>
-        <Label HorizontalAlignment="Left" Margin="270,100,0,0" VerticalAlignment="Top" Width="205" Content="Broj Lutajucih odeljenja: " Height="25"></Label>
-        <Label x:Name="brojCheckboxaLabel" HorizontalAlignment="Left" Margin="450,100,0,0" VerticalAlignment="Top" Width="20" Content="{Binding Broj_lutajucih}" Height="25"></Label>
-        <Label x:Name="checkboxLabel" Content="Изаберите лутајућa одељења: " HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="198" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" Height="26"/>
-        <CheckBox Content="I-1" HorizontalAlignment="Left" Margin="270,190,0,0" VerticalAlignment="Top" x:Name="checked11" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="I-2" HorizontalAlignment="Left" Margin="270,225,0,0" VerticalAlignment="Top" x:Name="checked12" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="I-3" HorizontalAlignment="Left" Margin="270,264,0,0" VerticalAlignment="Top" x:Name="checked13" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="II-1" HorizontalAlignment="Left" Margin="342,190,0,0" VerticalAlignment="Top" x:Name="checked21" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="II-2" HorizontalAlignment="Left" Margin="342,225,0,0" VerticalAlignment="Top" x:Name="checked22" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="II-3" HorizontalAlignment="Left" Margin="342,264,0,0" VerticalAlignment="Top" x:Name="checked23" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="III-1" HorizontalAlignment="Left" Margin="407,190,0,0" VerticalAlignment="Top" x:Name="checked31" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="III-2" HorizontalAlignment="Left" Margin="407,225,0,0" VerticalAlignment="Top" x:Name="checked32" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="III-3" HorizontalAlignment="Left" Margin="407,264,0,0" VerticalAlignment="Top" x:Name="checked33" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="IV-1" HorizontalAlignment="Left" Margin="482,190,0,0" VerticalAlignment="Top" x:Name="checked41" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="IV-2" HorizontalAlignment="Left" Margin="482,225,0,0" VerticalAlignment="Top" x:Name="checked42" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox Content="IV-3" HorizontalAlignment="Left" Margin="482,264,0,0" VerticalAlignment="Top" x:Name="checked43" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <Button x:Name="noviwindowButton" Content="Направи распоред" HorizontalAlignment="Center" Margin="0,554,0,0" Width="136" Click="noviwindowButton_Click" Height="42" VerticalAlignment="Top"/>
+        <Label HorizontalAlignment="Center" Margin="0,88,0,0" VerticalAlignment="Top" Width="198" Content="Broj Lutajucih odeljenja: " Height="24"></Label>
+        <Label x:Name="brojCheckboxaLabel" HorizontalAlignment="Left" Margin="460,87,0,0" VerticalAlignment="Top" Width="20" Content="{Binding Broj_lutajucih}" Height="25"></Label>
+        <Label x:Name="checkboxLabel" Content="Изаберите лутајућa одељења: " HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="198" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" Height="26"/>
+        <CheckBox Content="I-1" HorizontalAlignment="Left" Margin="204,200,0,0" VerticalAlignment="Top" x:Name="checked11" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox Content="I-2" HorizontalAlignment="Left" Margin="204,235,0,0" VerticalAlignment="Top" x:Name="checked12" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox Content="I-3" HorizontalAlignment="Left" Margin="204,274,0,0" VerticalAlignment="Top" x:Name="checked13" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox x:Name="checked14" Content="I-4" HorizontalAlignment="Left" Margin="204,313,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked15" Content="I-5" HorizontalAlignment="Left" Margin="204,353,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked16" Content="I-6" HorizontalAlignment="Left" Margin="204,396,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked17" Content="I-7" HorizontalAlignment="Left" Margin="204,439,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked18" Content="I-8" HorizontalAlignment="Left" Margin="204,482,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="II-1" HorizontalAlignment="Left" Margin="332,200,0,0" VerticalAlignment="Top" x:Name="checked21" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox Content="II-2" HorizontalAlignment="Left" Margin="332,235,0,0" VerticalAlignment="Top" x:Name="checked22" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox Content="II-3" HorizontalAlignment="Left" Margin="332,274,0,0" VerticalAlignment="Top" x:Name="checked23" Checked="Checkovanje" Unchecked="UnCheckovanje" RenderTransformOrigin="0.44,2.085"/>
+        <CheckBox x:Name="checked24" Content="II-4" HorizontalAlignment="Left" Margin="332,313,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked25" Content="II-5" HorizontalAlignment="Left" Margin="332,353,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked26" Content="II-6" HorizontalAlignment="Left" Margin="332,396,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked27" Content="II-7" HorizontalAlignment="Left" Margin="332,439,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked28" Content="II-8" HorizontalAlignment="Left" Margin="332,482,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="III-1" HorizontalAlignment="Left" Margin="442,200,0,0" VerticalAlignment="Top" x:Name="checked31" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox Content="III-2" HorizontalAlignment="Left" Margin="440,235,0,0" VerticalAlignment="Top" x:Name="checked32" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox Content="III-3" HorizontalAlignment="Left" Margin="440,274,0,0" VerticalAlignment="Top" x:Name="checked33" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox x:Name="checked34" Content="III-4" HorizontalAlignment="Left" Margin="442,313,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked35" Content="III-5" HorizontalAlignment="Left" Margin="440,353,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked36" Content="III-6" HorizontalAlignment="Left" Margin="440,396,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked37" Content="III-7" HorizontalAlignment="Left" Margin="440,439,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked38" Content="III-8" HorizontalAlignment="Left" Margin="440,482,0,0" VerticalAlignment="Top"/>
+        <CheckBox Content="IV-1" HorizontalAlignment="Left" Margin="554,200,0,0" VerticalAlignment="Top" x:Name="checked41" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox Content="IV-2" HorizontalAlignment="Left" Margin="554,235,0,0" VerticalAlignment="Top" x:Name="checked42" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox Content="IV-3" HorizontalAlignment="Left" Margin="554,274,0,0" VerticalAlignment="Top" x:Name="checked43" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
+        <CheckBox x:Name="checked44" Content="IV-4" HorizontalAlignment="Left" Margin="554,313,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked45" Content="IV-5" HorizontalAlignment="Left" Margin="554,353,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked46" Content="IV-6" HorizontalAlignment="Left" Margin="554,396,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked47" Content="IV-7" HorizontalAlignment="Left" Margin="554,439,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked48" Content="IV8" HorizontalAlignment="Left" Margin="556,482,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="checkboxLabel_Copy" Content="I разред:" HorizontalAlignment="Left" Margin="188,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="67" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" Height="26"/>
+        <Label x:Name="checkboxLabel_Copy1" Content="II разред:" HorizontalAlignment="Left" Margin="317,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="72" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" Height="26"/>
+        <Label x:Name="checkboxLabel_Copy2" Content="III разред:" HorizontalAlignment="Left" Margin="432,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="80" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" Height="26"/>
+        <Label x:Name="checkboxLabel_Copy3" Content="IV разред:" HorizontalAlignment="Left" Margin="541,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="79" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" Height="26"/>
+
     </Grid>
 </Window>
