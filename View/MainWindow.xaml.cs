@@ -104,6 +104,7 @@ namespace Raspored_Ucionica
                             {
                                 string[] ime = viewModel.ponedeljak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                 if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for(int j = 0; j < niz.Length; j++)
@@ -120,7 +121,6 @@ namespace Raspored_Ucionica
                                 }
                                 else 
                                 {
-                                    dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                     for(int j = 0; j < niz.Length; j++)
                                     {   
                                         if(ime[j] == "reg") 
@@ -148,6 +148,7 @@ namespace Raspored_Ucionica
                             {
                                 string[] ime = viewModel.utorak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiUtorak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                 if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
@@ -165,7 +166,6 @@ namespace Raspored_Ucionica
                                 }
                                 else
                                 {
-                                    dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (ime[j] == "reg")
@@ -192,6 +192,7 @@ namespace Raspored_Ucionica
                             {
                                 string[] ime = viewModel.sreda.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiSreda[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                 if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
@@ -209,7 +210,6 @@ namespace Raspored_Ucionica
                                 }
                                 else
                                 {
-                                    dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (ime[j] == "reg")
@@ -235,6 +235,7 @@ namespace Raspored_Ucionica
                             {
                                 string[] ime = viewModel.cetvrtak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiCetvrtak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                 if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
@@ -252,7 +253,6 @@ namespace Raspored_Ucionica
                                 }
                                 else
                                 {
-                                    dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (ime[j] == "reg")
@@ -278,6 +278,7 @@ namespace Raspored_Ucionica
                             {
                                 string[] ime = viewModel.petak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiPetak[col][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                 if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
@@ -295,7 +296,6 @@ namespace Raspored_Ucionica
                                 }
                                 else
                                 {
-                                    dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (ime[j] == "reg")
@@ -540,11 +540,11 @@ namespace Raspored_Ucionica
 
 
             staticne.ItemsSource = Staticne.DefaultView;
-            rezultatiPon.ItemsSource = dt.DefaultView;
+            /*rezultatiPon.ItemsSource = dt.DefaultView;
             rezultatiUto.ItemsSource = dt2.DefaultView;
             rezultatiSre.ItemsSource = dt3.DefaultView;
             rezultatiCet.ItemsSource = dt4.DefaultView;
-            rezultatiPet.ItemsSource = dt5.DefaultView;
+            rezultatiPet.ItemsSource = dt5.DefaultView;*/
 
         }
 
