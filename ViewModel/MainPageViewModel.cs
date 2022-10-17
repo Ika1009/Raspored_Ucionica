@@ -326,7 +326,7 @@ namespace Raspored_Ucionica.ViewModel
                     }
                     else
                     {
-                        string ime = rezultatiPonedeljak[3][i];
+                        string ime = rezultati[4][i];
                         if(ime.Contains('/'))
                         {
                             Ucionica trazena = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
@@ -430,7 +430,7 @@ namespace Raspored_Ucionica.ViewModel
                 OslobodiLutajuceUcionice();
                 OslobodiSveUcionice(i);
                 OslobodiJezickeUcionice(i);
-                if (dan == ponedeljak && i == 4)
+                if (dan == ponedeljak && i == 5)
                 {
                     NadjiCos();
                 }
