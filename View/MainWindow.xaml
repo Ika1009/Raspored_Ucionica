@@ -56,8 +56,8 @@
             <TextBox IsEnabled="False" BorderThickness="2" HorizontalAlignment="Left" Margin="1015,1132,0,0" TextWrapping="Wrap" Text="Напомена:                       ЧОС:                       (понедељак)" VerticalAlignment="Top" Width="120"/>
             <Label x:Name="prvaLabela" Content="/" HorizontalAlignment="Left" Margin="498,413,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
             <Label x:Name="drugaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,413,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label x:Name="trecaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,750,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label x:Name="cetvrtaLabela" Content="/" HorizontalAlignment="Left" Margin="498,750,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
+            <Label x:Name="cetvrtaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,750,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
+            <Label x:Name="trecaLabela" Content="/" HorizontalAlignment="Left" Margin="498,750,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
             <Label x:Name="petaLabela" Content="/" HorizontalAlignment="Left" Margin="498,1145,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
             <Label x:Name="sestaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,1145,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
         </Grid>

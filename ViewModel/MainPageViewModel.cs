@@ -352,6 +352,10 @@ namespace Raspored_Ucionica.ViewModel
                                 if (slobodne[r] == true)
                                 {
                                     Cos.Add(ucionice[r]);
+                                    if (r == 0)
+                                    {
+                                        MessageBox.Show(odeljenje.Ime_odeljenja);
+                                    }
                                     slobodne[r] = false;
                                     break;
                                 }

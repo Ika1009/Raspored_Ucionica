@@ -85,6 +85,7 @@ namespace Raspored_Ucionica
                     {
                         sesta = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
+                        
 
                     }
                 }
