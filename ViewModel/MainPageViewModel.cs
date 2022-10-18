@@ -317,9 +317,12 @@ namespace Raspored_Ucionica.ViewModel
             void NadjiCos()
             {
                 List<Ucionica> osloboditi = new List<Ucionica>();
+                bool[] slobodne = { true, true, true, true, true, true };
+                string[] ucionice = { "22", "29", "23a", "Sremac", "Multimedijalna", "Svecana" };
                 for (int i = 0; i < 32; i++)
                 {
                     Odeljenje odeljenje = lista_odeljenja.First(odeljenje => odeljenje.Id == i);
+               
                     if (odeljenje.Id_ucionice is not null)
                     {
                         Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == odeljenje.Id_ucionice);
@@ -327,42 +330,32 @@ namespace Raspored_Ucionica.ViewModel
                     }
                     else
                     {
-                        string ime = rezultati[4][i];
-                        if (ime.IndexOf('.') != -1)
-                            ime = ime.Remove(ime.IndexOf('.'), 1);
-                        if (ime.IndexOf('/') != -1 && ime.LastIndexOf('/') == ime.Length - 1)
-                            ime = ime.Remove(ime.LastIndexOf('/'));
-                        if (ime.Contains('/'))
+                        if (odeljenje.Ime_odeljenja == "III-2")
                         {
-                            Ucionica trazena = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
-                            Cos.Add(trazena.Ime_ucionice);
-                            trazena.Slobodna = false;
-                            osloboditi.Add(trazena);
+                            Cos.Add("22");
+                            slobodne[0] = false;
+                        }
+                        else if (rezultati[4][i].Contains("svecana") == true)
+                        {
+                            Cos.Add("Svecana sala");
+                            slobodne[5] = false;
                         }
                         else
                         {
-                            Ucionica trazena = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == ime);
-                            if (trazena.Slobodna == true)
+                            for(int r=0; r<6; r++)
                             {
-                                Cos.Add(trazena.Ime_ucionice);
-                                trazena.Slobodna = false;
-                                osloboditi.Add(trazena);
-                            }
-                            else
-                            {
-                                Ucionica nadjena = lista_ucionica.Last(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
-                                Cos.Add(nadjena.Ime_ucionice);
-                                nadjena.Slobodna = false;
-                                osloboditi.Add(nadjena);
+                                
+                                if (slobodne[r] == true)
+                                {
+                                    Cos.Add(ucionice[r]);
+                                    slobodne[r] = false;
+                                    break;
+                                }
                             }
                         }
-                       
                     }
                 }
-                foreach (Ucionica ucionica in osloboditi)
-                {
-                    ucionica.Slobodna = true;
-                }
+                 
             }
             for (int i = 0; i < 32; i++) //za nulti cas
             {
