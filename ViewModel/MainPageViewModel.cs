@@ -328,7 +328,11 @@ namespace Raspored_Ucionica.ViewModel
                     else
                     {
                         string ime = rezultati[4][i];
-                        if(ime.Contains('/'))
+                        if (ime.IndexOf('.') != -1)
+                            ime = ime.Remove(ime.IndexOf('.'), 1);
+                        if (ime.IndexOf('/') != -1 && ime.LastIndexOf('/') == ime.Length - 1)
+                            ime = ime.Remove(ime.LastIndexOf('/'));
+                        if (ime.Contains('/'))
                         {
                             Ucionica trazena = lista_ucionica.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                             Cos.Add(trazena.Ime_ucionice);
