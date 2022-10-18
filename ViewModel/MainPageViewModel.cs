@@ -319,10 +319,15 @@ namespace Raspored_Ucionica.ViewModel
                 List<Ucionica> osloboditi = new List<Ucionica>();
                 bool[] slobodne = { true, true, true, true, true, true };
                 string[] ucionice = { "22", "29", "23a", "Sremac", "Multimedijalna", "Svecana" };
+                Odeljenje trece_dva = lista_odeljenja.First(odeljenje => odeljenje.Ime_odeljenja == "III-2");
+                if (trece_dva.Id_ucionice is null)
+                {
+                    slobodne[0] = false;
+                }
                 for (int i = 0; i < 32; i++)
                 {
                     Odeljenje odeljenje = lista_odeljenja.First(odeljenje => odeljenje.Id == i);
-               
+
                     if (odeljenje.Id_ucionice is not null)
                     {
                         Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == odeljenje.Id_ucionice);
@@ -332,19 +337,18 @@ namespace Raspored_Ucionica.ViewModel
                     {
                         if (odeljenje.Ime_odeljenja == "III-2")
                         {
-                            Cos.Add("22");
+                            Cos.Add(ucionice[0]);
                             slobodne[0] = false;
                         }
                         else if (rezultati[4][i].Contains("svecana") == true)
                         {
-                            Cos.Add("Svecana sala");
+                            Cos.Add(ucionice[5]);
                             slobodne[5] = false;
                         }
                         else
                         {
                             for(int r=0; r<6; r++)
-                            {
-                                
+                            {  
                                 if (slobodne[r] == true)
                                 {
                                     Cos.Add(ucionice[r]);
