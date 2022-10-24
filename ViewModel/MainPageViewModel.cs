@@ -91,7 +91,7 @@ namespace Raspored_Ucionica.ViewModel
                 lista_id_ucionica_slobodnih_za_staticne.RemoveAt(rendomBroj);
             }
 
-            if (!inputViewModel.Checked32) // nase odeljenje prvo jer mora da se uzme 39 za nas ako treba
+            if (!inputChecked32) // nase odeljenje prvo jer mora da se uzme 39 za nas ako treba
             {
                 Odeljenje odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == "III-2");
                 odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![0];
@@ -613,19 +613,503 @@ namespace Raspored_Ucionica.ViewModel
         public async void NapraviExcelAsync()
         {
             string[] zaUpisivanje = new string[200];
+            zaUpisivanje[0] += "Staticna Odeljenja: ";
+            /*zaUpisivanje[15] += "Slobodne Ucionice: ";
+            zaUpisivanje[0] += "Zauzetost svecane sale: ";
+            zaUpisivanje[0] += "Grupe: ";*/
             for (int i = 0; i < lista_odeljenja!.Count; i++)
             {
-                zaUpisivanje[0] += lista_odeljenja[i].Ime_odeljenja + ",";
+                zaUpisivanje[2] += lista_odeljenja[i].Ime_odeljenja + ",";
                 if (lista_odeljenja[i].Id_ucionice == null)
-                    zaUpisivanje[1] += "Lutajuce,";
+                    zaUpisivanje[3] += "Lutajuce,";
                 else
                 {
                     Ucionica Temp = lista_ucionica!.First(ucionica => ucionica.Id == lista_odeljenja[i].Id_ucionice);
-                    zaUpisivanje[1] += Temp.Ime_ucionice + ",";
+                    zaUpisivanje[3] += Temp.Ime_ucionice + ",";
                 }
-                
             }
-            
+
+
+
+            int kolona = 5, redovi = 8, prva = 0, druga = 0, treca = 0, cetvrta = 0, peta = 0, sesta = 0;
+            int nbColumns = 32;
+            int nbRows = 8;
+            int za_labele_index = 0;
+            for (int i = 0; i < nbColumns; i++)
+            {
+                if (lista_odeljenja[i].Id_ucionice == null)
+                {
+                    if (za_labele_index == 0)
+                    {
+                        prva = lista_odeljenja[i].Id;
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 1)
+                    {
+                        druga = lista_odeljenja[i].Id;
+                        za_labele_index++;
+
+                    }
+                    else if (za_labele_index == 2)
+                    {
+                        treca = lista_odeljenja[i].Id;
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 3)
+                    {
+                        cetvrta = lista_odeljenja[i].Id;
+                        za_labele_index++;
+
+                    }
+                    else if (za_labele_index == 4)
+                    {
+                        peta = lista_odeljenja[i].Id;
+                        za_labele_index++;
+
+                    }
+                    else
+                    {
+                        sesta = lista_odeljenja[i].Id;
+                        za_labele_index++;
+
+
+                    }
+                }
+            }
+            zaUpisivanje[10] = Cos[prva].ToString();
+            zaUpisivanje[20] = Cos[druga].ToString();
+            zaUpisivanje[30] = Cos[treca].ToString();
+            zaUpisivanje[40] = Cos[cetvrta].ToString();
+            zaUpisivanje[50] = Cos[peta].ToString();
+            zaUpisivanje[60] = Cos[sesta].ToString();
+            /*for (int row = 0; row < redovi; row++)
+            {
+                zaUpisivanje[80] +=(row.ToString()) + ", ";
+                zaUpisivanje[100] += (row.ToString()) + ", ";
+            }
+            for (int row = 0; row < kolona; row++)
+            {
+                DataRow dr = Grupe.NewRow();
+                DataRow drr = SvSala.NewRow();
+                for (int col = 0; col < redovi; col++)
+                {
+
+                    for (int i = 0; i < nbColumns; i++)
+                    {
+                        if (row == 0)
+                        {
+
+                            if (rezultatiPonedeljak[col][i].Contains("/"))
+                            {
+                                string[] ime = ponedeljak.RasporedCasova[col][i].Split("/");
+                                string[] niz = rezultatiPonedeljak[col][i].Split("/");
+                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+
+
+                            if (rezultatiPonedeljak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+
+                        else if (row == 1)
+                        {
+                            if (rezultatiUtorak[col][i].Contains("/"))
+                            {
+                                string[] ime = utorak.RasporedCasova[col][i].Split("/");
+                                string[] niz = rezultatiUtorak[col][i].Split("/");
+                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (utorak.RasporedCasova[col][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+
+                            }
+                            if (rezultatiUtorak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+                        else if (row == 2)
+                        {
+                            if (rezultatiSreda[col][i].Contains("/"))
+                            {
+                                string[] ime = sreda.RasporedCasova[col][i].Split("/");
+                                string[] niz = rezultatiSreda[col][i].Split("/");
+                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (sreda.RasporedCasova[col][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+                            if (rezultatiSreda[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+                        else if (row == 3)
+                        {
+                            if (rezultatiCetvrtak[col][i].Contains("/"))
+                            {
+                                string[] ime = cetvrtak.RasporedCasova[col][i].Split("/");
+                                string[] niz = rezultatiCetvrtak[col][i].Split("/");
+                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (cetvrtak.RasporedCasova[col][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+                            if (rezultatiCetvrtak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+                        else
+                        {
+                            if (rezultatiPetak[col][i].Contains("/"))
+                            {
+                                string[] ime = petak.RasporedCasova[col][i].Split("/");
+                                string[] niz = rezultatiPetak[col][i].Split("/");
+                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (petak.RasporedCasova[col][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+                            if (rezultatiPetak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+                    }
+
+                }
+                SvSala.Rows.Add(drr);
+                Grupe.Rows.Add(dr);
+            }
+            for (int i = 0; i < kolona; i++)
+            {
+                if (i == 0)
+                {
+                    //SvSala.Columns.Add("Понедељак");
+                    Slobodne.Columns.Add("Понедељак");
+                    Prvo1.Columns.Add("Понедељак");
+                    Prvo2.Columns.Add("Понедељак");
+                    Prvo3.Columns.Add("Понедељак");
+                    Drugo1.Columns.Add("Понедељак");
+                    Drugo2.Columns.Add("Понедељак");
+                    Drugo3.Columns.Add("Понедељак");
+                }
+                else if (i == 1)
+                {
+                    //SvSala.Columns.Add("Уторак");
+                    Slobodne.Columns.Add("Уторак");
+                    Prvo1.Columns.Add("Уторак");
+                    Prvo2.Columns.Add("Уторак");
+                    Prvo3.Columns.Add("Уторак");
+                    Drugo1.Columns.Add("Уторак");
+                    Drugo2.Columns.Add("Уторак");
+                    Drugo3.Columns.Add("Уторак");
+                }
+                else if (i == 2)
+                {
+                    //SvSala.Columns.Add("Среда");
+                    Slobodne.Columns.Add("Среда");
+                    Prvo1.Columns.Add("Среда");
+                    Prvo2.Columns.Add("Среда");
+                    Prvo3.Columns.Add("Среда");
+                    Drugo1.Columns.Add("Среда");
+                    Drugo2.Columns.Add("Среда");
+                    Drugo3.Columns.Add("Среда");
+                }
+                else if (i == 3)
+                {
+                    //SvSala.Columns.Add("Четвртак");
+                    Slobodne.Columns.Add("Четвртак");
+                    Prvo1.Columns.Add("Четвртак");
+                    Prvo2.Columns.Add("Четвртак");
+                    Prvo3.Columns.Add("Четвртак");
+                    Drugo1.Columns.Add("Четвртак");
+                    Drugo2.Columns.Add("Четвртак");
+                    Drugo3.Columns.Add("Четвртак");
+                }
+                else
+                {
+                    //SvSala.Columns.Add("Петак");
+                    Slobodne.Columns.Add("Петак");
+                    Prvo1.Columns.Add("Петак");
+                    Prvo2.Columns.Add("Петак");
+                    Prvo3.Columns.Add("Петак");
+                    Drugo1.Columns.Add("Петак");
+                    Drugo2.Columns.Add("Петак");
+                    Drugo3.Columns.Add("Петак");
+                }
+
+            }
+            for (int row = 0; row < redovi; row++)
+            {
+                DataRow dr = Slobodne.NewRow();
+
+                DataRow prvo1 = Prvo1.NewRow();
+                DataRow prvo2 = Prvo2.NewRow();
+                DataRow prvo3 = Prvo3.NewRow();
+                DataRow drugo1 = Drugo1.NewRow();
+                DataRow drugo2 = Drugo2.NewRow();
+                DataRow drugo3 = Drugo3.NewRow();
+                for (int col = 0; col < kolona; col++)
+                {
+                    dr[col] = Slobodne[row][col];
+                    if (col == 0)
+                    {
+                        prvo1[col] = rezultatiPonedeljak[row][prva];
+                        prvo2[col] = rezultatiPonedeljak[row][druga];
+                        prvo3[col] = rezultatiPonedeljak[row][treca];
+                        drugo1[col] = rezultatiPonedeljak[row][cetvrta];
+                        drugo2[col] = rezultatiPonedeljak[row][peta];
+                        drugo3[col] = rezultatiPonedeljak[row][sesta];
+                    }
+                    else if (col == 1)
+                    {
+                        prvo1[col] = rezultatiUtorak[row][prva];
+                        prvo2[col] = rezultatiUtorak[row][druga];
+                        prvo3[col] = rezultatiUtorak[row][treca];
+                        drugo1[col] = rezultatiUtorak[row][cetvrta];
+                        drugo2[col] = rezultatiUtorak[row][peta];
+                        drugo3[col] = rezultatiUtorak[row][sesta];
+                    }
+                    else if (col == 2)
+                    {
+                        prvo1[col] = rezultatiSreda[row][prva];
+                        prvo2[col] = rezultatiSreda[row][druga];
+                        prvo3[col] = rezultatiSreda[row][treca];
+                        drugo1[col] = rezultatiSreda[row][cetvrta];
+                        drugo2[col] = rezultatiSreda[row][peta];
+                        drugo3[col] = rezultatiSreda[row][sesta];
+                    }
+                    else if (col == 3)
+                    {
+                        prvo1[col] = rezultatiCetvrtak[row][prva];
+                        prvo2[col] = rezultatiCetvrtak[row][druga];
+                        prvo3[col] = rezultatiCetvrtak[row][treca];
+                        drugo1[col] = rezultatiCetvrtak[row][cetvrta];
+                        drugo2[col] = rezultatiCetvrtak[row][peta];
+                        drugo3[col] = rezultatiCetvrtak[row][sesta];
+                    }
+                    else
+                    {
+                        prvo1[col] = rezultatiPetak[row][prva];
+                        prvo2[col] = rezultatiPetak[row][druga];
+                        prvo3[col] = rezultatiPetak[row][treca];
+                        drugo1[col] = rezultatiPetak[row][cetvrta];
+                        drugo2[col] = rezultatiPetak[row][peta];
+                        drugo3[col] = rezultatiPetak[row][sesta];
+                    }
+                }
+                Slobodne.Rows.Add(dr);
+
+                Prvo1.Rows.Add(prvo1);
+                Prvo2.Rows.Add(prvo2);
+                Prvo3.Rows.Add(prvo3);
+                Drugo1.Rows.Add(drugo1);
+                Drugo2.Rows.Add(drugo2);
+                Drugo3.Rows.Add(drugo3);
+            }
+
+            p1.ItemsSource = Prvo1.DefaultView;
+            p2.ItemsSource = Prvo2.DefaultView;
+            p3.ItemsSource = Prvo3.DefaultView;
+            d1.ItemsSource = Drugo1.DefaultView;
+            d2.ItemsSource = Drugo2.DefaultView;
+            d3.ItemsSource = Drugo3.DefaultView;
+            rezultatiSv.ItemsSource = SvSala.DefaultView;
+            rezultatiSlob.ItemsSource = Slobodne.DefaultView;
+            rezultatiGrupe.ItemsSource = Grupe.DefaultView;
+
+
+            DataRow stati = Staticne.NewRow();
+            //ispis za rezultate
+            za_labele_index = 0;
+            for (int i = 0; i < nbColumns; i++)
+            {
+                Staticne.Columns.Add(lista_odeljenja[i].Ime_odeljenja.ToString());
+                if (lista_odeljenja[i].Id_ucionice == null)
+                {
+                    stati[i] += "Lutajuce";
+                    if (za_labele_index == 0)
+                    {
+                        prvaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 1)
+                    {
+                        drugaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 2)
+                    {
+                        trecaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 3)
+                    {
+                        cetvrtaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else if (za_labele_index == 4)
+                    {
+                        petaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                    else
+                    {
+                        sestaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
+                        za_labele_index++;
+                    }
+                }
+                else
+                {
+                    stati[i] += lista_ucionica.First(ucionica => ucionica.Id == lista_odeljenja[i].Id_ucionice).Ime_ucionice;
+                }
+
+            }
+            Staticne.Rows.Add(stati);
+            staticne.ItemsSource = Staticne.DefaultView;*/
+
             // linija tabele je jedan element u nizu stringova
             // dodaj ostalo i lagano
 

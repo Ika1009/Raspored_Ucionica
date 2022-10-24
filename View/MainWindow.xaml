@@ -40,7 +40,7 @@
 
             <Label  Content="Заузетост св. сале" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,1742,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Name="rezultatiSv" VerticalAlignment="Top" Width="auto" Margin="108,1798,0,0" />
-            <Label  Content="Слободне учионице (без св. сале)" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="320" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,1448,0,0"/>
+            <Label  Content="Слободне учионице (без св. сале)" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="334" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,1448,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Name="rezultatiSlob" VerticalAlignment="Top" Width="auto" MaxWidth="900" Margin="108,1490,0,0"/>
             <Label  Content="Распоред статичних одељења" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="320" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,144,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Margin="108,200,0,0" Name="staticne" VerticalAlignment="Top" Width="auto" />
@@ -54,12 +54,12 @@
             <TextBox IsEnabled="False" BorderThickness="2" HorizontalAlignment="Left" Margin="1015,737,0,0" TextWrapping="Wrap" Text="Напомена:                       ЧОС:                       (понедељак)" VerticalAlignment="Top" Width="120"/>
             <TextBox IsEnabled="False" BorderThickness="2" HorizontalAlignment="Left" Margin="458,1132,0,0" TextWrapping="Wrap" Text="Напомена:                       ЧОС:                       (понедељак)" VerticalAlignment="Top" Width="120"/>
             <TextBox IsEnabled="False" BorderThickness="2" HorizontalAlignment="Left" Margin="1015,1132,0,0" TextWrapping="Wrap" Text="Напомена:                       ЧОС:                       (понедељак)" VerticalAlignment="Top" Width="120"/>
-            <Label x:Name="prvaLabela" Content="/" HorizontalAlignment="Left" Margin="498,413,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label x:Name="drugaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,413,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label x:Name="cetvrtaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,750,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label x:Name="trecaLabela" Content="/" HorizontalAlignment="Left" Margin="498,750,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label x:Name="petaLabela" Content="/" HorizontalAlignment="Left" Margin="498,1145,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
-            <Label x:Name="sestaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,1145,0,0" VerticalAlignment="Top" Height="25" Width="20"/>
+            <Label x:Name="prvaLabela" Content="/" HorizontalAlignment="Left" Margin="498,413,0,0" VerticalAlignment="Top" Height="25" Width="60"/>
+            <Label x:Name="drugaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,413,0,0" VerticalAlignment="Top" Height="25" Width="60"/>
+            <Label x:Name="cetvrtaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,750,0,0" VerticalAlignment="Top" Height="25" Width="60"/>
+            <Label x:Name="trecaLabela" Content="/" HorizontalAlignment="Left" Margin="498,750,0,0" VerticalAlignment="Top" Height="25" Width="60"/>
+            <Label x:Name="petaLabela" Content="/" HorizontalAlignment="Left" Margin="498,1145,0,0" VerticalAlignment="Top" Height="25" Width="60"/>
+            <Label x:Name="sestaLabela" Content="/" HorizontalAlignment="Left" Margin="1055,1145,0,0" VerticalAlignment="Top" Height="25" Width="60"/>
         </Grid>
     </ScrollViewer>
 </Window>
