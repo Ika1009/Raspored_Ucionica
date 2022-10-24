@@ -1,10 +1,11 @@
-﻿using Raspored_Ucionica.Model;
+using Raspored_Ucionica.Model;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows;
+using System.IO;
 
 namespace Raspored_Ucionica.ViewModel
 {
@@ -23,10 +24,10 @@ namespace Raspored_Ucionica.ViewModel
             //Ucionica Temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
             //Temp.Slobodna = false;
             List<Odeljenje> lista_odeljenjaSort;
-            lista_odeljenjaSort = lista_odeljenja.OrderByDescending(x => x.Broj_ucenika).ToList();
+            lista_odeljenjaSort = lista_odeljenja!.OrderByDescending(x => x.Broj_ucenika).ToList();
             foreach (Odeljenje odeljenje in lista_odeljenjaSort)
             {
-                if(odeljenje.Ime_odeljenja.Contains("3") == false && odeljenje.Ime_odeljenja.Contains("2") == false && odeljenje.Ime_odeljenja.Contains("1") == false)
+                if(odeljenje.Ime_odeljenja.Contains("3") == false && odeljenje.Ime_odeljenja.Contains("2") == false && odeljenje.Ime_odeljenja.Contains("1") == false && odeljenje.Ime_odeljenja !="III-4")
                 {
                     IzaberiStaticno(odeljenje.Ime_odeljenja, odeljenje.Broj_ucenika);
                 }
@@ -69,12 +70,11 @@ namespace Raspored_Ucionica.ViewModel
             rezultatiSreda = NapraviRaspored(sreda, Ksreda);
             rezultatiCetvrtak = NapraviRaspored(cetvrtak, Kcetvrtak);
             rezultatiPetak = NapraviRaspored(petak, Kpetak);
-            foreach (Ucionica ucionica in lista_ucionica)
+            NapraviExcelAsync();
+            foreach (Ucionica ucionica in lista_ucionica!)
             {
                 ucionica.Slobodna = true;
             }
-            
-            
         }
         public void IzaberiLutajuce()
         {
@@ -86,7 +86,7 @@ namespace Raspored_Ucionica.ViewModel
                 odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == imeOdeljenja);
                 int rendomBroj = random.Next(0, lista_id_ucionica_slobodnih_za_staticne!.Count - 1);
                 odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![rendomBroj];
-                ucionicaTemp = lista_ucionica!.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice);
+                ucionicaTemp = lista_ucionica!.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice && ucionica.Velicina >= (odeljenjeTemp.Broj_ucenika - 2));
                 ucionicaTemp.Slobodna = false;
                 lista_id_ucionica_slobodnih_za_staticne.RemoveAt(rendomBroj);
             }
@@ -133,7 +133,7 @@ namespace Raspored_Ucionica.ViewModel
             
             foreach(Ucionica ucionica in lista_ucionica)
             {
-                if(ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Velicina > (Velicina_odeljenja - 3))
+                if(ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Velicina >= (Velicina_odeljenja-3))
                 {
                     lista_mogucih.Add(ucionica);
                 }
@@ -272,15 +272,16 @@ namespace Raspored_Ucionica.ViewModel
                     }
                 }
                 //Funkcija za korišćenje osmice
-                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
-                {
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
-                    rezultati[i][j] += slobodna.Ime_ucionice + "/";
-                    slobodna.Slobodna = false;
-                }
+                //else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8") is not null)
+                //{
+                //    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8");
+                //    rezultati[i][j] += slobodna.Ime_ucionice + "/";
+                //    slobodna.Slobodna = false;
+                //}
                 else
                 {
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
+                    Odeljenje Temp = lista_odeljenja!.First(odeljenje => odeljenje.Id == j);
+                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
                     rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
@@ -358,10 +359,6 @@ namespace Raspored_Ucionica.ViewModel
                                 if (slobodne[r] == true)
                                 {
                                     Cos.Add(ucionice[r]);
-                                    if (r == 0)
-                                    {
-                                        MessageBox.Show(odeljenje.Ime_odeljenja);
-                                    }
                                     slobodne[r] = false;
                                     break;
                                 }
@@ -607,11 +604,33 @@ namespace Raspored_Ucionica.ViewModel
                     {
                         rezultati[i][j] = rezultati[i][j].Replace("//", "/");
                     }
-
                 }
             }
 
             return rezultati;
+        }
+
+        public async void NapraviExcelAsync()
+        {
+            string[] zaUpisivanje = new string[200];
+            for (int i = 0; i < lista_odeljenja!.Count; i++)
+            {
+                zaUpisivanje[0] += lista_odeljenja[i].Ime_odeljenja + ",";
+                if (lista_odeljenja[i].Id_ucionice == null)
+                    zaUpisivanje[1] += "Lutajuce,";
+                else
+                {
+                    Ucionica Temp = lista_ucionica!.First(ucionica => ucionica.Id == lista_odeljenja[i].Id_ucionice);
+                    zaUpisivanje[1] += Temp.Ime_ucionice + ",";
+                }
+                
+            }
+            
+            // linija tabele je jedan element u nizu stringova
+            // dodaj ostalo i lagano
+
+            string path = Path.GetFullPath("Raspored.csv");
+            await File.WriteAllLinesAsync(path, zaUpisivanje);
         }
     }
 
