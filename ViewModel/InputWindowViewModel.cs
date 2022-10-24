@@ -137,6 +137,20 @@ namespace Raspored_Ucionica.ViewModel
                 NotifyPropertyChanged();
                 }
             }
+        bool checked34;
+        public bool Checked34
+        {
+            get => checked34;
+            set
+            {
+                checked34 = value;
+                if (value == false)
+                    Broj_lutajucih--;
+                else
+                    Broj_lutajucih++;
+                NotifyPropertyChanged();
+            }
+        }
         bool checked41;
         public bool Checked41
         {

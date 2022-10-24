@@ -33,7 +33,7 @@
         <CheckBox Content="III-1" HorizontalAlignment="Left" Margin="442,200,0,0" VerticalAlignment="Top" x:Name="checked31" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
         <CheckBox Content="III-2" HorizontalAlignment="Left" Margin="440,235,0,0" VerticalAlignment="Top" x:Name="checked32" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
         <CheckBox Content="III-3" HorizontalAlignment="Left" Margin="440,274,0,0" VerticalAlignment="Top" x:Name="checked33" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
-        <CheckBox x:Name="checked34" Content="III-4" HorizontalAlignment="Left" Margin="442,313,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checked34" Content="III-4" HorizontalAlignment="Left" Margin="442,313,0,0" VerticalAlignment="Top" Checked="Checkovanje" Unchecked="UnCheckovanje"/>
         <CheckBox x:Name="checked35" Content="III-5" HorizontalAlignment="Left" Margin="440,353,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checked36" Content="III-6" HorizontalAlignment="Left" Margin="440,396,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checked37" Content="III-7" HorizontalAlignment="Left" Margin="440,439,0,0" VerticalAlignment="Top"/>

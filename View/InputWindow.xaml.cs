@@ -72,6 +72,9 @@ namespace Raspored_Ucionica
                 case "checked33":
                     viewModel.Checked33 = true;
                     break;
+                case "checked34":
+                    viewModel.Checked34 = true;
+                    break;
                 case "checked41":
                     viewModel.Checked41 = true;
                     break;

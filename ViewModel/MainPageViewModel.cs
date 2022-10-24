@@ -78,7 +78,6 @@ namespace Raspored_Ucionica.ViewModel
         }
         public void IzaberiLutajuce()
         {
-            int br = 0; 
             void DodajLutajuce(string imeOdeljenja) // dodaje mu stalnu ucionicu
             {
                 Random random = new();
@@ -87,10 +86,17 @@ namespace Raspored_Ucionica.ViewModel
                 odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == imeOdeljenja);
                 int rendomBroj = random.Next(0, lista_id_ucionica_slobodnih_za_staticne!.Count - 1);
                 odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![rendomBroj];
-                ucionicaTemp = lista_ucionica.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice);
+                ucionicaTemp = lista_ucionica!.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice);
                 ucionicaTemp.Slobodna = false;
                 lista_id_ucionica_slobodnih_za_staticne.RemoveAt(rendomBroj);
-                br++;
+            }
+
+            if (!inputViewModel.Checked32) // nase odeljenje prvo jer mora da se uzme 39 za nas ako treba
+            {
+                Odeljenje odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == "III-2");
+                odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![0];
+                lista_ucionica!.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice).Slobodna = false;
+                lista_id_ucionica_slobodnih_za_staticne.RemoveAt(0);
             }
             if (!inputViewModel.Checked11)
                 DodajLutajuce("I-1");
@@ -106,10 +112,10 @@ namespace Raspored_Ucionica.ViewModel
                 DodajLutajuce("II-3");
             if (!inputViewModel.Checked31)
                 DodajLutajuce("III-1");
-            if (!inputViewModel.Checked32)
-                DodajLutajuce("III-2");
             if (!inputViewModel.Checked33)
                 DodajLutajuce("III-3");
+            if (!inputViewModel.Checked34)
+                DodajLutajuce("III-4");
             if (!inputViewModel.Checked41)
                 DodajLutajuce("IV-1");
             if (!inputViewModel.Checked42)

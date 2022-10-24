@@ -149,6 +149,7 @@ namespace Raspored_Ucionica.Model
             };
             lista_id_ucionica_slobodnih_za_staticne = new()
             {
+                lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id,
                 lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "35").Id,
                 lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "21").Id,
                 lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "23b").Id,
@@ -178,7 +179,7 @@ namespace Raspored_Ucionica.Model
                 new Odeljenje("III-1", 20),
                 new Odeljenje("III-2",18),
                 new Odeljenje("III-3",18),
-                new Odeljenje("III-4",23,lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id),
+                new Odeljenje("III-4",23),
                 new Odeljenje("III-5",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "40").Id),
                 new Odeljenje("III-6",35, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "32").Id),
                 new Odeljenje("III-7",31, lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "13").Id),
