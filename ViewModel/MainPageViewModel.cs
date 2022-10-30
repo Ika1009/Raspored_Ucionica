@@ -612,7 +612,11 @@ namespace Raspored_Ucionica.ViewModel
 
         public async void NapraviExcelAsync()
         {
-            string[] zaUpisivanje = new string[200];
+            int kolona = 5, redovi = 8, prva = 0, druga = 0, treca = 0, cetvrta = 0, peta = 0, sesta = 0;
+            int nbColumns = 32;
+            int nbRows = 8;
+            int za_labele_index = 0;
+            string[] zaUpisivanje = new string[500];
             zaUpisivanje[0] += "Staticna Odeljenja: ";
             /*zaUpisivanje[15] += "Slobodne Ucionice: ";
             zaUpisivanje[0] += "Zauzetost svecane sale: ";
@@ -631,44 +635,47 @@ namespace Raspored_Ucionica.ViewModel
 
 
 
-            int kolona = 5, redovi = 8, prva = 0, druga = 0, treca = 0, cetvrta = 0, peta = 0, sesta = 0;
-            int nbColumns = 32;
-            int nbRows = 8;
-            int za_labele_index = 0;
+
             for (int i = 0; i < nbColumns; i++)
             {
                 if (lista_odeljenja[i].Id_ucionice == null)
                 {
                     if (za_labele_index == 0)
                     {
+                        zaUpisivanje[10] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
                         prva = lista_odeljenja[i].Id;
                         za_labele_index++;
                     }
                     else if (za_labele_index == 1)
                     {
+                        zaUpisivanje[20] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
                         druga = lista_odeljenja[i].Id;
                         za_labele_index++;
 
                     }
                     else if (za_labele_index == 2)
                     {
+                        zaUpisivanje[30] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
                         treca = lista_odeljenja[i].Id;
                         za_labele_index++;
                     }
                     else if (za_labele_index == 3)
                     {
+                        zaUpisivanje[40] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
                         cetvrta = lista_odeljenja[i].Id;
                         za_labele_index++;
 
                     }
                     else if (za_labele_index == 4)
                     {
+                        zaUpisivanje[50] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
                         peta = lista_odeljenja[i].Id;
                         za_labele_index++;
 
                     }
                     else
                     {
+                        zaUpisivanje[60] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
                         sesta = lista_odeljenja[i].Id;
                         za_labele_index++;
 
@@ -676,21 +683,19 @@ namespace Raspored_Ucionica.ViewModel
                     }
                 }
             }
-            zaUpisivanje[10] = Cos[prva].ToString();
+           /* zaUpisivanje[10] = Cos[prva].ToString();
             zaUpisivanje[20] = Cos[druga].ToString();
             zaUpisivanje[30] = Cos[treca].ToString();
             zaUpisivanje[40] = Cos[cetvrta].ToString();
             zaUpisivanje[50] = Cos[peta].ToString();
-            zaUpisivanje[60] = Cos[sesta].ToString();
-            /*for (int row = 0; row < redovi; row++)
+            zaUpisivanje[60] = Cos[sesta].ToString();*/
+            for (int row = 0; row < redovi; row++)
             {
-                zaUpisivanje[80] +=(row.ToString()) + ", ";
-                zaUpisivanje[100] += (row.ToString()) + ", ";
+                zaUpisivanje[80] +=(row.ToString()) + ",";
+                zaUpisivanje[100] += (row.ToString()) + ",";
             }
-            for (int row = 0; row < kolona; row++)
+            /*for (int row = 0; row < kolona; row++)
             {
-                DataRow dr = Grupe.NewRow();
-                DataRow drr = SvSala.NewRow();
                 for (int col = 0; col < redovi; col++)
                 {
 
@@ -983,14 +988,6 @@ namespace Raspored_Ucionica.ViewModel
             }
             for (int row = 0; row < redovi; row++)
             {
-                DataRow dr = Slobodne.NewRow();
-
-                DataRow prvo1 = Prvo1.NewRow();
-                DataRow prvo2 = Prvo2.NewRow();
-                DataRow prvo3 = Prvo3.NewRow();
-                DataRow drugo1 = Drugo1.NewRow();
-                DataRow drugo2 = Drugo2.NewRow();
-                DataRow drugo3 = Drugo3.NewRow();
                 for (int col = 0; col < kolona; col++)
                 {
                     dr[col] = Slobodne[row][col];
@@ -1040,75 +1037,7 @@ namespace Raspored_Ucionica.ViewModel
                         drugo3[col] = rezultatiPetak[row][sesta];
                     }
                 }
-                Slobodne.Rows.Add(dr);
-
-                Prvo1.Rows.Add(prvo1);
-                Prvo2.Rows.Add(prvo2);
-                Prvo3.Rows.Add(prvo3);
-                Drugo1.Rows.Add(drugo1);
-                Drugo2.Rows.Add(drugo2);
-                Drugo3.Rows.Add(drugo3);
-            }
-
-            p1.ItemsSource = Prvo1.DefaultView;
-            p2.ItemsSource = Prvo2.DefaultView;
-            p3.ItemsSource = Prvo3.DefaultView;
-            d1.ItemsSource = Drugo1.DefaultView;
-            d2.ItemsSource = Drugo2.DefaultView;
-            d3.ItemsSource = Drugo3.DefaultView;
-            rezultatiSv.ItemsSource = SvSala.DefaultView;
-            rezultatiSlob.ItemsSource = Slobodne.DefaultView;
-            rezultatiGrupe.ItemsSource = Grupe.DefaultView;
-
-
-            DataRow stati = Staticne.NewRow();
-            //ispis za rezultate
-            za_labele_index = 0;
-            for (int i = 0; i < nbColumns; i++)
-            {
-                Staticne.Columns.Add(lista_odeljenja[i].Ime_odeljenja.ToString());
-                if (lista_odeljenja[i].Id_ucionice == null)
-                {
-                    stati[i] += "Lutajuce";
-                    if (za_labele_index == 0)
-                    {
-                        prvaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
-                        za_labele_index++;
-                    }
-                    else if (za_labele_index == 1)
-                    {
-                        drugaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
-                        za_labele_index++;
-                    }
-                    else if (za_labele_index == 2)
-                    {
-                        trecaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
-                        za_labele_index++;
-                    }
-                    else if (za_labele_index == 3)
-                    {
-                        cetvrtaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
-                        za_labele_index++;
-                    }
-                    else if (za_labele_index == 4)
-                    {
-                        petaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
-                        za_labele_index++;
-                    }
-                    else
-                    {
-                        sestaLabel.Content = lista_odeljenja[i].Ime_odeljenja.ToString();
-                        za_labele_index++;
-                    }
-                }
-                else
-                {
-                    stati[i] += lista_ucionica.First(ucionica => ucionica.Id == lista_odeljenja[i].Id_ucionice).Ime_ucionice;
-                }
-
-            }
-            Staticne.Rows.Add(stati);
-            staticne.ItemsSource = Staticne.DefaultView;*/
+            }*/
 
             // linija tabele je jedan element u nizu stringova
             // dodaj ostalo i lagano
