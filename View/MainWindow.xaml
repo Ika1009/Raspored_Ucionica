@@ -1,4 +1,4 @@
-﻿<Window x:Class="Raspored_Ucionica.MainWindow"
+<Window x:Class="Raspored_Ucionica.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -41,11 +41,11 @@
             <Label  Content="Заузетост св. сале" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,1742,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Name="rezultatiSv" VerticalAlignment="Top" Width="auto" Margin="108,1798,0,0" />
             <Label  Content="Слободне учионице (без св. сале)" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="334" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,1448,0,0"/>
-            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Name="rezultatiSlob" VerticalAlignment="Top" Width="auto" MaxWidth="900" Margin="108,1490,0,0"/>
+            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Name="rezultatiSlob" VerticalAlignment="Top" Width="auto" Margin="108,1490,0,0"/>
             <Label  Content="Распоред статичних одељења" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="320" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,144,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Margin="108,200,0,0" Name="staticne" VerticalAlignment="Top" Width="auto" />
             <Label  Content="Групе" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,2004,0,0"/>
-            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="400" HorizontalAlignment="Left" x:Name="rezultatiGrupe" VerticalAlignment="Top" Width="auto" Margin="108,2066,0,0" />
+            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" x:Name="rezultatiGrupe" VerticalAlignment="Top" Width="auto" Margin="0,2066,0,0" />
             <TextBox IsEnabled="False" BorderThickness="2" HorizontalAlignment="Left" Margin="458,400,0,0" TextWrapping="Wrap" Text="Напомена: 
                      ЧОС: 
                      (понедељак)" VerticalAlignment="Top" Width="120"/>
