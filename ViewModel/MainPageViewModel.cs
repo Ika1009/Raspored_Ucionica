@@ -91,7 +91,7 @@ namespace Raspored_Ucionica.ViewModel
                 lista_id_ucionica_slobodnih_za_staticne.RemoveAt(rendomBroj);
             }
 
-            if (!inputChecked32) // nase odeljenje prvo jer mora da se uzme 39 za nas ako treba
+            if (!inputViewModel.Checked32) // nase odeljenje prvo jer mora da se uzme 39 za nas ako treba
             {
                 Odeljenje odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == "III-2");
                 odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![0];
@@ -618,9 +618,9 @@ namespace Raspored_Ucionica.ViewModel
             int za_labele_index = 0;
             string[] zaUpisivanje = new string[500];
             zaUpisivanje[0] += "Staticna Odeljenja: ";
-            /*zaUpisivanje[15] += "Slobodne Ucionice: ";
-            zaUpisivanje[0] += "Zauzetost svecane sale: ";
-            zaUpisivanje[0] += "Grupe: ";*/
+            zaUpisivanje[69] += "Slobodne Ucionice: ";
+            zaUpisivanje[79] += "Zauzetost svecane sale: ";
+            zaUpisivanje[89] += "Grupe: ";
             for (int i = 0; i < lista_odeljenja!.Count; i++)
             {
                 zaUpisivanje[2] += lista_odeljenja[i].Ime_odeljenja + ",";
@@ -642,40 +642,40 @@ namespace Raspored_Ucionica.ViewModel
                 {
                     if (za_labele_index == 0)
                     {
-                        zaUpisivanje[10] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
+                        zaUpisivanje[7] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
                         prva = lista_odeljenja[i].Id;
                         za_labele_index++;
                     }
                     else if (za_labele_index == 1)
                     {
-                        zaUpisivanje[20] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
+                        zaUpisivanje[17] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
                         druga = lista_odeljenja[i].Id;
                         za_labele_index++;
 
                     }
                     else if (za_labele_index == 2)
                     {
-                        zaUpisivanje[30] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
+                        zaUpisivanje[27] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
                         treca = lista_odeljenja[i].Id;
                         za_labele_index++;
                     }
                     else if (za_labele_index == 3)
                     {
-                        zaUpisivanje[40] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
+                        zaUpisivanje[37] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
                         cetvrta = lista_odeljenja[i].Id;
                         za_labele_index++;
 
                     }
                     else if (za_labele_index == 4)
                     {
-                        zaUpisivanje[50] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
+                        zaUpisivanje[47] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
                         peta = lista_odeljenja[i].Id;
                         za_labele_index++;
 
                     }
                     else
                     {
-                        zaUpisivanje[60] = lista_odeljenja[i].Ime_odeljenja.ToString() + ",";
+                        zaUpisivanje[57] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
                         sesta = lista_odeljenja[i].Id;
                         za_labele_index++;
 
@@ -683,18 +683,18 @@ namespace Raspored_Ucionica.ViewModel
                     }
                 }
             }
-           /* zaUpisivanje[10] = Cos[prva].ToString();
-            zaUpisivanje[20] = Cos[druga].ToString();
-            zaUpisivanje[30] = Cos[treca].ToString();
-            zaUpisivanje[40] = Cos[cetvrta].ToString();
-            zaUpisivanje[50] = Cos[peta].ToString();
-            zaUpisivanje[60] = Cos[sesta].ToString();*/
+            zaUpisivanje[7] += Cos[prva].ToString();
+            zaUpisivanje[17] += Cos[druga].ToString();
+            zaUpisivanje[27] += Cos[treca].ToString();
+            zaUpisivanje[37] += Cos[cetvrta].ToString();
+            zaUpisivanje[47] += Cos[peta].ToString();
+            zaUpisivanje[57] += Cos[sesta].ToString();
             for (int row = 0; row < redovi; row++)
             {
-                zaUpisivanje[80] +=(row.ToString()) + ",";
-                zaUpisivanje[100] += (row.ToString()) + ",";
+                zaUpisivanje[70] += (row.ToString()) + ",";
+                zaUpisivanje[80] += (row.ToString()) + ",";
             }
-            /*for (int row = 0; row < kolona; row++)
+            for (int row = 0; row < kolona; row++)
             {
                 for (int col = 0; col < redovi; col++)
                 {
@@ -708,21 +708,21 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 string[] ime = ponedeljak.RasporedCasova[col][i].Split("/");
                                 string[] niz = rezultatiPonedeljak[col][i].Split("/");
-                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
                                 if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                                 else
                                 {
@@ -730,22 +730,23 @@ namespace Raspored_Ucionica.ViewModel
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                             }
 
-
+                            zaUpisivanje[80 + col] = ",";
                             if (rezultatiPonedeljak[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
                             }
+                            
                         }
 
                         else if (row == 1)
@@ -754,21 +755,21 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 string[] ime = utorak.RasporedCasova[col][i].Split("/");
                                 string[] niz = rezultatiUtorak[col][i].Split("/");
-                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (utorak.RasporedCasova[col][i] == "reg/reg")
+                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                                 else
                                 {
@@ -776,20 +777,21 @@ namespace Raspored_Ucionica.ViewModel
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
 
                             }
+                            zaUpisivanje[80 + col] = ",";
                             if (rezultatiUtorak[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
                             }
                         }
                         else if (row == 2)
@@ -798,21 +800,21 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 string[] ime = sreda.RasporedCasova[col][i].Split("/");
                                 string[] niz = rezultatiSreda[col][i].Split("/");
-                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (sreda.RasporedCasova[col][i] == "reg/reg")
+                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                                 else
                                 {
@@ -820,20 +822,22 @@ namespace Raspored_Ucionica.ViewModel
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                             }
+                            zaUpisivanje[80 + col] = ",";
                             if (rezultatiSreda[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
                             }
+
                         }
                         else if (row == 3)
                         {
@@ -841,21 +845,21 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 string[] ime = cetvrtak.RasporedCasova[col][i].Split("/");
                                 string[] niz = rezultatiCetvrtak[col][i].Split("/");
-                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (cetvrtak.RasporedCasova[col][i] == "reg/reg")
+                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                                 else
                                 {
@@ -863,20 +867,22 @@ namespace Raspored_Ucionica.ViewModel
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                             }
+                            zaUpisivanje[80 + col] = ",";
                             if (rezultatiCetvrtak[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
                             }
+
                         }
                         else
                         {
@@ -884,21 +890,21 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 string[] ime = petak.RasporedCasova[col][i].Split("/");
                                 string[] niz = rezultatiPetak[col][i].Split("/");
-                                dr[col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (petak.RasporedCasova[col][i] == "reg/reg")
+                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
                                     for (int j = 0; j < niz.Length; j++)
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                                 else
                                 {
@@ -906,83 +912,77 @@ namespace Raspored_Ucionica.ViewModel
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
                                         }
                                     }
-                                    dr[col] += "\n";
+                                    zaUpisivanje[90 + col] += "\n";
                                 }
                             }
+                            zaUpisivanje[80 + col] += ",";
                             if (rezultatiPetak[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += lista_odeljenja[i].Ime_odeljenja;
+                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
                             }
                         }
                     }
 
                 }
-                SvSala.Rows.Add(drr);
-                Grupe.Rows.Add(dr);
             }
             for (int i = 0; i < kolona; i++)
             {
                 if (i == 0)
                 {
                     //SvSala.Columns.Add("Понедељак");
-                    Slobodne.Columns.Add("Понедељак");
-                    Prvo1.Columns.Add("Понедељак");
-                    Prvo2.Columns.Add("Понедељак");
-                    Prvo3.Columns.Add("Понедељак");
-                    Drugo1.Columns.Add("Понедељак");
-                    Drugo2.Columns.Add("Понедељак");
-                    Drugo3.Columns.Add("Понедељак");
+                    zaUpisivanje[10 + i] +="Ponedeljak,";
+                    zaUpisivanje[20 + i] += "Ponedeljak,";
+                    zaUpisivanje[30 + i] += "Ponedeljak,";
+                    zaUpisivanje[40 + i] += "Ponedeljak,";
+                    zaUpisivanje[50 + i] += "Ponedeljak,";
+                    zaUpisivanje[60 + i] += "Ponedeljak,";
                 }
                 else if (i == 1)
                 {
                     //SvSala.Columns.Add("Уторак");
-                    Slobodne.Columns.Add("Уторак");
-                    Prvo1.Columns.Add("Уторак");
-                    Prvo2.Columns.Add("Уторак");
-                    Prvo3.Columns.Add("Уторак");
-                    Drugo1.Columns.Add("Уторак");
-                    Drugo2.Columns.Add("Уторак");
-                    Drugo3.Columns.Add("Уторак");
+                    zaUpisivanje[10 + i] += "Utorak,";
+                    zaUpisivanje[20 + i] += "Utorak,";
+                    zaUpisivanje[30 + i] += "Utorak,";
+                    zaUpisivanje[40 + i] += "Utorak,";
+                    zaUpisivanje[50 + i] += "Utorak,";
+                    zaUpisivanje[60 + i] += "Utorak,";
                 }
                 else if (i == 2)
                 {
                     //SvSala.Columns.Add("Среда");
-                    Slobodne.Columns.Add("Среда");
-                    Prvo1.Columns.Add("Среда");
-                    Prvo2.Columns.Add("Среда");
-                    Prvo3.Columns.Add("Среда");
-                    Drugo1.Columns.Add("Среда");
-                    Drugo2.Columns.Add("Среда");
-                    Drugo3.Columns.Add("Среда");
+                    zaUpisivanje[10 + i] += "Sreda";
+                    zaUpisivanje[20 + i] += "Sreda";
+                    zaUpisivanje[30 + i] += "Sreda";
+                    zaUpisivanje[40 + i] += "Sreda";
+                    zaUpisivanje[50 + i] += "Sreda";
+                    zaUpisivanje[60 + i] += "Sreda";
                 }
                 else if (i == 3)
                 {
                     //SvSala.Columns.Add("Четвртак");
-                    Slobodne.Columns.Add("Четвртак");
-                    Prvo1.Columns.Add("Четвртак");
-                    Prvo2.Columns.Add("Четвртак");
-                    Prvo3.Columns.Add("Четвртак");
-                    Drugo1.Columns.Add("Четвртак");
-                    Drugo2.Columns.Add("Четвртак");
-                    Drugo3.Columns.Add("Четвртак");
+                    zaUpisivanje[10 + i] += "Cetvrtak,";
+                    zaUpisivanje[20 + i] += "Cetvrtak,";
+                    zaUpisivanje[30 + i] += "Cetvrtak,";
+                    zaUpisivanje[40 + i] += "Cetvrtak,";
+                    zaUpisivanje[50 + i] += "Cetvrtak,";
+                    zaUpisivanje[60 + i] += "Cetvrtak,";
                 }
                 else
                 {
                     //SvSala.Columns.Add("Петак");
-                    Slobodne.Columns.Add("Петак");
-                    Prvo1.Columns.Add("Петак");
-                    Prvo2.Columns.Add("Петак");
-                    Prvo3.Columns.Add("Петак");
-                    Drugo1.Columns.Add("Петак");
-                    Drugo2.Columns.Add("Петак");
-                    Drugo3.Columns.Add("Петак");
+                    zaUpisivanje[10 + i] += "Petak,";
+                    zaUpisivanje[20 + i] += "Petak,";
+                    zaUpisivanje[30 + i] += "Petak,";
+                    zaUpisivanje[40 + i] += "Petak,";
+                    zaUpisivanje[50 + i] += "Petak,";
+                    zaUpisivanje[60 + i] += "Petak,";
                 }
 
             }
@@ -990,54 +990,53 @@ namespace Raspored_Ucionica.ViewModel
             {
                 for (int col = 0; col < kolona; col++)
                 {
-                    dr[col] = Slobodne[row][col];
                     if (col == 0)
                     {
-                        prvo1[col] = rezultatiPonedeljak[row][prva];
-                        prvo2[col] = rezultatiPonedeljak[row][druga];
-                        prvo3[col] = rezultatiPonedeljak[row][treca];
-                        drugo1[col] = rezultatiPonedeljak[row][cetvrta];
-                        drugo2[col] = rezultatiPonedeljak[row][peta];
-                        drugo3[col] = rezultatiPonedeljak[row][sesta];
+                        zaUpisivanje[10 + col] += rezultatiPonedeljak[row][prva] + ",";
+                        zaUpisivanje[20 + col] += rezultatiPonedeljak[row][druga] + ",";
+                        zaUpisivanje[30 + col] += rezultatiPonedeljak[row][treca] + ",";
+                        zaUpisivanje[40 + col] += rezultatiPonedeljak[row][cetvrta] + ",";
+                        zaUpisivanje[50 + col] += rezultatiPonedeljak[row][peta] + ",";
+                        zaUpisivanje[60 + col] += rezultatiPonedeljak[row][sesta] + ",";
                     }
                     else if (col == 1)
                     {
-                        prvo1[col] = rezultatiUtorak[row][prva];
-                        prvo2[col] = rezultatiUtorak[row][druga];
-                        prvo3[col] = rezultatiUtorak[row][treca];
-                        drugo1[col] = rezultatiUtorak[row][cetvrta];
-                        drugo2[col] = rezultatiUtorak[row][peta];
-                        drugo3[col] = rezultatiUtorak[row][sesta];
+                        zaUpisivanje[10 + col] += rezultatiUtorak[row][prva] + ",";
+                        zaUpisivanje[20 + col] += rezultatiUtorak[row][druga] + ",";
+                        zaUpisivanje[30 + col] += rezultatiUtorak[row][treca] + ",";
+                        zaUpisivanje[40 + col] += rezultatiUtorak[row][cetvrta] + ",";
+                        zaUpisivanje[50 + col] += rezultatiUtorak[row][peta] + ",";
+                        zaUpisivanje[60 + col] += rezultatiUtorak[row][sesta] + ",";
                     }
                     else if (col == 2)
                     {
-                        prvo1[col] = rezultatiSreda[row][prva];
-                        prvo2[col] = rezultatiSreda[row][druga];
-                        prvo3[col] = rezultatiSreda[row][treca];
-                        drugo1[col] = rezultatiSreda[row][cetvrta];
-                        drugo2[col] = rezultatiSreda[row][peta];
-                        drugo3[col] = rezultatiSreda[row][sesta];
+                        zaUpisivanje[10 + col] += rezultatiSreda[row][prva] + ",";
+                        zaUpisivanje[20 + col] += rezultatiSreda[row][druga] + ",";
+                        zaUpisivanje[30 + col] += rezultatiSreda[row][treca] + ",";
+                        zaUpisivanje[40 + col] += rezultatiSreda[row][cetvrta] + ",";
+                        zaUpisivanje[50 + col] += rezultatiSreda[row][peta] + ",";
+                        zaUpisivanje[60 + col] += rezultatiSreda[row][sesta] + ",";
                     }
                     else if (col == 3)
                     {
-                        prvo1[col] = rezultatiCetvrtak[row][prva];
-                        prvo2[col] = rezultatiCetvrtak[row][druga];
-                        prvo3[col] = rezultatiCetvrtak[row][treca];
-                        drugo1[col] = rezultatiCetvrtak[row][cetvrta];
-                        drugo2[col] = rezultatiCetvrtak[row][peta];
-                        drugo3[col] = rezultatiCetvrtak[row][sesta];
+                        zaUpisivanje[10 + col] += rezultatiCetvrtak[row][prva] + ",";
+                        zaUpisivanje[20 + col] += rezultatiCetvrtak[row][druga] + ",";
+                        zaUpisivanje[30 + col] += rezultatiCetvrtak[row][treca] + ",";
+                        zaUpisivanje[40 + col] += rezultatiCetvrtak[row][cetvrta] + ",";
+                        zaUpisivanje[50 + col] += rezultatiCetvrtak[row][peta] + ",";
+                        zaUpisivanje[60 + col] += rezultatiCetvrtak[row][sesta] + ",";
                     }
                     else
                     {
-                        prvo1[col] = rezultatiPetak[row][prva];
-                        prvo2[col] = rezultatiPetak[row][druga];
-                        prvo3[col] = rezultatiPetak[row][treca];
-                        drugo1[col] = rezultatiPetak[row][cetvrta];
-                        drugo2[col] = rezultatiPetak[row][peta];
-                        drugo3[col] = rezultatiPetak[row][sesta];
+                        zaUpisivanje[10 + col] += rezultatiPetak[row][prva] + ",";
+                        zaUpisivanje[20 + col] += rezultatiPetak[row][druga] + ",";
+                        zaUpisivanje[30 + col] += rezultatiPetak[row][treca] + ",";
+                        zaUpisivanje[40 + col] += rezultatiPetak[row][cetvrta] + ",";
+                        zaUpisivanje[50 + col] += rezultatiPetak[row][peta] + ",";
+                        zaUpisivanje[60 + col] += rezultatiPetak[row][sesta] + ",";
                     }
                 }
-            }*/
+            }
 
             // linija tabele je jedan element u nizu stringova
             // dodaj ostalo i lagano
