@@ -23,13 +23,13 @@ namespace Raspored_Ucionica.ViewModel
       
             List<Odeljenje> neizabrana = new List<Odeljenje>();
             int i = 0;
-            foreach(string ime in Boxovi)
+            foreach(string ime in inputVM.boxovi)
             {
                 if(ime == "")
                 {
                     neizabrana.Add(lista_odeljenja[i]);
                 }
-                else
+                else if (ime != "Лутајуће")
                 {
                     Ucionica ucionica = lista_ucionica.Find(ucionica => ucionica.Ime_ucionice == ime);
                     lista_odeljenja[i].Id_ucionice = ucionica.Id;

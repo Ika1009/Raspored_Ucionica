@@ -12,7 +12,8 @@ namespace Raspored_Ucionica.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         bool checked11;
-
+        public List<string> boxovi;
+        
         public bool Checked11
         {
             get => checked11;

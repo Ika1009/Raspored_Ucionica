@@ -135,16 +135,16 @@ namespace Raspored_Ucionica
         {
             try
             {
+                viewModel.boxovi = new List<string>() {textbox11.Text, textbox12.Text, textbox13.Text, textbox14.Text,
+                textbox15.Text, textbox16.Text, textbox17.Text, textbox18.Text,
+                textbox21.Text, textbox22.Text, textbox23.Text, textbox24.Text,
+                textbox25.Text, textbox26.Text, textbox27.Text, textbox28.Text,
+                textbox31.Text, textbox32.Text, textbox33.Text, textbox34.Text,
+                textbox35.Text, textbox36.Text, textbox37.Text, textbox38.Text,
+                textbox41.Text, textbox42.Text, textbox43.Text, textbox44.Text,
+                textbox45.Text, textbox46.Text, textbox47.Text, textbox48.Text};
                 MainWindow mainWindow = new MainWindow(viewModel);
                 mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-                List<string> boxovi = new List<string>() {textbox11.ToString(), textbox12.ToString(), textbox13.ToString(), textbox14.ToString(),
-                textbox15.ToString(), textbox16.ToString(), textbox17.ToString(), textbox18.ToString(),
-                textbox21.ToString(), textbox22.ToString(), textbox23.ToString(), textbox24.ToString(),
-                textbox25.ToString(), textbox26.ToString(), textbox27.ToString(), textbox28.ToString(),
-                textbox31.ToString(), textbox32.ToString(), textbox33.ToString(), textbox34.ToString(),
-                textbox35.ToString(), textbox36.ToString(), textbox37.ToString(), textbox38.ToString(),
-                textbox41.ToString(), textbox42.ToString(), textbox43.ToString(), textbox44.ToString(),
-                textbox45.ToString(), textbox46.ToString(), textbox47.ToString(), textbox48.ToString()};
                 mainWindow.Show();
                 Close();
             }
