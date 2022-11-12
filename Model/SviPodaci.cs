@@ -10,6 +10,7 @@ namespace Raspored_Ucionica.Model
         protected readonly List<Ucionica>? lista_prioriteta;
         public readonly Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
         protected readonly Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
+        
         public SviPodaci()
         {
             Kponedeljak = new(new List<List<string>> // optimizovao
@@ -147,16 +148,16 @@ namespace Raspored_Ucionica.Model
                 new Ucionica("svecana sala",40,true),
 
             };
-            lista_id_ucionica_slobodnih_za_staticne = new()
-            {
-                lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id,
-                lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "35").Id,
-                lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "21").Id,
-                lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "23b").Id,
-                lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "30").Id,
-                lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "33").Id,
-                lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "11").Id
-            };
+            //lista_id_ucionica_slobodnih_za_staticne = new()
+            //{
+            //    lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39").Id,
+            //    lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "35").Id,
+            //    lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "21").Id,
+            //    lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "23b").Id,
+            //    lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "30").Id,
+            //    lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "33").Id,
+            //    lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "11").Id
+            //};
             lista_odeljenja = new()
             {
                 new Odeljenje("I-1", 19),//lutajuca

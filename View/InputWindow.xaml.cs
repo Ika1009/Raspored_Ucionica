@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,6 +20,7 @@ namespace Raspored_Ucionica
     public partial class InputWindow : Window
     {
         InputWindowViewModel viewModel;
+
         public InputWindow()
         {
             InitializeComponent();
@@ -134,6 +137,14 @@ namespace Raspored_Ucionica
             {
                 MainWindow mainWindow = new MainWindow(viewModel);
                 mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                List<string> boxovi = new List<string>() {textbox11.ToString(), textbox12.ToString(), textbox13.ToString(), textbox14.ToString(),
+                textbox15.ToString(), textbox16.ToString(), textbox17.ToString(), textbox18.ToString(),
+                textbox21.ToString(), textbox22.ToString(), textbox23.ToString(), textbox24.ToString(),
+                textbox25.ToString(), textbox26.ToString(), textbox27.ToString(), textbox28.ToString(),
+                textbox31.ToString(), textbox32.ToString(), textbox33.ToString(), textbox34.ToString(),
+                textbox35.ToString(), textbox36.ToString(), textbox37.ToString(), textbox38.ToString(),
+                textbox41.ToString(), textbox42.ToString(), textbox43.ToString(), textbox44.ToString(),
+                textbox45.ToString(), textbox46.ToString(), textbox47.ToString(), textbox48.ToString()};
                 mainWindow.Show();
                 Close();
             }
@@ -287,8 +298,7 @@ namespace Raspored_Ucionica
                     break;
 
             }
+            
         }
-
-
     }
 }

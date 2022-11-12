@@ -12,6 +12,7 @@ namespace Raspored_Ucionica.ViewModel
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         bool checked11;
+
         public bool Checked11
         {
             get => checked11;
@@ -206,6 +207,7 @@ namespace Raspored_Ucionica.ViewModel
                 } 
             } 
         }
+
         public InputWindowViewModel()
         {
             Checked11 = false;

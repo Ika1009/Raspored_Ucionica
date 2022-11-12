@@ -9,28 +9,41 @@ using System.IO;
 
 namespace Raspored_Ucionica.ViewModel
 {
-
     public class MainPageViewModel : SviPodaci
     {
         public event PropertyChangedEventHandler? PropertyChanged;
         public List<List<string>> rezultatiPonedeljak, rezultatiUtorak, rezultatiSreda, rezultatiCetvrtak, rezultatiPetak;
         public List<List<string>> Slobodne;
         public List<string> Cos = new List<string>();
+        
         InputWindowViewModel inputViewModel;
         public MainPageViewModel(InputWindowViewModel inputVM)
         {
             inputViewModel = inputVM;
-            IzaberiLutajuce();
+      
+            List<Odeljenje> neizabrana = new List<Odeljenje>();
+            int i = 0;
+            foreach(string ime in Boxovi)
+            {
+                if(ime == "")
+                {
+                    neizabrana.Add(lista_odeljenja[i]);
+                }
+                else
+                {
+                    Ucionica ucionica = lista_ucionica.Find(ucionica => ucionica.Ime_ucionice == ime);
+                    lista_odeljenja[i].Id_ucionice = ucionica.Id;
+                    ucionica.Slobodna = false;
+                }
+                i++;
+            }
             //Ucionica Temp = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "39");
             //Temp.Slobodna = false;
             List<Odeljenje> lista_odeljenjaSort;
-            lista_odeljenjaSort = lista_odeljenja!.OrderByDescending(x => x.Broj_ucenika).ToList();
+            lista_odeljenjaSort = neizabrana!.OrderByDescending(x => x.Broj_ucenika).ToList();
             foreach (Odeljenje odeljenje in lista_odeljenjaSort)
             {
-                if(odeljenje.Ime_odeljenja.Contains("3") == false && odeljenje.Ime_odeljenja.Contains("2") == false && odeljenje.Ime_odeljenja.Contains("1") == false && odeljenje.Ime_odeljenja !="III-4")
-                {
-                    IzaberiStaticno(odeljenje.Ime_odeljenja, odeljenje.Broj_ucenika);
-                }
+                IzaberiStaticno(odeljenje.Ime_odeljenja, odeljenje.Broj_ucenika);
             }
             
             //for (int i = 0; i >= 31; i++)
@@ -76,53 +89,53 @@ namespace Raspored_Ucionica.ViewModel
                 ucionica.Slobodna = true;
             }
         }
-        public void IzaberiLutajuce()
-        {
-            void DodajLutajuce(string imeOdeljenja) // dodaje mu stalnu ucionicu
-            {
-                Random random = new();
-                Odeljenje odeljenjeTemp;
-                Ucionica ucionicaTemp;
-                odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == imeOdeljenja);
-                int rendomBroj = random.Next(0, lista_id_ucionica_slobodnih_za_staticne!.Count - 1);
-                odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![rendomBroj];
-                ucionicaTemp = lista_ucionica!.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice && ucionica.Velicina >= (odeljenjeTemp.Broj_ucenika - 2));
-                ucionicaTemp.Slobodna = false;
-                lista_id_ucionica_slobodnih_za_staticne.RemoveAt(rendomBroj);
-            }
+        //public void IzaberiLutajuce()
+        //{
+        //    void DodajLutajuce(string imeOdeljenja) // dodaje mu stalnu ucionicu
+        //    {
+        //        Random random = new();
+        //        Odeljenje odeljenjeTemp;
+        //        Ucionica ucionicaTemp;
+        //        odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == imeOdeljenja);
+        //        int rendomBroj = random.Next(0, lista_id_ucionica_slobodnih_za_staticne!.Count - 1);
+        //        odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![rendomBroj];
+        //        ucionicaTemp = lista_ucionica!.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice && ucionica.Velicina >= (odeljenjeTemp.Broj_ucenika - 2));
+        //        ucionicaTemp.Slobodna = false;
+        //        lista_id_ucionica_slobodnih_za_staticne.RemoveAt(rendomBroj);
+        //    }
 
-            if (!inputViewModel.Checked32) // nase odeljenje prvo jer mora da se uzme 39 za nas ako treba
-            {
-                Odeljenje odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == "III-2");
-                odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![0];
-                lista_ucionica!.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice).Slobodna = false;
-                lista_id_ucionica_slobodnih_za_staticne.RemoveAt(0);
-            }
-            if (!inputViewModel.Checked11)
-                DodajLutajuce("I-1");
-            if (!inputViewModel.Checked12)
-                DodajLutajuce("I-2");
-            if (!inputViewModel.Checked13)
-                DodajLutajuce("I-3");
-            if (!inputViewModel.Checked21)
-                DodajLutajuce("II-1");
-            if (!inputViewModel.Checked22)
-                DodajLutajuce("II-2");
-            if (!inputViewModel.Checked23)
-                DodajLutajuce("II-3");
-            if (!inputViewModel.Checked31)
-                DodajLutajuce("III-1");
-            if (!inputViewModel.Checked33)
-                DodajLutajuce("III-3");
-            if (!inputViewModel.Checked34)
-                DodajLutajuce("III-4");
-            if (!inputViewModel.Checked41)
-                DodajLutajuce("IV-1");
-            if (!inputViewModel.Checked42)
-                DodajLutajuce("IV-2");
-            if (!inputViewModel.Checked43)
-                DodajLutajuce("IV-3");
-        }
+        //    if (!inputViewModel.Checked32) // nase odeljenje prvo jer mora da se uzme 39 za nas ako treba
+        //    {
+        //        Odeljenje odeljenjeTemp = lista_odeljenja!.First(odeljenje => odeljenje.Ime_odeljenja == "III-2");
+        //        odeljenjeTemp.Id_ucionice = lista_id_ucionica_slobodnih_za_staticne![0];
+        //        lista_ucionica!.First(ucionica => ucionica.Id == odeljenjeTemp.Id_ucionice).Slobodna = false;
+        //        lista_id_ucionica_slobodnih_za_staticne.RemoveAt(0);
+        //    }
+        //    if (!inputViewModel.Checked11)
+        //        DodajLutajuce("I-1");
+        //    if (!inputViewModel.Checked12)
+        //        DodajLutajuce("I-2");
+        //    if (!inputViewModel.Checked13)
+        //        DodajLutajuce("I-3");
+        //    if (!inputViewModel.Checked21)
+        //        DodajLutajuce("II-1");
+        //    if (!inputViewModel.Checked22)
+        //        DodajLutajuce("II-2");
+        //    if (!inputViewModel.Checked23)
+        //        DodajLutajuce("II-3");
+        //    if (!inputViewModel.Checked31)
+        //        DodajLutajuce("III-1");
+        //    if (!inputViewModel.Checked33)
+        //        DodajLutajuce("III-3");
+        //    if (!inputViewModel.Checked34)
+        //        DodajLutajuce("III-4");
+        //    if (!inputViewModel.Checked41)
+        //        DodajLutajuce("IV-1");
+        //    if (!inputViewModel.Checked42)
+        //        DodajLutajuce("IV-2");
+        //    if (!inputViewModel.Checked43)
+        //        DodajLutajuce("IV-3");
+        //}
         public void IzaberiStaticno(string Ime_odeljenja, int Velicina_odeljenja)
         {
             List<Ucionica> lista_mogucih = new List<Ucionica>();
