@@ -146,7 +146,7 @@ namespace Raspored_Ucionica.ViewModel
             
             foreach(Ucionica ucionica in lista_ucionica)
             {
-                if(ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Velicina >= (Velicina_odeljenja-3))
+                if(ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Velicina >= Velicina_odeljenja)
                 {
                     lista_mogucih.Add(ucionica);
                 }
