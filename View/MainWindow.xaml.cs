@@ -91,10 +91,27 @@ namespace Raspored_Ucionica
             cetvrtaLabela.Content = viewModel.Cos[cetvrta].ToString();
             petaLabela.Content = viewModel.Cos[peta].ToString();
             sestaLabela.Content = viewModel.Cos[sesta].ToString();
+            za_labele_index = 0;
+            string neznam = " cas";
             for (int row = 0; row < redovi; row++)
             {
-                SvSala.Columns.Add(row.ToString());
-                Grupe.Columns.Add(row.ToString());
+                if (row == 0)
+                {
+                    SvSala.Columns.Add("DAN");
+                }
+                else
+                {
+                    SvSala.Columns.Add(row.ToString() + neznam);
+                }
+
+                if(row == 0)
+                {
+                    Grupe.Columns.Add("DAN");
+                }
+                else
+                {
+                    Grupe.Columns.Add(row.ToString() + neznam);
+                }
             }
             for (int row = 0; row < kolona; row++)
             {
@@ -107,7 +124,11 @@ namespace Raspored_Ucionica
                     {
                         if (row == 0)
                         {
-
+                            if (col == 0)
+                            {
+                                dr[col] = "Ponedeljak";
+                                drr[col] = "Ponedeljak";
+                            }
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.ponedeljak.RasporedCasova[col][i].Split("/");
@@ -152,6 +173,11 @@ namespace Raspored_Ucionica
 
                         else if (row == 1)
                         {
+                            if (col == 0)
+                            {
+                                dr[col] = "Utorak";
+                                drr[col] = "Utorak";
+                            }
                             if (viewModel.rezultatiUtorak[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.utorak.RasporedCasova[col][i].Split("/");
@@ -196,6 +222,11 @@ namespace Raspored_Ucionica
                         }
                         else if (row == 2)
                         {
+                            if (col == 0)
+                            {
+                                dr[col] = "Sreda";
+                                drr[col] = "Sreda";
+                            }
                             if (viewModel.rezultatiSreda[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.sreda.RasporedCasova[col][i].Split("/");
@@ -239,6 +270,12 @@ namespace Raspored_Ucionica
                         }
                         else if (row == 3)
                         {
+                            if (col == 0)
+                            {
+                                dr[col] = "Cetvrtak";
+                                drr[col] = "Cetvrtak";
+                            }
+
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.cetvrtak.RasporedCasova[col][i].Split("/");
@@ -282,6 +319,11 @@ namespace Raspored_Ucionica
                         }
                         else
                         {
+                            if (col == 0)
+                            {
+                                dr[col] = "Petak";
+                                drr[col] = "Petak";
+                            }
                             if (viewModel.rezultatiPetak[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.petak.RasporedCasova[col][i].Split("/");

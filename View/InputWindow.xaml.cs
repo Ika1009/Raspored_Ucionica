@@ -31,6 +31,7 @@ namespace Raspored_Ucionica
         }
         private void lutajucaButton_Click(object sender, RoutedEventArgs e)
         {
+            legendaTextBlock.Visibility = Visibility.Visible;
             noviwindowButton.Visibility= Visibility.Visible;
             lutajucaButton.Visibility= Visibility.Hidden;
             checkboxLabel.Content = "Изаберите учионице за статична одељења: ";
@@ -277,6 +278,11 @@ namespace Raspored_Ucionica
                     viewModel.Checked33 = false;
                     textbox33.Text = "";
                     textbox33.IsEnabled = true;
+                    break;
+                case "checked34":
+                    viewModel.Checked34 = false;
+                    textbox34.Text = "";
+                    textbox34.IsEnabled = true;
                     break;
                 case "checked41":
                     viewModel.Checked41 = false;
