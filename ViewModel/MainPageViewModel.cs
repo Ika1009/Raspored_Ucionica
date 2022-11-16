@@ -291,6 +291,12 @@ namespace Raspored_Ucionica.ViewModel
                     rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
+                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala") is not null)
+                {
+                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
+                    rezultati[i][j] += slobodna.Ime_ucionice + "/";
+                    slobodna.Slobodna = false;
+                }
                 else
                 {
                     Odeljenje Temp = lista_odeljenja!.First(odeljenje => odeljenje.Id == j);
