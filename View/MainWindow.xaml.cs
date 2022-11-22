@@ -40,6 +40,14 @@ namespace Raspored_Ucionica
             DataTable Drugo1 = new DataTable();
             DataTable Drugo2 = new DataTable();
             DataTable Drugo3 = new DataTable();
+            string[,] rezultati = new string[50,50];
+            for(int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < viewModel.ponedeljak.RasporedCasova[0].Count; j++)
+                {
+                    rezultati[j, i] = viewModel.ponedeljak.RasporedCasova[i][j];
+                }
+            }
             int kolona = 5, redovi = 8, prva = 0, druga = 0, treca = 0, cetvrta = 0, peta = 0, sesta = 0;
             int nbColumns = 32;
             int nbRows = 8;
@@ -131,10 +139,10 @@ namespace Raspored_Ucionica
                             }
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
                             {
-                                string[] ime = viewModel.ponedeljak.RasporedCasova[col][i].Split("/");
+                                string[] ime = rezultati[col, i].Split("/");
                                 string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
                                 dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
+                                if (rezultati[col, i] == "reg/reg")
                                 {
                                     for(int j = 0; j < niz.Length; j++)
                                     {   
