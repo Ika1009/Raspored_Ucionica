@@ -183,6 +183,7 @@ namespace Raspored_Ucionica
         }
         private void NazadPocetnaButton_Click(object sender, RoutedEventArgs e)
         {
+            NazadPocetnaButton.Visibility = Visibility.Hidden;
             checkboxLabel_Copy.Visibility = Visibility.Hidden;
             checkboxLabel_Copy1.Visibility = Visibility.Hidden;
             checkboxLabel_Copy2.Visibility = Visibility.Hidden;

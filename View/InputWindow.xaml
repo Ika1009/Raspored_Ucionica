@@ -187,11 +187,11 @@
 
 
         <TextBlock x:Name="legendaTextBlock"  Visibility="Hidden" HorizontalAlignment="Left" Margin="580,246,0,0" TextWrapping="Wrap" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" VerticalAlignment="Top" Width="196" Height="159" RenderTransformOrigin="0.485,0.135"><Run Text="ЛЕГЕНДА:"/><LineBreak/><Run Text="- павиљон 1 - "/><Run Text="P1"/><LineBreak/><Run Text="- павиљон 2 -"/><Run Text=" P2"/><LineBreak/><Run Text="- павиљон 3 -"/><Run Text=" P3"/><LineBreak/><Run Text="- хемијски кабинет -"/><Run Text=" P4"/><LineBreak/><Run Text="- 6 - jezicka1"/><LineBreak/><Run Text="- 7 - jezicka2"/><LineBreak/><Run Text="- 23b - 23b"/><LineBreak/><Run Text="- свечана сала - svecana sala"/><LineBreak/><Run Text="- библиотека - biblioteka"/><LineBreak/><Run Text=" "/></TextBlock>
-        <Button x:Name="NapraviRasporedButton" Content="Napravi raspored" HorizontalAlignment="Center" Height="80" Margin="0,294,0,0" VerticalAlignment="Top" Width="260" FontSize="22" Click="NapraviRasporedButton_Click"/>
-        <Button x:Name="OdeljenjaButton" Content="Zameni velicinu odeljenja" HorizontalAlignment="Center" Height="80" Margin="0,419,0,0" VerticalAlignment="Top" Width="260" FontSize="22" Click="OdeljenjaButton_Click"/>
-        <Button x:Name="NazadPocetnaButton" Visibility="Hidden" Content="Nazad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadPocetnaButton_Click"/>
-        <Button x:Name="NazadRasporedButton" Visibility="Hidden" Content="Nazad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadRasporedButton_Click"/>
-        <Button x:Name="NazadOdeljenjeButton" Visibility="Hidden" Content="Nazad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadOdeljenjeButton_Click"/>
+        <Button x:Name="NapraviRasporedButton" Content="Направи Распоред" HorizontalAlignment="Center" Height="80" Margin="0,294,0,0" VerticalAlignment="Top" Width="260" FontSize="20" Click="NapraviRasporedButton_Click"/>
+        <Button x:Name="OdeljenjaButton" Content="Замени величину одељења" HorizontalAlignment="Center" Height="80" Margin="0,400,0,0" VerticalAlignment="Top" Width="260" FontSize="20" Click="OdeljenjaButton_Click"/>
+        <Button x:Name="NazadPocetnaButton" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadPocetnaButton_Click"/>
+        <Button x:Name="NazadRasporedButton" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadRasporedButton_Click"/>
+        <Button x:Name="NazadOdeljenjeButton" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadOdeljenjeButton_Click"/>
         <Button x:Name="IzmeniOdeljenjeButton" Content="Измени" Visibility="Hidden"  HorizontalAlignment="Left" Height="28" Margin="345,577,0,0" VerticalAlignment="Top" Width="126"/>
 
     </Grid>
