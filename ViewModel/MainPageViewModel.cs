@@ -263,6 +263,7 @@ namespace Raspored_Ucionica.ViewModel
             }
             void DrziLutajuce(int i, int j)
             {
+                Odeljenje Temp = lista_odeljenja!.First(odeljenje => odeljenje.Id == j);
                 if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null) is null)
                 {
                     for (int k = 0; k < 5; k++)
@@ -291,10 +292,16 @@ namespace Raspored_Ucionica.ViewModel
                     rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
+                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3)) is not null)
+                {
+                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
+                    rezultati[i][j] += slobodna.Ime_ucionice + "/";
+                    slobodna.Slobodna = false;
+                }
                 else
                 {
-                    Odeljenje Temp = lista_odeljenja!.First(odeljenje => odeljenje.Id == j);
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
+             
+                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
                     rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
@@ -381,8 +388,10 @@ namespace Raspored_Ucionica.ViewModel
                 }
                  
             }
+
             for (int i = 0; i < 32; i++) //za nulti cas
             {
+
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
                 string imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
                 if (dan!.RasporedCasova[0][i] == "")
