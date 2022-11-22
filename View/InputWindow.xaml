@@ -192,7 +192,7 @@
         <Button x:Name="NazadPocetnaButton" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadPocetnaButton_Click"/>
         <Button x:Name="NazadRasporedButton" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadRasporedButton_Click"/>
         <Button x:Name="NazadOdeljenjeButton" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadOdeljenjeButton_Click"/>
-        <Button x:Name="IzmeniOdeljenjeButton" Content="Измени" Visibility="Hidden"  HorizontalAlignment="Left" Height="28" Margin="345,577,0,0" VerticalAlignment="Top" Width="126"/>
+        <Button x:Name="IzmeniOdeljenjeButton" Content="Измени" Visibility="Hidden"  HorizontalAlignment="Left" Height="28" Margin="345,577,0,0" VerticalAlignment="Top" Width="126" Click="IzmeniOdeljenjeButton_Click"/>
 
     </Grid>
 </Window>
