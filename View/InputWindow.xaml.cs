@@ -180,7 +180,6 @@ namespace Raspored_Ucionica
             OdeljenjeLabel46.Visibility = Visibility.Visible;
             OdeljenjeLabel47.Visibility = Visibility.Visible;
             OdeljenjeLabel48.Visibility = Visibility.Visible;
-
         }
         private void NazadPocetnaButton_Click(object sender, RoutedEventArgs e)
         {
