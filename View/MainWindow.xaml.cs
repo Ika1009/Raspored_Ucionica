@@ -139,7 +139,7 @@ namespace Raspored_Ucionica
                             }
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
                             {
-                                string[] ime = rezultati[col, i].Split("/");
+                                string[] ime = viewModel.ponedeljak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
                                 dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
                                 if (rezultati[col, i] == "reg/reg")
