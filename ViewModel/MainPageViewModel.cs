@@ -258,7 +258,7 @@ namespace Raspored_Ucionica.ViewModel
                         if (trenutno == "r") { Da_Li_Se_Koristi_J2 = true; }
                     }
                 }
-                if (!Da_Li_Se_Koristi_J2) { lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "jezicka2").Tip = null; }
+                if (!Da_Li_Se_Koristi_J2) { lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "7").Tip = null; }
 
             }
             void DrziLutajuce(int i, int j)
@@ -286,9 +286,9 @@ namespace Raspored_Ucionica.ViewModel
                     }
                 }
                 //Funkcija za korišćenje osmice
-                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Ime_ucionice != "jezicka2" && ucionica.Ime_ucionice != "svecana sala") is not null)
+                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Ime_ucionice != "7" && ucionica.Ime_ucionice != "svecana sala") is not null)
                 {
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Ime_ucionice != "jezicka2" && ucionica.Ime_ucionice != "svecana sala");
+                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Ime_ucionice != "7" && ucionica.Ime_ucionice != "svecana sala");
                     rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
@@ -465,8 +465,8 @@ namespace Raspored_Ucionica.ViewModel
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
                 string imeUcioniceZaFrancuski = "", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
                 bool imanjeCasaFrancuski = false;
-                Ucionica jezicka2 = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "jezicka2");
-                jezicka2.Tip = true;
+                Ucionica jezicka = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "7");
+                jezicka.Tip = true;
                 ZatvoriStaticneUcionice();
                 OslobodiLutajuceUcionice();
                 OslobodiSveUcionice(i);
