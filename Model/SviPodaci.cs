@@ -161,7 +161,7 @@ namespace Raspored_Ucionica.Model
             //    lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "11").Id
             //};
             string[] brojeviUcionice = new string[32];
-            brojeviUcionice = File.ReadAllLines("../../../Slike/BrojUcenikaUOdeljenjimaXLS.csv");
+            brojeviUcionice = File.ReadAllLines("BrojUcenikaUOdeljenjimaXLS.csv");
             lista_odeljenja = new()
             {
                 new Odeljenje("I-1", int.Parse(brojeviUcionice[0])),//lutajuca
