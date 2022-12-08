@@ -26,7 +26,6 @@ namespace Raspored_Ucionica
         public MainWindow(InputWindowViewModel inputViewModel)
         {
             InitializeComponent();
-
             MainPageViewModel viewModel = new MainPageViewModel(inputViewModel);
             SviPodaci sviPodaci = new SviPodaci();
             DataTable Grupe = new DataTable();
@@ -41,7 +40,6 @@ namespace Raspored_Ucionica
             DataTable Drugo3 = new DataTable();
             int kolona = 5, redovi = 8, prva = 0, druga = 0, treca = 0, cetvrta = 0, peta = 0, sesta = 0;
             int nbColumns = 32;
-            int nbRows = 8;
             int za_labele_index = 0;
             for (int i = 0; i < nbColumns; i++)
             {
@@ -84,12 +82,12 @@ namespace Raspored_Ucionica
                     }
                 }
             }
-            prvaLabela.Content = viewModel.Cos[prva].ToString();
-            drugaLabela.Content = viewModel.Cos[druga].ToString();
-            trecaLabela.Content = viewModel.Cos[treca].ToString();
-            cetvrtaLabela.Content = viewModel.Cos[cetvrta].ToString();
-            petaLabela.Content = viewModel.Cos[peta].ToString();
-            sestaLabela.Content = viewModel.Cos[sesta].ToString();
+            prvaLabela.Content = MainPageViewModel.Cirilica(viewModel.Cos[prva].ToString());  
+            drugaLabela.Content = MainPageViewModel.Cirilica(viewModel.Cos[druga].ToString());
+            trecaLabela.Content = MainPageViewModel.Cirilica(viewModel.Cos[treca].ToString());
+            cetvrtaLabela.Content = MainPageViewModel.Cirilica(viewModel.Cos[cetvrta].ToString());
+            petaLabela.Content = MainPageViewModel.Cirilica(viewModel.Cos[peta].ToString());
+            sestaLabela.Content = MainPageViewModel.Cirilica(viewModel.Cos[sesta].ToString());
             za_labele_index = 0;
             string neznam = " час";
             for (int row = 0; row < redovi; row++)
@@ -125,10 +123,10 @@ namespace Raspored_Ucionica
                         {
                             if (col == 0)
                             {
-                                dr[col] = "Ponedeljak";
-                                drr[col] = "Ponedeljak";
+                                dr[col] = "Понедељак";
+                                drr[col] = "Понедељак";
                             }
-                            if (viewModel.rezultatiPonedeljak[col][i].Contains("/"))
+                            if (viewModel.ponedeljak.RasporedCasova[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.ponedeljak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
@@ -139,11 +137,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -154,11 +152,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -176,10 +174,10 @@ namespace Raspored_Ucionica
                         {
                             if (col == 0)
                             {
-                                dr[col] = "Utorak";
-                                drr[col] = "Utorak";
+                                dr[col] = "Уторак";
+                                drr[col] = "Уторак";
                             }
-                            if (viewModel.rezultatiUtorak[col][i].Contains("/"))
+                            if (viewModel.utorak.RasporedCasova[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.utorak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiUtorak[col][i].Split("/");
@@ -190,11 +188,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -205,11 +203,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -225,10 +223,10 @@ namespace Raspored_Ucionica
                         {
                             if (col == 0)
                             {
-                                dr[col] = "Sreda";
-                                drr[col] = "Sreda";
+                                dr[col] = "Среда";
+                                drr[col] = "Среда";
                             }
-                            if (viewModel.rezultatiSreda[col][i].Contains("/"))
+                            if (viewModel.sreda.RasporedCasova[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.sreda.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiSreda[col][i].Split("/");
@@ -239,11 +237,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -254,11 +252,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -273,11 +271,11 @@ namespace Raspored_Ucionica
                         {
                             if (col == 0)
                             {
-                                dr[col] = "Cetvrtak";
-                                drr[col] = "Cetvrtak";
+                                dr[col] = "Четвртак";
+                                drr[col] = "Четвртак";
                             }
 
-                            if (viewModel.rezultatiCetvrtak[col][i].Contains("/"))
+                            if (viewModel.cetvrtak.RasporedCasova[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.cetvrtak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiCetvrtak[col][i].Split("/");
@@ -288,11 +286,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -303,11 +301,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -322,10 +320,10 @@ namespace Raspored_Ucionica
                         {
                             if (col == 0)
                             {
-                                dr[col] = "Petak";
-                                drr[col] = "Petak";
+                                dr[col] = "Петак";
+                                drr[col] = "Петак";
                             }
-                            if (viewModel.rezultatiPetak[col][i].Contains("/"))
+                            if (viewModel.petak.RasporedCasova[col][i].Contains("/"))
                             {
                                 string[] ime = viewModel.petak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiPetak[col][i].Split("/");
@@ -336,11 +334,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (j % 2 == 0)
                                         {
-                                            dr[col] += "grupaA - " + niz[j] + ", ";
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += "grupaB - " + niz[j] + ", ";
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -351,11 +349,11 @@ namespace Raspored_Ucionica
                                     {
                                         if (ime[j] == "reg")
                                         {
-                                            dr[col] += "grupa - " + niz[j] + ", ";
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                         else
                                         {
-                                            dr[col] += ime[j] + " - " + niz[j] + ", ";
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
@@ -446,48 +444,48 @@ namespace Raspored_Ucionica
                     dr[col] = viewModel.Slobodne[row][col];
                     if (col == 0)
                     {
-                        prvo1[col] = viewModel.rezultatiPonedeljak[row][prva];
-                        prvo2[col] = viewModel.rezultatiPonedeljak[row][druga];
-                        prvo3[col] = viewModel.rezultatiPonedeljak[row][treca];
-                        drugo1[col] = viewModel.rezultatiPonedeljak[row][cetvrta];
-                        drugo2[col] = viewModel.rezultatiPonedeljak[row][peta];
-                        drugo3[col] = viewModel.rezultatiPonedeljak[row][sesta];
+                        prvo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPonedeljak[row][prva]);
+                        prvo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPonedeljak[row][druga]);
+                        prvo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPonedeljak[row][treca]);
+                        drugo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPonedeljak[row][cetvrta]);
+                        drugo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPonedeljak[row][peta]);
+                        drugo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPonedeljak[row][sesta]);
                     }
                     else if (col == 1)
                     {
-                        prvo1[col] = viewModel.rezultatiUtorak[row][prva];
-                        prvo2[col] = viewModel.rezultatiUtorak[row][druga];
-                        prvo3[col] = viewModel.rezultatiUtorak[row][treca];
-                        drugo1[col] = viewModel.rezultatiUtorak[row][cetvrta];
-                        drugo2[col] = viewModel.rezultatiUtorak[row][peta];
-                        drugo3[col] = viewModel.rezultatiUtorak[row][sesta];
+                        prvo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiUtorak[row][prva]);
+                        prvo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiUtorak[row][druga]);
+                        prvo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiUtorak[row][treca]);
+                        drugo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiUtorak[row][cetvrta]);
+                        drugo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiUtorak[row][peta]);
+                        drugo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiUtorak[row][sesta]);
                     }
                     else if (col == 2)
                     {
-                        prvo1[col] = viewModel.rezultatiSreda[row][prva];
-                        prvo2[col] = viewModel.rezultatiSreda[row][druga];
-                        prvo3[col] = viewModel.rezultatiSreda[row][treca];
-                        drugo1[col] = viewModel.rezultatiSreda[row][cetvrta];
-                        drugo2[col] = viewModel.rezultatiSreda[row][peta];
-                        drugo3[col] = viewModel.rezultatiSreda[row][sesta];
+                        prvo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiSreda[row][prva]);
+                        prvo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiSreda[row][druga]);
+                        prvo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiSreda[row][treca]);
+                        drugo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiSreda[row][cetvrta]);
+                        drugo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiSreda[row][peta]);
+                        drugo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiSreda[row][sesta]);
                     }
                     else if (col == 3)
                     {
-                        prvo1[col] = viewModel.rezultatiCetvrtak[row][prva];
-                        prvo2[col] = viewModel.rezultatiCetvrtak[row][druga];
-                        prvo3[col] = viewModel.rezultatiCetvrtak[row][treca];
-                        drugo1[col] = viewModel.rezultatiCetvrtak[row][cetvrta];
-                        drugo2[col] = viewModel.rezultatiCetvrtak[row][peta];
-                        drugo3[col] = viewModel.rezultatiCetvrtak[row][sesta];
+                        prvo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiCetvrtak[row][prva]);
+                        prvo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiCetvrtak[row][druga]);
+                        prvo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiCetvrtak[row][treca]);
+                        drugo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiCetvrtak[row][cetvrta]);
+                        drugo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiCetvrtak[row][peta]);
+                        drugo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiCetvrtak[row][sesta]);
                     }
                     else
                     {
-                        prvo1[col] = viewModel.rezultatiPetak[row][prva];
-                        prvo2[col] = viewModel.rezultatiPetak[row][druga];
-                        prvo3[col] = viewModel.rezultatiPetak[row][treca];
-                        drugo1[col] = viewModel.rezultatiPetak[row][cetvrta];
-                        drugo2[col] = viewModel.rezultatiPetak[row][peta];
-                        drugo3[col] = viewModel.rezultatiPetak[row][sesta];
+                        prvo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPetak[row][prva]);
+                        prvo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPetak[row][druga]);
+                        prvo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPetak[row][treca]);
+                        drugo1[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPetak[row][cetvrta]);
+                        drugo2[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPetak[row][peta]);
+                        drugo3[col] = MainPageViewModel.Cirilica(viewModel.rezultatiPetak[row][sesta]);
                     }
                 }
                 Slobodne.Rows.Add(dr);
@@ -539,7 +537,7 @@ namespace Raspored_Ucionica
                         }
                         else
                         {
-                            stati[j] += viewModel.lista_ucionica.First(ucionica => ucionica.Id == viewModel.lista_odeljenja[y].Id_ucionice).Ime_ucionice;
+                            stati[j] += MainPageViewModel.Cirilica(viewModel.lista_ucionica.First(ucionica => ucionica.Id == viewModel.lista_odeljenja[y].Id_ucionice).Ime_ucionice);
                         }
                         y += 8;
                     }

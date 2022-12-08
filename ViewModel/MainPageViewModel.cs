@@ -11,6 +11,7 @@ namespace Raspored_Ucionica.ViewModel
 {
     public class MainPageViewModel : SviPodaci
     {
+
         public event PropertyChangedEventHandler? PropertyChanged;
         public List<List<string>> rezultatiPonedeljak, rezultatiUtorak, rezultatiSreda, rezultatiCetvrtak, rezultatiPetak;
         public List<List<string>> Slobodne;
@@ -83,7 +84,6 @@ namespace Raspored_Ucionica.ViewModel
             rezultatiSreda = NapraviRaspored(sreda, Ksreda);
             rezultatiCetvrtak = NapraviRaspored(cetvrtak, Kcetvrtak);
             rezultatiPetak = NapraviRaspored(petak, Kpetak);
-            NapraviExcelAsync();
             foreach (Ucionica ucionica in lista_ucionica!)
             {
                 ucionica.Slobodna = true;
@@ -631,440 +631,50 @@ namespace Raspored_Ucionica.ViewModel
 
             return rezultati;
         }
-
-        public async void NapraviExcelAsync()
+         public static string Cirilica(string b)
         {
-            int kolona = 5, redovi = 8, prva = 0, druga = 0, treca = 0, cetvrta = 0, peta = 0, sesta = 0;
-            int nbColumns = 32;
-            int nbRows = 8;
-            int za_labele_index = 0;
-            string[] zaUpisivanje = new string[500];
-            zaUpisivanje[0] += "Staticna Odeljenja: ";
-            zaUpisivanje[69] += "Slobodne Ucionice: ";
-            zaUpisivanje[79] += "Zauzetost svecane sale: ";
-            zaUpisivanje[89] += "Grupe: ";
-            for (int i = 0; i < lista_odeljenja!.Count; i++)
-            {
-                zaUpisivanje[2] += lista_odeljenja[i].Ime_odeljenja + ",";
-                if (lista_odeljenja[i].Id_ucionice == null)
-                    zaUpisivanje[3] += "Lutajuce,";
-                else
-                {
-                    Ucionica Temp = lista_ucionica!.First(ucionica => ucionica.Id == lista_odeljenja[i].Id_ucionice);
-                    zaUpisivanje[3] += Temp.Ime_ucionice + ",";
-                }
+            if (b == "j1") return "7";
+            if (b == "j2") return "8";
+            if (b == "svecana sala") return "свечана сала";
+            if (b == "Svecana") return "Свечана";
+            char[] s = b.ToCharArray();
+            for (int i = 0; i < s.Length; i++) {
+                if (s[i] == 'q') s[i] = 'l';
+                if (s[i] == 'w') s[i] = 'l';
+                if (s[i] == 'e') s[i] = 'е';
+                if (s[i] == 'r') s[i] = 'р';
+                if (s[i] == 't') s[i] = 'т';
+                if (s[i] == 'y') s[i] = 'l';
+                if (s[i] == 'u') s[i] = 'у';
+                if (s[i] == 'i') s[i] = 'и';
+                if (s[i] == 'o') s[i] = 'о';
+                if (s[i] == 'p') s[i] = 'п';
+                if (s[i] == 'a') s[i] = 'а';
+                if (s[i] == 's') s[i] = 'с';
+                if (s[i] == 'd') s[i] = 'д';
+                if (s[i] == 'f') s[i] = 'ф';
+                if (s[i] == 'g') s[i] = 'г';
+                if (s[i] == 'h') s[i] = 'х';
+                if (s[i] == 'j') s[i] = 'ј';
+                if (s[i] == 'k') s[i] = 'к';
+                if (s[i] == 'l') s[i] = 'л';
+                if (s[i] == 'z') s[i] = 'l';
+                if (s[i] == 'x') s[i] = 'l';
+                if (s[i] == 'c') s[i] = 'ц';
+                if (s[i] == 'v') s[i] = 'в';
+                if (s[i] == 'b') s[i] = 'б';
+                if (s[i] == 'n') s[i] = 'н';
+                if (s[i] == 'm') s[i] = 'м';
+                if (s[i] == 'P') s[i] = 'П';
+                if (s[i] == 'M') s[i] = 'М';
+                if (s[i] == 'S') s[i] = 'С';
             }
-
-
-
-
-            for (int i = 0; i < nbColumns; i++)
+            b = "";
+            for(int i = 0; i < s.Length; i++)
             {
-                if (lista_odeljenja[i].Id_ucionice == null)
-                {
-                    if (za_labele_index == 0)
-                    {
-                        zaUpisivanje[7] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
-                        prva = lista_odeljenja[i].Id;
-                        za_labele_index++;
-                    }
-                    else if (za_labele_index == 1)
-                    {
-                        zaUpisivanje[17] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
-                        druga = lista_odeljenja[i].Id;
-                        za_labele_index++;
-
-                    }
-                    else if (za_labele_index == 2)
-                    {
-                        zaUpisivanje[27] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
-                        treca = lista_odeljenja[i].Id;
-                        za_labele_index++;
-                    }
-                    else if (za_labele_index == 3)
-                    {
-                        zaUpisivanje[37] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
-                        cetvrta = lista_odeljenja[i].Id;
-                        za_labele_index++;
-
-                    }
-                    else if (za_labele_index == 4)
-                    {
-                        zaUpisivanje[47] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
-                        peta = lista_odeljenja[i].Id;
-                        za_labele_index++;
-
-                    }
-                    else
-                    {
-                        zaUpisivanje[57] = lista_odeljenja[i].Ime_odeljenja.ToString() + " Cos: ,";
-                        sesta = lista_odeljenja[i].Id;
-                        za_labele_index++;
-
-
-                    }
-                }
+                b += s[i];
             }
-            zaUpisivanje[7] += Cos[prva].ToString();
-            zaUpisivanje[17] += Cos[druga].ToString();
-            zaUpisivanje[27] += Cos[treca].ToString();
-            zaUpisivanje[37] += Cos[cetvrta].ToString();
-            zaUpisivanje[47] += Cos[peta].ToString();
-            zaUpisivanje[57] += Cos[sesta].ToString();
-            for (int row = 0; row < redovi; row++)
-            {
-                zaUpisivanje[70] += (row.ToString()) + ",";
-                zaUpisivanje[80] += (row.ToString()) + ",";
-            }
-            for (int row = 0; row < kolona; row++)
-            {
-                for (int col = 0; col < redovi; col++)
-                {
-
-                    for (int i = 0; i < nbColumns; i++)
-                    {
-                        if (row == 0)
-                        {
-
-                            if (rezultatiPonedeljak[col][i].Contains("/"))
-                            {
-                                string[] ime = ponedeljak.RasporedCasova[col][i].Split("/");
-                                string[] niz = rezultatiPonedeljak[col][i].Split("/");
-                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (j % 2 == 0)
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                                else
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (ime[j] == "reg")
-                                        {
-                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                            }
-
-                            zaUpisivanje[80 + col] = ",";
-                            if (rezultatiPonedeljak[col][i].Contains("svecana sala"))
-                            {
-                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
-                            }
-                            
-                        }
-
-                        else if (row == 1)
-                        {
-                            if (rezultatiUtorak[col][i].Contains("/"))
-                            {
-                                string[] ime = utorak.RasporedCasova[col][i].Split("/");
-                                string[] niz = rezultatiUtorak[col][i].Split("/");
-                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (j % 2 == 0)
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                                else
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (ime[j] == "reg")
-                                        {
-                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-
-                            }
-                            zaUpisivanje[80 + col] = ",";
-                            if (rezultatiUtorak[col][i].Contains("svecana sala"))
-                            {
-                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
-                            }
-                        }
-                        else if (row == 2)
-                        {
-                            if (rezultatiSreda[col][i].Contains("/"))
-                            {
-                                string[] ime = sreda.RasporedCasova[col][i].Split("/");
-                                string[] niz = rezultatiSreda[col][i].Split("/");
-                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (j % 2 == 0)
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                                else
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (ime[j] == "reg")
-                                        {
-                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                            }
-                            zaUpisivanje[80 + col] = ",";
-                            if (rezultatiSreda[col][i].Contains("svecana sala"))
-                            {
-                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
-                            }
-
-                        }
-                        else if (row == 3)
-                        {
-                            if (rezultatiCetvrtak[col][i].Contains("/"))
-                            {
-                                string[] ime = cetvrtak.RasporedCasova[col][i].Split("/");
-                                string[] niz = rezultatiCetvrtak[col][i].Split("/");
-                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (j % 2 == 0)
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                                else
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (ime[j] == "reg")
-                                        {
-                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                            }
-                            zaUpisivanje[80 + col] = ",";
-                            if (rezultatiCetvrtak[col][i].Contains("svecana sala"))
-                            {
-                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
-                            }
-
-                        }
-                        else
-                        {
-                            if (rezultatiPetak[col][i].Contains("/"))
-                            {
-                                string[] ime = petak.RasporedCasova[col][i].Split("/");
-                                string[] niz = rezultatiPetak[col][i].Split("/");
-                                zaUpisivanje[90 + col] += lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (ponedeljak.RasporedCasova[col][i] == "reg/reg")
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (j % 2 == 0)
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaA - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += "grupaB - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                                else
-                                {
-                                    for (int j = 0; j < niz.Length; j++)
-                                    {
-                                        if (ime[j] == "reg")
-                                        {
-                                            zaUpisivanje[90 + col] += "grupa - " + niz[j] + "; ";
-                                        }
-                                        else
-                                        {
-                                            zaUpisivanje[90 + col] += ime[j] + " - " + niz[j] + "; ";
-                                        }
-                                    }
-                                    zaUpisivanje[90 + col] += "\n";
-                                }
-                            }
-                            zaUpisivanje[80 + col] += ",";
-                            if (rezultatiPetak[col][i].Contains("svecana sala"))
-                            {
-                                zaUpisivanje[80 + col] += lista_odeljenja[i].Ime_odeljenja;
-                            }
-                        }
-                    }
-
-                }
-            }
-            for (int i = 0; i < kolona; i++)
-            {
-                if (i == 0)
-                {
-                    //SvSala.Columns.Add("Понедељак");
-                    zaUpisivanje[10 + i] +="Ponedeljak,";
-                    zaUpisivanje[20 + i] += "Ponedeljak,";
-                    zaUpisivanje[30 + i] += "Ponedeljak,";
-                    zaUpisivanje[40 + i] += "Ponedeljak,";
-                    zaUpisivanje[50 + i] += "Ponedeljak,";
-                    zaUpisivanje[60 + i] += "Ponedeljak,";
-                }
-                else if (i == 1)
-                {
-                    //SvSala.Columns.Add("Уторак");
-                    zaUpisivanje[10 + i] += "Utorak,";
-                    zaUpisivanje[20 + i] += "Utorak,";
-                    zaUpisivanje[30 + i] += "Utorak,";
-                    zaUpisivanje[40 + i] += "Utorak,";
-                    zaUpisivanje[50 + i] += "Utorak,";
-                    zaUpisivanje[60 + i] += "Utorak,";
-                }
-                else if (i == 2)
-                {
-                    //SvSala.Columns.Add("Среда");
-                    zaUpisivanje[10 + i] += "Sreda";
-                    zaUpisivanje[20 + i] += "Sreda";
-                    zaUpisivanje[30 + i] += "Sreda";
-                    zaUpisivanje[40 + i] += "Sreda";
-                    zaUpisivanje[50 + i] += "Sreda";
-                    zaUpisivanje[60 + i] += "Sreda";
-                }
-                else if (i == 3)
-                {
-                    //SvSala.Columns.Add("Четвртак");
-                    zaUpisivanje[10 + i] += "Cetvrtak,";
-                    zaUpisivanje[20 + i] += "Cetvrtak,";
-                    zaUpisivanje[30 + i] += "Cetvrtak,";
-                    zaUpisivanje[40 + i] += "Cetvrtak,";
-                    zaUpisivanje[50 + i] += "Cetvrtak,";
-                    zaUpisivanje[60 + i] += "Cetvrtak,";
-                }
-                else
-                {
-                    //SvSala.Columns.Add("Петак");
-                    zaUpisivanje[10 + i] += "Petak,";
-                    zaUpisivanje[20 + i] += "Petak,";
-                    zaUpisivanje[30 + i] += "Petak,";
-                    zaUpisivanje[40 + i] += "Petak,";
-                    zaUpisivanje[50 + i] += "Petak,";
-                    zaUpisivanje[60 + i] += "Petak,";
-                }
-
-            }
-            for (int row = 0; row < redovi; row++)
-            {
-                for (int col = 0; col < kolona; col++)
-                {
-                    if (col == 0)
-                    {
-                        zaUpisivanje[10 + col] += rezultatiPonedeljak[row][prva] + ",";
-                        zaUpisivanje[20 + col] += rezultatiPonedeljak[row][druga] + ",";
-                        zaUpisivanje[30 + col] += rezultatiPonedeljak[row][treca] + ",";
-                        zaUpisivanje[40 + col] += rezultatiPonedeljak[row][cetvrta] + ",";
-                        zaUpisivanje[50 + col] += rezultatiPonedeljak[row][peta] + ",";
-                        zaUpisivanje[60 + col] += rezultatiPonedeljak[row][sesta] + ",";
-                    }
-                    else if (col == 1)
-                    {
-                        zaUpisivanje[10 + col] += rezultatiUtorak[row][prva] + ",";
-                        zaUpisivanje[20 + col] += rezultatiUtorak[row][druga] + ",";
-                        zaUpisivanje[30 + col] += rezultatiUtorak[row][treca] + ",";
-                        zaUpisivanje[40 + col] += rezultatiUtorak[row][cetvrta] + ",";
-                        zaUpisivanje[50 + col] += rezultatiUtorak[row][peta] + ",";
-                        zaUpisivanje[60 + col] += rezultatiUtorak[row][sesta] + ",";
-                    }
-                    else if (col == 2)
-                    {
-                        zaUpisivanje[10 + col] += rezultatiSreda[row][prva] + ",";
-                        zaUpisivanje[20 + col] += rezultatiSreda[row][druga] + ",";
-                        zaUpisivanje[30 + col] += rezultatiSreda[row][treca] + ",";
-                        zaUpisivanje[40 + col] += rezultatiSreda[row][cetvrta] + ",";
-                        zaUpisivanje[50 + col] += rezultatiSreda[row][peta] + ",";
-                        zaUpisivanje[60 + col] += rezultatiSreda[row][sesta] + ",";
-                    }
-                    else if (col == 3)
-                    {
-                        zaUpisivanje[10 + col] += rezultatiCetvrtak[row][prva] + ",";
-                        zaUpisivanje[20 + col] += rezultatiCetvrtak[row][druga] + ",";
-                        zaUpisivanje[30 + col] += rezultatiCetvrtak[row][treca] + ",";
-                        zaUpisivanje[40 + col] += rezultatiCetvrtak[row][cetvrta] + ",";
-                        zaUpisivanje[50 + col] += rezultatiCetvrtak[row][peta] + ",";
-                        zaUpisivanje[60 + col] += rezultatiCetvrtak[row][sesta] + ",";
-                    }
-                    else
-                    {
-                        zaUpisivanje[10 + col] += rezultatiPetak[row][prva] + ",";
-                        zaUpisivanje[20 + col] += rezultatiPetak[row][druga] + ",";
-                        zaUpisivanje[30 + col] += rezultatiPetak[row][treca] + ",";
-                        zaUpisivanje[40 + col] += rezultatiPetak[row][cetvrta] + ",";
-                        zaUpisivanje[50 + col] += rezultatiPetak[row][peta] + ",";
-                        zaUpisivanje[60 + col] += rezultatiPetak[row][sesta] + ",";
-                    }
-                }
-            }
-
-            // linija tabele je jedan element u nizu stringova
-            // dodaj ostalo i lagano
-
-            string path = Path.GetFullPath("Raspored.csv");
-            await File.WriteAllLinesAsync(path, zaUpisivanje);
+            return b;
         }
     }
 
