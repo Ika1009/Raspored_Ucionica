@@ -12,9 +12,6 @@
 
     <ScrollViewer Height="auto" >
         <Grid Height="2784">
-            <Button Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Convert" Click="Button1_Click" Name="btn" Margin="74,9,0,0" Height="37" Width="74"/>
-
-            <Button Visibility="Collapsed" Content="Nazad" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="36" Width="52" Click="Button_Click"/>
             <Label x:Name="naslovLabel" Content="Распоред одељења по учионицама" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="423" FontWeight="Bold" FontSize="20" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F"/>
             <Label x:Name="podNaslovLabel" Content="Гимназија &quot;Бора Станковић&quot;" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="258" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" FontSize="16"/>
             <!--<Label  Content="Понедељак" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="342" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="126,1770,0,0"/>
@@ -64,7 +61,7 @@
             <Label x:Name="petaLabela" Content="/" HorizontalAlignment="Left" Margin="676,1158,0,0" VerticalAlignment="Top" Height="34" Width="138" FontSize="18"/>
             <Label x:Name="sestaLabela" Content="/" HorizontalAlignment="Left" Margin="1421,1158,0,0" VerticalAlignment="Top" Height="34" Width="138" FontSize="18"/>
             <Button Name="CloseButton" Background="{x:Null}" BorderThickness="0" Click="CloseButton_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0"  Width="30" Height="30" FontSize="16">
-                <Image Source="..\Slike\izlaz.png"></Image>
+                <Image x:Name="Close" Source="/View/izadji.png"/>
             </Button>
         </Grid>
     </ScrollViewer>

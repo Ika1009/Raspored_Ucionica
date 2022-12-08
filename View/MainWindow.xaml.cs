@@ -28,7 +28,6 @@ namespace Raspored_Ucionica
             InitializeComponent();
 
             MainPageViewModel viewModel = new MainPageViewModel(inputViewModel);
-            Raspored raspored;
             SviPodaci sviPodaci = new SviPodaci();
             DataTable Grupe = new DataTable();
             DataTable Staticne = new DataTable();
@@ -40,8 +39,8 @@ namespace Raspored_Ucionica
             DataTable Drugo1 = new DataTable();
             DataTable Drugo2 = new DataTable();
             DataTable Drugo3 = new DataTable();
-            string[,] rezultati = new string[50,50];
-            for(int i = 0; i < 8; i++)
+            string[,] rezultati = new string[50, 50];
+            for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < viewModel.ponedeljak.RasporedCasova[0].Count; j++)
                 {
@@ -88,7 +87,7 @@ namespace Raspored_Ucionica
                     {
                         sesta = viewModel.lista_odeljenja[i].Id;
                         za_labele_index++;
-                        
+
 
                     }
                 }
@@ -112,7 +111,7 @@ namespace Raspored_Ucionica
                     SvSala.Columns.Add(row.ToString() + neznam);
                 }
 
-                if(row == 0)
+                if (row == 0)
                 {
                     Grupe.Columns.Add("DAN");
                 }
@@ -142,36 +141,38 @@ namespace Raspored_Ucionica
                                 string[] ime = viewModel.ponedeljak.RasporedCasova[col][i].Split("/");
                                 string[] niz = viewModel.rezultatiPonedeljak[col][i].Split("/");
                                 dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
-                                if (rezultati[col, i] == "reg/reg")
+                                if (viewModel.ponedeljak.RasporedCasova[col][i] == "reg/reg")
                                 {
-                                    for(int j = 0; j < niz.Length; j++)
-                                    {   
-                                        if(j % 2 == 0) 
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
                                         {
                                             dr[col] += "grupaA - " + niz[j] + ", ";
                                         }
-                                        else{
+                                        else
+                                        {
                                             dr[col] += "grupaB - " + niz[j] + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
                                 }
-                                else 
+                                else
                                 {
-                                    for(int j = 0; j < niz.Length; j++)
-                                    {   
-                                        if(ime[j] == "reg") 
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
                                         {
                                             dr[col] += "grupa - " + niz[j] + ", ";
                                         }
-                                        else{
+                                        else
+                                        {
                                             dr[col] += ime[j] + " - " + niz[j] + ", ";
                                         }
                                     }
                                     dr[col] += "\n";
                                 }
                             }
-                        
+
 
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala"))
                             {
@@ -527,7 +528,7 @@ namespace Raspored_Ucionica
                 if (viewModel.lista_odeljenja[i].Id_ucionice == null)
                 {
                     stati[i] += "Lutajuce";
-                    if(za_labele_index == 0)
+                    if (za_labele_index == 0)
                     {
                         prvaLabel.Content = viewModel.lista_odeljenja[i].Ime_odeljenja.ToString();
                         za_labele_index++;
@@ -569,54 +570,9 @@ namespace Raspored_Ucionica
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            InputWindow window1 = new InputWindow();
-            window1.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            window1.Show();
-            Close();
-        }
-
-        private void Button1_Click(object sender, RoutedEventArgs e)
-        {
-            var a = this.Width;
-            //TestPage fixedPage = new TestPage();
-            btn.Visibility = Visibility.Collapsed;
-            FixedDocument fixedDoc = new FixedDocument();
-            PageContent pageContent = new PageContent();
-            FixedPage fixedPage = new FixedPage();
-
-
-
-            PrintDialog printDlg = new PrintDialog();
-            Size pageSize = new Size(printDlg.PrintableAreaWidth, printDlg.PrintableAreaHeight - 100);
-
-
-            var visual = ((System.Windows.Controls.Panel)this.Content).Children[0] as UIElement;
-            ((System.Windows.Controls.Panel)this.Content).Children.Remove(visual);
-            fixedPage.Children.Add(visual);
-
-            ((System.Windows.Markup.IAddChild)pageContent).AddChild(fixedPage);
-
-            fixedDoc.Pages.Add(pageContent);
-
-
-            // write to PDF file
-            string tempFilename = "temp.xps";
-            File.Delete(tempFilename);
-            XpsDocument xpsd = new XpsDocument(tempFilename, FileAccess.ReadWrite);
-            System.Windows.Xps.XpsDocumentWriter xw = XpsDocument.CreateXpsDocumentWriter(xpsd);
-            xw.Write(fixedDoc);
-            xpsd.Close();
-            //PdfSharp.Xps.XpsConverter.Convert(tempFilename, "D:/testing.pdf", 1);
-            Process.Start("D:/testing.pdf");
-
-            btn.Visibility = Visibility.Visible;
-        }
-
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
         }
     }
 }
