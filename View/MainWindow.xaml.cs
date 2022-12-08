@@ -144,6 +144,15 @@ namespace Raspored_Ucionica
                                             dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
+                                    
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for(int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
+                                    }
                                     dr[col] += "\n";
                                 }
                                 else
@@ -158,6 +167,14 @@ namespace Raspored_Ucionica
                                         {
                                             dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
+                                    }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
                                     }
                                     dr[col] += "\n";
                                 }
@@ -195,6 +212,14 @@ namespace Raspored_Ucionica
                                             dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
+                                    }
                                     dr[col] += "\n";
                                 }
                                 else
@@ -209,6 +234,14 @@ namespace Raspored_Ucionica
                                         {
                                             dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
+                                    }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
                                     }
                                     dr[col] += "\n";
                                 }
@@ -244,6 +277,14 @@ namespace Raspored_Ucionica
                                             dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
+                                    }
                                     dr[col] += "\n";
                                 }
                                 else
@@ -258,6 +299,14 @@ namespace Raspored_Ucionica
                                         {
                                             dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
+                                    }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
                                     }
                                     dr[col] += "\n";
                                 }
@@ -293,6 +342,14 @@ namespace Raspored_Ucionica
                                             dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
+                                    }
                                     dr[col] += "\n";
                                 }
                                 else
@@ -307,6 +364,14 @@ namespace Raspored_Ucionica
                                         {
                                             dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
+                                    }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
                                     }
                                     dr[col] += "\n";
                                 }
@@ -341,6 +406,14 @@ namespace Raspored_Ucionica
                                             dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
                                     }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
+                                    }
                                     dr[col] += "\n";
                                 }
                                 else
@@ -355,6 +428,14 @@ namespace Raspored_Ucionica
                                         {
                                             dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
                                         }
+                                    }
+                                    if (ime.Length > niz.Length)
+                                    {
+                                        for (int p = 0; p < ime.Length - niz.Length; p++)
+                                        {
+                                            dr[col] += "nema, ";
+                                        }
+
                                     }
                                     dr[col] += "\n";
                                 }

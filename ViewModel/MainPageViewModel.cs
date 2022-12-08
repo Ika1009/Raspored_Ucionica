@@ -556,7 +556,10 @@ namespace Raspored_Ucionica.ViewModel
                                 }
                                 SpajanjeOdeljenja("f", imeUcioniceZaFrancuski, i, j);
                             }
-
+                            else
+                            {
+                                rezultati[i][j] += "/nema";
+                            }
                         }
 
                     }
