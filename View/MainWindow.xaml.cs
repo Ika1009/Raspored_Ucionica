@@ -39,14 +39,6 @@ namespace Raspored_Ucionica
             DataTable Drugo1 = new DataTable();
             DataTable Drugo2 = new DataTable();
             DataTable Drugo3 = new DataTable();
-            string[,] rezultati = new string[50, 50];
-            for (int i = 0; i < 8; i++)
-            {
-                for (int j = 0; j < viewModel.ponedeljak.RasporedCasova[0].Count; j++)
-                {
-                    rezultati[j, i] = viewModel.ponedeljak.RasporedCasova[i][j];
-                }
-            }
             int kolona = 5, redovi = 8, prva = 0, druga = 0, treca = 0, cetvrta = 0, peta = 0, sesta = 0;
             int nbColumns = 32;
             int nbRows = 8;
@@ -99,12 +91,12 @@ namespace Raspored_Ucionica
             petaLabela.Content = viewModel.Cos[peta].ToString();
             sestaLabela.Content = viewModel.Cos[sesta].ToString();
             za_labele_index = 0;
-            string neznam = " cas";
+            string neznam = " час";
             for (int row = 0; row < redovi; row++)
             {
                 if (row == 0)
                 {
-                    SvSala.Columns.Add("DAN");
+                    SvSala.Columns.Add("ДАН");
                 }
                 else
                 {
@@ -113,7 +105,7 @@ namespace Raspored_Ucionica
 
                 if (row == 0)
                 {
-                    Grupe.Columns.Add("DAN");
+                    Grupe.Columns.Add("ДАН");
                 }
                 else
                 {
@@ -519,15 +511,50 @@ namespace Raspored_Ucionica
             rezultatiGrupe.ItemsSource = Grupe.DefaultView;
 
 
-            DataRow stati = Staticne.NewRow();
-            //ispis za rezultate
+
+            int z = 0, y = 0;
+            za_labele_index = 0;
+            for(int i = 0; i < 8; i++)
+            {
+                Staticne.Columns.Add(i.ToString());
+            }
+            for (int i = 0; i < 8; i++)
+            {
+                y = 0 + za_labele_index;
+                z = 0 + za_labele_index;
+                za_labele_index++;
+                DataRow stati = Staticne.NewRow();
+                for (int j = 0; j < 8; j++)
+                {
+                    if (j % 2 == 0)
+                    {
+                        stati[j] = viewModel.lista_odeljenja[z].Ime_odeljenja.ToString();
+                        z += 8;
+                    }
+                    else if (j % 2 != 0) 
+                    {
+                        if (viewModel.lista_odeljenja[y].Id_ucionice == null)
+                        {
+                            stati[j] = "Лутајуће";
+                        }
+                        else
+                        {
+                            stati[j] += viewModel.lista_ucionica.First(ucionica => ucionica.Id == viewModel.lista_odeljenja[y].Id_ucionice).Ime_ucionice;
+                        }
+                        y += 8;
+                    }
+
+                }
+                Staticne.Rows.Add(stati);
+            }
+            staticne.ItemsSource = Staticne.DefaultView;
+
+
             za_labele_index = 0;
             for (int i = 0; i < nbColumns; i++)
             {
-                Staticne.Columns.Add(viewModel.lista_odeljenja[i].Ime_odeljenja.ToString());
                 if (viewModel.lista_odeljenja[i].Id_ucionice == null)
                 {
-                    stati[i] += "Lutajuce";
                     if (za_labele_index == 0)
                     {
                         prvaLabel.Content = viewModel.lista_odeljenja[i].Ime_odeljenja.ToString();
@@ -559,14 +586,9 @@ namespace Raspored_Ucionica
                         za_labele_index++;
                     }
                 }
-                else
-                {
-                    stati[i] += viewModel.lista_ucionica.First(ucionica => ucionica.Id == viewModel.lista_odeljenja[i].Id_ucionice).Ime_ucionice;
-                }
 
             }
-            Staticne.Rows.Add(stati);
-            staticne.ItemsSource = Staticne.DefaultView;
+
 
         }
 
