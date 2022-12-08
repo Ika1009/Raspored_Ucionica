@@ -660,7 +660,11 @@ namespace Raspored_Ucionica.ViewModel
                 if (s[i] == 'l') s[i] = 'л';
                 if (s[i] == 'z') s[i] = 'l';
                 if (s[i] == 'x') s[i] = 'l';
-                if (s[i] == 'c') s[i] = 'ц';
+                if (s[i] == 'c' && s[0] == 'с')
+                {
+                    s[i] = 'ч';
+                }
+                else if (s[i] == 'c') s[i] = 'ц';
                 if (s[i] == 'v') s[i] = 'в';
                 if (s[i] == 'b') s[i] = 'б';
                 if (s[i] == 'n') s[i] = 'н';
