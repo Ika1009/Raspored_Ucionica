@@ -21,6 +21,7 @@ namespace Raspored_Ucionica
 {
     public partial class InputWindow : Window
     {
+        string[] brojeviUcionice = new string[32];
         InputWindowViewModel viewModel;
         public InputWindow()
         {
@@ -33,8 +34,52 @@ namespace Raspored_Ucionica
         }
         private void Odeljenje()
         {
-            string[] brojeviUcionice = new string[32];
-            brojeviUcionice = File.ReadAllLines("../../../Slike/BrojUcenikaUOdeljenjimaXLS.csv");
+            string path = @"BrojUcenikaUOdeljenjimaXLS.csv";
+            if (!File.Exists(path))
+            {
+                //MessageBox.Show("Ne postoji!");
+                using (FileStream fs = File.Create(path))
+                brojeviUcionice[0] = "19";
+                brojeviUcionice[1] = "19";
+                brojeviUcionice[2] = "18";
+                brojeviUcionice[3] = "30";
+                brojeviUcionice[4] = "35";
+                brojeviUcionice[5] = "35";
+                brojeviUcionice[6] = "32";
+                brojeviUcionice[7] = "29";
+                brojeviUcionice[8] = "19";
+                brojeviUcionice[9] = "20";
+                brojeviUcionice[10] = "17";
+                brojeviUcionice[11] = "28";
+                brojeviUcionice[12] = "34";
+                brojeviUcionice[13] = "36";
+                brojeviUcionice[14] = "29";
+                brojeviUcionice[15] = "31";
+                brojeviUcionice[16] = "20";
+                brojeviUcionice[17] = "18";
+                brojeviUcionice[18] = "18";
+                brojeviUcionice[19] = "23";
+                brojeviUcionice[20] = "35";
+                brojeviUcionice[21] = "35";
+                brojeviUcionice[22] = "31";
+                brojeviUcionice[23] = "32";
+                brojeviUcionice[24] = "19";
+                brojeviUcionice[25] = "21";
+                brojeviUcionice[26] = "19";
+                brojeviUcionice[27] = "29";
+                brojeviUcionice[28] = "30";
+                brojeviUcionice[29] = "27";
+                brojeviUcionice[30] = "37";
+                brojeviUcionice[31] = "36";
+
+                File.WriteAllLines(path, brojeviUcionice);
+            }
+            else
+            {
+                //MessageBox.Show("Postoji!");
+                brojeviUcionice = File.ReadAllLines(path);
+            }
+
             OdeljenjeTextbox11.Text = brojeviUcionice[0];
             OdeljenjeTextbox12.Text = brojeviUcionice[1];
             OdeljenjeTextbox13.Text = brojeviUcionice[2];
@@ -67,6 +112,7 @@ namespace Raspored_Ucionica
             OdeljenjeTextbox46.Text = brojeviUcionice[29];
             OdeljenjeTextbox47.Text = brojeviUcionice[30];
             OdeljenjeTextbox48.Text = brojeviUcionice[31];
+
         }
         private void NazadOdeljenjeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -146,6 +192,7 @@ namespace Raspored_Ucionica
         }
         private void OdeljenjaButton_Click(object sender, RoutedEventArgs e)
         {
+
             OdeljenjecheckboxLabel.Visibility = Visibility.Visible;
             IzmeniOdeljenjeButton.Visibility = Visibility.Visible;
             NazadOdeljenjeButton.Visibility = Visibility.Visible;
@@ -565,9 +612,9 @@ namespace Raspored_Ucionica
 
         private void noviwindowButton_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            viewModel.boxovi = new List<string>() {textbox11.Text, textbox12.Text, textbox13.Text, textbox14.Text,
+            try
+            {
+                viewModel.boxovi = new List<string>() {textbox11.Text, textbox12.Text, textbox13.Text, textbox14.Text,
                 textbox15.Text, textbox16.Text, textbox17.Text, textbox18.Text,
                 textbox21.Text, textbox22.Text, textbox23.Text, textbox24.Text,
                 textbox25.Text, textbox26.Text, textbox27.Text, textbox28.Text,
@@ -575,15 +622,15 @@ namespace Raspored_Ucionica
                 textbox35.Text, textbox36.Text, textbox37.Text, textbox38.Text,
                 textbox41.Text, textbox42.Text, textbox43.Text, textbox44.Text,
                 textbox45.Text, textbox46.Text, textbox47.Text, textbox48.Text};
-            MainWindow mainWindow = new MainWindow(viewModel);
-            mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            mainWindow.Show();
-            Close();
-            /*}
+                MainWindow mainWindow = new MainWindow(viewModel);
+                mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                mainWindow.Show();
+                Close();
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Doslo je do problema, proverite da li postoji resenje za odgovarajuci izbor lutajucih ucionica!\nGreska: " + ex.Message, "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }*/
+            }
         }
         private void Checkovanje(object sender, RoutedEventArgs e)
         {
@@ -742,116 +789,117 @@ namespace Raspored_Ucionica
         {
             string[] brojeviUcionice = new string[32];
             MessageBox.Show("Успешно сте изменили величину одељења!", "Зоки", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
-            
-             brojeviUcionice[0] = OdeljenjeTextbox11.Text;
-             brojeviUcionice[1] = OdeljenjeTextbox12.Text;
-             brojeviUcionice[2] = OdeljenjeTextbox13.Text;
-             brojeviUcionice[3] = OdeljenjeTextbox14.Text;
-             brojeviUcionice[4] = OdeljenjeTextbox15.Text;
-             brojeviUcionice[5] = OdeljenjeTextbox16.Text;
-             brojeviUcionice[6] = OdeljenjeTextbox17.Text;
-             brojeviUcionice[7] = OdeljenjeTextbox18.Text;
-             brojeviUcionice[8] = OdeljenjeTextbox21.Text;
-             brojeviUcionice[9] = OdeljenjeTextbox22.Text;
-             brojeviUcionice[10] = OdeljenjeTextbox23.Text;
-             brojeviUcionice[11] = OdeljenjeTextbox24.Text;
-             brojeviUcionice[12] = OdeljenjeTextbox25.Text;
-             brojeviUcionice[13] = OdeljenjeTextbox26.Text;
-             brojeviUcionice[14] = OdeljenjeTextbox27.Text;
-             brojeviUcionice[15] = OdeljenjeTextbox28.Text;
-             brojeviUcionice[16] = OdeljenjeTextbox31.Text;
-             brojeviUcionice[17] = OdeljenjeTextbox32.Text;
-             brojeviUcionice[18] = OdeljenjeTextbox33.Text;
-             brojeviUcionice[19] = OdeljenjeTextbox34.Text;
-             brojeviUcionice[20] = OdeljenjeTextbox35.Text;
-             brojeviUcionice[21] = OdeljenjeTextbox36.Text;
-             brojeviUcionice[22] = OdeljenjeTextbox37.Text;
-             brojeviUcionice[23] = OdeljenjeTextbox38.Text;
-             brojeviUcionice[24] = OdeljenjeTextbox41.Text;
-             brojeviUcionice[25] = OdeljenjeTextbox42.Text;
-             brojeviUcionice[26] = OdeljenjeTextbox43.Text;
-             brojeviUcionice[27] = OdeljenjeTextbox44.Text;
-             brojeviUcionice[28] = OdeljenjeTextbox45.Text;
-             brojeviUcionice[29] = OdeljenjeTextbox46.Text;
-             brojeviUcionice[30] = OdeljenjeTextbox47.Text;
-             brojeviUcionice[31] = OdeljenjeTextbox48.Text;
 
-            File.WriteAllLines("../../../Slike/BrojUcenikaUOdeljenjimaXLS.csv", brojeviUcionice);
+            brojeviUcionice[0] = OdeljenjeTextbox11.Text;
+            brojeviUcionice[1] = OdeljenjeTextbox12.Text;
+            brojeviUcionice[2] = OdeljenjeTextbox13.Text;
+            brojeviUcionice[3] = OdeljenjeTextbox14.Text;
+            brojeviUcionice[4] = OdeljenjeTextbox15.Text;
+            brojeviUcionice[5] = OdeljenjeTextbox16.Text;
+            brojeviUcionice[6] = OdeljenjeTextbox17.Text;
+            brojeviUcionice[7] = OdeljenjeTextbox18.Text;
+            brojeviUcionice[8] = OdeljenjeTextbox21.Text;
+            brojeviUcionice[9] = OdeljenjeTextbox22.Text;
+            brojeviUcionice[10] = OdeljenjeTextbox23.Text;
+            brojeviUcionice[11] = OdeljenjeTextbox24.Text;
+            brojeviUcionice[12] = OdeljenjeTextbox25.Text;
+            brojeviUcionice[13] = OdeljenjeTextbox26.Text;
+            brojeviUcionice[14] = OdeljenjeTextbox27.Text;
+            brojeviUcionice[15] = OdeljenjeTextbox28.Text;
+            brojeviUcionice[16] = OdeljenjeTextbox31.Text;
+            brojeviUcionice[17] = OdeljenjeTextbox32.Text;
+            brojeviUcionice[18] = OdeljenjeTextbox33.Text;
+            brojeviUcionice[19] = OdeljenjeTextbox34.Text;
+            brojeviUcionice[20] = OdeljenjeTextbox35.Text;
+            brojeviUcionice[21] = OdeljenjeTextbox36.Text;
+            brojeviUcionice[22] = OdeljenjeTextbox37.Text;
+            brojeviUcionice[23] = OdeljenjeTextbox38.Text;
+            brojeviUcionice[24] = OdeljenjeTextbox41.Text;
+            brojeviUcionice[25] = OdeljenjeTextbox42.Text;
+            brojeviUcionice[26] = OdeljenjeTextbox43.Text;
+            brojeviUcionice[27] = OdeljenjeTextbox44.Text;
+            brojeviUcionice[28] = OdeljenjeTextbox45.Text;
+            brojeviUcionice[29] = OdeljenjeTextbox46.Text;
+            brojeviUcionice[30] = OdeljenjeTextbox47.Text;
+            brojeviUcionice[31] = OdeljenjeTextbox48.Text;
+
+            File.WriteAllLines("BrojUcenikaUOdeljenjimaXLS.csv", brojeviUcionice);
             Odeljenje();
-                OdeljenjecheckboxLabel.Visibility = Visibility.Hidden;
-                IzmeniOdeljenjeButton.Visibility = Visibility.Hidden;
-                NazadOdeljenjeButton.Visibility = Visibility.Hidden;
-                OdeljenjaButton.Visibility = Visibility.Visible;
-                NapraviRasporedButton.Visibility = Visibility.Visible;
-                naslovLabel.Visibility = Visibility.Hidden;
-                naslovLabel1.Visibility = Visibility.Visible;
-                podNaslovLabel.Visibility = Visibility.Hidden;
-                podNaslovLabel1.Visibility = Visibility.Visible;
-                OdeljenjeTextbox11.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox12.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox13.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox14.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox15.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox16.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox17.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox18.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox21.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox22.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox23.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox24.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox25.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox26.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox27.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox28.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox31.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox32.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox33.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox34.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox35.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox36.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox37.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox38.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox41.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox42.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox43.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox44.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox45.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox46.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox47.Visibility = Visibility.Hidden;
-                OdeljenjeTextbox48.Visibility = Visibility.Hidden;
-                OdeljenjeLabel11.Visibility = Visibility.Hidden;
-                OdeljenjeLabel12.Visibility = Visibility.Hidden;
-                OdeljenjeLabel13.Visibility = Visibility.Hidden;
-                OdeljenjeLabel14.Visibility = Visibility.Hidden;
-                OdeljenjeLabel15.Visibility = Visibility.Hidden;
-                OdeljenjeLabel16.Visibility = Visibility.Hidden;
-                OdeljenjeLabel17.Visibility = Visibility.Hidden;
-                OdeljenjeLabel18.Visibility = Visibility.Hidden;
-                OdeljenjeLabel21.Visibility = Visibility.Hidden;
-                OdeljenjeLabel22.Visibility = Visibility.Hidden;
-                OdeljenjeLabel23.Visibility = Visibility.Hidden;
-                OdeljenjeLabel24.Visibility = Visibility.Hidden;
-                OdeljenjeLabel25.Visibility = Visibility.Hidden;
-                OdeljenjeLabel26.Visibility = Visibility.Hidden;
-                OdeljenjeLabel27.Visibility = Visibility.Hidden;
-                OdeljenjeLabel28.Visibility = Visibility.Hidden;
-                OdeljenjeLabel31.Visibility = Visibility.Hidden;
-                OdeljenjeLabel32.Visibility = Visibility.Hidden;
-                OdeljenjeLabel33.Visibility = Visibility.Hidden;
-                OdeljenjeLabel34.Visibility = Visibility.Hidden;
-                OdeljenjeLabel35.Visibility = Visibility.Hidden;
-                OdeljenjeLabel36.Visibility = Visibility.Hidden;
-                OdeljenjeLabel37.Visibility = Visibility.Hidden;
-                OdeljenjeLabel38.Visibility = Visibility.Hidden;
-                OdeljenjeLabel41.Visibility = Visibility.Hidden;
-                OdeljenjeLabel42.Visibility = Visibility.Hidden;
-                OdeljenjeLabel43.Visibility = Visibility.Hidden;
-                OdeljenjeLabel44.Visibility = Visibility.Hidden;
-                OdeljenjeLabel45.Visibility = Visibility.Hidden;
-                OdeljenjeLabel46.Visibility = Visibility.Hidden;
-                OdeljenjeLabel47.Visibility = Visibility.Hidden;
-                OdeljenjeLabel48.Visibility = Visibility.Hidden;
-         
+            OdeljenjecheckboxLabel.Visibility = Visibility.Hidden;
+            IzmeniOdeljenjeButton.Visibility = Visibility.Hidden;
+            NazadOdeljenjeButton.Visibility = Visibility.Hidden;
+            OdeljenjaButton.Visibility = Visibility.Visible;
+            NapraviRasporedButton.Visibility = Visibility.Visible;
+            naslovLabel.Visibility = Visibility.Hidden;
+            naslovLabel1.Visibility = Visibility.Visible;
+            podNaslovLabel.Visibility = Visibility.Hidden;
+            podNaslovLabel1.Visibility = Visibility.Visible;
+            OdeljenjeTextbox11.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox12.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox13.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox14.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox15.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox16.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox17.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox18.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox21.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox22.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox23.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox24.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox25.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox26.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox27.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox28.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox31.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox32.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox33.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox34.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox35.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox36.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox37.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox38.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox41.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox42.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox43.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox44.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox45.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox46.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox47.Visibility = Visibility.Hidden;
+            OdeljenjeTextbox48.Visibility = Visibility.Hidden;
+            OdeljenjeLabel11.Visibility = Visibility.Hidden;
+            OdeljenjeLabel12.Visibility = Visibility.Hidden;
+            OdeljenjeLabel13.Visibility = Visibility.Hidden;
+            OdeljenjeLabel14.Visibility = Visibility.Hidden;
+            OdeljenjeLabel15.Visibility = Visibility.Hidden;
+            OdeljenjeLabel16.Visibility = Visibility.Hidden;
+            OdeljenjeLabel17.Visibility = Visibility.Hidden;
+            OdeljenjeLabel18.Visibility = Visibility.Hidden;
+            OdeljenjeLabel21.Visibility = Visibility.Hidden;
+            OdeljenjeLabel22.Visibility = Visibility.Hidden;
+            OdeljenjeLabel23.Visibility = Visibility.Hidden;
+            OdeljenjeLabel24.Visibility = Visibility.Hidden;
+            OdeljenjeLabel25.Visibility = Visibility.Hidden;
+            OdeljenjeLabel26.Visibility = Visibility.Hidden;
+            OdeljenjeLabel27.Visibility = Visibility.Hidden;
+            OdeljenjeLabel28.Visibility = Visibility.Hidden;
+            OdeljenjeLabel31.Visibility = Visibility.Hidden;
+            OdeljenjeLabel32.Visibility = Visibility.Hidden;
+            OdeljenjeLabel33.Visibility = Visibility.Hidden;
+            OdeljenjeLabel34.Visibility = Visibility.Hidden;
+            OdeljenjeLabel35.Visibility = Visibility.Hidden;
+            OdeljenjeLabel36.Visibility = Visibility.Hidden;
+            OdeljenjeLabel37.Visibility = Visibility.Hidden;
+            OdeljenjeLabel37.Visibility = Visibility.Hidden;
+            OdeljenjeLabel38.Visibility = Visibility.Hidden;
+            OdeljenjeLabel41.Visibility = Visibility.Hidden;
+            OdeljenjeLabel42.Visibility = Visibility.Hidden;
+            OdeljenjeLabel43.Visibility = Visibility.Hidden;
+            OdeljenjeLabel44.Visibility = Visibility.Hidden;
+            OdeljenjeLabel45.Visibility = Visibility.Hidden;
+            OdeljenjeLabel46.Visibility = Visibility.Hidden;
+            OdeljenjeLabel47.Visibility = Visibility.Hidden;
+            OdeljenjeLabel48.Visibility = Visibility.Hidden;
+
         }
     }
 }
