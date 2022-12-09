@@ -6,7 +6,6 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.IO;
-using Windows.UI.Popups;
 
 namespace Raspored_Ucionica.ViewModel
 {
@@ -17,17 +16,17 @@ namespace Raspored_Ucionica.ViewModel
         public List<List<string>> rezultatiPonedeljak, rezultatiUtorak, rezultatiSreda, rezultatiCetvrtak, rezultatiPetak;
         public List<List<string>> Slobodne;
         public List<string> Cos = new List<string>();
-        
+
         InputWindowViewModel inputViewModel;
         public MainPageViewModel(InputWindowViewModel inputVM)
         {
             inputViewModel = inputVM;
-      
+
             List<Odeljenje> neizabrana = new List<Odeljenje>();
             int i = 0;
-            foreach(string ime in inputVM.boxovi)
+            foreach (string ime in inputVM.boxovi)
             {
-                if(ime == "")
+                if (ime == "")
                 {
                     neizabrana.Add(lista_odeljenja[i]);
                 }
@@ -47,7 +46,7 @@ namespace Raspored_Ucionica.ViewModel
             {
                 IzaberiStaticno(odeljenje.Ime_odeljenja, odeljenje.Broj_ucenika);
             }
-            
+
             //for (int i = 0; i >= 31; i++)
             //{
             //    if (lista_odeljenjaSort[i].Id_ucionice != null)
@@ -79,7 +78,7 @@ namespace Raspored_Ucionica.ViewModel
             new List<string>() {"", ".", ".", ".", "."},
             new List<string>() {"", ".", ".", ".", "."}
             };
-            
+
             rezultatiPonedeljak = NapraviRaspored(ponedeljak, Kponedeljak);
             rezultatiUtorak = NapraviRaspored(utorak, Kutorak);
             rezultatiSreda = NapraviRaspored(sreda, Ksreda);
@@ -147,7 +146,7 @@ namespace Raspored_Ucionica.ViewModel
 
             foreach (Ucionica ucionica in lista_ucionica)
             {
-                if(ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Velicina >= (Velicina_odeljenja - 1))
+                if (ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Velicina >= (Velicina_odeljenja - 1))
                 {
                     lista_mogucih.Add(ucionica);
                 }
@@ -319,7 +318,7 @@ namespace Raspored_Ucionica.ViewModel
             {
                 if (!imanjeCasa)
                 {
-                    imeUcioniceZaNemacki = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+                    imeUcioniceZaNemacki = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka").First().Ime_ucionice;
                     imanjeCasa = true;
                 }
                 SpajanjeOdeljenja(imeCasa, imeUcioniceZaNemacki, i, j);
@@ -342,7 +341,7 @@ namespace Raspored_Ucionica.ViewModel
                 while (id >= 0)
                 {
                     Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id);
-                    if (ucionica.Slobodna == true)
+                    if (ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4")
                     {
                         Slobodne[i][k] += ucionica.Ime_ucionice + "/";
                     }
@@ -383,8 +382,8 @@ namespace Raspored_Ucionica.ViewModel
                         }
                         else
                         {
-                            for(int r=0; r<6; r++)
-                            {  
+                            for (int r = 0; r < 6; r++)
+                            {
                                 if (slobodne[r] == true)
                                 {
                                     Cos.Add(ucionice[r]);
@@ -395,7 +394,7 @@ namespace Raspored_Ucionica.ViewModel
                         }
                     }
                 }
-                 
+
             }
 
             for (int i = 0; i < 32; i++) //za nulti cas
@@ -403,12 +402,12 @@ namespace Raspored_Ucionica.ViewModel
 
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
                 string imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
-                    rezultati[0][i] = "/";
+                rezultati[0][i] = "/";
 
                 if (dan!.RasporedCasova[0][i] == "info")
                     rezultati[0][i] = "kab.";
 
-                if (dan.RasporedCasova[0][i] == "reg")
+                if (dan.RasporedCasova[0][i] == "reg" || dan.RasporedCasova[0][i] == "dreg")
                     DrziOdeljenje(0, i);
 
                 else if (dan.RasporedCasova[0][i] == "verska")
@@ -470,8 +469,8 @@ namespace Raspored_Ucionica.ViewModel
             //!!!//
             for (int i = 1; i < 8; i++) // za dan
             {
-                bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false, n1Ima = false, n2Ima = false;
-                string imeUcioniceZaNemacki1 = "", imeUcioniceZaNemacki2 = "", imeUcioniceZaRuski = "", imeUcioniceZaFrancuski = "", imeUcioniceZaItalijanski = "", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
+                bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false, n1Ima = false;
+                string imeUcioniceZaNemacki1 = "", imeUcioniceZaRuski = "", imeUcioniceZaFrancuski = "", imeUcioniceZaItalijanski = "", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
                 bool imanjeCasaRuski = false, imanjeCasaItalijanski = false, imanjeCasaFrancuski = false;
                 Ucionica jezicka2 = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "7");
                 Ucionica jezicka1 = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "6");
@@ -486,7 +485,7 @@ namespace Raspored_Ucionica.ViewModel
                 for (var j = 0; j < 32; j++)
                 {
                     //lista_ucionica!.Last().Slobodna = true;
-                    if (dan!.RasporedCasova[i][j] == "reg")
+                    if (dan!.RasporedCasova[i][j] == "reg" || dan!.RasporedCasova[i][j] == "dreg")
                     {
                         DrziOdeljenje(i, j);
                     }
@@ -515,7 +514,7 @@ namespace Raspored_Ucionica.ViewModel
                                     rezultati[i][j] += "/hemk";
                             }
 
-                            else if (trenutno == "reg")
+                            else if (trenutno == "reg" || trenutno == "dreg")
                             {
                                 if (provera) // provara da li je vec uso ovde
                                 {
@@ -549,10 +548,10 @@ namespace Raspored_Ucionica.ViewModel
                                 Gradjansko("g4", ref g4Ima, ref imeUcioniceZaGradjansko4, i, j);
                             else if (trenutno == "g5")
                                 Gradjansko("g5", ref g5Ima, ref imeUcioniceZaGradjansko5, i, j);
+                            else if (trenutno == "n")
+                                DrziLutajuce(i, j);
                             else if (trenutno == "n1")
                                 Nemacki("n1", ref n1Ima, ref imeUcioniceZaNemacki1, i, j);
-                            else if (trenutno == "n2")
-                                Nemacki("n2", ref n2Ima, ref imeUcioniceZaNemacki2, i, j);
                             else if (trenutno == "i")
                             {
                                 if (jezicka1.Slobodna)
@@ -566,7 +565,7 @@ namespace Raspored_Ucionica.ViewModel
                                 {
                                     if (!imanjeCasaItalijanski)
                                     {
-                                        imeUcioniceZaItalijanski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+                                        imeUcioniceZaItalijanski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
                                         imanjeCasaItalijanski = true;
                                     }
                                     SpajanjeOdeljenja("i", imeUcioniceZaItalijanski, i, j);
@@ -586,7 +585,7 @@ namespace Raspored_Ucionica.ViewModel
                                 {
                                     if (!imanjeCasaFrancuski)
                                     {
-                                        imeUcioniceZaFrancuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+                                        imeUcioniceZaFrancuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
                                         imanjeCasaFrancuski = true;
                                     }
                                     SpajanjeOdeljenja("f", imeUcioniceZaFrancuski, i, j);
@@ -598,7 +597,7 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 if (!imanjeCasaRuski)
                                 {
-                                    imeUcioniceZaRuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").First().Ime_ucionice;
+                                    imeUcioniceZaRuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
                                     imanjeCasaRuski = true;
                                 }
                                 SpajanjeOdeljenja("r", imeUcioniceZaFrancuski, i, j);
@@ -677,14 +676,15 @@ namespace Raspored_Ucionica.ViewModel
 
             return rezultati;
         }
-         public static string Cirilica(string b)
+        public static string Cirilica(string b)
         {
             if (b == "j1") return "7";
             if (b == "j2") return "8";
             if (b == "svecana sala") return "свечана сала";
             if (b == "Svecana") return "Свечана";
             char[] s = b.ToCharArray();
-            for (int i = 0; i < s.Length; i++) {
+            for (int i = 0; i < s.Length; i++)
+            {
                 if (s[i] == 'q') s[i] = 'l';
                 if (s[i] == 'w') s[i] = 'l';
                 if (s[i] == 'e') s[i] = 'е';
@@ -720,7 +720,7 @@ namespace Raspored_Ucionica.ViewModel
                 if (s[i] == 'S') s[i] = 'С';
             }
             b = "";
-            for(int i = 0; i < s.Length; i++)
+            for (int i = 0; i < s.Length; i++)
             {
                 b += s[i];
             }
@@ -729,5 +729,3 @@ namespace Raspored_Ucionica.ViewModel
     }
 
 }
-
-
