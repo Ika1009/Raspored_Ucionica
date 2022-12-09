@@ -57,11 +57,11 @@ namespace Raspored_Ucionica.Model
             });
             ponedeljak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"info", "", "", "", "reg", "", "", "", "", "verska", "", "reg", "reg", "verska", "reg", "", "", "", "", "reg","reg", "", "", "", "", "", "", "info", "", "", "", ""},
+                new List<string>() {"info", "", "", "", "g1"/*reg*/, "", "", "", "", "verska", "", "reg", "reg", "verska", "reg", "", "", "", "", "reg","reg", "", "", "", "", "", "", "info", "", "", "", ""},
                 new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "n/f/i/r", "reg", "n/f/i/r", "reg", "reg", "reg", "reg", "fv","reg", "reg", "reg", "reg", "g1", "", "reg/hem", "info", "reg", "info", "reg", "fv"},
                 new List<string>() {"reg", "info", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv", "reg/reg", "reg", "reg/reg", "reg", "reg", "reg", "reg", "reg", "reg/info","reg", "fv", "reg", "reg", "reg", "reg", "reg/hem", "reg", "reg", "info", "reg", "reg"},
                 new List<string>() {"reg", "info", "reg", "n/f/r", "n/f/i/r", "reg", "info", "n/f/i/r", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg/info","reg", "reg", "reg/info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg"},
-                new List<string>() {"reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "hem/info", "reg", "fv", "reg", "reg", "info", "reg/reg", "reg","reg", "info/reg", "reg", "fv", "reg", "reg", "reg", "n/reg/f", "n/f/reg", "reg", "n/reg", "reg"},
+                new List<string>() {"reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "hem/info", "reg", "fv", "reg", "reg", "info", "reg/reg", "reg","reg", "info/reg", "reg", "fv", "reg", "reg", "reg", "n/f/reg", "n1/f/reg", "reg", "n1/reg", "reg"},
                 new List<string>() {"fv", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg/reg", "hem/info", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg", "reg", "fv", "reg", "reg", "reg", "info/reg", "reg", "reg", "n/f/reg", "reg", "n/f/reg"},
                 new List<string>() { "reg", "fv", "reg", "fv", "reg", "", "reg", "reg", "reg", "reg", "info", "reg", "info", "reg", "verska", "verska", "reg", "info", "reg", "n/f", "reg", "n/f/reg", "reg", "n/f/reg", "reg", "reg", "reg/info", "reg", "reg", "reg", "reg", "reg"},
                 new List<string>() { "info", "reg", "fv", "reg", "", "", "", "fv", "reg", "reg", "", "reg", "info", "reg", "", "", "reg", "info", "", "", "", "", "reg", "", "reg", "reg", "reg", "", "verska/g1", "verska/g1", "reg", "reg"}
@@ -82,7 +82,7 @@ namespace Raspored_Ucionica.Model
             {
                 new List<string>() {"", "g3", "", "", "", "", "g3", "", "", "", "", "", "reg", "info", "", "", "", "", "verska/g4", "","", "", "", "verska/g4", "", "", "", "", "reg", "info", "reg", ""},
                 new List<string>() {"reg", "fv", "reg", "n/f", "n/f", "reg", "reg", "n/f", "info", "info", "reg", "reg", "reg", "info", "reg", "reg", "info", "info", "reg", "reg","reg", "reg", "reg", "fv", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg"},
-                new List<string>() {"fv", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "info", "reg", "reg","reg" ,"info/hem", "reg", "reg","info", "info", "reg", "reg", "reg", "reg","fv", "reg", "reg", "reg", "reg", "n/f", "n/f/i/r", "reg", "n/i/r", "reg"},
+                new List<string>() {"fv", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "info", "reg", "reg","reg" ,"info/hem", "reg", "reg","info", "info", "reg", "reg", "reg", "reg","fv", "reg", "reg", "reg", "reg", "n/f", "n1/f/i/r", "reg", "n1/i/r", "reg"},//moguce da se ne spajaju
                 new List<string>() {"reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "reg", "reg", "info/hem", "reg", "reg", "info", "info", "reg", "n/f","reg", "n/f/i/r", "reg", "n/f/i/r", "fv", "info", "reg", "reg/reg", "reg", "reg", "reg", "reg"},
                 new List<string>() {"reg", "reg", "info", "fv", "reg", "reg", "reg", "reg", "reg", "info", "reg", "fv", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg","reg/hem", "reg", "reg", "info", "reg", "reg", "reg/reg", "reg", "n/f", "reg", "n/f"},
                 new List<string>() {"reg", "reg", "info", "reg", "reg", "fv", "reg", "reg", "fv", "info", "reg", "reg", "reg/reg", "n/reg", "reg", "reg", "reg", "info", "reg", "reg","reg", "hem/info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/reg"},
@@ -148,6 +148,7 @@ namespace Raspored_Ucionica.Model
                 new Ucionica("9", 40, true),
                 new Ucionica("10", 40, true),
                 new Ucionica("svecana sala",40,true),
+               
 
             };
             //lista_id_ucionica_slobodnih_za_staticne = new()
