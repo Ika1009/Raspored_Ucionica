@@ -537,7 +537,7 @@ namespace Raspored_Ucionica.ViewModel
                                 else
                                     rezultati[i][j] += "/kab/";
                             }
-                            else if (trenutno == "/verska")
+                            else if (trenutno == "/verska") // ne zauzme se biblioteka
                                 rezultati[i][j] += "/bibl" + "/";
                             else if (trenutno == "g1")
                                 Gradjansko("g1", ref g1Ima, ref imeUcioniceZaGradjansko1, i, j);
@@ -557,8 +557,10 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 if (jezicka1.Slobodna)
                                 {
-                                    rezultati[i][j] += "/j1";
+                                    rezultati[i][j] += "/6";
                                     jezicka1.Slobodna = false;
+                                    imanjeCasaItalijanski = true;
+                                    imeUcioniceZaItalijanski = "6";
                                 }
                                 else
                                 {
@@ -575,8 +577,10 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 if (jezicka2.Slobodna)
                                 {
-                                    rezultati[i][j] += "/j2";
+                                    rezultati[i][j] += "/7";
                                     jezicka2.Slobodna = false;
+                                    imanjeCasaFrancuski = true;
+                                    imeUcioniceZaFrancuski = "7";
                                 }
                                 else
                                 {
