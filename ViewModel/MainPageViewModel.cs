@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.IO;
+using Windows.UI.Popups;
 
 namespace Raspored_Ucionica.ViewModel
 {
@@ -314,6 +315,15 @@ namespace Raspored_Ucionica.ViewModel
                 }
                 SpajanjeOdeljenja(imeCasa, imeUcioniceZaGradjansko, i, j);
             }
+            void Nemacki(string imeCasa, ref bool imanjeCasa, ref string imeUcioniceZaNemacki, int i, int j)
+            {
+                if (!imanjeCasa)
+                {
+                    imeUcioniceZaNemacki = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+                    imanjeCasa = true;
+                }
+                SpajanjeOdeljenja(imeCasa, imeUcioniceZaNemacki, i, j);
+            }
             void NadjiSlobodne(int i)
             {
                 int id = lista_ucionica!.Last().Id;
@@ -332,7 +342,7 @@ namespace Raspored_Ucionica.ViewModel
                 while (id >= 0)
                 {
                     Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Id == id);
-                    if (ucionica.Slobodna == true && ucionica.Tip is null)
+                    if (ucionica.Slobodna == true)
                     {
                         Slobodne[i][k] += ucionica.Ime_ucionice + "/";
                     }
@@ -393,7 +403,6 @@ namespace Raspored_Ucionica.ViewModel
 
                 bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
                 string imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
-                if (dan!.RasporedCasova[0][i] == "")
                     rezultati[0][i] = "/";
 
                 if (dan!.RasporedCasova[0][i] == "info")
@@ -461,8 +470,8 @@ namespace Raspored_Ucionica.ViewModel
             //!!!//
             for (int i = 1; i < 8; i++) // za dan
             {
-                bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
-                string imeUcioniceZaRuski = "", imeUcioniceZaFrancuski = "", imeUcioniceZaItalijanski = "", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
+                bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false, n1Ima = false, n2Ima = false;
+                string imeUcioniceZaNemacki1 = "", imeUcioniceZaNemacki2 = "", imeUcioniceZaRuski = "", imeUcioniceZaFrancuski = "", imeUcioniceZaItalijanski = "", imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
                 bool imanjeCasaRuski = false, imanjeCasaItalijanski = false, imanjeCasaFrancuski = false;
                 Ucionica jezicka2 = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "7");
                 Ucionica jezicka1 = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "6");
@@ -506,7 +515,7 @@ namespace Raspored_Ucionica.ViewModel
                                     rezultati[i][j] += "/hemk";
                             }
 
-                            else if (trenutno == "reg" || trenutno == "n")
+                            else if (trenutno == "reg")
                             {
                                 if (provera) // provara da li je vec uso ovde
                                 {
@@ -540,6 +549,10 @@ namespace Raspored_Ucionica.ViewModel
                                 Gradjansko("g4", ref g4Ima, ref imeUcioniceZaGradjansko4, i, j);
                             else if (trenutno == "g5")
                                 Gradjansko("g5", ref g5Ima, ref imeUcioniceZaGradjansko5, i, j);
+                            else if (trenutno == "n1")
+                                Nemacki("n1", ref n1Ima, ref imeUcioniceZaNemacki1, i, j);
+                            else if (trenutno == "n2")
+                                Nemacki("n2", ref n2Ima, ref imeUcioniceZaNemacki2, i, j);
                             else if (trenutno == "i")
                             {
                                 if (jezicka1.Slobodna)
@@ -551,7 +564,7 @@ namespace Raspored_Ucionica.ViewModel
                                 {
                                     if (!imanjeCasaItalijanski)
                                     {
-                                        imeUcioniceZaItalijanski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4").Last().Ime_ucionice;
+                                        imeUcioniceZaItalijanski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
                                         imanjeCasaItalijanski = true;
                                     }
                                     SpajanjeOdeljenja("i", imeUcioniceZaItalijanski, i, j);
@@ -569,7 +582,7 @@ namespace Raspored_Ucionica.ViewModel
                                 {
                                     if (!imanjeCasaFrancuski)
                                     {
-                                        imeUcioniceZaFrancuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4").Last().Ime_ucionice;
+                                        imeUcioniceZaFrancuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
                                         imanjeCasaFrancuski = true;
                                     }
                                     SpajanjeOdeljenja("f", imeUcioniceZaFrancuski, i, j);
@@ -581,7 +594,7 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 if (!imanjeCasaRuski)
                                 {
-                                    imeUcioniceZaRuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
+                                    imeUcioniceZaRuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").First().Ime_ucionice;
                                     imanjeCasaRuski = true;
                                 }
                                 SpajanjeOdeljenja("r", imeUcioniceZaFrancuski, i, j);
