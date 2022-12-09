@@ -90,27 +90,382 @@ namespace Raspored_Ucionica
             sestaLabela.Content = MainPageViewModel.Cirilica(viewModel.Cos[sesta].ToString());
             za_labele_index = 0;
             string neznam = " час";
-            for (int row = 0; row < redovi; row++)
+            for (int i = 0; i < kolona; i++)
             {
-                if (row == 0)
+                if (i == 0)
                 {
-                    SvSala.Columns.Add("ДАН");
+                    Grupe.Columns.Add("Понедељак");
+                    //SvSala.Columns.Add("Понедељак");
+                    Slobodne.Columns.Add("Понедељак");
+                    Prvo1.Columns.Add("Понедељак");
+                    Prvo2.Columns.Add("Понедељак");
+                    Prvo3.Columns.Add("Понедељак");
+                    Drugo1.Columns.Add("Понедељак");
+                    Drugo2.Columns.Add("Понедељак");
+                    Drugo3.Columns.Add("Понедељак");
+                }
+                else if (i == 1)
+                {
+                    Grupe.Columns.Add("Уторак");
+                    //SvSala.Columns.Add("Уторак");
+                    Slobodne.Columns.Add("Уторак");
+                    Prvo1.Columns.Add("Уторак");
+                    Prvo2.Columns.Add("Уторак");
+                    Prvo3.Columns.Add("Уторак");
+                    Drugo1.Columns.Add("Уторак");
+                    Drugo2.Columns.Add("Уторак");
+                    Drugo3.Columns.Add("Уторак");
+                }
+                else if (i == 2)
+                {
+                    Grupe.Columns.Add("Среда");
+                    //SvSala.Columns.Add("Среда");
+                    Slobodne.Columns.Add("Среда");
+                    Prvo1.Columns.Add("Среда");
+                    Prvo2.Columns.Add("Среда");
+                    Prvo3.Columns.Add("Среда");
+                    Drugo1.Columns.Add("Среда");
+                    Drugo2.Columns.Add("Среда");
+                    Drugo3.Columns.Add("Среда");
+                }
+                else if (i == 3)
+                {
+                    Grupe.Columns.Add("Четвртак");
+                    //SvSala.Columns.Add("Четвртак");
+                    Slobodne.Columns.Add("Четвртак");
+                    Prvo1.Columns.Add("Четвртак");
+                    Prvo2.Columns.Add("Четвртак");
+                    Prvo3.Columns.Add("Четвртак");
+                    Drugo1.Columns.Add("Четвртак");
+                    Drugo2.Columns.Add("Четвртак");
+                    Drugo3.Columns.Add("Четвртак");
                 }
                 else
                 {
-                    SvSala.Columns.Add(row.ToString() + neznam);
+                    Grupe.Columns.Add("Петак");
+                    //SvSala.Columns.Add("Петак");
+                    Slobodne.Columns.Add("Петак");
+                    Prvo1.Columns.Add("Петак");
+                    Prvo2.Columns.Add("Петак");
+                    Prvo3.Columns.Add("Петак");
+                    Drugo1.Columns.Add("Петак");
+                    Drugo2.Columns.Add("Петак");
+                    Drugo3.Columns.Add("Петак");
                 }
 
-                if (row == 0)
+            }
+            for (int row = 0; row < redovi; row++)
+            {
+                SvSala.Columns.Add(row.ToString() + neznam);
+
+                /*if (row == 0)
                 {
                     Grupe.Columns.Add("ДАН");
                 }
                 else
                 {
                     Grupe.Columns.Add(row.ToString() + neznam);
-                }
+                }*/
             }
             for (int row = 0; row < kolona; row++)
+            {
+                DataRow dr = Grupe.NewRow();
+                DataRow drr = SvSala.NewRow();
+                for (int col = 0; col < redovi; col++)
+                {
+
+                    for (int i = 0; i < nbColumns; i++)
+                    {
+                        if (row == 0)
+                        {
+                            if (col == 0)
+                            {
+                                drr[col] = "Понедељак";
+                            }
+                            if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+
+                        else if (row == 1)
+                        {
+                            if (col == 0)
+                            {
+                                drr[col] = "Уторак";
+                            }
+                            
+                            if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+                        else if (row == 2)
+                        {
+                            if (col == 0)
+                            {
+                                drr[col] = "Среда";
+                            }
+                            if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+                        else if (row == 3)
+                        {
+                            if (col == 0)
+                            {
+                                drr[col] = "Четвртак";
+                            }
+
+                            if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+                        else
+                        {
+                            if (col == 0)
+                            {
+                                drr[col] = "Петак";
+                            }
+                            if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
+                            {
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                            }
+                        }
+                    }
+
+                }
+                SvSala.Rows.Add(drr);
+            }
+
+            int x = 0, u = 0, s = 0, c = 0, pe = 0;
+            for (int row = 0; row < 8; row++)
+            {
+                DataRow dr = Grupe.NewRow();
+                for (int col = 0; col < 5; col++)
+                {
+                    if (col == 0)
+                    {
+                        for (int i = 0; i < 32; i++)
+                        {
+                            if (viewModel.ponedeljak.RasporedCasova[x][i].Contains("/"))
+                            {
+                                string[] ime = viewModel.ponedeljak.RasporedCasova[x][i].Split("/");
+                                string[] niz = viewModel.rezultatiPonedeljak[x][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (viewModel.ponedeljak.RasporedCasova[x][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+                        }
+                        x++;
+                    }
+                    else if(col == 1)
+                    {
+                        for (int i = 0; i < 32; i++)
+                        {
+                            if (viewModel.utorak.RasporedCasova[u][i].Contains("/"))
+                            {
+                                string[] ime = viewModel.utorak.RasporedCasova[u][i].Split("/");
+                                string[] niz = viewModel.rezultatiUtorak[u][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (viewModel.utorak.RasporedCasova[u][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+                        }
+                        u++;
+                    }
+                    else if (col == 2)
+                    {
+                        for (int i = 0; i < 32; i++)
+                        {
+                            if (viewModel.sreda.RasporedCasova[s][i].Contains("/"))
+                            {
+                                string[] ime = viewModel.sreda.RasporedCasova[s][i].Split("/");
+                                string[] niz = viewModel.rezultatiSreda[s][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (viewModel.sreda.RasporedCasova[s][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+                        }
+                        s++;
+                    }
+                    else if (col == 3)
+                    {
+                        for (int i = 0; i < 32; i++)
+                        {
+                            if (viewModel.cetvrtak.RasporedCasova[c][i].Contains("/"))
+                            {
+                                string[] ime = viewModel.cetvrtak.RasporedCasova[c][i].Split("/");
+                                string[] niz = viewModel.rezultatiCetvrtak[c][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (viewModel.cetvrtak.RasporedCasova[c][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+                        }
+                        c++;
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 32; i++)
+                        {
+                            if (viewModel.petak.RasporedCasova[pe][i].Contains("/"))
+                            {
+                                string[] ime = viewModel.petak.RasporedCasova[pe][i].Split("/");
+                                string[] niz = viewModel.rezultatiPetak[pe][i].Split("/");
+                                dr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + ": ";
+                                if (viewModel.petak.RasporedCasova[pe][i] == "reg/reg")
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (j % 2 == 0)
+                                        {
+                                            dr[col] += "групаA - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += "групаB - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                                else
+                                {
+                                    for (int j = 0; j < niz.Length; j++)
+                                    {
+                                        if (ime[j] == "reg")
+                                        {
+                                            dr[col] += "група - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                        else
+                                        {
+                                            dr[col] += MainPageViewModel.Cirilica(ime[j]) + " - " + MainPageViewModel.Cirilica(niz[j]) + ", ";
+                                        }
+                                    }
+                                    dr[col] += "\n";
+                                }
+                            }
+                        }
+                        pe++;
+                    }
+                }
+                Grupe.Rows.Add(dr);
+            }
+            
+            /*for (int row = 0; row < kolona; row++)
             {
                 DataRow dr = Grupe.NewRow();
                 DataRow drr = SvSala.NewRow();
@@ -450,66 +805,17 @@ namespace Raspored_Ucionica
                 }
                 SvSala.Rows.Add(drr);
                 Grupe.Rows.Add(dr);
-            }
-            for (int i = 0; i < kolona; i++)
-            {
-                if (i == 0)
-                {
-                    //SvSala.Columns.Add("Понедељак");
-                    Slobodne.Columns.Add("Понедељак");
-                    Prvo1.Columns.Add("Понедељак");
-                    Prvo2.Columns.Add("Понедељак");
-                    Prvo3.Columns.Add("Понедељак");
-                    Drugo1.Columns.Add("Понедељак");
-                    Drugo2.Columns.Add("Понедељак");
-                    Drugo3.Columns.Add("Понедељак");
-                }
-                else if (i == 1)
-                {
-                    //SvSala.Columns.Add("Уторак");
-                    Slobodne.Columns.Add("Уторак");
-                    Prvo1.Columns.Add("Уторак");
-                    Prvo2.Columns.Add("Уторак");
-                    Prvo3.Columns.Add("Уторак");
-                    Drugo1.Columns.Add("Уторак");
-                    Drugo2.Columns.Add("Уторак");
-                    Drugo3.Columns.Add("Уторак");
-                }
-                else if (i == 2)
-                {
-                    //SvSala.Columns.Add("Среда");
-                    Slobodne.Columns.Add("Среда");
-                    Prvo1.Columns.Add("Среда");
-                    Prvo2.Columns.Add("Среда");
-                    Prvo3.Columns.Add("Среда");
-                    Drugo1.Columns.Add("Среда");
-                    Drugo2.Columns.Add("Среда");
-                    Drugo3.Columns.Add("Среда");
-                }
-                else if (i == 3)
-                {
-                    //SvSala.Columns.Add("Четвртак");
-                    Slobodne.Columns.Add("Четвртак");
-                    Prvo1.Columns.Add("Четвртак");
-                    Prvo2.Columns.Add("Четвртак");
-                    Prvo3.Columns.Add("Четвртак");
-                    Drugo1.Columns.Add("Четвртак");
-                    Drugo2.Columns.Add("Четвртак");
-                    Drugo3.Columns.Add("Четвртак");
-                }
-                else
-                {
-                    //SvSala.Columns.Add("Петак");
-                    Slobodne.Columns.Add("Петак");
-                    Prvo1.Columns.Add("Петак");
-                    Prvo2.Columns.Add("Петак");
-                    Prvo3.Columns.Add("Петак");
-                    Drugo1.Columns.Add("Петак");
-                    Drugo2.Columns.Add("Петак");
-                    Drugo3.Columns.Add("Петак");
-                }
+            }*/
+            
+            
+            
+            
+            
+            
+            
+            
+            
 
-            }
             for (int row = 0; row < redovi; row++)
             {
                 DataRow dr = Slobodne.NewRow();
