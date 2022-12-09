@@ -612,8 +612,8 @@ namespace Raspored_Ucionica
 
         private void noviwindowButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 viewModel.boxovi = new List<string>() {textbox11.Text, textbox12.Text, textbox13.Text, textbox14.Text,
                 textbox15.Text, textbox16.Text, textbox17.Text, textbox18.Text,
                 textbox21.Text, textbox22.Text, textbox23.Text, textbox24.Text,
@@ -626,11 +626,11 @@ namespace Raspored_Ucionica
                 mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
                 mainWindow.Show();
                 Close();
-            }
+            /*}
             catch (Exception ex)
             {
                 MessageBox.Show("Doslo je do problema, proverite da li postoji resenje za odgovarajuci izbor lutajucih ucionica!\nGreska: " + ex.Message, "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            }*/
         }
         private void Checkovanje(object sender, RoutedEventArgs e)
         {
