@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Windows;
 using System.IO;
+using System;
 
 namespace Raspored_Ucionica.ViewModel
 {
@@ -264,6 +265,9 @@ namespace Raspored_Ucionica.ViewModel
             void DrziLutajuce(int i, int j)
             {
                 Odeljenje Temp = lista_odeljenja!.First(odeljenje => odeljenje.Id == j);
+
+                // ovo slobodna sam stavio zbog optimizacije da ne pozivamo duplo funkciju -Ilija Doncic
+                Ucionica? slobodna = lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Ime_ucionice != "7" && ucionica.Ime_ucionice != "svecana sala");
                 if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null) is null)
                 {
                     for (int k = 0; k < 5; k++)
@@ -286,21 +290,20 @@ namespace Raspored_Ucionica.ViewModel
                     }
                 }
                 //Funkcija za korišćenje osmice
-                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Ime_ucionice != "7" && ucionica.Ime_ucionice != "svecana sala") is not null)
+                else if (slobodna is not null)
                 {
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Ime_ucionice != "7" && ucionica.Ime_ucionice != "svecana sala");
                     rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
-                else if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3)) is not null)
+                else if ((slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3))) is not null)
                 {
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
+                    // i ovaj else if promenio zbog optimizacije - Ilija Jedan Jedini
                     rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
                 else
                 {
-                    Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
+                    slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
                     rezultati[i][j] += slobodna.Ime_ucionice + "/";
                     slobodna.Slobodna = false;
                 }
@@ -318,7 +321,8 @@ namespace Raspored_Ucionica.ViewModel
             {
                 if (!imanjeCasa)
                 {
-                    imeUcioniceZaNemacki = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka").First().Ime_ucionice;
+                    imeUcioniceZaNemacki = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka").Last().Ime_ucionice;
+                    // .last jer ne staju za sredu 2 cas, mozda da se napravi provera za da li moze druga ?
                     imanjeCasa = true;
                 }
                 SpajanjeOdeljenja(imeCasa, imeUcioniceZaNemacki, i, j);
@@ -487,6 +491,7 @@ namespace Raspored_Ucionica.ViewModel
                     //lista_ucionica!.Last().Slobodna = true;
                     if (dan!.RasporedCasova[i][j] == "reg" || dan!.RasporedCasova[i][j] == "dreg")
                     {
+                        // Da se doda kod za 3-2 da ne stavlja u 8
                         DrziOdeljenje(i, j);
                     }
                     else if (dan!.RasporedCasova[i][j] == "info")
@@ -501,7 +506,7 @@ namespace Raspored_Ucionica.ViewModel
                         rezultati[i][j] = "";
                         string cas = dan!.RasporedCasova[i][j];
                         int brojac = cas.Count(c => c == '/');
-                        bool provera = false;
+                        bool provera = false, proveraN = false;
                         for (int c = 0; c <= brojac; c++)
                         {
                             string trenutno = cas.Split("/")[c];
@@ -517,14 +522,8 @@ namespace Raspored_Ucionica.ViewModel
                             else if (trenutno == "reg" || trenutno == "dreg")
                             {
                                 if (provera) // provara da li je vec uso ovde
-                                {
                                     DrziLutajuce(i, j);
-                                    //Ucionica slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null);
-                                    //rezultati[i][j] += slobodna.Ime_ucionice +"/";
-                                    //slobodna.Slobodna = false;
-                                }
-                                else
-                                {
+                                else {
                                     DrziOdeljenje(i, j);
                                     provera = true;
                                 }
@@ -549,7 +548,14 @@ namespace Raspored_Ucionica.ViewModel
                             else if (trenutno == "g5")
                                 Gradjansko("g5", ref g5Ima, ref imeUcioniceZaGradjansko5, i, j);
                             else if (trenutno == "n")
-                                DrziLutajuce(i, j);
+                            {
+                                if (proveraN) // provara da li je vec uso ovde
+                                    DrziLutajuce(i, j);
+                                else { 
+                                    DrziOdeljenje(i, j);
+                                    proveraN = true;
+                                }
+                            }
                             else if (trenutno == "n1")
                                 Nemacki("n1", ref n1Ima, ref imeUcioniceZaNemacki1, i, j);
                             else if (trenutno == "i")
