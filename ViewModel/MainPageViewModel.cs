@@ -314,6 +314,7 @@ namespace Raspored_Ucionica.ViewModel
                     string Ucionica;
                     Ucionica trazena = null;
                     Ucionica Slobodna = null;
+                    Ucionica Slobodna2 = null;
                     for (int p = 0; p<duzina; p++)
                     {
                         Ucionica = prenos[p];
@@ -327,12 +328,11 @@ namespace Raspored_Ucionica.ViewModel
                         }
                         else if(ucionica.Slobodna == true && (Lutajuca.ToList().IndexOf(j.ToString()) < 6))
                         {
-                            slobodna = ucionica;
-                            break;
+                            Slobodna = ucionica;
                         }
                         else if(ucionica.Slobodna == true) 
                         {
-                            slobodna = ucionica;
+                            Slobodna2 = ucionica;
                         }
                     }
                     if(trazena != null)
@@ -344,6 +344,11 @@ namespace Raspored_Ucionica.ViewModel
                     {
                         rezultati[i][j] += Slobodna.Ime_ucionice + "/";
                         Slobodna.Slobodna = false;
+                    }
+                    else if (Slobodna2 != null)
+                    {
+                        rezultati[i][j] += Slobodna2.Ime_ucionice + "/";
+                        Slobodna2.Slobodna = false;
                     }
                     else
                     {
