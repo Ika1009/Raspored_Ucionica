@@ -118,14 +118,14 @@ namespace Raspored_Ucionica.Model
             {
                 new Ucionica("P4", 15, true, true),
                 new Ucionica("6", 16, true, true),
-                new Ucionica("8", 20, true),
+                new Ucionica("8", 20, true),//S
                 new Ucionica("23b", 20, true),
                 new Ucionica("11", 22, true),
                 new Ucionica("33", 24, true),
                 new Ucionica("30", 24, true),
-                new Ucionica("7", 24, true, true),
-                new Ucionica("biblioteka", 25, true, true),
-                new Ucionica("21", 26, true),
+                new Ucionica("7", 24, true, true), //S
+                new Ucionica("biblioteka", 25, true, true), 
+                new Ucionica("21", 26, true), 
                 new Ucionica("35", 26, true),
                 new Ucionica("39", 28, true),
                 new Ucionica("P3", 28, true),
