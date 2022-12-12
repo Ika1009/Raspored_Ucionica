@@ -327,7 +327,7 @@ namespace Raspored_Ucionica.ViewModel
                             Lutajuca[indeks] = trazena.Ime_ucionice;
                             break;
                         }
-                        else if (ucionica.Slobodna == true && (Lutajuca.ToList().IndexOf(j.ToString()) < 6))
+                        else if (ucionica.Slobodna == true && (Lutajuca.ToList().LastIndexOf(j.ToString()) < 6))
                         {
                             Slobodna = ucionica;
                         }
@@ -502,7 +502,7 @@ namespace Raspored_Ucionica.ViewModel
                         {
                             //Automatski dodaje učionicu koja će uvek biti korišćena
                             //Naravno, to ne mora biti nijedna učionica
-                            ZaLutajuca[Dan][cas] += "7,";
+                            ZaLutajuca[Dan][cas] += "";
                         }
                     }
                     //Switch, zbog dana
