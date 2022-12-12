@@ -588,7 +588,7 @@ namespace Raspored_Ucionica.ViewModel
 
                     bool g1Ima = false, g2Ima = false, g3Ima = false, g4Ima = false, g5Ima = false;
                     string imeUcioniceZaGradjansko1 = "", imeUcioniceZaGradjansko2 = "", imeUcioniceZaGradjansko3 = "", imeUcioniceZaGradjansko4 = "", imeUcioniceZaGradjansko5 = "";
-                    rezultati[0][i] = "/";
+                    rezultati[0][i] = "";
 
                     if (dan!.RasporedCasova[0][i] == "info")
                         rezultati[0][i] = "kab.";
@@ -744,7 +744,7 @@ namespace Raspored_Ucionica.ViewModel
                                 {
                                     if (jezicka1.Slobodna)
                                     {
-                                        rezultati[i][j] += "/6";
+                                        rezultati[i][j] += "/6/";
                                         jezicka1.Slobodna = false;
                                         imanjeCasaItalijanski = true;
                                         imeUcioniceZaItalijanski = "6";
@@ -764,7 +764,7 @@ namespace Raspored_Ucionica.ViewModel
                                 {
                                     if (jezicka2.Slobodna)
                                     {
-                                        rezultati[i][j] += "/7";
+                                        rezultati[i][j] += "/7/";
                                         jezicka2.Slobodna = false;
                                         imanjeCasaFrancuski = true;
                                         imeUcioniceZaFrancuski = "7";
@@ -780,7 +780,7 @@ namespace Raspored_Ucionica.ViewModel
                                     }
                                 }
                                 else if (trenutno == "r" && biblioteka.Slobodna == true)
-                                    rezultati[i][j] += "/bibl" + "/";
+                                    rezultati[i][j] += "/bibl/";
                                 else if (trenutno == "r" && biblioteka.Slobodna == false) // ovde treba italijani da budu
                                 {
                                     if (!imanjeCasaRuski)
