@@ -90,6 +90,41 @@ namespace Raspored_Ucionica
             sestaLabela.Content = MainPageViewModel.Cirilica(viewModel.Cos[sesta].ToString());
             za_labele_index = 0;
             string neznam = " час";
+            for (int i = 0; i < 8; i++)
+            {
+                if(i == 0)
+                {
+                    Staticne.Columns.Add("с");
+                }
+                else if(i == 1)
+                {
+                    Staticne.Columns.Add("т");
+                }
+                else if (i == 2)
+                {
+                    Staticne.Columns.Add("a");
+                }
+                else if (i == 3)
+                {
+                    Staticne.Columns.Add("Т");
+                }
+                else if (i == 4)
+                {
+                    Staticne.Columns.Add("i");
+                }
+                else if (i == 5)
+                {
+                    Staticne.Columns.Add("ч");
+                }
+                else if (i == 6)
+                {
+                    Staticne.Columns.Add("н");
+                }
+                else
+                {
+                    Staticne.Columns.Add("e");
+                }
+            }
             for (int i = 0; i < kolona; i++)
             {
                 if (i == 0)
@@ -184,7 +219,7 @@ namespace Raspored_Ucionica
                             }
                             if (viewModel.rezultatiPonedeljak[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + " ";
                             }
                         }
 
@@ -197,7 +232,7 @@ namespace Raspored_Ucionica
                             
                             if (viewModel.rezultatiUtorak[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + " ";
                             }
                         }
                         else if (row == 2)
@@ -208,7 +243,7 @@ namespace Raspored_Ucionica
                             }
                             if (viewModel.rezultatiSreda[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + " ";
                             }
                         }
                         else if (row == 3)
@@ -220,7 +255,7 @@ namespace Raspored_Ucionica
 
                             if (viewModel.rezultatiCetvrtak[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + " ";
                             }
                         }
                         else
@@ -231,7 +266,7 @@ namespace Raspored_Ucionica
                             }
                             if (viewModel.rezultatiPetak[col][i].Contains("svecana sala"))
                             {
-                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja;
+                                drr[col] += viewModel.lista_odeljenja[i].Ime_odeljenja + " ";
                             }
                         }
                     }
@@ -240,13 +275,13 @@ namespace Raspored_Ucionica
                 SvSala.Rows.Add(drr);
             }
 
-            int x = 0, u = 0, s = 0, c = 0, pe = 0;
+            int x = 1, u = 1, s = 1, c = 1, pe = 1;
             for (int row = 0; row < 8; row++)
             {
                 DataRow dr = Grupe.NewRow();
                 for (int col = 0; col < 5; col++)
                 {
-                    if (col == 0)
+                    if (col == 0 && x < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -289,7 +324,7 @@ namespace Raspored_Ucionica
                         }
                         x++;
                     }
-                    else if(col == 1)
+                    else if(col == 1 && u < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -332,7 +367,7 @@ namespace Raspored_Ucionica
                         }
                         u++;
                     }
-                    else if (col == 2)
+                    else if (col == 2 && s < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -375,7 +410,7 @@ namespace Raspored_Ucionica
                         }
                         s++;
                     }
-                    else if (col == 3)
+                    else if (col == 3 && c < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -418,7 +453,7 @@ namespace Raspored_Ucionica
                         }
                         c++;
                     }
-                    else
+                    else if (pe < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -899,10 +934,6 @@ namespace Raspored_Ucionica
 
             int z = 0, y = 0;
             za_labele_index = 0;
-            for(int i = 0; i < 8; i++)
-            {
-                Staticne.Columns.Add(i.ToString());
-            }
             for (int i = 0; i < 8; i++)
             {
                 y = 0 + za_labele_index;
