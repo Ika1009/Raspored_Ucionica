@@ -668,6 +668,11 @@ namespace Raspored_Ucionica.ViewModel
                 OslobodiLutajuceUcionice();
                 OslobodiSveUcionice(i);
                 OslobodiJezickeUcionice(i);
+                if (dan == ponedeljak && i < 5)
+                {
+                    Ucionica osmica = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "8");
+                    osmica.Slobodna = false;
+                }
                 if (dan == ponedeljak && i == 5)
                 {
                     NadjiCos();
