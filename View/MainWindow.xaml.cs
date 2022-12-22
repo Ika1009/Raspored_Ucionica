@@ -110,7 +110,7 @@ namespace Raspored_Ucionica
                 }
                 else if (i == 4)
                 {
-                    Staticne.Columns.Add("i");
+                    Staticne.Columns.Add("и");
                 }
                 else if (i == 5)
                 {
