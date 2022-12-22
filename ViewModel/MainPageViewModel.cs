@@ -1037,12 +1037,23 @@ namespace Raspored_Ucionica.ViewModel
 
             return rezultati;
         }
+        public static string Rimska(string a)
+        {
+            if (a == "1") return "I";
+            if (a == "2") return "II";
+            if (a == "3") return "III";
+            if (a == "4") return "IV";
+            if (a == "5") return "V";
+            if (a == "6") return "VI";
+            if (a == "7") return "VII";
+            return a;
+        }
         public static string Cirilica(string b)
         {
             if (b == "biblioteka") return "библ";
             if (b == "j1") return "7";
             if (b == "j2") return "8";
-            if (b == "svecana sala") return "свечана сала";
+            if (b == "svecana sala") return "св. с";
             if (b == "Svecana") return "Свечана";
             char[] s = b.ToCharArray();
             for (int i = 0; i < s.Length; i++)
