@@ -1050,6 +1050,7 @@ namespace Raspored_Ucionica.ViewModel
         }
         public static string Cirilica(string b)
         {
+            if (b == "info") return "инф";
             if (b == "biblioteka") return "библ";
             if (b == "j1") return "7";
             if (b == "j2") return "8";
