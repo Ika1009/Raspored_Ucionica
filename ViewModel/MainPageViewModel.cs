@@ -192,10 +192,17 @@ namespace Raspored_Ucionica.ViewModel
                 //if (lista_odeljenja![i].Id_ucionice is not null)
                 //    lista_ucionica![lista_odeljenja[i].Id_ucionice!.Value].Slobodna = true;// oslobadja se njihova ucionica
 
-                Ucionica ucionica = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == imeUcionice);
-
-                rezultati[i][j] += ucionica.Ime_ucionice + "/";
-                ucionica.Slobodna = false; // ucionica ne moze da se koristi za druge predmete, ali moze za isti kad se spoji
+                Ucionica ucionica = lista_ucionica!.FirstOrDefault(ucionica => ucionica.Ime_ucionice == imeUcionice);
+                if(ucionica is not null)
+                {
+                    rezultati[i][j] += ucionica.Ime_ucionice + "/";
+                    ucionica.Slobodna = false; // ucionica ne moze da se koristi za druge predmete, ali moze za isti kad se spoji
+                }
+                else
+                {
+                    rezultati[i][j] += imeUcionice + "/";
+                }
+                
             }
 
             void DrziOdeljenje(int i, int j) // nalazi slobodnu ucionicu za oba odeljenja
@@ -456,9 +463,44 @@ namespace Raspored_Ucionica.ViewModel
             }
             void Nemacki(string imeCasa, ref bool imanjeCasa, ref string imeUcioniceZaNemacki, int i, int j)
             {
+
                 if (!imanjeCasa)
                 {
-                    imeUcioniceZaNemacki = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka").Last().Ime_ucionice;
+                    Ucionica ucionicaNemacki = lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka");
+                    if (ucionicaNemacki is null)
+                    {
+                        for (int k = 0; k < 5; k++)
+                        {
+                            string a = "";
+                            if (Kdan.RasporedKabineta[k][i] == "true")
+                            {
+                                switch (k)
+                                {
+                                    case 0: a = "22"; break;
+                                    case 1: a = "29"; break;
+                                    case 2: a = "23a"; break;
+                                    case 3: a = "Sremac"; break;
+                                    case 4: a = "Multimedijalna"; break;
+                                }
+                                if(a == "")
+                                {
+                                    ucionicaNemacki = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "biblioteka");
+                                    imeUcioniceZaNemacki = ucionicaNemacki.Ime_ucionice;
+
+                                }
+                                else
+                                {
+                                    imeUcioniceZaNemacki = a;
+                                    Kdan.RasporedKabineta[k][i] = "false";
+                                }
+                               
+                            }
+                        }
+                    }
+                    else
+                    {
+                        imeUcioniceZaNemacki = ucionicaNemacki.Ime_ucionice;
+                    }
                     // .last jer ne staju za sredu 2 cas, mozda da se napravi provera za da li moze druga ?
                     imanjeCasa = true;
                 }
@@ -697,7 +739,7 @@ namespace Raspored_Ucionica.ViewModel
                         rezultati[i][j] = "";
                         string cas = dan!.RasporedCasova[i][j];
                         int brojac = cas.Count(c => c == '/');
-                        bool provera = false, proveraN = false;
+                        bool provera = false;
                         for (int c = 0; c <= brojac; c++)
                         {
                             string trenutno = cas.Split("/")[c];
@@ -710,7 +752,7 @@ namespace Raspored_Ucionica.ViewModel
                                     rezultati[i][j] += "/hemk";
                             }
 
-                            else if (trenutno == "reg" || trenutno == "dreg")
+                            else if (trenutno == "reg" || trenutno == "dreg" || trenutno == "n")
                             {
                                 if (provera) // provara da li je vec uso ovde
                                     DrziLutajuce(i, j);
@@ -739,16 +781,6 @@ namespace Raspored_Ucionica.ViewModel
                                 Gradjansko("g4", ref g4Ima, ref imeUcioniceZaGradjansko4, i, j);
                             else if (trenutno == "g5")
                                 Gradjansko("g5", ref g5Ima, ref imeUcioniceZaGradjansko5, i, j);
-                            else if (trenutno == "n")
-                            {
-                                if (proveraN) // provara da li je vec uso ovde
-                                    DrziLutajuce(i, j);
-                                else
-                                {
-                                    DrziOdeljenje(i, j);
-                                    proveraN = true;
-                                }
-                            }
                             else if (trenutno == "n1")
                                 Nemacki("n1", ref n1Ima, ref imeUcioniceZaNemacki1, i, j);
                             else if (trenutno == "i")
@@ -913,7 +945,7 @@ namespace Raspored_Ucionica.ViewModel
                 string UcionicaItalijanski = "-";
                 string UcionicaRuski = "-";
                 for (int j = 0; j < 32; j++)
-                {                    
+                {
                     string[] raspored = dan.RasporedCasova[i][j].Split('/');
                     string[] rezultat = rezultati[i][j].Split('/');
                     string[] slobodne = Slobodne[i][Dan].Split('/');
@@ -1005,9 +1037,9 @@ namespace Raspored_Ucionica.ViewModel
 
                     }
                     string konacno = "";
-                    for(int t = 0; t<rezultat.Length; t++)
+                    for (int t = 0; t < rezultat.Length; t++)
                     {
-                        
+
                         if (t != rezultat.Length - 1)
                         {
                             konacno += rezultat[t] + "/";
