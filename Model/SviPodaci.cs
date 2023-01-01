@@ -20,7 +20,7 @@ namespace Raspored_Ucionica.Model
             {
                 new List<string>() {"I-1","I-1", "I-2", "I-2", "III-2", "III-2", "III-2", "III-2"}, //22
                 new List<string>() {"true", "I-8", "I-8", "I-7", "I-7", "II-3", "II-3", "I-1"}, //29
-                new List<string>() {"true", "true", "true", "true", "true", "IV-3", "IV-3", "true"}, //23a
+                new List<string>() {"true", "I-8", "I-8", "I-7", "I-7", "IV-3", "IV-3", "true"}, //23a
                 new List<string>() {"IV-4", "IV-4", "III-4", "III-4", "II-5", "II-5", "II-5", "II-5"}, //Sremac
                 new List<string>() {"true", "IV-6", "IV-6", "III-7", "III-6", "II-3", "II-3", "true"}, //Multimedijalna(MM)
             });
