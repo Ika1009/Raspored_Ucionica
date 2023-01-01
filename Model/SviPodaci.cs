@@ -18,43 +18,43 @@ namespace Raspored_Ucionica.Model
             //Zauzetost kabineta
             Kponedeljak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"}, //22
-                new List<string>() {"29", "false", "false", "false", "false", "false", "false", "false"}, //29
-                new List<string>() {"23a", "23a", "23a", "23a", "23a", "false", "false", "23a"}, //23a
-                new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"}, //Sremac
-                new List<string>() {"MM", "false", "false", "false", "false", "false", "false", "MM"}, //Multimedijalna(MM)
+                new List<string>() {"I-1","I-1", "I-2", "I-2", "III-2", "III-2", "III-2", "III-2"}, //22
+                new List<string>() {"true", "I-8", "I-8", "I-7", "I-7", "II-3", "II-3", "I-1"}, //29
+                new List<string>() {"true", "true", "true", "true", "true", "IV-3", "IV-3", "true"}, //23a
+                new List<string>() {"IV-4", "IV-4", "III-4", "III-4", "II-5", "II-5", "II-5", "II-5"}, //Sremac
+                new List<string>() {"true", "IV-6", "IV-6", "III-7", "III-6", "II-3", "II-3", "true"}, //Multimedijalna(MM)
             });
             Kutorak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"}, //22
-                new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"}, //29
-                new List<string>() {"false", "false", "false", "false", "false", "false", "false", "23a"}, //23a
-                new List<string>() {"Sremac", "false", "false", "false", "false", "false", "false", "false"}, //Sremac
-                new List<string>() {"MM", "MM", "false", "false", "false", "false", "false", "false"}, //Multimedijalna
+                new List<string>() {"true", "II-1", "II-1", "I-2", "I-2", "II-2", "II-2", "IV-7"}, //22
+                new List<string>() {"true", "III-2", "III-2", "III-2", "III-1", "III-1", "III-1", "III-1"}, //29
+                new List<string>() {"true", "I-1", "I-1", "I-1", "I-1", "I-1", "I-1", "true"}, //23a
+                new List<string>() {"true", "IV-5", "IV-5", "III-5", "III-8", "III-8", "III-3", "III-3"}, //SremaC
+                new List<string>() {"true", "true", "I-1", "I-1", "I-1", "I-1", "II-4", "II-4"}, //Multimedijalna
             });
             Ksreda = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"22", "false", "false", "false", "false", "false", "false", "false"}, //22
-                new List<string>() {"29", "false", "false", "false", "false", "false", "false", "false"}, //29
-                new List<string>() {"false", "false", "false", "false", "false", "false", "23a", "23a"}, //23a
-                new List<string>() {"Sremac", "false", "false", "false", "false", "false", "false", "false"}, //Sremac
-                new List<string>() {"false", "false", "false", "false", "false", "false", "false", "false"}, //Multimedijalna
+                new List<string>() {"true", "II-1","II-1", "IV-2", "IV-1", "III-6", "I-4", "I-4"}, //22
+                new List<string>() {"true", "III-1", "III-1", "III-1", "I-3", "I-3", "I-6", "I-6"}, //29
+                new List<string>() {"IV-6", "IV-6", "II-2", "II-2", "II-2", "II-2", "true", "true"}, //23a
+                new List<string>() {"true", "II-2", "II-2", "II-2", "II-2", "II-2", "II-2", "IV-7"}, //Sremac
+                new List<string>() {"II-6", "II-6", "II-6", "II-6", "I-3", "I-3", "I-6", "I-6"}, //Multimedijalna
             });
             Kcetvrtak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"22", "false", "false", "false", "false", "false", "false", "false"}, //22
-                new List<string>() {"29", "false", "false", "false", "false", "false", "false", "false"}, //29
-                new List<string>() {"23a", "23a", "false", "false", "false", "false", "false", "false"}, //23a
-                new List<string>() { "Sremac", "Sremac", "Sremac", "false", "false", "false", "false", "Sremac"}, //Sremac
-                new List<string>() {"MM", "false", "false", "false", "MM", "MM", "false", "false"}, //Multimedijalna
+                new List<string>() {"true", "II-1", "II-1", "II-1", "II-1", "II-1", "II-1", "true"}, //22
+                new List<string>() {"true", "I-5", "I-5", "II-7", "II-7", "II-8", "II-8", "I-2"}, //29
+                new List<string>() {"true", "true", "II-1", "II-1", "II-1", "II-1", "III-3", "III-3"}, //23a
+                new List<string>() { "true", "true", "true", "II-7", "II-7", "II-8", "II-8", "true"}, //Sremac
+                new List<string>() {"true", "IV-8", "II-4", "II-4", "true", "true", "I-4", "I-4"}, //Multimedijalna
             });
             Kpetak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"22", "false", "false", "false", "false", "false", "22", "22"}, //22
-                new List<string>() {"false", "false", "false", "false", "false", "29", "29", "29"}, //29
-                new List<string>() {"23a", "false", "false", "false", "false", "false", "false", "23a"}, //23a
-                new List<string>() { "Sremac", "false", "false", "Sremac", "Sremac", "Sremac", "Sremac", "Sremac"}, //Sremac
-                new List<string>() {"false", "false", "false", "false", "false", "false", "MM", "MM"}, //Multimedijalna
+                new List<string>() {"true", "I-5", "I-5", "III-5", "III-7", "IV-8", "true", "true"}, //22
+                new List<string>() {"true", "I-1", "I-1", "II-2", "II-2", "true", "true", "true"}, //29
+                new List<string>() {"true", "I-2", "I-2", "I-2", "I-2", "I-2", "I-2", "true"}, //23a
+                new List<string>() { "true", "IV-5", "IV-5", "true", "true", "true", "true", "true"}, //Sremac
+                new List<string>() {"IV-4", "IV-4", "I-2", "I-2", "I-2", "I-2", "true", "true"}, //Multimedijalna
             });
             ponedeljak = new(new List<List<string>> // optimizovao
             {
