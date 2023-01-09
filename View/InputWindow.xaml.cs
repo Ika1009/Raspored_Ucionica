@@ -1036,7 +1036,7 @@ namespace Raspored_Ucionica
 
 			Excel.Workbooks books = ExcelApp.Workbooks;
 
-			Excel.Workbook sheets = books.Open(@"SlobodniKabineti.csv"); 
+			Excel.Workbook sheets = books.Open(@"SlobodniKabinetiXLS.csv"); 
 
 			MessageBox.Show("otvori fajl");
 		}
