@@ -90,6 +90,17 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
+            path = @"RasporedCasova.csv";
+            procitano = File.ReadAllLines(path);
+
+            split0 = procitano[0].Split(",");
+            split1 = procitano[1].Split(",");
+            split2 = procitano[2].Split(",");
+            split3 = procitano[3].Split(",");
+            split4 = procitano[4].Split(",");
+            string[] split5 = procitano[5].Split(",");
+            string[] split6 = procitano[6].Split(",");
+            string[] split7 = procitano[7].Split(",");
 
             ponedeljak = new(new List<List<string>> // optimizovao
             {
@@ -103,6 +114,15 @@ namespace Raspored_Ucionica.Model
                 new List<string>() { "info", "reg", "fv", "", "", "", "", "fv", "reg", "reg", "", "reg", "info", "reg", "", "", "reg", "info", "", "", "", "", "reg", "", "reg", "reg", "reg", "", "verska/g1", "verska/g1", "reg", "reg"}
             });
 
+            split0 = procitano[8].Split(",");
+            split1 = procitano[9].Split(",");
+            split2 = procitano[10].Split(",");
+            split3 = procitano[11].Split(",");
+            split4 = procitano[12].Split(",");
+            split5 = procitano[13].Split(",");
+            split6 = procitano[14].Split(",");
+            split7 = procitano[15].Split(",");
+
             utorak = new(new List<List<string>>
             {
                 new List<string>() {"", "", "verska/g2", "verska/g2", "reg", "", "reg", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "", "", "info", "", "reg", "reg", "", "reg", "reg", ""},
@@ -114,6 +134,16 @@ namespace Raspored_Ucionica.Model
                 new List<string>() { "info", "reg", "reg/hem", "reg", "reg", "fv", "reg", "reg", "reg", "info", "reg", "info", "reg/reg", "reg", "reg", "fv", "info", "reg", "info", "verska","reg", "reg", "verska", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", ""},
                 new List<string>() { "", "reg", "", "", "reg", "verska", "fv", "verska", "reg", "reg", "reg", "info", "g2", "", "reg", "reg", "info","reg" ,"info", "", "fv", "", "", "", "info", "g1", "g1","g1" ,"reg", "", "reg/info", ""}
             });
+
+            split0 = procitano[17].Split(",");
+            split1 = procitano[18].Split(",");
+            split2 = procitano[19].Split(",");
+            split3 = procitano[20].Split(",");
+            split4 = procitano[21].Split(",");
+            split5 = procitano[22].Split(",");
+            split6 = procitano[23].Split(",");
+            split7 = procitano[24].Split(",");
+
             sreda = new(new List<List<string>>
             {
                 new List<string>() {"", "g3", "", "", "", "", "g3", "", "", "", "", "", "reg", "info", "", "", "", "", "verska/g4", "","", "", "", "verska/g4", "", "", "", "", "reg", "info", "reg", ""},
@@ -125,6 +155,16 @@ namespace Raspored_Ucionica.Model
                 new List<string>() { "dreg", "dreg", "reg", "info", "reg", "info", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "dreg", "info", "reg", "reg","fv", "reg", "", "", "reg", "reg", "reg", "verska", "fv", "", "reg", "reg"},
                 new List<string>() { "reg", "verska", "", "info", "fv", "info", "verska", "", "reg", "", "reg", "reg", "fv", "", "g2", "reg", "dreg", "info", "reg", "","", "", "", "", "reg", "reg", "reg", "", "", "", "reg/info", ""}
             });
+
+            split0 = procitano[26].Split(",");
+            split1 = procitano[27].Split(",");
+            split2 = procitano[28].Split(",");
+            split3 = procitano[29].Split(",");
+            split4 = procitano[30].Split(",");
+            split5 = procitano[31].Split(",");
+            split6 = procitano[32].Split(",");
+            split7 = procitano[33].Split(",");
+
             cetvrtak = new(new List<List<string>>
             {
                 new List<string>() { "g3", "", "", "", "", "g3", "", "", "", "", "", "", "", "", "", "", "verksa/g4", "verska/g4", "", "reg","", "", "", "", "", "info", "reg", "", "", "reg", "", "reg"},
@@ -136,6 +176,15 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {  "reg", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "fv", "reg/reg", "reg", "info", "info", "dreg", "hem/info", "","verska", "verska/g4", "reg", "reg", "reg", "info", "", "reg", "", "reg/reg", "", "reg"},
                 new List<string>() {  "verska", "info", "reg", "info", "verska", "", "", "reg", "", "fv", "reg", "g2", "", "reg", "", "reg","reg", "reg", "hem/info", "", "","", "reg/reg","reg" ,"", "info", "", "", "", "reg", "", ""}
             });
+
+            split0 = procitano[35].Split(",");
+            split1 = procitano[36].Split(",");
+            split2 = procitano[37].Split(",");
+            split3 = procitano[38].Split(",");
+            split4 = procitano[39].Split(",");
+            split5 = procitano[40].Split(",");
+            split6 = procitano[41].Split(",");
+            split7 = procitano[42].Split(",");
             petak = new(new List<List<string>>
             {
                 new List<string>() { "", "", "", "", "", "", "", "g3", "verska", "", "", "", "verska", "", "reg", "", "", "", "", "","g1", "", "", "", "", "", "", "info", "", "", "", "reg"},
