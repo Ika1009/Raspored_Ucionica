@@ -188,12 +188,14 @@
 
 
         <TextBlock x:Name="legendaTextBlock"  Visibility="Hidden" HorizontalAlignment="Left" Margin="580,246,0,0" TextWrapping="Wrap" FontWeight="Normal" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF5A5A5A" VerticalAlignment="Top" Width="196" Height="159" RenderTransformOrigin="0.485,0.135"><Run Text="ЛЕГЕНДА:"/><LineBreak/><Run Text="- павиљон 1 - "/><Run Text="P1"/><LineBreak/><Run Text="- павиљон 2 -"/><Run Text=" P2"/><LineBreak/><Run Text="- павиљон 3 -"/><Run Text=" P3"/><LineBreak/><Run Text="- хемијски кабинет -"/><Run Text=" P4"/><LineBreak/><Run Text="- 6 - jezicka1"/><LineBreak/><Run Text="- 7 - jezicka2"/><LineBreak/><Run Text="- 23b - 23b"/><LineBreak/><Run Text="- свечана сала - svecana sala"/><LineBreak/><Run Text="- библиотека - biblioteka"/><LineBreak/><Run Text=" "/></TextBlock>
-        <Button x:Name="NapraviRasporedButton" Background="OldLace"  Content="Направи Распоред" HorizontalAlignment="Center" Height="80" Margin="0,294,0,0" VerticalAlignment="Top" Width="260" FontSize="20" Click="NapraviRasporedButton_Click"/>
-        <Button x:Name="OdeljenjaButton" Background="OldLace" Content="Замени величину одељења" HorizontalAlignment="Center" Height="80" Margin="0,400,0,0" VerticalAlignment="Top" Width="260" FontSize="20" Click="OdeljenjaButton_Click"/>
+        <Button x:Name="NapraviRasporedButton" Background="OldLace"  Content="Направи Распоред" HorizontalAlignment="Center" Height="73" Margin="0,294,0,0" VerticalAlignment="Top" Width="213" FontSize="20" Click="NapraviRasporedButton_Click"/>
+        <Button x:Name="OdeljenjaButton" Background="OldLace" Content="Замени величину од." HorizontalAlignment="Center" Height="64" Margin="0,385,0,0" VerticalAlignment="Top" Width="213" FontSize="20" Click="OdeljenjaButton_Click"/>
         <Button x:Name="NazadPocetnaButton" Background="OldLace" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadPocetnaButton_Click"/>
         <Button x:Name="NazadRasporedButton" Background="OldLace" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadRasporedButton_Click"/>
         <Button x:Name="NazadOdeljenjeButton" Background="OldLace" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadOdeljenjeButton_Click"/>
         <Button x:Name="IzmeniOdeljenjeButton" Background="OldLace" Content="Измени" Visibility="Hidden"  HorizontalAlignment="Left" Height="28" Margin="345,577,0,0" VerticalAlignment="Top" Width="126" Click="IzmeniOdeljenjeButton_Click"/>
+        <Button x:Name="UcitajRasporedButton" Background="OldLace"  Content="Учитај Распоред" HorizontalAlignment="Center" Height="66" Margin="0,468,0,0" VerticalAlignment="Top" Width="213" FontSize="20" Click="UcitajRasporedButton_Click"/>
+        <Button x:Name="UcitajKabineteButton" Background="OldLace"  Content="Учитај инф. Кабинете" HorizontalAlignment="Center" Height="66" Margin="0,550,0,0" VerticalAlignment="Top" Width="213" FontSize="20" Click="UcitajKabineteButton_Click"/>
 
     </Grid>
 </Window>
