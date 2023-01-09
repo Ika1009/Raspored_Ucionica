@@ -27,8 +27,8 @@ namespace Raspored_Ucionica.Model
 
             Kponedeljak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() { split0[0], split0[1], "I-2", "I-2", "III-2", "III-2", "III-2", "III-2"}, //22
-                new List<string>() {"true", "I-8", "I-8", "I-7", "I-7", "II-3", "II-3", "I-1"}, //29
+                new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
+                new List<string>() { split1[0], "I-8", "I-8", "I-7", "I-7", "II-3", "II-3", "I-1"}, //29
                 new List<string>() {"true", "true", "true", "true", "true", "IV-3", "IV-3", "true"}, //23a
                 new List<string>() {"IV-4", "IV-4", "III-4", "III-4", "II-5", "II-5", "II-5", "II-5"}, //Sremac
                 new List<string>() {"true", "IV-6", "IV-6", "III-7", "III-6", "II-3", "II-3", "true"}, //Multimedijalna(MM)

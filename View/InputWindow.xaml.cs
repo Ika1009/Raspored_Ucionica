@@ -85,31 +85,36 @@ namespace Raspored_Ucionica
             if (!File.Exists(path))
             {
                 string zaUpisivanje = "";
+                // Ponedeljak
                 zaUpisivanje += "I-1,I-1,I-2,I-2,III-2,III-2,III-2,III-2\n";//22
                 zaUpisivanje += "true,I-8,I-8,I-7,I-7,II-3,II-3,I-1\n";//29
 				zaUpisivanje += "true,true,true,true,true,IV-3,IV-3,true\n"; //23a
 				zaUpisivanje += "IV-4,IV-4,III-4,III-4,II-5,II-5,II-5,II-5\n"; //Sremac
 				zaUpisivanje += "true,IV-6,IV-6,III-7,III-6,II-3,II-3,true\n"; //Multimedijalna(MM)
                 zaUpisivanje += "\n";
+                //Utorak
 				zaUpisivanje += "true,II-1,II-1,I-2,I-2,II-2,II-2,IV-7\n"; //22
 				zaUpisivanje += "true,III-2,III-2,III-2,III-1,III-1,III-1,III-1\n"; //29
 				zaUpisivanje += "true,I-1,I-1,I-1,I-1,I-1,I-1,true\n"; //23a
 				zaUpisivanje += "true,IV-5,IV-5,III-5,III-8,III-8,III-3,III-3\n"; //SremaC
 				zaUpisivanje += "true,true,I-1,I-1,I-1,I-1,II-4,II-4\n"; //Multimedijalna
 				zaUpisivanje += "\n";
-				zaUpisivanje += "true,II-1,II-1,IV-2,IV-1,III-6,I-4,I-4\n"; //22
+                //Sreda
+                zaUpisivanje += "true,II-1,II-1,IV-2,IV-1,III-6,I-4,I-4\n"; //22
 				zaUpisivanje += "true,III-1,III-1,III-1,I-3,I-3,I-6,I-6\n"; //29
 				zaUpisivanje += "IV-6,IV-6,II-2,II-2,II-2,II-2,true,true\n"; //23a
 				zaUpisivanje += "true,II-2,II-2,II-2,II-2,II-2,II-2,IV-7\n"; //Sremac
 				zaUpisivanje += "II-6,II-6,II-6,II-6,I-3,I-3,I-6,I-6\n"; //Multimedijalna
 				zaUpisivanje += "\n";
-				zaUpisivanje += "true,II-1,II-1,II-1,II-1,II-1,II-1,true\n"; //22
+                //Cetvrtak
+                zaUpisivanje += "true,II-1,II-1,II-1,II-1,II-1,II-1,true\n"; //22
 				zaUpisivanje += "true,I-5,I-5,II-7,II-7,II-8,II-8,I-2\n"; //29
 				zaUpisivanje += "true,true,II-1,II-1,II-1,II-1,III-3,III-3\n"; //23a
 				zaUpisivanje += "true,true,true,II-7,II-7,II-8,II-8,true\n"; //Sremac
 				zaUpisivanje += "true,IV-8,II-4,II-4,true,true,I-4,I-4\n"; //Multimedijalna
 				zaUpisivanje += "\n";
-				zaUpisivanje += "true,I-5,I-5,III-5,III-7,IV-8,true,true\n"; //22
+                //Petak
+                zaUpisivanje += "true,I-5,I-5,III-5,III-7,IV-8,true,true\n"; //22
 				zaUpisivanje += "true,I-1,I-1,II-2,II-2,true,true,true\n"; //29
 				zaUpisivanje += "true,I-2,I-2,I-2,I-2,I-2,I-2,true\n"; //23a
 				zaUpisivanje += "true,IV-5,IV-5,true,true,true,true,true\n"; //Sremac
