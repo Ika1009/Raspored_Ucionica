@@ -16,6 +16,8 @@ using System.Windows.Shapes;
 using Raspored_Ucionica.ViewModel;
 using Raspored_Ucionica.Model;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace Raspored_Ucionica
 {
@@ -1005,5 +1007,30 @@ namespace Raspored_Ucionica
             OdeljenjeLabel48.Visibility = Visibility.Hidden;
 
         }
-    }
+
+
+		private void UcitajRasporedButton_Click(object sender, RoutedEventArgs e)
+		{
+			var ExcelApp = new Excel.Application();
+			ExcelApp.Visible = true;
+
+			Excel.Workbooks books = ExcelApp.Workbooks;
+
+			Excel.Workbook sheets = books.Open(@"RasporedCasova.csv");
+
+			MessageBox.Show("otvori fajl");
+		}
+
+		private void UcitajKabineteButton_Click(object sender, RoutedEventArgs e)
+		{
+			var ExcelApp = new Excel.Application();
+			ExcelApp.Visible = true;
+
+			Excel.Workbooks books = ExcelApp.Workbooks;
+
+			Excel.Workbook sheets = books.Open(@"SlobodniKabineti.csv");
+
+			MessageBox.Show("otvori fajl");
+		}
+	}
 }
