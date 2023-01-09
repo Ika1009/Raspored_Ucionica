@@ -107,20 +107,20 @@ namespace Raspored_Ucionica
 				zaUpisivanje[14] += "IV-6,IV-6,II-2,II-2,II-2,II-2,true,true"; //23a
 				zaUpisivanje[15] += "true,II-2,II-2,II-2,II-2,II-2,II-2,IV-7"; //Sremac
 				zaUpisivanje[16] += "II-6,II-6,II-6,II-6,I-3,I-3,I-6,I-6"; //Multimedijalna
-				zaUpisivanje[18] += "";
+				zaUpisivanje[17] += "";
                 //Cetvrtak  
-                zaUpisivanje[19] += "true,II-1,II-1,II-1,II-1,II-1,II-1,true"; //22
-				zaUpisivanje[20] += "true,I-5,I-5,II-7,II-7,II-8,II-8,I-2"; //29
-				zaUpisivanje[21] += "true,true,II-1,II-1,II-1,II-1,III-3,III-3"; //23a
-				zaUpisivanje[22] += "true,true,true,II-7,II-7,II-8,II-8,true"; //Sremac
-				zaUpisivanje[23] += "true,IV-8,II-4,II-4,true,true,I-4,I-4"; //Multimedijalna
-				zaUpisivanje[24] += "";
+                zaUpisivanje[18] += "true,II-1,II-1,II-1,II-1,II-1,II-1,true"; //22
+				zaUpisivanje[19] += "true,I-5,I-5,II-7,II-7,II-8,II-8,I-2"; //29
+				zaUpisivanje[20] += "true,true,II-1,II-1,II-1,II-1,III-3,III-3"; //23a
+				zaUpisivanje[21] += "true,true,true,II-7,II-7,II-8,II-8,true"; //Sremac
+				zaUpisivanje[22] += "true,IV-8,II-4,II-4,true,true,I-4,I-4"; //Multimedijalna
+				zaUpisivanje[23] += "";
                 //Petak     
-                zaUpisivanje[25] += "true,I-5,I-5,III-5,III-7,IV-8,true,true"; //22
-				zaUpisivanje[26] += "true,I-1,I-1,II-2,II-2,true,true,true"; //29
-				zaUpisivanje[27] += "true,I-2,I-2,I-2,I-2,I-2,I-2,true"; //23a
-				zaUpisivanje[28] += "true,IV-5,IV-5,true,true,true,true,true"; //Sremac
-				zaUpisivanje[29] += "IV-4,IV-4,I-2,I-2,I-2,I-2,true,true"; //Multimedijalna
+                zaUpisivanje[24] += "true,I-5,I-5,III-5,III-7,IV-8,true,true"; //22
+				zaUpisivanje[25] += "true,I-1,I-1,II-2,II-2,true,true,true"; //29
+				zaUpisivanje[26] += "true,I-2,I-2,I-2,I-2,I-2,I-2,true"; //23a
+				zaUpisivanje[27] += "true,IV-5,IV-5,true,true,true,true,true"; //Sremac
+				zaUpisivanje[28] += "IV-4,IV-4,I-2,I-2,I-2,I-2,true,true"; //Multimedijalna
 
                 File.WriteAllLines(path,zaUpisivanje);
 
@@ -130,53 +130,53 @@ namespace Raspored_Ucionica
             string path1 = @"RasporedCasova.csv";
             if (!File.Exists(path1))
             {
-                string[] zaUpisivanje1 = new string[42];
+                string[] zaUpisivanje1 = new string[40];
 
                 zaUpisivanje1[0] += "info,,,,g1,,,,,verska,,reg,reg,verska,reg,,,,,reg,reg,,,,,,,info,,,,";
-                zaUpisivanje1[2] += "info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,n1/f/i/r,reg,n1/f/i/r,reg,reg,reg,reg,fv,reg,reg,reg,reg,g1,,reg/hem,info,reg,info,reg,fv";
-                zaUpisivanje1[3] += "dreg,info,reg,reg,reg,reg,reg,info,reg,reg,fv,reg/reg,reg,reg/reg,reg,reg,reg,dreg,reg,reg/info,reg,fv,reg,reg,reg,reg,reg/hem,reg,reg,info,reg,reg";
-                zaUpisivanje1[4] += "dreg,info,reg,n/f/r,n/f/i/r,reg,info,n/f/i/r,dreg,reg,reg,reg,reg,reg,reg,reg,dreg,dreg,fv,reg/info,reg,reg,reg/info,reg,reg,reg,reg,reg,reg,reg,fv,reg";
-                zaUpisivanje1[5] += "reg,reg,reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,hem/info,reg,fv,reg,dreg,info,reg/reg,reg,reg,info/reg,reg,fv,reg,reg,reg,n/f/reg,n1/f/reg,reg,n1/reg,reg";
-                zaUpisivanje1[7] += "fv,reg,reg,reg,reg,,reg,reg,reg,dreg,info,reg/reg,hem/info,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,info/reg,reg,reg,n/f/reg,reg,n/f/reg";
-                zaUpisivanje1[8] += "reg,fv,reg,fv,reg,,,reg,reg,dreg,info,reg,info,reg,verska,verska,reg,info,reg,n/f,reg,n/f/reg,reg,n/f/reg,reg,reg,reg/info,reg,reg,reg,reg,reg";
-                zaUpisivanje1[9] += "info,reg,fv,,,,,fv,reg,reg,,reg,info,reg,,,reg,info,,,,,reg,,reg,reg,reg,,verska/g1,verska/g1,reg,reg\n";
+                zaUpisivanje1[1] += "info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,n1/f/i/r,reg,n1/f/i/r,reg,reg,reg,reg,fv,reg,reg,reg,reg,g1,,reg/hem,info,reg,info,reg,fv";
+                zaUpisivanje1[2] += "dreg,info,reg,reg,reg,reg,reg,info,reg,reg,fv,reg/reg,reg,reg/reg,reg,reg,reg,dreg,reg,reg/info,reg,fv,reg,reg,reg,reg,reg/hem,reg,reg,info,reg,reg";
+                zaUpisivanje1[3] += "dreg,info,reg,n/f/r,n/f/i/r,reg,info,n/f/i/r,dreg,reg,reg,reg,reg,reg,reg,reg,dreg,dreg,fv,reg/info,reg,reg,reg/info,reg,reg,reg,reg,reg,reg,reg,fv,reg";
+                zaUpisivanje1[4] += "reg,reg,reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,hem/info,reg,fv,reg,dreg,info,reg/reg,reg,reg,info/reg,reg,fv,reg,reg,reg,n/f/reg,n1/f/reg,reg,n1/reg,reg";
+                zaUpisivanje1[5] += "fv,reg,reg,reg,reg,,reg,reg,reg,dreg,info,reg/reg,hem/info,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,info/reg,reg,reg,n/f/reg,reg,n/f/reg";
+                zaUpisivanje1[6] += "reg,fv,reg,fv,reg,,,reg,reg,dreg,info,reg,info,reg,verska,verska,reg,info,reg,n/f,reg,n/f/reg,reg,n/f/reg,reg,reg,reg/info,reg,reg,reg,reg,reg";
+                zaUpisivanje1[7] += "info,reg,fv,,,,,fv,reg,reg,,reg,info,reg,,,reg,info,,,,,reg,,reg,reg,reg,,verska/g1,verska/g1,reg,reg\n";
                             
-                zaUpisivanje1[10] += ",,verska/g2,verska/g2,reg,,reg,,,,,,,,,,,,,,,,,,info,,reg,reg,,reg,reg,";
-                zaUpisivanje1[11] += "info,reg,reg,reg,reg,reg,reg,,info,reg,reg/reg,fv,reg,,reg,reg,reg,info,dreg,reg,reg,reg,reg,reg,info,reg,reg,,info,reg,reg,reg";
-                zaUpisivanje1[12] += "info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg/hem,reg,reg,info,dreg,reg,reg,reg,reg/reg,reg,info,dreg,reg,reg,info,reg,reg,reg";
-                zaUpisivanje1[13] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,n1/f/reg,reg,n1/f/reg,reg/hem,fv,info,reg,reg,reg/info,reg,reg,reg,info,dreg,reg,reg,reg,reg,fv,reg";
-                zaUpisivanje1[14] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg/reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg,reg/info,info,reg,reg,reg,reg,reg,reg,reg";
-                zaUpisivanje1[15] += "info,reg,reg/hem,reg,fv,reg,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,reg,reg/info,info,fv,reg,reg,reg,reg,reg,reg";
-                zaUpisivanje1[16] += "info,reg,reg/hem,reg,reg,fv,reg,reg,reg,info,reg,info,reg/reg,reg,reg,fv,info,reg,info,verska,reg,reg,verska,reg,info,reg,reg,reg,reg,reg,reg,";
-                zaUpisivanje1[17] += ",reg,,,reg,verska,fv,verska,reg,reg,reg,info,g2,,reg,reg,info,reg ,info,,fv,,,,info,g1,g1,g1 ,reg,,reg/info,\n";
+                zaUpisivanje1[8] += ",,verska/g2,verska/g2,reg,,reg,,,,,,,,,,,,,,,,,,info,,reg,reg,,reg,reg,";
+                zaUpisivanje1[9] += "info,reg,reg,reg,reg,reg,reg,,info,reg,reg/reg,fv,reg,,reg,reg,reg,info,dreg,reg,reg,reg,reg,reg,info,reg,reg,,info,reg,reg,reg";
+                zaUpisivanje1[10] += "info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg/hem,reg,reg,info,dreg,reg,reg,reg,reg/reg,reg,info,dreg,reg,reg,info,reg,reg,reg";
+                zaUpisivanje1[11] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,n1/f/reg,reg,n1/f/reg,reg/hem,fv,info,reg,reg,reg/info,reg,reg,reg,info,dreg,reg,reg,reg,reg,fv,reg";
+                zaUpisivanje1[12] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg/reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg,reg/info,info,reg,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje1[13] += "info,reg,reg/hem,reg,fv,reg,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,reg,reg/info,info,fv,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje1[14] += "info,reg,reg/hem,reg,reg,fv,reg,reg,reg,info,reg,info,reg/reg,reg,reg,fv,info,reg,info,verska,reg,reg,verska,reg,info,reg,reg,reg,reg,reg,reg,";
+                zaUpisivanje1[15] += ",reg,,,reg,verska,fv,verska,reg,reg,reg,info,g2,,reg,reg,info,reg ,info,,fv,,,,info,g1,g1,g1 ,reg,,reg/info,\n";
                             
-                zaUpisivanje1[18] += ",g3,,,,,g3,,,,,,reg,info,,,,,verska/g4,,,,,verska/g4,,,,,reg,info,reg,";
-                zaUpisivanje1[19] += "reg,fv,reg,n/f,n/f,reg,reg,n/f,info,info,reg,reg,reg,info,reg,reg,info,info,reg,reg,reg,reg,reg,fv,reg,reg,dreg,reg,,info,reg,reg";
-                zaUpisivanje1[20] += "fv,dreg,reg,reg,reg,reg,reg,reg,info,info,reg,reg,reg ,info/hem,reg,reg,info,info,reg,reg,reg,reg,fv,reg,reg,reg,dreg,n/f,n1/f/i/r,reg,n1/i/r,reg";
-                zaUpisivanje1[21] += "reg,dreg,reg,reg,reg,reg,reg,fv,reg,info,reg,reg,reg,info/hem,reg,reg,info,info,reg,n/f,reg,n/f/i/r,reg,n/f/i/r,fv,info,reg,reg/reg,reg,reg,reg,reg";
-                zaUpisivanje1[22] += "reg,reg,info,fv,reg,reg,reg,reg,reg,info,reg,fv,reg,reg,reg,reg,reg,info,dreg,reg,reg,reg/hem,reg,reg,info,reg,reg,reg/reg,reg,n/f,reg,n/f";
-                zaUpisivanje1[23] += "dreg,dreg,info,reg,reg,fv,reg,reg,fv,info,reg,reg,reg/reg,n/reg,reg,reg,reg,info,dreg,reg,reg,hem/info,reg,,reg,reg,reg,reg,reg,,reg,reg/reg";
-                zaUpisivanje1[24] += "dreg,dreg,reg,info,reg,info,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,dreg,info,reg,reg,fv,reg,,,reg,reg,reg,verska,fv,,reg,reg";
-                zaUpisivanje1[25] += "reg,verska,,info,fv,info,verska,,reg,,reg,reg,fv,,g2,reg,dreg,info,reg,,,,,,reg,reg,reg,,,,reg/info,\n";
+                zaUpisivanje1[16] += ",g3,,,,,g3,,,,,,reg,info,,,,,verska/g4,,,,,verska/g4,,,,,reg,info,reg,";
+                zaUpisivanje1[17] += "reg,fv,reg,n/f,n/f,reg,reg,n/f,info,info,reg,reg,reg,info,reg,reg,info,info,reg,reg,reg,reg,reg,fv,reg,reg,dreg,reg,,info,reg,reg";
+                zaUpisivanje1[18] += "fv,dreg,reg,reg,reg,reg,reg,reg,info,info,reg,reg,reg ,info/hem,reg,reg,info,info,reg,reg,reg,reg,fv,reg,reg,reg,dreg,n/f,n1/f/i/r,reg,n1/i/r,reg";
+                zaUpisivanje1[19] += "reg,dreg,reg,reg,reg,reg,reg,fv,reg,info,reg,reg,reg,info/hem,reg,reg,info,info,reg,n/f,reg,n/f/i/r,reg,n/f/i/r,fv,info,reg,reg/reg,reg,reg,reg,reg";
+                zaUpisivanje1[20] += "reg,reg,info,fv,reg,reg,reg,reg,reg,info,reg,fv,reg,reg,reg,reg,reg,info,dreg,reg,reg,reg/hem,reg,reg,info,reg,reg,reg/reg,reg,n/f,reg,n/f";
+                zaUpisivanje1[21] += "dreg,dreg,info,reg,reg,fv,reg,reg,fv,info,reg,reg,reg/reg,n/reg,reg,reg,reg,info,dreg,reg,reg,hem/info,reg,,reg,reg,reg,reg,reg,,reg,reg/reg";
+                zaUpisivanje1[22] += "dreg,dreg,reg,info,reg,info,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,dreg,info,reg,reg,fv,reg,,,reg,reg,reg,verska,fv,,reg,reg";
+                zaUpisivanje1[23] += "reg,verska,,info,fv,info,verska,,reg,,reg,reg,fv,,g2,reg,dreg,info,reg,,,,,,reg,reg,reg,,,,reg/info,\n";
                             
-                zaUpisivanje1[26] += "g3,,,,,g3,,,,,,,,,,,verksa/g4,verska/g4,,reg,,,,,,info,reg,,,reg,,reg";
-                zaUpisivanje1[27] += "reg,reg,fv,,info,reg,reg,reg,info,reg,g5,verska,reg,g5,reg,reg,fv,reg,reg,reg/hem,reg,,reg,,reg,info,reg,reg,reg,reg,reg,info/reg";
-                zaUpisivanje1[28] += "reg,reg,dreg,reg,info,reg,reg,reg,info,reg ,reg,hem/info,reg,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg,reg,info,reg,fv,reg,reg/reg,reg,reg";
-                zaUpisivanje1[29] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,hem/info,reg,reg,info,reg,dreg,reg,reg/reg,reg,reg,reg,reg,reg,reg,info,fv,reg,reg/reg,fv,reg,reg";
-                zaUpisivanje1[30] += "reg,reg,reg,reg,reg,reg,reg,reg,info,dreg,reg/hem,reg,reg/reg,fv,info,reg,reg,reg,reg,reg,reg,reg,reg,reg/reg,fv,info,reg,reg,reg/reg,reg,reg,reg";
-                zaUpisivanje1[31] += "reg,reg,dreg,reg,reg,reg,fv,reg,info,dreg,reg/hem,reg/reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg";
-                zaUpisivanje1[32] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,fv,reg/reg,reg,info,info,dreg,hem/info,,verska,verska/g4,reg,reg,reg,info,,reg,,reg/reg,,reg";
-                zaUpisivanje1[33] += "verska,info,reg,info,verska,,,reg,,fv,reg,g2,,reg,,reg,reg,reg,hem/info,,,,reg/reg,reg ,,info,,,,reg,,\n";
+                zaUpisivanje1[24] += "g3,,,,,g3,,,,,,,,,,,verksa/g4,verska/g4,,reg,,,,,,info,reg,,,reg,,reg";
+                zaUpisivanje1[25] += "reg,reg,fv,,info,reg,reg,reg,info,reg,g5,verska,reg,g5,reg,reg,fv,reg,reg,reg/hem,reg,,reg,,reg,info,reg,reg,reg,reg,reg,info/reg";
+                zaUpisivanje1[26] += "reg,reg,dreg,reg,info,reg,reg,reg,info,reg ,reg,hem/info,reg,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg,reg,info,reg,fv,reg,reg/reg,reg,reg";
+                zaUpisivanje1[27] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,hem/info,reg,reg,info,reg,dreg,reg,reg/reg,reg,reg,reg,reg,reg,reg,info,fv,reg,reg/reg,fv,reg,reg";
+                zaUpisivanje1[28] += "reg,reg,reg,reg,reg,reg,reg,reg,info,dreg,reg/hem,reg,reg/reg,fv,info,reg,reg,reg,reg,reg,reg,reg,reg,reg/reg,fv,info,reg,reg,reg/reg,reg,reg,reg";
+                zaUpisivanje1[29] += "reg,reg,dreg,reg,reg,reg,fv,reg,info,dreg,reg/hem,reg/reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg";
+                zaUpisivanje1[30] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,fv,reg/reg,reg,info,info,dreg,hem/info,,verska,verska/g4,reg,reg,reg,info,,reg,,reg/reg,,reg";
+                zaUpisivanje1[31] += "verska,info,reg,info,verska,,,reg,,fv,reg,g2,,reg,,reg,reg,reg,hem/info,,,,reg/reg,reg ,,info,,,,reg,,\n";
+                           
                             
-                            
-                zaUpisivanje1[34] += ",,,,,,,g3,verska,,,,verska,,reg,,,,,,g1,,,,,,,info,,,,reg";
-                zaUpisivanje1[35] += "info,info,reg,reg,info,reg,reg,reg,reg,reg,reg/reg,reg,reg,reg,reg,reg,info,fv,reg,reg,reg,reg,reg,reg,reg,,,info,info,reg,,reg";
-                zaUpisivanje1[36] += "info,info,reg,reg,info,reg,reg,reg,dreg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,reg,reg,fv,info,reg,reg/reg,reg";
-                zaUpisivanje1[37] += "dreg,info,reg,reg,reg,reg,reg,reg,dreg,info,dreg,reg,reg,reg,reg,n/reg,info,dreg,fv,reg,hem/info,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg";
-                zaUpisivanje1[38] += "dreg,info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,fv,info,dreg,dreg,reg,reg/hem,reg,reg/info,reg,dreg,reg,reg,reg,reg,reg,reg,fv";
-                zaUpisivanje1[39] += "reg,info,reg,reg,reg,reg,reg,reg,reg,fv,dreg,reg,reg,reg,fv,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg/info";
-                zaUpisivanje1[40] += "reg,info,reg,reg,reg,reg,reg,,reg,reg,dreg,reg,,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg,reg,fv,verska/g2,verska/g1";
-                zaUpisivanje1[41] += ",,,reg,reg,reg,,,fv,,,,,,,g2,info,reg,,,,,,,verska,verska,verska,,,,,\n";
+                zaUpisivanje1[32] += ",,,,,,,g3,verska,,,,verska,,reg,,,,,,g1,,,,,,,info,,,,reg";
+                zaUpisivanje1[33] += "info,info,reg,reg,info,reg,reg,reg,reg,reg,reg/reg,reg,reg,reg,reg,reg,info,fv,reg,reg,reg,reg,reg,reg,reg,,,info,info,reg,,reg";
+                zaUpisivanje1[34] += "info,info,reg,reg,info,reg,reg,reg,dreg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,reg,reg,fv,info,reg,reg/reg,reg";
+                zaUpisivanje1[35] += "dreg,info,reg,reg,reg,reg,reg,reg,dreg,info,dreg,reg,reg,reg,reg,n/reg,info,dreg,fv,reg,hem/info,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje1[36] += "dreg,info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,fv,info,dreg,dreg,reg,reg/hem,reg,reg/info,reg,dreg,reg,reg,reg,reg,reg,reg,fv";
+                zaUpisivanje1[37] += "reg,info,reg,reg,reg,reg,reg,reg,reg,fv,dreg,reg,reg,reg,fv,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg/info";
+                zaUpisivanje1[38] += "reg,info,reg,reg,reg,reg,reg,,reg,reg,dreg,reg,,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg,reg,fv,verska/g2,verska/g1";
+                zaUpisivanje1[39] += ",,,reg,reg,reg,,,fv,,,,,,,g2,info,reg,,,,,,,verska,verska,verska,,,,,\n";
 
                 File.WriteAllLines(path1,zaUpisivanje1);
 
@@ -220,6 +220,8 @@ namespace Raspored_Ucionica
         }
         private void NazadOdeljenjeButton_Click(object sender,RoutedEventArgs e)
         {
+            UcitajKabineteButton.Visibility= Visibility.Visible;
+            UcitajRasporedButton.Visibility= Visibility.Visible;
             OdeljenjecheckboxLabel.Visibility = Visibility.Hidden;
             IzmeniOdeljenjeButton.Visibility = Visibility.Hidden;
             NazadOdeljenjeButton.Visibility = Visibility.Hidden;
@@ -301,7 +303,9 @@ namespace Raspored_Ucionica
             IzmeniOdeljenjeButton.Visibility = Visibility.Visible;
             NazadOdeljenjeButton.Visibility = Visibility.Visible;
             OdeljenjaButton.Visibility = Visibility.Hidden;
-            NapraviRasporedButton.Visibility = Visibility.Hidden;
+			UcitajKabineteButton.Visibility = Visibility.Hidden;
+			UcitajRasporedButton.Visibility = Visibility.Hidden;
+			NapraviRasporedButton.Visibility = Visibility.Hidden;
             naslovLabel.Visibility = Visibility.Visible;
             naslovLabel1.Visibility = Visibility.Hidden;
             podNaslovLabel.Visibility = Visibility.Visible;
@@ -384,7 +388,9 @@ namespace Raspored_Ucionica
             checkboxLabel.Visibility = Visibility.Hidden;
             NapraviRasporedButton.Visibility = Visibility.Visible;
             OdeljenjaButton.Visibility = Visibility.Visible;
-            naslovLabel.Visibility = Visibility.Hidden;
+			UcitajKabineteButton.Visibility = Visibility.Visible;
+			UcitajRasporedButton.Visibility = Visibility.Visible;
+			naslovLabel.Visibility = Visibility.Hidden;
             naslovLabel1.Visibility = Visibility.Visible;
             podNaslovLabel.Visibility = Visibility.Hidden;
             podNaslovLabel1.Visibility = Visibility.Visible;
@@ -423,7 +429,9 @@ namespace Raspored_Ucionica
         }
         private void NapraviRasporedButton_Click(object sender,RoutedEventArgs e)
         {
-            NazadPocetnaButton.Visibility = Visibility.Visible;
+			UcitajKabineteButton.Visibility = Visibility.Hidden;
+			UcitajRasporedButton.Visibility = Visibility.Hidden;
+			NazadPocetnaButton.Visibility = Visibility.Visible;
             checkboxLabel_Copy.Visibility = Visibility.Visible;
             checkboxLabel_Copy1.Visibility = Visibility.Visible;
             checkboxLabel_Copy2.Visibility = Visibility.Visible;
@@ -933,7 +941,9 @@ namespace Raspored_Ucionica
             IzmeniOdeljenjeButton.Visibility = Visibility.Hidden;
             NazadOdeljenjeButton.Visibility = Visibility.Hidden;
             OdeljenjaButton.Visibility = Visibility.Visible;
-            NapraviRasporedButton.Visibility = Visibility.Visible;
+			UcitajKabineteButton.Visibility = Visibility.Visible;
+			UcitajRasporedButton.Visibility = Visibility.Visible;
+			NapraviRasporedButton.Visibility = Visibility.Visible;
             naslovLabel.Visibility = Visibility.Hidden;
             naslovLabel1.Visibility = Visibility.Visible;
             podNaslovLabel.Visibility = Visibility.Hidden;

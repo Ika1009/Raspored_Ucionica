@@ -62,11 +62,11 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
-            split0 = procitano[17].Split(",");
-            split1 = procitano[18].Split(",");
-            split2 = procitano[19].Split(",");
-            split3 = procitano[20].Split(",");
-            split4 = procitano[21].Split(",");
+            split0 = procitano[18].Split(",");
+            split1 = procitano[19].Split(",");
+            split2 = procitano[20].Split(",");
+            split3 = procitano[21].Split(",");
+            split4 = procitano[22].Split(",");
             Kcetvrtak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
@@ -76,11 +76,11 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
-            split0 = procitano[23].Split(",");
-            split1 = procitano[24].Split(",");
-            split2 = procitano[25].Split(",");
-            split3 = procitano[26].Split(",");
-            split4 = procitano[27].Split(",");
+            split0 = procitano[24].Split(",");
+            split1 = procitano[25].Split(",");
+            split2 = procitano[26].Split(",");
+            split3 = procitano[27].Split(",");
+            split4 = procitano[28].Split(",");
             Kpetak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
@@ -90,8 +90,8 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
-			path = @"RasporedCasova.csv";
-			procitano = File.ReadAllLines(path);
+			string path1 = @"RasporedCasova.csv";
+			procitano = File.ReadAllLines(path1);
 
 			split0 = procitano[0].Split(",");
 			split1 = procitano[1].Split(",");
@@ -114,14 +114,14 @@ new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],
 new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}
 			});
 
-			split0 = procitano[8].Split(",");
-			split1 = procitano[9].Split(",");
-			split2 = procitano[10].Split(",");
-			split3 = procitano[11].Split(",");
-			split4 = procitano[12].Split(",");
-			split5 = procitano[13].Split(",");
-			split6 = procitano[14].Split(",");
-			split7 = procitano[15].Split(",");
+			split0 = procitano[9].Split(",");
+			split1 = procitano[10].Split(",");
+			split2 = procitano[11].Split(",");
+			split3 = procitano[12].Split(",");
+			split4 = procitano[13].Split(",");
+			split5 = procitano[14].Split(",");
+			split6 = procitano[15].Split(",");
+			split7 = procitano[16].Split(",");
 
 			utorak = new(new List<List<string>>
 			{
@@ -134,14 +134,14 @@ new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],
 new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
 new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}      });
 
-			split0 = procitano[17].Split(",");
-			split1 = procitano[18].Split(",");
-			split2 = procitano[19].Split(",");
-			split3 = procitano[20].Split(",");
-			split4 = procitano[21].Split(",");
-			split5 = procitano[22].Split(",");
-			split6 = procitano[23].Split(",");
-			split7 = procitano[24].Split(",");
+			split0 = procitano[18].Split(",");
+			split1 = procitano[19].Split(",");
+			split2 = procitano[20].Split(",");
+			split3 = procitano[21].Split(",");
+			split4 = procitano[22].Split(",");
+			split5 = procitano[23].Split(",");
+			split6 = procitano[24].Split(",");
+			split7 = procitano[25].Split(",");
 
 			sreda = new(new List<List<string>>
 			{
@@ -154,14 +154,14 @@ new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],
 new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
 new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}          });
 
-			split0 = procitano[26].Split(",");
-			split1 = procitano[27].Split(",");
-			split2 = procitano[28].Split(",");
-			split3 = procitano[29].Split(",");
-			split4 = procitano[30].Split(",");
-			split5 = procitano[31].Split(",");
-			split6 = procitano[32].Split(",");
-			split7 = procitano[33].Split(",");
+			split0 = procitano[27].Split(",");
+			split1 = procitano[28].Split(",");
+			split2 = procitano[29].Split(",");
+			split3 = procitano[30].Split(",");
+			split4 = procitano[31].Split(",");
+			split5 = procitano[32].Split(",");
+			split6 = procitano[33].Split(",");
+			split7 = procitano[34].Split(",");
 
 			cetvrtak = new(new List<List<string>>
 			{
@@ -174,14 +174,14 @@ new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],
 new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
 new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]} });
 
-			split0 = procitano[35].Split(",");
-			split1 = procitano[36].Split(",");
-			split2 = procitano[37].Split(",");
-			split3 = procitano[38].Split(",");
-			split4 = procitano[39].Split(",");
-			split5 = procitano[40].Split(",");
-			split6 = procitano[41].Split(",");
-			split7 = procitano[42].Split(",");
+			split0 = procitano[36].Split(",");
+			split1 = procitano[37].Split(",");
+			split2 = procitano[38].Split(",");
+			split3 = procitano[39].Split(",");
+			split4 = procitano[40].Split(",");
+			split5 = procitano[41].Split(",");
+			split6 = procitano[42].Split(",");
+			split7 = procitano[43].Split(",");
 			petak = new(new List<List<string>>
 			{
 			new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
