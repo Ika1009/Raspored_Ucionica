@@ -530,6 +530,23 @@ namespace Raspored_Ucionica.ViewModel
                     }
                     id--;
                 }
+                for(int r = 0; r<5; r++)
+                {  
+                    string ispis = "";
+                    if (Kdan.RasporedKabineta[r][i] == "true")
+                    {
+                        switch (r)
+                        {
+                            case 0: ispis = "22"; break;
+                            case 1: ispis = "29"; break;
+                            case 2: ispis = "23а"; break;
+                            case 3: ispis = "Сремац"; break;
+                            case 4: ispis = "Мултимедијална"; break;
+                        }
+                        Slobodne[i][k] += ispis + "/";
+                    }    
+                }
+                
 
             }
             void OdrediUcioniceZaLutajuca()
@@ -626,6 +643,43 @@ namespace Raspored_Ucionica.ViewModel
                 }
 
             }
+            void DodeliKabinet(int i, int j)
+            {
+                Odeljenje odeljenje = lista_odeljenja.First(odeljenje => odeljenje.Id == j);
+                string ispis = "ВТШ";
+                for(int k=0; k<5; k++)
+                {
+                    if(odeljenje.Ime_odeljenja == Kdan.RasporedKabineta[k][i])
+                    {
+                        switch (k)
+                        {
+                            case 0: ispis = "22"; break;
+                            case 1: ispis = "23a"; break;
+                            case 2: ispis = "29"; break;
+                            case 3: ispis = "Sremac"; break;
+                            case 4: ispis = "Multim."; break;
+                        }
+                        break;
+                    }
+                }
+                if (ispis == "ВТШ" && dan == ponedeljak && i < 4)
+                {
+                    ispis = "8";
+                }
+                if (dan.RasporedCasova[i][j].Contains('/'))
+                {
+                    if (string.IsNullOrEmpty(rezultati[i][j]))
+                        rezultati[i][j] = ispis + "/";
+                    else
+                        rezultati[i][j] += "/" + ispis;
+                }
+                else
+                {
+                        rezultati[i][j] = ispis;
+                }
+
+
+            }
             OdrediUcioniceZaLutajuca();
             for (int i = 0; i < 32; i++) //za nulti cas
             {
@@ -635,7 +689,7 @@ namespace Raspored_Ucionica.ViewModel
                 rezultati[0][i] = "";
 
                 if (dan!.RasporedCasova[0][i] == "info")
-                    rezultati[0][i] = "kab.";
+                    DodeliKabinet(0, i);
 
                 if (dan.RasporedCasova[0][i] == "reg" || dan.RasporedCasova[0][i] == "dreg")
                     DrziOdeljenje(0, i);
@@ -728,7 +782,7 @@ namespace Raspored_Ucionica.ViewModel
                         DrziOdeljenje(i, j);
                     }
                     else if (dan!.RasporedCasova[i][j] == "info")
-                        rezultati[i][j] = "kab.";
+                        DodeliKabinet(i, j);
                     else if (dan!.RasporedCasova[i][j] == "fv")
                         rezultati[i][j] = "fv";
                     else if (dan.RasporedCasova[i][j] == "verska")
@@ -764,10 +818,7 @@ namespace Raspored_Ucionica.ViewModel
                             }
                             else if (trenutno == "info")
                             {
-                                if (string.IsNullOrEmpty(rezultati[i][j]))
-                                    rezultati[i][j] = "kab/";
-                                else
-                                    rezultati[i][j] += "/kab/";
+                                DodeliKabinet(i, j);
                             }
                             else if (trenutno == "/verska") // ne zauzme se biblioteka
                                 rezultati[i][j] += "/bibl" + "/";
