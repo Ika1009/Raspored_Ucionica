@@ -16,7 +16,7 @@ namespace Raspored_Ucionica.Model
         public SviPodaci()
         {
             //Zauzetost kabineta
-            string path = @"SlobodniKabineti.csv";
+            string path = @"SlobodniKabinetiXLS.csv";
             string[] procitano = File.ReadAllLines(path);
 
             string[] split0 = procitano[0].Split(",");
@@ -62,11 +62,11 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
-            split0 = procitano[18].Split(",");
-            split1 = procitano[19].Split(",");
-            split2 = procitano[20].Split(",");
-            split3 = procitano[21].Split(",");
-            split4 = procitano[22].Split(",");
+            split0 = procitano[17].Split(",");
+            split1 = procitano[18].Split(",");
+            split2 = procitano[19].Split(",");
+            split3 = procitano[20].Split(",");
+            split4 = procitano[21].Split(",");
             Kcetvrtak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
@@ -76,11 +76,11 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
-            split0 = procitano[24].Split(",");
-            split1 = procitano[25].Split(",");
-            split2 = procitano[27].Split(",");
-            split3 = procitano[28].Split(",");
-            split4 = procitano[29].Split(",");
+            split0 = procitano[23].Split(",");
+            split1 = procitano[24].Split(",");
+            split2 = procitano[25].Split(",");
+            split3 = procitano[26].Split(",");
+            split4 = procitano[27].Split(",");
             Kpetak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
