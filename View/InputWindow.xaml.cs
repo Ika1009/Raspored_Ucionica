@@ -129,56 +129,56 @@ namespace Raspored_Ucionica
             path = @"RasporedCasova.csv";
             if (!File.Exists(path))
             {
-                string[] zaUpisivanje = new string[30];
+                string[] zaUpisivanje1 = new string[42];
 
-                zaUpisivanje[0] += "info,,,,g1,,,,,verska,,reg,reg,verska,reg,,,,,reg,reg,,,,,,,info,,,,";
-                zaUpisivanje[2] += "info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,n1/f/i/r,reg,n1/f/i/r,reg,reg,reg,reg,fv,reg,reg,reg,reg,g1,,reg/hem,info,reg,info,reg,fv";
-                zaUpisivanje[3] += "dreg,info,reg,reg,reg,reg,reg,info,reg,reg,fv,reg/reg,reg,reg/reg,reg,reg,reg,dreg,reg,reg/info,reg,fv,reg,reg,reg,reg,reg/hem,reg,reg,info,reg,reg";
-                zaUpisivanje[4] += "dreg,info,reg,n/f/r,n/f/i/r,reg,info,n/f/i/r,dreg,reg,reg,reg,reg,reg,reg,reg,dreg,dreg,fv,reg/info,reg,reg,reg/info,reg,reg,reg,reg,reg,reg,reg,fv,reg";
-                zaUpisivanje[5] += "reg,reg,reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,hem/info,reg,fv,reg,dreg,info,reg/reg,reg,reg,info/reg,reg,fv,reg,reg,reg,n/f/reg,n1/f/reg,reg,n1/reg,reg";
-                zaUpisivanje[7] += "fv,reg,reg,reg,reg,,reg,reg,reg,dreg,info,reg/reg,hem/info,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,info/reg,reg,reg,n/f/reg,reg,n/f/reg";
-                zaUpisivanje[8] += "reg,fv,reg,fv,reg,,,reg,reg,dreg,info,reg,info,reg,verska,verska,reg,info,reg,n/f,reg,n/f/reg,reg,n/f/reg,reg,reg,reg/info,reg,reg,reg,reg,reg";
-                zaUpisivanje[9] += "info,reg,fv,,,,,fv,reg,reg,,reg,info,reg,,,reg,info,,,,,reg,,reg,reg,reg,,verska/g1,verska/g1,reg,reg";
-
-                zaUpisivanje[10] += ",,verska/g2,verska/g2,reg,,reg,,,,,,,,,,,,,,,,,,info,,reg,reg,,reg,reg,";
-                zaUpisivanje[11] += "info,reg,reg,reg,reg,reg,reg,,info,reg,reg/reg,fv,reg,,reg,reg,reg,info,dreg,reg,reg,reg,reg,reg,info,reg,reg,,info,reg,reg,reg";
-                zaUpisivanje[12] += "info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg/hem,reg,reg,info,dreg,reg,reg,reg,reg/reg,reg,info,dreg,reg,reg,info,reg,reg,reg";
-                zaUpisivanje[13] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,n1/f/reg,reg,n1/f/reg,reg/hem,fv,info,reg,reg,reg/info,reg,reg,reg,info,dreg,reg,reg,reg,reg,fv,reg";
-                zaUpisivanje[14] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg/reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg,reg/info,info,reg,reg,reg,reg,reg,reg,reg";
-                zaUpisivanje[15] += "info,reg,reg/hem,reg,fv,reg,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,reg,reg/info,info,fv,reg,reg,reg,reg,reg,reg";
-                zaUpisivanje[16] += "info,reg,reg/hem,reg,reg,fv,reg,reg,reg,info,reg,info,reg/reg,reg,reg,fv,info,reg,info,verska,reg,reg,verska,reg,info,reg,reg,reg,reg,reg,reg,";
-                zaUpisivanje[17] += ",reg,,,reg,verska,fv,verska,reg,reg,reg,info,g2,,reg,reg,info,reg ,info,,fv,,,,info,g1,g1,g1 ,reg,,reg/info,";
-
-                zaUpisivanje[18] += ",g3,,,,,g3,,,,,,reg,info,,,,,verska/g4,,,,,verska/g4,,,,,reg,info,reg,";
-                zaUpisivanje[19] += "reg,fv,reg,n/f,n/f,reg,reg,n/f,info,info,reg,reg,reg,info,reg,reg,info,info,reg,reg,reg,reg,reg,fv,reg,reg,dreg,reg,,info,reg,reg";
-                zaUpisivanje[20] += "fv,dreg,reg,reg,reg,reg,reg,reg,info,info,reg,reg,reg ,info/hem,reg,reg,info,info,reg,reg,reg,reg,fv,reg,reg,reg,dreg,n/f,n1/f/i/r,reg,n1/i/r,reg";
-                zaUpisivanje[21] += "reg,dreg,reg,reg,reg,reg,reg,fv,reg,info,reg,reg,reg,info/hem,reg,reg,info,info,reg,n/f,reg,n/f/i/r,reg,n/f/i/r,fv,info,reg,reg/reg,reg,reg,reg,reg";
-                zaUpisivanje[22] += "reg,reg,info,fv,reg,reg,reg,reg,reg,info,reg,fv,reg,reg,reg,reg,reg,info,dreg,reg,reg,reg/hem,reg,reg,info,reg,reg,reg/reg,reg,n/f,reg,n/f";
-                zaUpisivanje[23] += "dreg,dreg,info,reg,reg,fv,reg,reg,fv,info,reg,reg,reg/reg,n/reg,reg,reg,reg,info,dreg,reg,reg,hem/info,reg,,reg,reg,reg,reg,reg,,reg,reg/reg";
-                zaUpisivanje[24] += "dreg,dreg,reg,info,reg,info,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,dreg,info,reg,reg,fv,reg,,,reg,reg,reg,verska,fv,,reg,reg";
-                zaUpisivanje[25] += "reg,verska,,info,fv,info,verska,,reg,,reg,reg,fv,,g2,reg,dreg,info,reg,,,,,,reg,reg,reg,,,,reg/info,";
-
-                zaUpisivanje[26] += "g3,,,,,g3,,,,,,,,,,,verksa/g4,verska/g4,,reg,,,,,,info,reg,,,reg,,reg";
-                zaUpisivanje[27] += "reg,reg,fv,,info,reg,reg,reg,info,reg,g5,verska,reg,g5,reg,reg,fv,reg,reg,reg/hem,reg,,reg,,reg,info,reg,reg,reg,reg,reg,info/reg";
-                zaUpisivanje[28] += "reg,reg,dreg,reg,info,reg,reg,reg,info,reg ,reg,hem/info,reg,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg,reg,info,reg,fv,reg,reg/reg,reg,reg";
-                zaUpisivanje[29] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,hem/info,reg,reg,info,reg,dreg,reg,reg/reg,reg,reg,reg,reg,reg,reg,info,fv,reg,reg/reg,fv,reg,reg";
-                zaUpisivanje[30] += "reg,reg,reg,reg,reg,reg,reg,reg,info,dreg,reg/hem,reg,reg/reg,fv,info,reg,reg,reg,reg,reg,reg,reg,reg,reg/reg,fv,info,reg,reg,reg/reg,reg,reg,reg";
-                zaUpisivanje[31] += "reg,reg,dreg,reg,reg,reg,fv,reg,info,dreg,reg/hem,reg/reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg";
-                zaUpisivanje[32] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,fv,reg/reg,reg,info,info,dreg,hem/info,,verska,verska/g4,reg,reg,reg,info,,reg,,reg/reg,,reg";
-                zaUpisivanje[33] += "verska,info,reg,info,verska,,,reg,,fv,reg,g2,,reg,,reg,reg,reg,hem/info,,,,reg/reg,reg ,,info,,,,reg,,";
-
-
-                zaUpisivanje[34] += ",,,,,,,g3,verska,,,,verska,,reg,,,,,,g1,,,,,,,info,,,,reg";
-                zaUpisivanje[35] += "info,info,reg,reg,info,reg,reg,reg,reg,reg,reg/reg,reg,reg,reg,reg,reg,info,fv,reg,reg,reg,reg,reg,reg,reg,,,info,info,reg,,reg";
-                zaUpisivanje[36] += "info,info,reg,reg,info,reg,reg,reg,dreg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,reg,reg,fv,info,reg,reg/reg,reg";
-                zaUpisivanje[37] += "dreg,info,reg,reg,reg,reg,reg,reg,dreg,info,dreg,reg,reg,reg,reg,n/reg,info,dreg,fv,reg,hem/info,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg";
-                zaUpisivanje[38] += "dreg,info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,fv,info,dreg,dreg,reg,reg/hem,reg,reg/info,reg,dreg,reg,reg,reg,reg,reg,reg,fv";
-                zaUpisivanje[39] += "reg,info,reg,reg,reg,reg,reg,reg,reg,fv,dreg,reg,reg,reg,fv,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg/info";
-                zaUpisivanje[40] += "reg,info,reg,reg,reg,reg,reg,,reg,reg,dreg,reg,,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg,reg,fv,verska/g2,verska/g1";
-                zaUpisivanje[41] += ",,,reg,reg,reg,,,fv,,,,,,,g2,info,reg,,,,,,,verska,verska,verska,,,,,";
+                zaUpisivanje1[0] += "info,,,,g1,,,,,verska,,reg,reg,verska,reg,,,,,reg,reg,,,,,,,info,,,,";
+                zaUpisivanje1[2] += "info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,n1/f/i/r,reg,n1/f/i/r,reg,reg,reg,reg,fv,reg,reg,reg,reg,g1,,reg/hem,info,reg,info,reg,fv";
+                zaUpisivanje1[3] += "dreg,info,reg,reg,reg,reg,reg,info,reg,reg,fv,reg/reg,reg,reg/reg,reg,reg,reg,dreg,reg,reg/info,reg,fv,reg,reg,reg,reg,reg/hem,reg,reg,info,reg,reg";
+                zaUpisivanje1[4] += "dreg,info,reg,n/f/r,n/f/i/r,reg,info,n/f/i/r,dreg,reg,reg,reg,reg,reg,reg,reg,dreg,dreg,fv,reg/info,reg,reg,reg/info,reg,reg,reg,reg,reg,reg,reg,fv,reg";
+                zaUpisivanje1[5] += "reg,reg,reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,hem/info,reg,fv,reg,dreg,info,reg/reg,reg,reg,info/reg,reg,fv,reg,reg,reg,n/f/reg,n1/f/reg,reg,n1/reg,reg";
+                zaUpisivanje1[7] += "fv,reg,reg,reg,reg,,reg,reg,reg,dreg,info,reg/reg,hem/info,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,info/reg,reg,reg,n/f/reg,reg,n/f/reg";
+                zaUpisivanje1[8] += "reg,fv,reg,fv,reg,,,reg,reg,dreg,info,reg,info,reg,verska,verska,reg,info,reg,n/f,reg,n/f/reg,reg,n/f/reg,reg,reg,reg/info,reg,reg,reg,reg,reg";
+                zaUpisivanje1[9] += "info,reg,fv,,,,,fv,reg,reg,,reg,info,reg,,,reg,info,,,,,reg,,reg,reg,reg,,verska/g1,verska/g1,reg,reg";
+                            
+                zaUpisivanje1[10] += ",,verska/g2,verska/g2,reg,,reg,,,,,,,,,,,,,,,,,,info,,reg,reg,,reg,reg,";
+                zaUpisivanje1[11] += "info,reg,reg,reg,reg,reg,reg,,info,reg,reg/reg,fv,reg,,reg,reg,reg,info,dreg,reg,reg,reg,reg,reg,info,reg,reg,,info,reg,reg,reg";
+                zaUpisivanje1[12] += "info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg/hem,reg,reg,info,dreg,reg,reg,reg,reg/reg,reg,info,dreg,reg,reg,info,reg,reg,reg";
+                zaUpisivanje1[13] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,n1/f/reg,reg,n1/f/reg,reg/hem,fv,info,reg,reg,reg/info,reg,reg,reg,info,dreg,reg,reg,reg,reg,fv,reg";
+                zaUpisivanje1[14] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg/reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg,reg/info,info,reg,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje1[15] += "info,reg,reg/hem,reg,fv,reg,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,reg,reg/info,info,fv,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje1[16] += "info,reg,reg/hem,reg,reg,fv,reg,reg,reg,info,reg,info,reg/reg,reg,reg,fv,info,reg,info,verska,reg,reg,verska,reg,info,reg,reg,reg,reg,reg,reg,";
+                zaUpisivanje1[17] += ",reg,,,reg,verska,fv,verska,reg,reg,reg,info,g2,,reg,reg,info,reg ,info,,fv,,,,info,g1,g1,g1 ,reg,,reg/info,";
+                            
+                zaUpisivanje1[18] += ",g3,,,,,g3,,,,,,reg,info,,,,,verska/g4,,,,,verska/g4,,,,,reg,info,reg,";
+                zaUpisivanje1[19] += "reg,fv,reg,n/f,n/f,reg,reg,n/f,info,info,reg,reg,reg,info,reg,reg,info,info,reg,reg,reg,reg,reg,fv,reg,reg,dreg,reg,,info,reg,reg";
+                zaUpisivanje1[20] += "fv,dreg,reg,reg,reg,reg,reg,reg,info,info,reg,reg,reg ,info/hem,reg,reg,info,info,reg,reg,reg,reg,fv,reg,reg,reg,dreg,n/f,n1/f/i/r,reg,n1/i/r,reg";
+                zaUpisivanje1[21] += "reg,dreg,reg,reg,reg,reg,reg,fv,reg,info,reg,reg,reg,info/hem,reg,reg,info,info,reg,n/f,reg,n/f/i/r,reg,n/f/i/r,fv,info,reg,reg/reg,reg,reg,reg,reg";
+                zaUpisivanje1[22] += "reg,reg,info,fv,reg,reg,reg,reg,reg,info,reg,fv,reg,reg,reg,reg,reg,info,dreg,reg,reg,reg/hem,reg,reg,info,reg,reg,reg/reg,reg,n/f,reg,n/f";
+                zaUpisivanje1[23] += "dreg,dreg,info,reg,reg,fv,reg,reg,fv,info,reg,reg,reg/reg,n/reg,reg,reg,reg,info,dreg,reg,reg,hem/info,reg,,reg,reg,reg,reg,reg,,reg,reg/reg";
+                zaUpisivanje1[24] += "dreg,dreg,reg,info,reg,info,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,dreg,info,reg,reg,fv,reg,,,reg,reg,reg,verska,fv,,reg,reg";
+                zaUpisivanje1[25] += "reg,verska,,info,fv,info,verska,,reg,,reg,reg,fv,,g2,reg,dreg,info,reg,,,,,,reg,reg,reg,,,,reg/info,";
+                            
+                zaUpisivanje1[26] += "g3,,,,,g3,,,,,,,,,,,verksa/g4,verska/g4,,reg,,,,,,info,reg,,,reg,,reg";
+                zaUpisivanje1[27] += "reg,reg,fv,,info,reg,reg,reg,info,reg,g5,verska,reg,g5,reg,reg,fv,reg,reg,reg/hem,reg,,reg,,reg,info,reg,reg,reg,reg,reg,info/reg";
+                zaUpisivanje1[28] += "reg,reg,dreg,reg,info,reg,reg,reg,info,reg ,reg,hem/info,reg,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg,reg,info,reg,fv,reg,reg/reg,reg,reg";
+                zaUpisivanje1[29] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,hem/info,reg,reg,info,reg,dreg,reg,reg/reg,reg,reg,reg,reg,reg,reg,info,fv,reg,reg/reg,fv,reg,reg";
+                zaUpisivanje1[30] += "reg,reg,reg,reg,reg,reg,reg,reg,info,dreg,reg/hem,reg,reg/reg,fv,info,reg,reg,reg,reg,reg,reg,reg,reg,reg/reg,fv,info,reg,reg,reg/reg,reg,reg,reg";
+                zaUpisivanje1[31] += "reg,reg,dreg,reg,reg,reg,fv,reg,info,dreg,reg/hem,reg/reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg";
+                zaUpisivanje1[32] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,fv,reg/reg,reg,info,info,dreg,hem/info,,verska,verska/g4,reg,reg,reg,info,,reg,,reg/reg,,reg";
+                zaUpisivanje1[33] += "verska,info,reg,info,verska,,,reg,,fv,reg,g2,,reg,,reg,reg,reg,hem/info,,,,reg/reg,reg ,,info,,,,reg,,";
+                            
+                            
+                zaUpisivanje1[34] += ",,,,,,,g3,verska,,,,verska,,reg,,,,,,g1,,,,,,,info,,,,reg";
+                zaUpisivanje1[35] += "info,info,reg,reg,info,reg,reg,reg,reg,reg,reg/reg,reg,reg,reg,reg,reg,info,fv,reg,reg,reg,reg,reg,reg,reg,,,info,info,reg,,reg";
+                zaUpisivanje1[36] += "info,info,reg,reg,info,reg,reg,reg,dreg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,reg,reg,fv,info,reg,reg/reg,reg";
+                zaUpisivanje1[37] += "dreg,info,reg,reg,reg,reg,reg,reg,dreg,info,dreg,reg,reg,reg,reg,n/reg,info,dreg,fv,reg,hem/info,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje1[38] += "dreg,info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,fv,info,dreg,dreg,reg,reg/hem,reg,reg/info,reg,dreg,reg,reg,reg,reg,reg,reg,fv";
+                zaUpisivanje1[39] += "reg,info,reg,reg,reg,reg,reg,reg,reg,fv,dreg,reg,reg,reg,fv,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg/info";
+                zaUpisivanje1[40] += "reg,info,reg,reg,reg,reg,reg,,reg,reg,dreg,reg,,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg,reg,fv,verska/g2,verska/g1";
+                zaUpisivanje1[41] += ",,,reg,reg,reg,,,fv,,,,,,,g2,info,reg,,,,,,,verska,verska,verska,,,,,";
 
                 using FileStream fs = File.Create(path);
-                File.WriteAllLines(path,zaUpisivanje);
+                File.WriteAllLines(path,zaUpisivanje1);
 
             }
 

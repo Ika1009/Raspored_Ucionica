@@ -90,116 +90,112 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
-            path = @"RasporedCasova.csv";
-            procitano = File.ReadAllLines(path);
+			path = @"RasporedCasova.csv";
+			procitano = File.ReadAllLines(path);
 
-            split0 = procitano[0].Split(",");
-            split1 = procitano[1].Split(",");
-            split2 = procitano[2].Split(",");
-            split3 = procitano[3].Split(",");
-            split4 = procitano[4].Split(",");
-            string[] split5 = procitano[5].Split(",");
-            string[] split6 = procitano[6].Split(",");
-            string[] split7 = procitano[7].Split(",");
+			split0 = procitano[0].Split(",");
+			split1 = procitano[1].Split(",");
+			split2 = procitano[2].Split(",");
+			split3 = procitano[3].Split(",");
+			split4 = procitano[4].Split(",");
+			string[] split5 = procitano[5].Split(",");
+			string[] split6 = procitano[6].Split(",");
+			string[] split7 = procitano[7].Split(",");
 
-            ponedeljak = new(new List<List<string>> // optimizovao
+			ponedeljak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"info", "", "", "", "g1"/*reg*/, "", "", "", "", "verska", "", "reg", "reg", "verska", "reg", "", "", "", "", "reg","reg", "", "", "", "", "", "", "info", "", "", "", ""},
-                new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "n1/f/i/r", "reg", "n1/f/i/r", "reg", "reg", "reg", "reg", "fv","reg", "reg", "reg", "reg", "g1", "", "reg/hem", "info", "reg", "info", "reg", "fv"},
-                new List<string>() {"dreg", "info", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv", "reg/reg", "reg", "reg/reg", "reg", "reg", "reg", "dreg", "reg", "reg/info","reg", "fv", "reg", "reg", "reg", "reg", "reg/hem", "reg", "reg", "info", "reg", "reg"},
-                new List<string>() {"dreg", "info", "reg", "n/f/r", "n/f/i/r", "reg", "info", "n/f/i/r", "dreg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "dreg", "dreg", "fv", "reg/info","reg", "reg", "reg/info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg"},
-                new List<string>() {"reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "dreg", "reg", "reg", "reg", "hem/info", "reg", "fv", "reg", "dreg", "info", "reg/reg", "reg","reg", "info/reg", "reg", "fv", "reg", "reg", "reg", "n/f/reg", "n1/f/reg", "reg", "n1/reg", "reg"},
-                new List<string>() {"fv", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "dreg", "info", "reg/reg", "hem/info", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg", "reg", "fv", "reg", "reg", "reg", "info/reg", "reg", "reg", "n/f/reg", "reg", "n/f/reg"},
-                new List<string>() { "reg", "fv", "reg", "fv", "reg", "", "", "reg", "reg", "dreg", "info", "reg", "info", "reg", "verska", "verska", "reg", "info", "reg", "n/f", "reg", "n/f/reg", "reg", "n/f/reg", "reg", "reg", "reg/info", "reg", "reg", "reg", "reg", "reg"},
-                new List<string>() { "info", "reg", "fv", "", "", "", "", "fv", "reg", "reg", "", "reg", "info", "reg", "", "", "reg", "info", "", "", "", "", "reg", "", "reg", "reg", "reg", "", "verska/g1", "verska/g1", "reg", "reg"}
-            });
+				new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
+new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
+new List<string>() {split2[0],split2[1],split2[2],split2[3],split2[4],split2[5],split2[6],split2[7],split2[8],split2[9],split2[10],split2[11],split2[12],split2[13],split2[14],split2[15],split2[16],split2[17],split2[18],split2[19],split2[20],split2[21],split2[22],split2[23],split2[24],split2[25],split2[26],split2[27],split2[28],split2[29],split2[30],split2[31]},
+new List<string>() {split3[0],split3[1],split3[2],split3[3],split3[4],split3[5],split3[6],split3[7],split3[8],split3[9],split3[10],split3[11],split3[12],split3[13],split3[14],split3[15],split3[16],split3[17],split3[18],split3[19],split3[20],split3[21],split3[22],split3[23],split3[24],split3[25],split3[26],split3[27],split3[28],split3[29],split3[30],split3[31]},
+new List<string>() {split4[0],split4[1],split4[2],split4[3],split4[4],split4[5],split4[6],split4[7],split4[8],split4[9],split4[10],split4[11],split4[12],split4[13],split4[14],split4[15],split4[16],split4[17],split4[18],split4[19],split4[20],split4[21],split4[22],split4[23],split4[24],split4[25],split4[26],split4[27],split4[28],split4[29],split4[30],split4[31]},
+new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7],split5[8],split5[9],split5[10],split5[11],split5[12],split5[13],split5[14],split5[15],split5[16],split5[17],split5[18],split5[19],split5[20],split5[21],split5[22],split5[23],split5[24],split5[25],split5[26],split5[27],split5[28],split5[29],split5[30],split5[31]},
+new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
+new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}
+			});
 
-            split0 = procitano[8].Split(",");
-            split1 = procitano[9].Split(",");
-            split2 = procitano[10].Split(",");
-            split3 = procitano[11].Split(",");
-            split4 = procitano[12].Split(",");
-            split5 = procitano[13].Split(",");
-            split6 = procitano[14].Split(",");
-            split7 = procitano[15].Split(",");
+			split0 = procitano[8].Split(",");
+			split1 = procitano[9].Split(",");
+			split2 = procitano[10].Split(",");
+			split3 = procitano[11].Split(",");
+			split4 = procitano[12].Split(",");
+			split5 = procitano[13].Split(",");
+			split6 = procitano[14].Split(",");
+			split7 = procitano[15].Split(",");
 
-            utorak = new(new List<List<string>>
-            {
-                new List<string>() {"", "", "verska/g2", "verska/g2", "reg", "", "reg", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "", "", "info", "", "reg", "reg", "", "reg", "reg", ""},
-                new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "", "info", "reg", "reg/reg", "fv", "reg", "", "reg", "reg", "reg", "info", "dreg", "reg","reg", "reg", "reg", "reg", "info", "reg", "reg", "", "info", "reg", "reg", "reg"},
-                new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "fv", "reg/hem", "reg", "reg", "info", "dreg", "reg","reg", "reg", "reg/reg", "reg", "info", "dreg", "reg", "reg", "info", "reg", "reg", "reg"},
-                new List<string>() {"info", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "n1/f/reg", "reg", "n1/f/reg", "reg/hem", "fv", "info", "reg", "reg","reg/info", "reg", "reg", "reg", "info", "dreg", "reg", "reg", "reg", "reg", "fv", "reg"},
-                new List<string>() {"info", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg/reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv","reg", "reg", "reg", "reg/info", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg"},
-                new List<string>() {"info", "reg", "reg/hem", "reg", "fv", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg/reg", "reg", "reg", "reg/info", "info", "fv", "reg", "reg", "reg", "reg", "reg", "reg"},
-                new List<string>() { "info", "reg", "reg/hem", "reg", "reg", "fv", "reg", "reg", "reg", "info", "reg", "info", "reg/reg", "reg", "reg", "fv", "info", "reg", "info", "verska","reg", "reg", "verska", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", ""},
-                new List<string>() { "", "reg", "", "", "reg", "verska", "fv", "verska", "reg", "reg", "reg", "info", "g2", "", "reg", "reg", "info","reg" ,"info", "", "fv", "", "", "", "info", "g1", "g1","g1" ,"reg", "", "reg/info", ""}
-            });
+			utorak = new(new List<List<string>>
+			{
+							   new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
+new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
+new List<string>() {split2[0],split2[1],split2[2],split2[3],split2[4],split2[5],split2[6],split2[7],split2[8],split2[9],split2[10],split2[11],split2[12],split2[13],split2[14],split2[15],split2[16],split2[17],split2[18],split2[19],split2[20],split2[21],split2[22],split2[23],split2[24],split2[25],split2[26],split2[27],split2[28],split2[29],split2[30],split2[31]},
+new List<string>() {split3[0],split3[1],split3[2],split3[3],split3[4],split3[5],split3[6],split3[7],split3[8],split3[9],split3[10],split3[11],split3[12],split3[13],split3[14],split3[15],split3[16],split3[17],split3[18],split3[19],split3[20],split3[21],split3[22],split3[23],split3[24],split3[25],split3[26],split3[27],split3[28],split3[29],split3[30],split3[31]},
+new List<string>() {split4[0],split4[1],split4[2],split4[3],split4[4],split4[5],split4[6],split4[7],split4[8],split4[9],split4[10],split4[11],split4[12],split4[13],split4[14],split4[15],split4[16],split4[17],split4[18],split4[19],split4[20],split4[21],split4[22],split4[23],split4[24],split4[25],split4[26],split4[27],split4[28],split4[29],split4[30],split4[31]},
+new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7],split5[8],split5[9],split5[10],split5[11],split5[12],split5[13],split5[14],split5[15],split5[16],split5[17],split5[18],split5[19],split5[20],split5[21],split5[22],split5[23],split5[24],split5[25],split5[26],split5[27],split5[28],split5[29],split5[30],split5[31]},
+new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
+new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}      });
 
-            split0 = procitano[17].Split(",");
-            split1 = procitano[18].Split(",");
-            split2 = procitano[19].Split(",");
-            split3 = procitano[20].Split(",");
-            split4 = procitano[21].Split(",");
-            split5 = procitano[22].Split(",");
-            split6 = procitano[23].Split(",");
-            split7 = procitano[24].Split(",");
+			split0 = procitano[17].Split(",");
+			split1 = procitano[18].Split(",");
+			split2 = procitano[19].Split(",");
+			split3 = procitano[20].Split(",");
+			split4 = procitano[21].Split(",");
+			split5 = procitano[22].Split(",");
+			split6 = procitano[23].Split(",");
+			split7 = procitano[24].Split(",");
 
-            sreda = new(new List<List<string>>
-            {
-                new List<string>() {"", "g3", "", "", "", "", "g3", "", "", "", "", "", "reg", "info", "", "", "", "", "verska/g4", "","", "", "", "verska/g4", "", "", "", "", "reg", "info", "reg", ""},
-                new List<string>() {"reg", "fv", "reg", "n/f", "n/f", "reg", "reg", "n/f", "info", "info", "reg", "reg", "reg", "info", "reg", "reg", "info", "info", "reg", "reg","reg", "reg", "reg", "fv", "reg", "reg", "dreg", "reg", "", "info", "reg", "reg"},
-                new List<string>() {"fv", "dreg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "info", "reg", "reg","reg" ,"info/hem", "reg", "reg","info", "info", "reg", "reg", "reg", "reg","fv", "reg", "reg", "reg", "dreg", "n/f", "n1/f/i/r", "reg", "n1/i/r", "reg"},
-                new List<string>() {"reg", "dreg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "reg", "reg", "info/hem", "reg", "reg", "info", "info", "reg", "n/f","reg", "n/f/i/r", "reg", "n/f/i/r", "fv", "info", "reg", "reg/reg", "reg", "reg", "reg", "reg"},
-                new List<string>() {"reg", "reg", "info", "fv", "reg", "reg", "reg", "reg", "reg", "info", "reg", "fv", "reg", "reg", "reg", "reg", "reg", "info", "dreg", "reg","reg","reg/hem", "reg", "reg", "info", "reg", "reg", "reg/reg", "reg", "n/f", "reg", "n/f"},
-                new List<string>() {"dreg", "dreg", "info", "reg", "reg", "fv", "reg", "reg", "fv", "info", "reg", "reg", "reg/reg", "n/reg", "reg", "reg", "reg", "info", "dreg", "reg","reg", "hem/info", "reg", "", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg/reg"},
-                new List<string>() { "dreg", "dreg", "reg", "info", "reg", "info", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "dreg", "info", "reg", "reg","fv", "reg", "", "", "reg", "reg", "reg", "verska", "fv", "", "reg", "reg"},
-                new List<string>() { "reg", "verska", "", "info", "fv", "info", "verska", "", "reg", "", "reg", "reg", "fv", "", "g2", "reg", "dreg", "info", "reg", "","", "", "", "", "reg", "reg", "reg", "", "", "", "reg/info", ""}
-            });
+			sreda = new(new List<List<string>>
+			{
+				   new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
+new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
+new List<string>() {split2[0],split2[1],split2[2],split2[3],split2[4],split2[5],split2[6],split2[7],split2[8],split2[9],split2[10],split2[11],split2[12],split2[13],split2[14],split2[15],split2[16],split2[17],split2[18],split2[19],split2[20],split2[21],split2[22],split2[23],split2[24],split2[25],split2[26],split2[27],split2[28],split2[29],split2[30],split2[31]},
+new List<string>() {split3[0],split3[1],split3[2],split3[3],split3[4],split3[5],split3[6],split3[7],split3[8],split3[9],split3[10],split3[11],split3[12],split3[13],split3[14],split3[15],split3[16],split3[17],split3[18],split3[19],split3[20],split3[21],split3[22],split3[23],split3[24],split3[25],split3[26],split3[27],split3[28],split3[29],split3[30],split3[31]},
+new List<string>() {split4[0],split4[1],split4[2],split4[3],split4[4],split4[5],split4[6],split4[7],split4[8],split4[9],split4[10],split4[11],split4[12],split4[13],split4[14],split4[15],split4[16],split4[17],split4[18],split4[19],split4[20],split4[21],split4[22],split4[23],split4[24],split4[25],split4[26],split4[27],split4[28],split4[29],split4[30],split4[31]},
+new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7],split5[8],split5[9],split5[10],split5[11],split5[12],split5[13],split5[14],split5[15],split5[16],split5[17],split5[18],split5[19],split5[20],split5[21],split5[22],split5[23],split5[24],split5[25],split5[26],split5[27],split5[28],split5[29],split5[30],split5[31]},
+new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
+new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}          });
 
-            split0 = procitano[26].Split(",");
-            split1 = procitano[27].Split(",");
-            split2 = procitano[28].Split(",");
-            split3 = procitano[29].Split(",");
-            split4 = procitano[30].Split(",");
-            split5 = procitano[31].Split(",");
-            split6 = procitano[32].Split(",");
-            split7 = procitano[33].Split(",");
+			split0 = procitano[26].Split(",");
+			split1 = procitano[27].Split(",");
+			split2 = procitano[28].Split(",");
+			split3 = procitano[29].Split(",");
+			split4 = procitano[30].Split(",");
+			split5 = procitano[31].Split(",");
+			split6 = procitano[32].Split(",");
+			split7 = procitano[33].Split(",");
 
-            cetvrtak = new(new List<List<string>>
-            {
-                new List<string>() { "g3", "", "", "", "", "g3", "", "", "", "", "", "", "", "", "", "", "verksa/g4", "verska/g4", "", "reg","", "", "", "", "", "info", "reg", "", "", "reg", "", "reg"},
-                new List<string>() { "reg", "reg", "fv", "", "info", "reg", "reg", "reg", "info","reg","g5", "verska", "reg", "g5", "reg", "reg", "fv", "reg", "reg", "reg/hem", "reg","", "reg", "", "reg", "info", "reg", "reg", "reg", "reg", "reg", "info/reg"},
-                new List<string>() { "reg", "reg", "dreg", "reg", "info", "reg", "reg", "reg", "info","reg" ,"reg","hem/info", "reg", "reg", "reg", "reg", "dreg", "fv", "reg", "reg", "reg", "reg","reg", "reg", "reg", "info", "reg", "fv", "reg", "reg/reg", "reg", "reg"},
-                new List<string>() { "reg", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "hem/info", "reg", "reg", "info", "reg", "dreg", "reg", "reg/reg", "reg","reg", "reg", "reg", "reg", "reg", "info", "fv", "reg", "reg/reg", "fv", "reg", "reg"},
-                new List<string>() { "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "dreg", "reg/hem","reg", "reg/reg","fv", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg","reg", "reg/reg", "fv", "info", "reg", "reg", "reg/reg", "reg", "reg", "reg"},
-                new List<string>() { "reg", "reg", "dreg", "reg", "reg", "reg", "fv", "reg", "info", "dreg", "reg/hem", "reg/reg", "reg", "reg", "reg", "info", "reg", "dreg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv", "reg", "reg", "reg"},
-                new List<string>() {  "reg", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "fv", "reg/reg", "reg", "info", "info", "dreg", "hem/info", "","verska", "verska/g4", "reg", "reg", "reg", "info", "", "reg", "", "reg/reg", "", "reg"},
-                new List<string>() {  "verska", "info", "reg", "info", "verska", "", "", "reg", "", "fv", "reg", "g2", "", "reg", "", "reg","reg", "reg", "hem/info", "", "","", "reg/reg","reg" ,"", "info", "", "", "", "reg", "", ""}
-            });
+			cetvrtak = new(new List<List<string>>
+			{
+						  new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
+new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
+new List<string>() {split2[0],split2[1],split2[2],split2[3],split2[4],split2[5],split2[6],split2[7],split2[8],split2[9],split2[10],split2[11],split2[12],split2[13],split2[14],split2[15],split2[16],split2[17],split2[18],split2[19],split2[20],split2[21],split2[22],split2[23],split2[24],split2[25],split2[26],split2[27],split2[28],split2[29],split2[30],split2[31]},
+new List<string>() {split3[0],split3[1],split3[2],split3[3],split3[4],split3[5],split3[6],split3[7],split3[8],split3[9],split3[10],split3[11],split3[12],split3[13],split3[14],split3[15],split3[16],split3[17],split3[18],split3[19],split3[20],split3[21],split3[22],split3[23],split3[24],split3[25],split3[26],split3[27],split3[28],split3[29],split3[30],split3[31]},
+new List<string>() {split4[0],split4[1],split4[2],split4[3],split4[4],split4[5],split4[6],split4[7],split4[8],split4[9],split4[10],split4[11],split4[12],split4[13],split4[14],split4[15],split4[16],split4[17],split4[18],split4[19],split4[20],split4[21],split4[22],split4[23],split4[24],split4[25],split4[26],split4[27],split4[28],split4[29],split4[30],split4[31]},
+new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7],split5[8],split5[9],split5[10],split5[11],split5[12],split5[13],split5[14],split5[15],split5[16],split5[17],split5[18],split5[19],split5[20],split5[21],split5[22],split5[23],split5[24],split5[25],split5[26],split5[27],split5[28],split5[29],split5[30],split5[31]},
+new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
+new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]} });
 
-            split0 = procitano[35].Split(",");
-            split1 = procitano[36].Split(",");
-            split2 = procitano[37].Split(",");
-            split3 = procitano[38].Split(",");
-            split4 = procitano[39].Split(",");
-            split5 = procitano[40].Split(",");
-            split6 = procitano[41].Split(",");
-            split7 = procitano[42].Split(",");
-            petak = new(new List<List<string>>
-            {
-                new List<string>() { "", "", "", "", "", "", "", "g3", "verska", "", "", "", "verska", "", "reg", "", "", "", "", "","g1", "", "", "", "", "", "", "info", "", "", "", "reg"},
-                new List<string>() {"info", "info", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg/reg", "reg", "reg", "reg", "reg", "reg", "info", "fv", "reg", "reg","reg", "reg", "reg", "reg", "reg", "", "", "info", "info", "reg", "", "reg"},
-                new List<string>() {"info", "info", "reg", "reg", "info", "reg", "reg", "reg", "dreg", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "fv", "reg", "reg", "reg", "reg", "reg", "fv", "info", "reg", "reg/reg", "reg"},
-                new List<string>() {"dreg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "dreg", "info", "dreg", "reg", "reg", "reg", "reg", "n/reg", "info", "dreg", "fv", "reg","hem/info", "reg", "reg", "reg", "dreg", "fv", "reg", "reg", "reg", "reg", "reg", "reg"},
-                new List<string>() {"dreg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg/reg", "reg", "fv", "info", "dreg", "dreg", "reg","reg/hem", "reg", "reg/info", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "reg", "fv"},
-                new List<string>() {"reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "dreg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "dreg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/info"},
-                new List<string>() { "reg", "info", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg", "dreg", "reg"/*?*/, "", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "fv", "verska/g2", "verska/g1"},
-                new List<string>() { "", "", "", "reg", "reg", "reg", "", "", "fv", "", "", "", "", "", "", "g2", "info", "reg", "", "","", "", "", "", "verska", "verska", "verska", "", "", "", "", ""}
-            });
+			split0 = procitano[35].Split(",");
+			split1 = procitano[36].Split(",");
+			split2 = procitano[37].Split(",");
+			split3 = procitano[38].Split(",");
+			split4 = procitano[39].Split(",");
+			split5 = procitano[40].Split(",");
+			split6 = procitano[41].Split(",");
+			split7 = procitano[42].Split(",");
+			petak = new(new List<List<string>>
+			{
+			new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
+			new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
+			new List<string>() {split2[0],split2[1],split2[2],split2[3],split2[4],split2[5],split2[6],split2[7],split2[8],split2[9],split2[10],split2[11],split2[12],split2[13],split2[14],split2[15],split2[16],split2[17],split2[18],split2[19],split2[20],split2[21],split2[22],split2[23],split2[24],split2[25],split2[26],split2[27],split2[28],split2[29],split2[30],split2[31]},
+			new List<string>() {split3[0],split3[1],split3[2],split3[3],split3[4],split3[5],split3[6],split3[7],split3[8],split3[9],split3[10],split3[11],split3[12],split3[13],split3[14],split3[15],split3[16],split3[17],split3[18],split3[19],split3[20],split3[21],split3[22],split3[23],split3[24],split3[25],split3[26],split3[27],split3[28],split3[29],split3[30],split3[31]},
+			new List<string>() {split4[0],split4[1],split4[2],split4[3],split4[4],split4[5],split4[6],split4[7],split4[8],split4[9],split4[10],split4[11],split4[12],split4[13],split4[14],split4[15],split4[16],split4[17],split4[18],split4[19],split4[20],split4[21],split4[22],split4[23],split4[24],split4[25],split4[26],split4[27],split4[28],split4[29],split4[30],split4[31]},
+			new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7],split5[8],split5[9],split5[10],split5[11],split5[12],split5[13],split5[14],split5[15],split5[16],split5[17],split5[18],split5[19],split5[20],split5[21],split5[22],split5[23],split5[24],split5[25],split5[26],split5[27],split5[28],split5[29],split5[30],split5[31]},
+			new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
+			new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}          });
 
 
 
-            lista_ucionica = new()
+			lista_ucionica = new()
             {
                 new Ucionica("P4", 15, true, true),
                 new Ucionica("6", 16, true, true),
