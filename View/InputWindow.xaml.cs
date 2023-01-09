@@ -86,7 +86,7 @@ namespace Raspored_Ucionica
             {
                 Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
                 string zaUpisivanje = "";
-                zaUpisivanje += "I-1,I-1,I-2,I-2,III-2,III-2,III-2,III-2";
+                zaUpisivanje += "I-1,I-1,I-2,I-2,III-2,III-2,III-2,III-2\n";
                 //zaUpisivanje += 
 
                 Kponedeljak = new(new List<List<string>> // optimizovao
