@@ -28,10 +28,10 @@ namespace Raspored_Ucionica.Model
             Kponedeljak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
-                new List<string>() { split1[0], "I-8", "I-8", "I-7", "I-7", "II-3", "II-3", "I-1"}, //29
-                new List<string>() {"true", "true", "true", "true", "true", "IV-3", "IV-3", "true"}, //23a
-                new List<string>() {"IV-4", "IV-4", "III-4", "III-4", "II-5", "II-5", "II-5", "II-5"}, //Sremac
-                new List<string>() {"true", "IV-6", "IV-6", "III-7", "III-6", "II-3", "II-3", "true"}, //Multimedijalna(MM)
+                new List<string>() { split1[0], split1[1], split1[2], split1[3], split1[4], split1[5], split1[6], split1[7]}, //29
+                new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
+                new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
+                new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
             split0 = procitano[6].Split(",");
@@ -41,11 +41,11 @@ namespace Raspored_Ucionica.Model
             split4 = procitano[10].Split(",");
             Kutorak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"true", "II-1", "II-1", "I-2", "I-2", "II-2", "II-2", "IV-7"}, //22
-                new List<string>() {"true", "III-2", "III-2", "III-2", "III-1", "III-1", "III-1", "III-1"}, //29
-                new List<string>() {"true", "I-1", "I-1", "I-1", "I-1", "I-1", "I-1", "true"}, //23a
-                new List<string>() {"true", "IV-5", "IV-5", "III-5", "III-8", "III-8", "III-3", "III-3"}, //SremaC
-                new List<string>() {"true", "true", "I-1", "I-1", "I-1", "I-1", "II-4", "II-4"}, //Multimedijalna
+                new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
+                new List<string>() { split1[0], split1[1], split1[2], split1[3], split1[4], split1[5], split1[6], split1[7]}, //29
+                new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
+                new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
+                new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
             split0 = procitano[12].Split(",");
@@ -55,11 +55,11 @@ namespace Raspored_Ucionica.Model
             split4 = procitano[16].Split(",");
             Ksreda = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"true", "II-1","II-1", "IV-2", "IV-1", "III-6", "I-4", "I-4"}, //22
-                new List<string>() {"true", "III-1", "III-1", "III-1", "I-3", "I-3", "I-6", "I-6"}, //29
-                new List<string>() {"IV-6", "IV-6", "II-2", "II-2", "II-2", "II-2", "true", "true"}, //23a
-                new List<string>() {"true", "II-2", "II-2", "II-2", "II-2", "II-2", "II-2", "IV-7"}, //Sremac
-                new List<string>() {"II-6", "II-6", "II-6", "II-6", "I-3", "I-3", "I-6", "I-6"}, //Multimedijalna
+                new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
+                new List<string>() { split1[0], split1[1], split1[2], split1[3], split1[4], split1[5], split1[6], split1[7]}, //29
+                new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
+                new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
+                new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
             split0 = procitano[18].Split(",");
@@ -69,11 +69,11 @@ namespace Raspored_Ucionica.Model
             split4 = procitano[22].Split(",");
             Kcetvrtak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"true", "II-1", "II-1", "II-1", "II-1", "II-1", "II-1", "true"}, //22
-                new List<string>() {"true", "I-5", "I-5", "II-7", "II-7", "II-8", "II-8", "I-2"}, //29
-                new List<string>() {"true", "true", "II-1", "II-1", "II-1", "II-1", "III-3", "III-3"}, //23a
-                new List<string>() { "true", "true", "true", "II-7", "II-7", "II-8", "II-8", "true"}, //Sremac
-                new List<string>() {"true", "IV-8", "II-4", "II-4", "true", "true", "I-4", "I-4"}, //Multimedijalna
+                new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
+                new List<string>() { split1[0], split1[1], split1[2], split1[3], split1[4], split1[5], split1[6], split1[7]}, //29
+                new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
+                new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
+                new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
             split0 = procitano[24].Split(",");
@@ -83,11 +83,11 @@ namespace Raspored_Ucionica.Model
             split4 = procitano[29].Split(",");
             Kpetak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"true", "I-5", "I-5", "III-5", "III-7", "IV-8", "true", "true"}, //22
-                new List<string>() {"true", "I-1", "I-1", "II-2", "II-2", "true", "true", "true"}, //29
-                new List<string>() {"true", "I-2", "I-2", "I-2", "I-2", "I-2", "I-2", "true"}, //23a
-                new List<string>() { "true", "IV-5", "IV-5", "true", "true", "true", "true", "true"}, //Sremac
-                new List<string>() {"IV-4", "IV-4", "I-2", "I-2", "I-2", "I-2", "true", "true"}, //Multimedijalna
+                new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
+                new List<string>() { split1[0], split1[1], split1[2], split1[3], split1[4], split1[5], split1[6], split1[7]}, //29
+                new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
+                new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
+                new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
 
