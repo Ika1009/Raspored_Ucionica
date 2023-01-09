@@ -137,12 +137,6 @@ namespace Raspored_Ucionica
                 File.WriteAllLines(path, brojeviUcionice);
 
             }
-            else
-            {
-                //MessageBox.Show("Postoji!");
-                brojeviUcionice = File.ReadAllLines(path);
-            }
-
 
             OdeljenjeTextbox11.Text = brojeviUcionice[0];
             OdeljenjeTextbox12.Text = brojeviUcionice[1];

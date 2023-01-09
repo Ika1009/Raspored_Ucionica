@@ -12,18 +12,33 @@ namespace Raspored_Ucionica.Model
         protected readonly List<Ucionica>? lista_prioriteta;
         public readonly Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
         protected readonly Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
-
+        
         public SviPodaci()
         {
             //Zauzetost kabineta
+            string path = @"SlobodniKabineti.csv";
+            string[] procitano = File.ReadAllLines(path);
+
+            string[] split0 = procitano[0].Split(",");
+            string[] split1 = procitano[1].Split(",");
+            string[] split2 = procitano[2].Split(",");
+            string[] split3 = procitano[3].Split(",");
+            string[] split4 = procitano[4].Split(",");
+
             Kponedeljak = new(new List<List<string>> // optimizovao
             {
-                new List<string>() {"I-1","I-1", "I-2", "I-2", "III-2", "III-2", "III-2", "III-2"}, //22
+                new List<string>() { split0[0], split0[1], "I-2", "I-2", "III-2", "III-2", "III-2", "III-2"}, //22
                 new List<string>() {"true", "I-8", "I-8", "I-7", "I-7", "II-3", "II-3", "I-1"}, //29
                 new List<string>() {"true", "true", "true", "true", "true", "IV-3", "IV-3", "true"}, //23a
                 new List<string>() {"IV-4", "IV-4", "III-4", "III-4", "II-5", "II-5", "II-5", "II-5"}, //Sremac
                 new List<string>() {"true", "IV-6", "IV-6", "III-7", "III-6", "II-3", "II-3", "true"}, //Multimedijalna(MM)
             });
+
+            split0 = procitano[6].Split(",");
+            split1 = procitano[7].Split(",");
+            split2 = procitano[8].Split(",");
+            split3 = procitano[9].Split(",");
+            split4 = procitano[10].Split(",");
             Kutorak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"true", "II-1", "II-1", "I-2", "I-2", "II-2", "II-2", "IV-7"}, //22
@@ -32,6 +47,12 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {"true", "IV-5", "IV-5", "III-5", "III-8", "III-8", "III-3", "III-3"}, //SremaC
                 new List<string>() {"true", "true", "I-1", "I-1", "I-1", "I-1", "II-4", "II-4"}, //Multimedijalna
             });
+
+            split0 = procitano[12].Split(",");
+            split1 = procitano[13].Split(",");
+            split2 = procitano[14].Split(",");
+            split3 = procitano[15].Split(",");
+            split4 = procitano[16].Split(",");
             Ksreda = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"true", "II-1","II-1", "IV-2", "IV-1", "III-6", "I-4", "I-4"}, //22
@@ -40,6 +61,12 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {"true", "II-2", "II-2", "II-2", "II-2", "II-2", "II-2", "IV-7"}, //Sremac
                 new List<string>() {"II-6", "II-6", "II-6", "II-6", "I-3", "I-3", "I-6", "I-6"}, //Multimedijalna
             });
+
+            split0 = procitano[18].Split(",");
+            split1 = procitano[19].Split(",");
+            split2 = procitano[20].Split(",");
+            split3 = procitano[21].Split(",");
+            split4 = procitano[22].Split(",");
             Kcetvrtak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"true", "II-1", "II-1", "II-1", "II-1", "II-1", "II-1", "true"}, //22
@@ -48,6 +75,12 @@ namespace Raspored_Ucionica.Model
                 new List<string>() { "true", "true", "true", "II-7", "II-7", "II-8", "II-8", "true"}, //Sremac
                 new List<string>() {"true", "IV-8", "II-4", "II-4", "true", "true", "I-4", "I-4"}, //Multimedijalna
             });
+
+            split0 = procitano[24].Split(",");
+            split1 = procitano[25].Split(",");
+            split2 = procitano[27].Split(",");
+            split3 = procitano[28].Split(",");
+            split4 = procitano[29].Split(",");
             Kpetak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"true", "I-5", "I-5", "III-5", "III-7", "IV-8", "true", "true"}, //22
@@ -56,6 +89,8 @@ namespace Raspored_Ucionica.Model
                 new List<string>() { "true", "IV-5", "IV-5", "true", "true", "true", "true", "true"}, //Sremac
                 new List<string>() {"IV-4", "IV-4", "I-2", "I-2", "I-2", "I-2", "true", "true"}, //Multimedijalna
             });
+
+
             ponedeljak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() {"info", "", "", "", "g1"/*reg*/, "", "", "", "", "verska", "", "reg", "reg", "verska", "reg", "", "", "", "", "reg","reg", "", "", "", "", "", "", "info", "", "", "", ""},
