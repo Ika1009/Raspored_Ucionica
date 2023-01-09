@@ -72,7 +72,7 @@ namespace Raspored_Ucionica
                 brojeviUcionice[30] = "37";
                 brojeviUcionice[31] = "36";
 
-                File.WriteAllLines(path, brojeviUcionice);
+                File.WriteAllLines(path,brojeviUcionice);
             }
             else
             {
@@ -90,38 +90,38 @@ namespace Raspored_Ucionica
                 zaUpisivanje[1] += "true,I-8,I-8,I-7,I-7,II-3,II-3,I-1\n";//29
                 zaUpisivanje[2] += "true,true,true,true,true,IV-3,IV-3,true\n"; //23a
                 zaUpisivanje[3] += "IV-4,IV-4,III-4,III-4,II-5,II-5,II-5,II-5\n"; //Sremac
-				zaUpisivanje += "true,IV-6,IV-6,III-7,III-6,II-3,II-3,true\n"; //Multimedijalna(MM)
-                zaUpisivanje += "\n";
-                //Utorak
-				zaUpisivanje += "true,II-1,II-1,I-2,I-2,II-2,II-2,IV-7\n"; //22
-				zaUpisivanje += "true,III-2,III-2,III-2,III-1,III-1,III-1,III-1\n"; //29
-				zaUpisivanje += "true,I-1,I-1,I-1,I-1,I-1,I-1,true\n"; //23a
-				zaUpisivanje += "true,IV-5,IV-5,III-5,III-8,III-8,III-3,III-3\n"; //SremaC
-				zaUpisivanje += "true,true,I-1,I-1,I-1,I-1,II-4,II-4\n"; //Multimedijalna
-				zaUpisivanje += "\n";
-                //Sreda
-                zaUpisivanje += "true,II-1,II-1,IV-2,IV-1,III-6,I-4,I-4\n"; //22
-				zaUpisivanje += "true,III-1,III-1,III-1,I-3,I-3,I-6,I-6\n"; //29
-				zaUpisivanje += "IV-6,IV-6,II-2,II-2,II-2,II-2,true,true\n"; //23a
-				zaUpisivanje += "true,II-2,II-2,II-2,II-2,II-2,II-2,IV-7\n"; //Sremac
-				zaUpisivanje += "II-6,II-6,II-6,II-6,I-3,I-3,I-6,I-6\n"; //Multimedijalna
-				zaUpisivanje += "\n";
-                //Cetvrtak
-                zaUpisivanje += "true,II-1,II-1,II-1,II-1,II-1,II-1,true\n"; //22
-				zaUpisivanje += "true,I-5,I-5,II-7,II-7,II-8,II-8,I-2\n"; //29
-				zaUpisivanje += "true,true,II-1,II-1,II-1,II-1,III-3,III-3\n"; //23a
-				zaUpisivanje += "true,true,true,II-7,II-7,II-8,II-8,true\n"; //Sremac
-				zaUpisivanje += "true,IV-8,II-4,II-4,true,true,I-4,I-4\n"; //Multimedijalna
-				zaUpisivanje += "\n";
-                //Petak
-                zaUpisivanje += "true,I-5,I-5,III-5,III-7,IV-8,true,true\n"; //22
-				zaUpisivanje += "true,I-1,I-1,II-2,II-2,true,true,true\n"; //29
-				zaUpisivanje += "true,I-2,I-2,I-2,I-2,I-2,I-2,true\n"; //23a
-				zaUpisivanje += "true,IV-5,IV-5,true,true,true,true,true\n"; //Sremac
-				zaUpisivanje += "IV-4,IV-4,I-2,I-2,I-2,I-2,true,true\n"; //Multimedijalna
+				zaUpisivanje[4] += "true,IV-6,IV-6,III-7,III-6,II-3,II-3,true\n"; //Multimedijalna(MM)
+                zaUpisivanje[5] += "\n";
+                //Utorak    
+				zaUpisivanje[6] += "true,II-1,II-1,I-2,I-2,II-2,II-2,IV-7\n"; //22
+				zaUpisivanje[7] += "true,III-2,III-2,III-2,III-1,III-1,III-1,III-1\n"; //29
+				zaUpisivanje[8] += "true,I-1,I-1,I-1,I-1,I-1,I-1,true\n"; //23a
+				zaUpisivanje[9] += "true,IV-5,IV-5,III-5,III-8,III-8,III-3,III-3\n"; //SremaC
+				zaUpisivanje[10] += "true,true,I-1,I-1,I-1,I-1,II-4,II-4\n"; //Multimedijalna
+				zaUpisivanje[11] += "\n";
+                //Sreda     
+                zaUpisivanje[12] += "true,II-1,II-1,IV-2,IV-1,III-6,I-4,I-4\n"; //22
+				zaUpisivanje[13] += "true,III-1,III-1,III-1,I-3,I-3,I-6,I-6\n"; //29
+				zaUpisivanje[14] += "IV-6,IV-6,II-2,II-2,II-2,II-2,true,true\n"; //23a
+				zaUpisivanje[15] += "true,II-2,II-2,II-2,II-2,II-2,II-2,IV-7\n"; //Sremac
+				zaUpisivanje[16] += "II-6,II-6,II-6,II-6,I-3,I-3,I-6,I-6\n"; //Multimedijalna
+				zaUpisivanje[18] += "\n";
+                //Cetvrtak  
+                zaUpisivanje[19] += "true,II-1,II-1,II-1,II-1,II-1,II-1,true\n"; //22
+				zaUpisivanje[20] += "true,I-5,I-5,II-7,II-7,II-8,II-8,I-2\n"; //29
+				zaUpisivanje[21] += "true,true,II-1,II-1,II-1,II-1,III-3,III-3\n"; //23a
+				zaUpisivanje[22] += "true,true,true,II-7,II-7,II-8,II-8,true\n"; //Sremac
+				zaUpisivanje[23] += "true,IV-8,II-4,II-4,true,true,I-4,I-4\n"; //Multimedijalna
+				zaUpisivanje[24] += "\n";
+                //Petak     
+                zaUpisivanje[25] += "true,I-5,I-5,III-5,III-7,IV-8,true,true\n"; //22
+				zaUpisivanje[26] += "true,I-1,I-1,II-2,II-2,true,true,true\n"; //29
+				zaUpisivanje[27] += "true,I-2,I-2,I-2,I-2,I-2,I-2,true\n"; //23a
+				zaUpisivanje[28] += "true,IV-5,IV-5,true,true,true,true,true\n"; //Sremac
+				zaUpisivanje[29] += "IV-4,IV-4,I-2,I-2,I-2,I-2,true,true\n"; //Multimedijalna
 
                 using FileStream fs = File.Create(path);
-                File.WriteAllLines(path, zaUpisivanje);
+                File.WriteAllLines(path,zaUpisivanje);
 
             }
 
@@ -129,68 +129,56 @@ namespace Raspored_Ucionica
             path = @"RasporedCasova.csv";
             if (!File.Exists(path))
             {
-                Raspored? ponedeljak, utorak, sreda, cetvrtak, petak;
                 string[] zaUpisivanje = new string[30];
 
                 zaUpisivanje[0] += "info,,,,g1,,,,,verska,,reg,reg,verska,reg,,,,,reg,reg,,,,,,,info,,,,";
-                ponedeljak = new(new List<List<string>> // optimizovao
-                {
-                    new List<string>() {"info", "", "", "", "g1"/*reg*/, "", "", "", "", "verska", "", "reg", "reg", "verska", "reg", "", "", "", "", "reg","reg", "", "", "", "", "", "", "info", "", "", "", ""},
-                    new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "n1/f/i/r", "reg", "n1/f/i/r", "reg", "reg", "reg", "reg", "fv","reg", "reg", "reg", "reg", "g1", "", "reg/hem", "info", "reg", "info", "reg", "fv"},
-                    new List<string>() {"dreg", "info", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv", "reg/reg", "reg", "reg/reg", "reg", "reg", "reg", "dreg", "reg", "reg/info","reg", "fv", "reg", "reg", "reg", "reg", "reg/hem", "reg", "reg", "info", "reg", "reg"},
-                    new List<string>() {"dreg", "info", "reg", "n/f/r", "n/f/i/r", "reg", "info", "n/f/i/r", "dreg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "dreg", "dreg", "fv", "reg/info","reg", "reg", "reg/info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg"},
-                    new List<string>() {"reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "dreg", "reg", "reg", "reg", "hem/info", "reg", "fv", "reg", "dreg", "info", "reg/reg", "reg","reg", "info/reg", "reg", "fv", "reg", "reg", "reg", "n/f/reg", "n1/f/reg", "reg", "n1/reg", "reg"},
-                    new List<string>() {"fv", "reg", "reg", "reg", "reg", "", "reg", "reg", "reg", "dreg", "info", "reg/reg", "hem/info", "reg", "reg", "reg", "reg", "info", "reg", "reg","reg", "reg", "fv", "reg", "reg", "reg", "info/reg", "reg", "reg", "n/f/reg", "reg", "n/f/reg"},
-                    new List<string>() { "reg", "fv", "reg", "fv", "reg", "", "", "reg", "reg", "dreg", "info", "reg", "info", "reg", "verska", "verska", "reg", "info", "reg", "n/f", "reg", "n/f/reg", "reg", "n/f/reg", "reg", "reg", "reg/info", "reg", "reg", "reg", "reg", "reg"},
-                    new List<string>() { "info", "reg", "fv", "", "", "", "", "fv", "reg", "reg", "", "reg", "info", "reg", "", "", "reg", "info", "", "", "", "", "reg", "", "reg", "reg", "reg", "", "verska/g1", "verska/g1", "reg", "reg"}
-                });
+                zaUpisivanje[2] += "info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,n1/f/i/r,reg,n1/f/i/r,reg,reg,reg,reg,fv,reg,reg,reg,reg,g1,,reg/hem,info,reg,info,reg,fv";
+                zaUpisivanje[3] += "dreg,info,reg,reg,reg,reg,reg,info,reg,reg,fv,reg/reg,reg,reg/reg,reg,reg,reg,dreg,reg,reg/info,reg,fv,reg,reg,reg,reg,reg/hem,reg,reg,info,reg,reg";
+                zaUpisivanje[4] += "dreg,info,reg,n/f/r,n/f/i/r,reg,info,n/f/i/r,dreg,reg,reg,reg,reg,reg,reg,reg,dreg,dreg,fv,reg/info,reg,reg,reg/info,reg,reg,reg,reg,reg,reg,reg,fv,reg";
+                zaUpisivanje[5] += "reg,reg,reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,hem/info,reg,fv,reg,dreg,info,reg/reg,reg,reg,info/reg,reg,fv,reg,reg,reg,n/f/reg,n1/f/reg,reg,n1/reg,reg";
+                zaUpisivanje[7] += "fv,reg,reg,reg,reg,,reg,reg,reg,dreg,info,reg/reg,hem/info,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,info/reg,reg,reg,n/f/reg,reg,n/f/reg";
+                zaUpisivanje[8] += "reg,fv,reg,fv,reg,,,reg,reg,dreg,info,reg,info,reg,verska,verska,reg,info,reg,n/f,reg,n/f/reg,reg,n/f/reg,reg,reg,reg/info,reg,reg,reg,reg,reg";
+                zaUpisivanje[9] += "info,reg,fv,,,,,fv,reg,reg,,reg,info,reg,,,reg,info,,,,,reg,,reg,reg,reg,,verska/g1,verska/g1,reg,reg";
 
-                utorak = new(new List<List<string>>
-                {
-                    new List<string>() {"", "", "verska/g2", "verska/g2", "reg", "", "reg", "", "", "", "", "", "", "", "", "", "", "", "", "","", "", "", "", "info", "", "reg", "reg", "", "reg", "reg", ""},
-                    new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "", "info", "reg", "reg/reg", "fv", "reg", "", "reg", "reg", "reg", "info", "dreg", "reg","reg", "reg", "reg", "reg", "info", "reg", "reg", "", "info", "reg", "reg", "reg"},
-                    new List<string>() {"info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "fv", "reg/hem", "reg", "reg", "info", "dreg", "reg","reg", "reg", "reg/reg", "reg", "info", "dreg", "reg", "reg", "info", "reg", "reg", "reg"},
-                    new List<string>() {"info", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "n1/f/reg", "reg", "n1/f/reg", "reg/hem", "fv", "info", "reg", "reg","reg/info", "reg", "reg", "reg", "info", "dreg", "reg", "reg", "reg", "reg", "fv", "reg"},
-                    new List<string>() {"info", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg/reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv","reg", "reg", "reg", "reg/info", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg"},
-                    new List<string>() {"info", "reg", "reg/hem", "reg", "fv", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg/reg", "reg", "reg", "reg/info", "info", "fv", "reg", "reg", "reg", "reg", "reg", "reg"},
-                    new List<string>() { "info", "reg", "reg/hem", "reg", "reg", "fv", "reg", "reg", "reg", "info", "reg", "info", "reg/reg", "reg", "reg", "fv", "info", "reg", "info", "verska","reg", "reg", "verska", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", ""},
-                    new List<string>() { "", "reg", "", "", "reg", "verska", "fv", "verska", "reg", "reg", "reg", "info", "g2", "", "reg", "reg", "info","reg" ,"info", "", "fv", "", "", "", "info", "g1", "g1","g1" ,"reg", "", "reg/info", ""}
-                });
-                sreda = new(new List<List<string>>
-                {
-                    new List<string>() {"", "g3", "", "", "", "", "g3", "", "", "", "", "", "reg", "info", "", "", "", "", "verska/g4", "","", "", "", "verska/g4", "", "", "", "", "reg", "info", "reg", ""},
-                    new List<string>() {"reg", "fv", "reg", "n/f", "n/f", "reg", "reg", "n/f", "info", "info", "reg", "reg", "reg", "info", "reg", "reg", "info", "info", "reg", "reg","reg", "reg", "reg", "fv", "reg", "reg", "dreg", "reg", "", "info", "reg", "reg"},
-                    new List<string>() {"fv", "dreg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "info", "reg", "reg","reg" ,"info/hem", "reg", "reg","info", "info", "reg", "reg", "reg", "reg","fv", "reg", "reg", "reg", "dreg", "n/f", "n1/f/i/r", "reg", "n1/i/r", "reg"},
-                    new List<string>() {"reg", "dreg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "reg", "reg", "info/hem", "reg", "reg", "info", "info", "reg", "n/f","reg", "n/f/i/r", "reg", "n/f/i/r", "fv", "info", "reg", "reg/reg", "reg", "reg", "reg", "reg"},
-                    new List<string>() {"reg", "reg", "info", "fv", "reg", "reg", "reg", "reg", "reg", "info", "reg", "fv", "reg", "reg", "reg", "reg", "reg", "info", "dreg", "reg","reg","reg/hem", "reg", "reg", "info", "reg", "reg", "reg/reg", "reg", "n/f", "reg", "n/f"},
-                    new List<string>() {"dreg", "dreg", "info", "reg", "reg", "fv", "reg", "reg", "fv", "info", "reg", "reg", "reg/reg", "n/reg", "reg", "reg", "reg", "info", "dreg", "reg","reg", "hem/info", "reg", "", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg/reg"},
-                    new List<string>() { "dreg", "dreg", "reg", "info", "reg", "info", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "dreg", "info", "reg", "reg","fv", "reg", "", "", "reg", "reg", "reg", "verska", "fv", "", "reg", "reg"},
-                    new List<string>() { "reg", "verska", "", "info", "fv", "info", "verska", "", "reg", "", "reg", "reg", "fv", "", "g2", "reg", "dreg", "info", "reg", "","", "", "", "", "reg", "reg", "reg", "", "", "", "reg/info", ""}
-                });
-                cetvrtak = new(new List<List<string>>
-                {
-                    new List<string>() { "g3", "", "", "", "", "g3", "", "", "", "", "", "", "", "", "", "", "verksa/g4", "verska/g4", "", "reg","", "", "", "", "", "info", "reg", "", "", "reg", "", "reg"},
-                    new List<string>() { "reg", "reg", "fv", "", "info", "reg", "reg", "reg", "info","reg","g5", "verska", "reg", "g5", "reg", "reg", "fv", "reg", "reg", "reg/hem", "reg","", "reg", "", "reg", "info", "reg", "reg", "reg", "reg", "reg", "info/reg"},
-                    new List<string>() { "reg", "reg", "dreg", "reg", "info", "reg", "reg", "reg", "info","reg" ,"reg","hem/info", "reg", "reg", "reg", "reg", "dreg", "fv", "reg", "reg", "reg", "reg","reg", "reg", "reg", "info", "reg", "fv", "reg", "reg/reg", "reg", "reg"},
-                    new List<string>() { "reg", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "hem/info", "reg", "reg", "info", "reg", "dreg", "reg", "reg/reg", "reg","reg", "reg", "reg", "reg", "reg", "info", "fv", "reg", "reg/reg", "fv", "reg", "reg"},
-                    new List<string>() { "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "dreg", "reg/hem","reg", "reg/reg","fv", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg","reg", "reg/reg", "fv", "info", "reg", "reg", "reg/reg", "reg", "reg", "reg"},
-                    new List<string>() { "reg", "reg", "dreg", "reg", "reg", "reg", "fv", "reg", "info", "dreg", "reg/hem", "reg/reg", "reg", "reg", "reg", "info", "reg", "dreg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "fv", "reg", "reg", "reg"},
-                    new List<string>() {  "reg", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "fv", "reg/reg", "reg", "info", "info", "dreg", "hem/info", "","verska", "verska/g4", "reg", "reg", "reg", "info", "", "reg", "", "reg/reg", "", "reg"},
-                    new List<string>() {  "verska", "info", "reg", "info", "verska", "", "", "reg", "", "fv", "reg", "g2", "", "reg", "", "reg","reg", "reg", "hem/info", "", "","", "reg/reg","reg" ,"", "info", "", "", "", "reg", "", ""}
-                });
-                petak = new(new List<List<string>>
-                {
-                    new List<string>() { "", "", "", "", "", "", "", "g3", "verska", "", "", "", "verska", "", "reg", "", "", "", "", "","g1", "", "", "", "", "", "", "info", "", "", "", "reg"},
-                    new List<string>() {"info", "info", "reg", "reg", "info", "reg", "reg", "reg", "reg", "reg", "reg/reg", "reg", "reg", "reg", "reg", "reg", "info", "fv", "reg", "reg","reg", "reg", "reg", "reg", "reg", "", "", "info", "info", "reg", "", "reg"},
-                    new List<string>() {"info", "info", "reg", "reg", "info", "reg", "reg", "reg", "dreg", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "fv", "reg", "reg", "reg", "reg", "reg", "fv", "info", "reg", "reg/reg", "reg"},
-                    new List<string>() {"dreg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "dreg", "info", "dreg", "reg", "reg", "reg", "reg", "n/reg", "info", "dreg", "fv", "reg","hem/info", "reg", "reg", "reg", "dreg", "fv", "reg", "reg", "reg", "reg", "reg", "reg"},
-                    new List<string>() {"dreg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "info", "reg", "reg", "reg", "reg/reg", "reg", "fv", "info", "dreg", "dreg", "reg","reg/hem", "reg", "reg/info", "reg", "dreg", "reg", "reg", "reg", "reg", "reg", "reg", "fv"},
-                    new List<string>() {"reg", "info", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "fv", "dreg", "reg", "reg", "reg", "fv", "reg", "info", "reg", "dreg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg", "reg/info"},
-                    new List<string>() { "reg", "info", "reg", "reg", "reg", "reg", "reg", "", "reg", "reg", "dreg", "reg"/*?*/, "", "reg", "reg", "reg", "info", "reg", "reg", "reg","reg", "reg", "reg", "reg", "reg", "reg", "fv", "reg", "reg", "fv", "verska/g2", "verska/g1"},
-                    new List<string>() { "", "", "", "reg", "reg", "reg", "", "", "fv", "", "", "", "", "", "", "g2", "info", "reg", "", "","", "", "", "", "verska", "verska", "verska", "", "", "", "", ""}
-                });
+                zaUpisivanje[10] += ",,verska/g2,verska/g2,reg,,reg,,,,,,,,,,,,,,,,,,info,,reg,reg,,reg,reg,";
+                zaUpisivanje[11] += "info,reg,reg,reg,reg,reg,reg,,info,reg,reg/reg,fv,reg,,reg,reg,reg,info,dreg,reg,reg,reg,reg,reg,info,reg,reg,,info,reg,reg,reg";
+                zaUpisivanje[12] += "info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg/hem,reg,reg,info,dreg,reg,reg,reg,reg/reg,reg,info,dreg,reg,reg,info,reg,reg,reg";
+                zaUpisivanje[13] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,n1/f/reg,reg,n1/f/reg,reg/hem,fv,info,reg,reg,reg/info,reg,reg,reg,info,dreg,reg,reg,reg,reg,fv,reg";
+                zaUpisivanje[14] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg/reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg,reg/info,info,reg,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje[15] += "info,reg,reg/hem,reg,fv,reg,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,reg,reg/info,info,fv,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje[16] += "info,reg,reg/hem,reg,reg,fv,reg,reg,reg,info,reg,info,reg/reg,reg,reg,fv,info,reg,info,verska,reg,reg,verska,reg,info,reg,reg,reg,reg,reg,reg,";
+                zaUpisivanje[17] += ",reg,,,reg,verska,fv,verska,reg,reg,reg,info,g2,,reg,reg,info,reg ,info,,fv,,,,info,g1,g1,g1 ,reg,,reg/info,";
+
+                zaUpisivanje[18] += ",g3,,,,,g3,,,,,,reg,info,,,,,verska/g4,,,,,verska/g4,,,,,reg,info,reg,";
+                zaUpisivanje[19] += "reg,fv,reg,n/f,n/f,reg,reg,n/f,info,info,reg,reg,reg,info,reg,reg,info,info,reg,reg,reg,reg,reg,fv,reg,reg,dreg,reg,,info,reg,reg";
+                zaUpisivanje[20] += "fv,dreg,reg,reg,reg,reg,reg,reg,info,info,reg,reg,reg ,info/hem,reg,reg,info,info,reg,reg,reg,reg,fv,reg,reg,reg,dreg,n/f,n1/f/i/r,reg,n1/i/r,reg";
+                zaUpisivanje[21] += "reg,dreg,reg,reg,reg,reg,reg,fv,reg,info,reg,reg,reg,info/hem,reg,reg,info,info,reg,n/f,reg,n/f/i/r,reg,n/f/i/r,fv,info,reg,reg/reg,reg,reg,reg,reg";
+                zaUpisivanje[22] += "reg,reg,info,fv,reg,reg,reg,reg,reg,info,reg,fv,reg,reg,reg,reg,reg,info,dreg,reg,reg,reg/hem,reg,reg,info,reg,reg,reg/reg,reg,n/f,reg,n/f";
+                zaUpisivanje[23] += "dreg,dreg,info,reg,reg,fv,reg,reg,fv,info,reg,reg,reg/reg,n/reg,reg,reg,reg,info,dreg,reg,reg,hem/info,reg,,reg,reg,reg,reg,reg,,reg,reg/reg";
+                zaUpisivanje[24] += "dreg,dreg,reg,info,reg,info,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,dreg,info,reg,reg,fv,reg,,,reg,reg,reg,verska,fv,,reg,reg";
+                zaUpisivanje[25] += "reg,verska,,info,fv,info,verska,,reg,,reg,reg,fv,,g2,reg,dreg,info,reg,,,,,,reg,reg,reg,,,,reg/info,";
+
+                zaUpisivanje[26] += "g3,,,,,g3,,,,,,,,,,,verksa/g4,verska/g4,,reg,,,,,,info,reg,,,reg,,reg";
+                zaUpisivanje[27] += "reg,reg,fv,,info,reg,reg,reg,info,reg,g5,verska,reg,g5,reg,reg,fv,reg,reg,reg/hem,reg,,reg,,reg,info,reg,reg,reg,reg,reg,info/reg";
+                zaUpisivanje[28] += "reg,reg,dreg,reg,info,reg,reg,reg,info,reg ,reg,hem/info,reg,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg,reg,info,reg,fv,reg,reg/reg,reg,reg";
+                zaUpisivanje[29] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,hem/info,reg,reg,info,reg,dreg,reg,reg/reg,reg,reg,reg,reg,reg,reg,info,fv,reg,reg/reg,fv,reg,reg";
+                zaUpisivanje[30] += "reg,reg,reg,reg,reg,reg,reg,reg,info,dreg,reg/hem,reg,reg/reg,fv,info,reg,reg,reg,reg,reg,reg,reg,reg,reg/reg,fv,info,reg,reg,reg/reg,reg,reg,reg";
+                zaUpisivanje[31] += "reg,reg,dreg,reg,reg,reg,fv,reg,info,dreg,reg/hem,reg/reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg";
+                zaUpisivanje[32] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,fv,reg/reg,reg,info,info,dreg,hem/info,,verska,verska/g4,reg,reg,reg,info,,reg,,reg/reg,,reg";
+                zaUpisivanje[33] += "verska,info,reg,info,verska,,,reg,,fv,reg,g2,,reg,,reg,reg,reg,hem/info,,,,reg/reg,reg ,,info,,,,reg,,";
+
+
+                zaUpisivanje[34] += ",,,,,,,g3,verska,,,,verska,,reg,,,,,,g1,,,,,,,info,,,,reg";
+                zaUpisivanje[35] += "info,info,reg,reg,info,reg,reg,reg,reg,reg,reg/reg,reg,reg,reg,reg,reg,info,fv,reg,reg,reg,reg,reg,reg,reg,,,info,info,reg,,reg";
+                zaUpisivanje[36] += "info,info,reg,reg,info,reg,reg,reg,dreg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,reg,reg,fv,info,reg,reg/reg,reg";
+                zaUpisivanje[37] += "dreg,info,reg,reg,reg,reg,reg,reg,dreg,info,dreg,reg,reg,reg,reg,n/reg,info,dreg,fv,reg,hem/info,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg";
+                zaUpisivanje[38] += "dreg,info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,fv,info,dreg,dreg,reg,reg/hem,reg,reg/info,reg,dreg,reg,reg,reg,reg,reg,reg,fv";
+                zaUpisivanje[39] += "reg,info,reg,reg,reg,reg,reg,reg,reg,fv,dreg,reg,reg,reg,fv,reg,info,reg,dreg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg/info";
+                zaUpisivanje[40] += "reg,info,reg,reg,reg,reg,reg,,reg,reg,dreg,reg,,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg,reg,fv,verska/g2,verska/g1";
+                zaUpisivanje[41] += ",,,reg,reg,reg,,,fv,,,,,,,g2,info,reg,,,,,,,verska,verska,verska,,,,,";
+
                 using FileStream fs = File.Create(path);
-                File.WriteAllLines(path, zaUpisivanje);
+                File.WriteAllLines(path,zaUpisivanje);
 
             }
 
@@ -230,7 +218,7 @@ namespace Raspored_Ucionica
             OdeljenjeTextbox48.Text = brojeviUcionice[31];
 
         }
-        private void NazadOdeljenjeButton_Click(object sender, RoutedEventArgs e)
+        private void NazadOdeljenjeButton_Click(object sender,RoutedEventArgs e)
         {
             OdeljenjecheckboxLabel.Visibility = Visibility.Hidden;
             IzmeniOdeljenjeButton.Visibility = Visibility.Hidden;
@@ -306,7 +294,7 @@ namespace Raspored_Ucionica
             OdeljenjeLabel47.Visibility = Visibility.Hidden;
             OdeljenjeLabel48.Visibility = Visibility.Hidden;
         }
-        private void OdeljenjaButton_Click(object sender, RoutedEventArgs e)
+        private void OdeljenjaButton_Click(object sender,RoutedEventArgs e)
         {
 
             OdeljenjecheckboxLabel.Visibility = Visibility.Visible;
@@ -383,7 +371,7 @@ namespace Raspored_Ucionica
             OdeljenjeLabel47.Visibility = Visibility.Visible;
             OdeljenjeLabel48.Visibility = Visibility.Visible;
         }
-        private void NazadPocetnaButton_Click(object sender, RoutedEventArgs e)
+        private void NazadPocetnaButton_Click(object sender,RoutedEventArgs e)
         {
             NazadPocetnaButton.Visibility = Visibility.Hidden;
             checkboxLabel_Copy.Visibility = Visibility.Hidden;
@@ -433,7 +421,7 @@ namespace Raspored_Ucionica
             checked47.Visibility = Visibility.Hidden;
             checked48.Visibility = Visibility.Hidden;
         }
-        private void NapraviRasporedButton_Click(object sender, RoutedEventArgs e)
+        private void NapraviRasporedButton_Click(object sender,RoutedEventArgs e)
         {
             NazadPocetnaButton.Visibility = Visibility.Visible;
             checkboxLabel_Copy.Visibility = Visibility.Visible;
@@ -483,7 +471,7 @@ namespace Raspored_Ucionica
             checked47.Visibility = Visibility.Visible;
             checked48.Visibility = Visibility.Visible;
         }
-        private void NazadRasporedButton_Click(object sender, RoutedEventArgs e)
+        private void NazadRasporedButton_Click(object sender,RoutedEventArgs e)
         {
             NazadPocetnaButton.Visibility = Visibility.Visible;
             NazadRasporedButton.Visibility = Visibility.Hidden;
@@ -620,7 +608,7 @@ namespace Raspored_Ucionica
             textbox47.Visibility = Visibility.Hidden;
             textbox48.Visibility = Visibility.Hidden;
         }
-        private void lutajucaButton_Click(object sender, RoutedEventArgs e)
+        private void lutajucaButton_Click(object sender,RoutedEventArgs e)
         {
             NazadPocetnaButton.Visibility = Visibility.Hidden;
             NazadRasporedButton.Visibility = Visibility.Visible;
@@ -726,18 +714,18 @@ namespace Raspored_Ucionica
             textbox48.Visibility = Visibility.Visible;
         }
 
-        private void noviwindowButton_Click(object sender, RoutedEventArgs e)
+        private void noviwindowButton_Click(object sender,RoutedEventArgs e)
         {
             //try
             //{
-            viewModel.boxovi = new List<string>() {textbox11.Text, textbox12.Text, textbox13.Text, textbox14.Text,
-                textbox15.Text, textbox16.Text, textbox17.Text, textbox18.Text,
-                textbox21.Text, textbox22.Text, textbox23.Text, textbox24.Text,
-                textbox25.Text, textbox26.Text, textbox27.Text, textbox28.Text,
-                textbox31.Text, textbox32.Text, textbox33.Text, textbox34.Text,
-                textbox35.Text, textbox36.Text, textbox37.Text, textbox38.Text,
-                textbox41.Text, textbox42.Text, textbox43.Text, textbox44.Text,
-                textbox45.Text, textbox46.Text, textbox47.Text, textbox48.Text};
+            viewModel.boxovi = new List<string>() {textbox11.Text,textbox12.Text,textbox13.Text,textbox14.Text,
+                textbox15.Text,textbox16.Text,textbox17.Text,textbox18.Text,
+                textbox21.Text,textbox22.Text,textbox23.Text,textbox24.Text,
+                textbox25.Text,textbox26.Text,textbox27.Text,textbox28.Text,
+                textbox31.Text,textbox32.Text,textbox33.Text,textbox34.Text,
+                textbox35.Text,textbox36.Text,textbox37.Text,textbox38.Text,
+                textbox41.Text,textbox42.Text,textbox43.Text,textbox44.Text,
+                textbox45.Text,textbox46.Text,textbox47.Text,textbox48.Text};
             MainWindow mainWindow = new MainWindow(viewModel);
             mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             mainWindow.Show();
@@ -745,10 +733,10 @@ namespace Raspored_Ucionica
             /*}
             catch (Exception ex)
             {
-                MessageBox.Show("Doslo je do problema, proverite da li postoji resenje za odgovarajuci izbor lutajucih ucionica!\nGreska: " + ex.Message, "Greska!", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Doslo je do problema,proverite da li postoji resenje za odgovarajuci izbor lutajucih ucionica!\nGreska: " + ex.Message,"Greska!",MessageBoxButton.OK,MessageBoxImage.Error);
             }*/
         }
-        private void Checkovanje(object sender, RoutedEventArgs e)
+        private void Checkovanje(object sender,RoutedEventArgs e)
         {
             CheckBox? checkBox = sender! as CheckBox;
             switch (checkBox!.Name)
@@ -823,7 +811,7 @@ namespace Raspored_Ucionica
                     break;
             }
         }
-        private void UnCheckovanje(object sender, RoutedEventArgs e)
+        private void UnCheckovanje(object sender,RoutedEventArgs e)
         {
             CheckBox? checkBox = sender! as CheckBox;
             switch (checkBox!.Name)
@@ -901,10 +889,10 @@ namespace Raspored_Ucionica
 
         }
 
-        private void IzmeniOdeljenjeButton_Click(object sender, RoutedEventArgs e)
+        private void IzmeniOdeljenjeButton_Click(object sender,RoutedEventArgs e)
         {
             string[] brojeviUcionice = new string[32];
-            MessageBox.Show("Успешно сте изменили величину одељења!", "Зоки", MessageBoxButton.OK, MessageBoxImage.Asterisk, MessageBoxResult.OK);
+            MessageBox.Show("Успешно сте изменили величину одељења!","Зоки",MessageBoxButton.OK,MessageBoxImage.Asterisk,MessageBoxResult.OK);
 
             brojeviUcionice[0] = OdeljenjeTextbox11.Text;
             brojeviUcionice[1] = OdeljenjeTextbox12.Text;
@@ -939,7 +927,7 @@ namespace Raspored_Ucionica
             brojeviUcionice[30] = OdeljenjeTextbox47.Text;
             brojeviUcionice[31] = OdeljenjeTextbox48.Text;
 
-            File.WriteAllLines("BrojUcenikaUOdeljenjimaXLS.csv", brojeviUcionice);
+            File.WriteAllLines("BrojUcenikaUOdeljenjimaXLS.csv",brojeviUcionice);
             Odeljenje();
             OdeljenjecheckboxLabel.Visibility = Visibility.Hidden;
             IzmeniOdeljenjeButton.Visibility = Visibility.Hidden;
