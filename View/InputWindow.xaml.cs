@@ -84,52 +84,39 @@ namespace Raspored_Ucionica
             path = @"SlobodniKabineti.csv";
             if (!File.Exists(path))
             {
-                Kabineti? Kponedeljak, Kutorak, Ksreda, Kcetvrtak, Kpetak;
                 string zaUpisivanje = "";
-                zaUpisivanje += "I-1,I-1,I-2,I-2,III-2,III-2,III-2,III-2\n";
-                //zaUpisivanje += 
+                zaUpisivanje += "I-1,I-1,I-2,I-2,III-2,III-2,III-2,III-2\n";//22
+                zaUpisivanje += "true,I-8,I-8,I-7,I-7,II-3,II-3,I-1\n";//29
+				zaUpisivanje += "true,true,true,true,true,IV-3,IV-3,true\n"; //23a
+				zaUpisivanje += "IV-4,IV-4,III-4,III-4,II-5,II-5,II-5,II-5\n"; //Sremac
+				zaUpisivanje += "true,IV-6,IV-6,III-7,III-6,II-3,II-3,true\n"; //Multimedijalna(MM)
+                zaUpisivanje += "\n";
+				zaUpisivanje += "true,II-1,II-1,I-2,I-2,II-2,II-2,IV-7\n"; //22
+				zaUpisivanje += "true,III-2,III-2,III-2,III-1,III-1,III-1,III-1\n"; //29
+				zaUpisivanje += "true,I-1,I-1,I-1,I-1,I-1,I-1,true\n"; //23a
+				zaUpisivanje += "true,IV-5,IV-5,III-5,III-8,III-8,III-3,III-3\n"; //SremaC
+				zaUpisivanje += "true,true,I-1,I-1,I-1,I-1,II-4,II-4\n"; //Multimedijalna
+				zaUpisivanje += "\n";
+				zaUpisivanje += "true,II-1,II-1,IV-2,IV-1,III-6,I-4,I-4\n"; //22
+				zaUpisivanje += "true,III-1,III-1,III-1,I-3,I-3,I-6,I-6\n"; //29
+				zaUpisivanje += "IV-6,IV-6,II-2,II-2,II-2,II-2,true,true\n"; //23a
+				zaUpisivanje += "true,II-2,II-2,II-2,II-2,II-2,II-2,IV-7\n"; //Sremac
+				zaUpisivanje += "II-6,II-6,II-6,II-6,I-3,I-3,I-6,I-6\n"; //Multimedijalna
+				zaUpisivanje += "\n";
+				zaUpisivanje += "true,II-1,II-1,II-1,II-1,II-1,II-1,true\n"; //22
+				zaUpisivanje += "true,I-5,I-5,II-7,II-7,II-8,II-8,I-2\n"; //29
+				zaUpisivanje += "true,true,II-1,II-1,II-1,II-1,III-3,III-3\n"; //23a
+				zaUpisivanje += "true,true,true,II-7,II-7,II-8,II-8,true\n"; //Sremac
+				zaUpisivanje += "true,IV-8,II-4,II-4,true,true,I-4,I-4\n"; //Multimedijalna
+				zaUpisivanje += "\n";
+				zaUpisivanje += "true,I-5,I-5,III-5,III-7,IV-8,true,true\n"; //22
+				zaUpisivanje += "true,I-1,I-1,II-2,II-2,true,true,true\n"; //29
+				zaUpisivanje += "true,I-2,I-2,I-2,I-2,I-2,I-2,true\n"; //23a
+				zaUpisivanje += "true,IV-5,IV-5,true,true,true,true,true\n"; //Sremac
+				zaUpisivanje += "IV-4,IV-4,I-2,I-2,I-2,I-2,true,true\n"; //Multimedijalna
 
-                Kponedeljak = new(new List<List<string>> // optimizovao
-                {
-                    new List<string>() {}, //22
-                    new List<string>() {"true", "I-8", "I-8", "I-7", "I-7", "II-3", "II-3", "I-1"}, //29
-                    new List<string>() {"true", "true", "true", "true", "true", "IV-3", "IV-3", "true"}, //23a
-                    new List<string>() {"IV-4", "IV-4", "III-4", "III-4", "II-5", "II-5", "II-5", "II-5"}, //Sremac
-                    new List<string>() {"true", "IV-6", "IV-6", "III-7", "III-6", "II-3", "II-3", "true"}, //Multimedijalna(MM)
-                });
-                Kutorak = new(new List<List<string>> // optimizovao
-                {
-                    new List<string>() {"true", "II-1", "II-1", "I-2", "I-2", "II-2", "II-2", "IV-7"}, //22
-                    new List<string>() {"true", "III-2", "III-2", "III-2", "III-1", "III-1", "III-1", "III-1"}, //29
-                    new List<string>() {"true", "I-1", "I-1", "I-1", "I-1", "I-1", "I-1", "true"}, //23a
-                    new List<string>() {"true", "IV-5", "IV-5", "III-5", "III-8", "III-8", "III-3", "III-3"}, //SremaC
-                    new List<string>() {"true", "true", "I-1", "I-1", "I-1", "I-1", "II-4", "II-4"}, //Multimedijalna
-                });
-                Ksreda = new(new List<List<string>> // optimizovao
-                {
-                    new List<string>() {"true", "II-1","II-1", "IV-2", "IV-1", "III-6", "I-4", "I-4"}, //22
-                    new List<string>() {"true", "III-1", "III-1", "III-1", "I-3", "I-3", "I-6", "I-6"}, //29
-                    new List<string>() {"IV-6", "IV-6", "II-2", "II-2", "II-2", "II-2", "true", "true"}, //23a
-                    new List<string>() {"true", "II-2", "II-2", "II-2", "II-2", "II-2", "II-2", "IV-7"}, //Sremac
-                    new List<string>() {"II-6", "II-6", "II-6", "II-6", "I-3", "I-3", "I-6", "I-6"}, //Multimedijalna
-                });
-                Kcetvrtak = new(new List<List<string>> // optimizovao
-                {
-                    new List<string>() {"true", "II-1", "II-1", "II-1", "II-1", "II-1", "II-1", "true"}, //22
-                    new List<string>() {"true", "I-5", "I-5", "II-7", "II-7", "II-8", "II-8", "I-2"}, //29
-                    new List<string>() {"true", "true", "II-1", "II-1", "II-1", "II-1", "III-3", "III-3"}, //23a
-                    new List<string>() { "true", "true", "true", "II-7", "II-7", "II-8", "II-8", "true"}, //Sremac
-                    new List<string>() {"true", "IV-8", "II-4", "II-4", "true", "true", "I-4", "I-4"}, //Multimedijalna
-                });
-                Kpetak = new(new List<List<string>> // optimizovao
-                {
-                    new List<string>() {"true", "I-5", "I-5", "III-5", "III-7", "IV-8", "true", "true"}, //22
-                    new List<string>() {"true", "I-1", "I-1", "II-2", "II-2", "true", "true", "true"}, //29
-                    new List<string>() {"true", "I-2", "I-2", "I-2", "I-2", "I-2", "I-2", "true"}, //23a
-                    new List<string>() { "true", "IV-5", "IV-5", "true", "true", "true", "true", "true"}, //Sremac
-                    new List<string>() {"IV-4", "IV-4", "I-2", "I-2", "I-2", "I-2", "true", "true"}, //Multimedijalna
-                });
-                for (int i = 0; i < 10; i++)
+
+				for (int i = 0; i < 10; i++)
                 {
 
                 }
