@@ -84,11 +84,11 @@ namespace Raspored_Ucionica
             path = @"SlobodniKabineti.csv";
             if (!File.Exists(path))
             {
-                string zaUpisivanje = "";
+                string[] zaUpisivanje = new string[30];
                 // Ponedeljak
-                zaUpisivanje += "I-1,I-1,I-2,I-2,III-2,III-2,III-2,III-2\n";//22
-                zaUpisivanje += "true,I-8,I-8,I-7,I-7,II-3,II-3,I-1\n";//29
-				zaUpisivanje += "true,true,true,true,true,IV-3,IV-3,true\n"; //23a
+                zaUpisivanje[0] += "I-1,I-1,I-2,I-2,III-2,III-2,III-2,III-2\n";//22
+                zaUpisivanje[1] += "true,I-8,I-8,I-7,I-7,II-3,II-3,I-1\n";//29
+                zaUpisivanje[2] += "true,true,true,true,true,IV-3,IV-3,true\n"; //23a
 				zaUpisivanje += "IV-4,IV-4,III-4,III-4,II-5,II-5,II-5,II-5\n"; //Sremac
 				zaUpisivanje += "true,IV-6,IV-6,III-7,III-6,II-3,II-3,true\n"; //Multimedijalna(MM)
                 zaUpisivanje += "\n";
@@ -120,15 +120,23 @@ namespace Raspored_Ucionica
 				zaUpisivanje += "true,IV-5,IV-5,true,true,true,true,true\n"; //Sremac
 				zaUpisivanje += "IV-4,IV-4,I-2,I-2,I-2,I-2,true,true\n"; //Multimedijalna
 
-
-				for (int i = 0; i < 10; i++)
-                {
-
-                }
                 using FileStream fs = File.Create(path);
-                File.WriteAllLines(path, brojeviUcionice);
+                File.WriteAllLines(path, zaUpisivanje);
 
             }
+
+            // za excel raspored
+            path = @"RasporedCasova.csv";
+            if (!File.Exists(path))
+            {
+                string[] zaUpisivanje = new string[30];
+
+                using FileStream fs = File.Create(path);
+                File.WriteAllLines(path, zaUpisivanje);
+
+            }
+
+
 
             OdeljenjeTextbox11.Text = brojeviUcionice[0];
             OdeljenjeTextbox12.Text = brojeviUcionice[1];
