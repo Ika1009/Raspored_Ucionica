@@ -194,8 +194,8 @@
         <Button x:Name="NazadRasporedButton" Background="OldLace" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadRasporedButton_Click"/>
         <Button x:Name="NazadOdeljenjeButton" Background="OldLace" Visibility="Hidden" Content="Назад" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="31" Width="44" Click="NazadOdeljenjeButton_Click"/>
         <Button x:Name="IzmeniOdeljenjeButton" Background="OldLace" Content="Измени" Visibility="Hidden"  HorizontalAlignment="Left" Height="28" Margin="345,577,0,0" VerticalAlignment="Top" Width="126" Click="IzmeniOdeljenjeButton_Click"/>
-        <Button x:Name="UcitajRasporedButton" Background="OldLace"  Content="Учитај Распоред" HorizontalAlignment="Center" Height="66" Margin="0,468,0,0" VerticalAlignment="Top" Width="213" FontSize="20" Click="UcitajRasporedButton_Click" />
-        <Button x:Name="UcitajKabineteButton" Background="OldLace"  Content="Учитај инф. Кабинете" HorizontalAlignment="Center" Height="66" Margin="0,550,0,0" VerticalAlignment="Top" Width="213" FontSize="20" Click="UcitajKabineteButton_Click" />
+        <Button x:Name="UcitajRasporedButton" Background="OldLace"  Content="Учитај Распоред" HorizontalAlignment="Center" Height="66" Margin="0,468,0,0" VerticalAlignment="Top" Width="213" FontSize="20" Click="UcitajRasporedButton_Click"/>
+        <Button x:Name="UcitajKabineteButton" Background="OldLace"  Content="Учитај инф. Кабинете" HorizontalAlignment="Center" Height="66" Margin="0,550,0,0" VerticalAlignment="Top" Width="213" FontSize="20" Click="UcitajKabineteButton_Click"/>
 
     </Grid>
 </Window>

@@ -429,6 +429,7 @@ namespace Raspored_Ucionica
         }
         private void NapraviRasporedButton_Click(object sender,RoutedEventArgs e)
         {
+            Odeljenje();
 			UcitajKabineteButton.Visibility = Visibility.Hidden;
 			UcitajRasporedButton.Visibility = Visibility.Hidden;
 			NazadPocetnaButton.Visibility = Visibility.Visible;
@@ -726,6 +727,7 @@ namespace Raspored_Ucionica
         {
             //try
             //{
+            Odeljenje();
             viewModel.boxovi = new List<string>() {textbox11.Text,textbox12.Text,textbox13.Text,textbox14.Text,
                 textbox15.Text,textbox16.Text,textbox17.Text,textbox18.Text,
                 textbox21.Text,textbox22.Text,textbox23.Text,textbox24.Text,
