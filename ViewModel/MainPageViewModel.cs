@@ -654,8 +654,8 @@ namespace Raspored_Ucionica.ViewModel
                         switch (k)
                         {
                             case 0: ispis = "22"; break;
-                            case 1: ispis = "23a"; break;
-                            case 2: ispis = "29"; break;
+                            case 1: ispis = "29"; break;
+                            case 2: ispis = "23a"; break;
                             case 3: ispis = "Sremac"; break;
                             case 4: ispis = "Multim."; break;
                         }
