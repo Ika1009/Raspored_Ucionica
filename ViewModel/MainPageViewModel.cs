@@ -937,7 +937,7 @@ namespace Raspored_Ucionica.ViewModel
                             imeUcioniceZaGradjansko3 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                             g3Ima = true;
                         }
-                        SpajanjeOdeljenja("g3", imeUcioniceZaGradjansko3, i, i);
+                        SpajanjeOdeljenja("g3", imeUcioniceZaGradjansko3, i, j);
                     }
                     else if (dan!.RasporedCasova[i][j] == "g4")
                     {
