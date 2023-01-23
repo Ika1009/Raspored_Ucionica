@@ -83,7 +83,7 @@ namespace Raspored_Ucionica
 
 
             // za excel kabineta
-            path = @"SlobodniKabinetiXLS.csv";
+            path = @"SlobodniKabinetiCSV.csv";
             if (!File.Exists(path))
             {
                 string[] zaUpisivanje = new string[30];
@@ -127,7 +127,7 @@ namespace Raspored_Ucionica
             }
 
             // za excel raspored
-            string path1 = @"RasporedCasova.csv";
+            string path1 = @"RasporedCasovaCSV.csv";
             if (!File.Exists(path1))
             {
                 string[] zaUpisivanje1 = new string[40];

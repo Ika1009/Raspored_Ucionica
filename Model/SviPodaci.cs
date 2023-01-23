@@ -16,7 +16,7 @@ namespace Raspored_Ucionica.Model
         public SviPodaci()
         {
             //Zauzetost kabineta
-            string path = @"SlobodniKabinetiXLS.csv";
+            string path = @"SlobodniKabinetiCSV.csv";
             string[] procitano = File.ReadAllLines(path);
 
             string[] split0 = procitano[0].Split(",");
@@ -90,7 +90,7 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
             });
 
-			string path1 = @"RasporedCasova.csv";
+			string path1 = @"RasporedCasovaCSV.csv";
 			procitano = File.ReadAllLines(path1);
 
 			split0 = procitano[0].Split(",");
