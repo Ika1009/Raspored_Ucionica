@@ -170,7 +170,7 @@ namespace Raspored_Ucionica
                            
                             
                 zaUpisivanje1[32] += ",,,,,,,g3,verska,,,,verska,,reg,,,,,,g1,,,,,,,info,,,,reg";
-                zaUpisivanje1[33] += "info,info,reg,reg,info,reg,reg,reg,reg,reg,reg/reg,reg,reg,reg,reg,reg,info,fv,reg,reg,reg,reg,reg,reg,reg,,,info,info,reg,,reg";
+                zaUpisivanje1[33] += "info,info,reg,reg,info,reg,reg,reg,reg,reg,reg/reg,reg,reg,reg,reg,reg,info,fv,reg,reg,reg,reg,reg,reg,reg,reg,,info,info,reg,,reg";
                 zaUpisivanje1[34] += "info,info,reg,reg,info,reg,reg,reg,dreg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,reg,reg,fv,info,reg,reg/reg,reg";
                 zaUpisivanje1[35] += "dreg,info,reg,reg,reg,reg,reg,reg,dreg,info,dreg,reg,reg,reg,reg,n/reg,info,dreg,fv,reg,hem/info,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg";
                 zaUpisivanje1[36] += "dreg,info,reg,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,fv,info,dreg,dreg,reg,reg/hem,reg,reg/info,reg,dreg,reg,reg,reg,reg,reg,reg,fv";
