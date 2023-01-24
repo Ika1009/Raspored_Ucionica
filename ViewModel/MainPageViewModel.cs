@@ -612,7 +612,7 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == lista_odeljenja[odeljenje].Id_ucionice);
                                 
-                                if (!((dan == utorak && ucionica == ucionica1) || (dan == utorak && ucionica == ucionica1)))
+                                if (!((dan == utorak && ucionica == ucionica1) || (dan == cetvrtak && ucionica == ucionica2)))
                                 {
                                     ZaLutajuca[Dan][cas] += ucionica.Ime_ucionice + ",";
                                 }
