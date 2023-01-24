@@ -305,63 +305,124 @@ namespace Raspored_Ucionica.ViewModel
                 Ucionica? slobodna = lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna && ucionica.Tip is null && ucionica.Ime_ucionice != "8" && ucionica.Ime_ucionice != "7" && ucionica.Ime_ucionice != "svecana sala");
                 //Prvo proverava da li je odeljenje lutajuće
                 //(funkcija se koristi i za grupe)
-                if (lista_odeljenja[j].Id_ucionice == null)
+                Odeljenje odeljenje = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-1");
+                Ucionica ucionica1 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje.Id_ucionice);
+                odeljenje = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-2");
+                Ucionica ucionica2 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje.Id_ucionice);
+                if ((dan == utorak || dan == cetvrtak) && j == 17)
                 {
-                    int Dan = 0;
-                    if (dan == ponedeljak)
-                        Dan = 0;
-                    else if (dan == utorak)
-                        Dan = 1;
-                    else if (dan == sreda)
-                        Dan = 2;
-                    else if (dan == cetvrtak)
-                        Dan = 3;
+                    if(dan == utorak)
+                    {
+                        rezultati[i][j] = ucionica1.Ime_ucionice;
+                    }
                     else
-                        Dan = 4;
-                    //Prenos predstavlja sve učionice koje se mogu dati lutajućima
-                    var prenos = ZaLutajuca[Dan][i].Split(',');
-                    int duzina = ZaLutajuca[Dan][i].Count(x => x == ',');
-                    string Ucionica;
-                    Ucionica trazena = null; //učionica koju je odeljenje već koristilo
-                    Ucionica Slobodna = null; //slobodna koja ne dira tražene učionice drugih
-                    Ucionica Slobodna2 = null; //slobodna koja dira učionicu drugog, ali drugog izbora nema
-                    for (int p = 0; p < duzina; p++)
                     {
-                        Ucionica = prenos[p];
-                        Ucionica ucionica = lista_ucionica.FirstOrDefault(ucionica => ucionica.Ime_ucionice == Ucionica);
-                        if (ucionica.Slobodna == true && (i != 0 && rezultati[i][j] == ucionica.Ime_ucionice))
-                        {
-                            trazena = ucionica;
-                            int indeks = Lutajuca.ToList().IndexOf(j.ToString()) + 6;
-                            Lutajuca[indeks] = trazena.Ime_ucionice;
-                            break;
-                        }
-                        else if (ucionica.Slobodna == true && (Lutajuca.ToList().LastIndexOf(j.ToString()) < 6))
-                        {
-                            Slobodna = ucionica;
-                        }
-                        else if (ucionica.Slobodna == true)
-                        {
-                            Slobodna2 = ucionica;
-                        }
+                        rezultati[i][j] = ucionica2.Ime_ucionice;
                     }
+                }
+                else
+                {
+                    if (lista_odeljenja[j].Id_ucionice == null)
+                    {
+                        int Dan = 0;
+                        if (dan == ponedeljak)
+                            Dan = 0;
+                        else if (dan == utorak)
+                            Dan = 1;
+                        else if (dan == sreda)
+                            Dan = 2;
+                        else if (dan == cetvrtak)
+                            Dan = 3;
+                        else
+                            Dan = 4;
+                        //Prenos predstavlja sve učionice koje se mogu dati lutajućima
+                        var prenos = ZaLutajuca[Dan][i].Split(',');
+                        int duzina = ZaLutajuca[Dan][i].Count(x => x == ',');
+                        string Ucionica;
+                        Ucionica trazena = null; //učionica koju je odeljenje već koristilo
+                        Ucionica Slobodna = null; //slobodna koja ne dira tražene učionice drugih
+                        Ucionica Slobodna2 = null; //slobodna koja dira učionicu drugog, ali drugog izbora nema
+                        for (int p = 0; p < duzina; p++)
+                        {
+                            Ucionica = prenos[p];
+                            Ucionica ucionica = lista_ucionica.FirstOrDefault(ucionica => ucionica.Ime_ucionice == Ucionica);
+                            if (ucionica.Slobodna == true && (i != 0 && rezultati[i][j] == ucionica.Ime_ucionice))
+                            {
+                                trazena = ucionica;
+                                int indeks = Lutajuca.ToList().IndexOf(j.ToString()) + 6;
+                                Lutajuca[indeks] = trazena.Ime_ucionice;
+                                break;
+                            }
+                            else if (ucionica.Slobodna == true && (Lutajuca.ToList().LastIndexOf(j.ToString()) < 6))
+                            {
+                                Slobodna = ucionica;
+                            }
+                            else if (ucionica.Slobodna == true)
+                            {
+                                Slobodna2 = ucionica;
+                            }
+                        }
 
-                    //Dodeljivanje - tamo gde je moguće
-                    //Ako nije, idemo kroz sve slobodne (cena: nećemo ostati u istoj učionici)
-                    if (trazena != null)
-                    {
-                        rezultati[i][j] += trazena.Ime_ucionice + "/";
-                        trazena.Slobodna = false;
-                    }
-                    else if (Slobodna != null)
-                    {
-                        rezultati[i][j] += Slobodna.Ime_ucionice + "/";
-                        Slobodna.Slobodna = false;
-                    }
-                    else if (Slobodna2 != null)
-                    {
-                        rezultati[i][j] += Slobodna2.Ime_ucionice + "/";
-                        Slobodna2.Slobodna = false;
+                        //Dodeljivanje - tamo gde je moguće
+                        //Ako nije, idemo kroz sve slobodne (cena: nećemo ostati u istoj učionici)
+                        if (trazena != null)
+                        {
+                            rezultati[i][j] += trazena.Ime_ucionice + "/";
+                            trazena.Slobodna = false;
+                        }
+                        else if (Slobodna != null)
+                        {
+                            rezultati[i][j] += Slobodna.Ime_ucionice + "/";
+                            Slobodna.Slobodna = false;
+                        }
+                        else if (Slobodna2 != null)
+                        {
+                            rezultati[i][j] += Slobodna2.Ime_ucionice + "/";
+                            Slobodna2.Slobodna = false;
+                        }
+                        else
+                        {
+                            if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null) is null)
+                            {
+                                for (int k = 0; k < 5; k++)
+                                {
+                                    string a = "";
+                                    if (Kdan.RasporedKabineta[k][i] == "true")
+                                    {
+                                        switch (k)
+                                        {
+                                            case 0: a = "22"; break;
+                                            case 1: a = "29"; break;
+                                            case 2: a = "23a"; break;
+                                            case 3: a = "Sremac"; break;
+                                            case 4: a = "Multimedijalna"; break;
+                                        }
+                                        rezultati[i][j] += a + "/";
+                                        Kdan.RasporedKabineta[k][i] = "false";
+                                        break;
+                                    }
+                                }
+                            }
+                            //Funkcija za korišćenje osmice
+                            else if (slobodna is not null)
+                            {
+                                rezultati[i][j] += slobodna.Ime_ucionice + "/";
+                                slobodna.Slobodna = false;
+                            }
+                            else if (lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica != ucionica1 && ucionica != ucionica2&&ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3)) is not null)
+                            {
+                                slobodna = lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica != ucionica1 && ucionica != ucionica2 && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
+                                // i ovaj else if promenio zbog optimizacije - Ilija Jedan Jedini 
+                                rezultati[i][j] += slobodna.Ime_ucionice + "/";
+                                slobodna.Slobodna = false;
+                            }
+                            else
+                            {
+                                slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
+                                rezultati[i][j] += slobodna.Ime_ucionice + "/";
+                                slobodna.Slobodna = false;
+                            }
+                        }
                     }
                     else
                     {
@@ -386,15 +447,14 @@ namespace Raspored_Ucionica.ViewModel
                                 }
                             }
                         }
-                        //Funkcija za korišćenje osmice
                         else if (slobodna is not null)
                         {
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
                             slobodna.Slobodna = false;
                         }
-                        else if (lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3)) is not null)
+                        else if (lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica != ucionica1 && ucionica != ucionica2 && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3)) is not null)
                         {
-                            slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
+                            slobodna = lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica != ucionica1 && ucionica != ucionica2 && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
                             // i ovaj else if promenio zbog optimizacije - Ilija Jedan Jedini 
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
                             slobodna.Slobodna = false;
@@ -405,52 +465,10 @@ namespace Raspored_Ucionica.ViewModel
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
                             slobodna.Slobodna = false;
                         }
-                    }
-                }
-                else
-                {
-                    if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null) is null)
-                    {
-                        for (int k = 0; k < 5; k++)
-                        {
-                            string a = "";
-                            if (Kdan.RasporedKabineta[k][i] == "true")
-                            {
-                                switch (k)
-                                {
-                                    case 0: a = "22"; break;
-                                    case 1: a = "29"; break;
-                                    case 2: a = "23a"; break;
-                                    case 3: a = "Sremac"; break;
-                                    case 4: a = "Multimedijalna"; break;
-                                }
-                                rezultati[i][j] += a + "/";
-                                Kdan.RasporedKabineta[k][i] = "false";
-                                break;
-                            }
-                        }
-                    }
-                    //Funkcija za korišćenje osmice
-                    else if (slobodna is not null)
-                    {
-                        rezultati[i][j] += slobodna.Ime_ucionice + "/";
-                        slobodna.Slobodna = false;
-                    }
-                    else if (lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3)) is not null)
-                    {
-                        slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
-                        // i ovaj else if promenio zbog optimizacije - Ilija Jedan Jedini 
-                        rezultati[i][j] += slobodna.Ime_ucionice + "/";
-                        slobodna.Slobodna = false;
-                    }
-                    else
-                    {
-                        slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
-                        rezultati[i][j] += slobodna.Ime_ucionice + "/";
-                        slobodna.Slobodna = false;
-                    }
 
+                    }
                 }
+                
             }
             void Gradjansko(string imeCasa, ref bool imanjeCasa, ref string imeUcioniceZaGradjansko, int i, int j)
             {
@@ -578,6 +596,10 @@ namespace Raspored_Ucionica.ViewModel
                 else
                     Dan = 4;
                 //Prolazak kroz raspored za svaki dan
+                Odeljenje odeljenje2 = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-1");
+                Ucionica ucionica1 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje2.Id_ucionice);
+                odeljenje2 = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-2");
+                Ucionica ucionica2 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje2.Id_ucionice);
                 for (int cas = 0; cas < 8; cas++)
                 {
                     for (int odeljenje = 0; odeljenje < 32; odeljenje++)
@@ -589,7 +611,12 @@ namespace Raspored_Ucionica.ViewModel
                             if (lista_odeljenja[odeljenje].Id_ucionice != null)
                             {
                                 Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == lista_odeljenja[odeljenje].Id_ucionice);
-                                ZaLutajuca[Dan][cas] += ucionica.Ime_ucionice + ",";
+                                
+                                if (!((dan == utorak && ucionica == ucionica1) || (dan == utorak && ucionica == ucionica1)))
+                                {
+                                    ZaLutajuca[Dan][cas] += ucionica.Ime_ucionice + ",";
+                                }
+                                
                             }
                         }
                     }
