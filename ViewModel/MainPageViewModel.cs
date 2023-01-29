@@ -399,7 +399,14 @@ namespace Raspored_Ucionica.ViewModel
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
                             slobodna.Slobodna = false;
                         }
-                        else
+						else if (lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "6" && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4") is not null)
+						{
+							slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "6" && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
+							// i ovaj else if promenio zbog optimizacije - Ilija Jedan Jedini 
+							rezultati[i][j] += slobodna.Ime_ucionice + "/";
+							slobodna.Slobodna = false;
+						}
+						else
                         {
                             slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
@@ -409,7 +416,7 @@ namespace Raspored_Ucionica.ViewModel
                 }
                 else
                 {
-                    if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null) is null)
+                    if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala") is null)
                     {
                         for (int k = 0; k < 5; k++)
                         {
@@ -443,9 +450,16 @@ namespace Raspored_Ucionica.ViewModel
                         rezultati[i][j] += slobodna.Ime_ucionice + "/";
                         slobodna.Slobodna = false;
                     }
-                    else
+					else if (lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "6" && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4") is not null)
+					{
+						slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "6" && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
+						// i ovaj else if promenio zbog optimizacije - Ilija Jedan Jedini 
+						rezultati[i][j] += slobodna.Ime_ucionice + "/";
+						slobodna.Slobodna = false;
+					}
+					else
                     {
-                        slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
+						slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
                         rezultati[i][j] += slobodna.Ime_ucionice + "/";
                         slobodna.Slobodna = false;
                     }
@@ -773,8 +787,201 @@ namespace Raspored_Ucionica.ViewModel
                 {
                     NadjiCos();
                 }
-                for (var j = 0; j < 32; j++)
+				for (var j = 17; j < 18; j++)
+				{
+					//lista_ucionica!.Last().Slobodna = true;
+					if (dan!.RasporedCasova[i][j] == "reg" || dan!.RasporedCasova[i][j] == "dreg")
+					{
+						// Da se doda kod za 3-2 da ne stavlja u 8
+						DrziOdeljenje(i, j);
+					}
+					else if (dan!.RasporedCasova[i][j] == "info")
+						DodeliKabinet(i, j);
+					else if (dan!.RasporedCasova[i][j] == "fv")
+						rezultati[i][j] = "fv";
+					else if (dan.RasporedCasova[i][j] == "verska")
+						SpajanjeOdeljenja(dan.RasporedCasova[i][j], "biblioteka", i, j);
+					else if (dan!.RasporedCasova[i][j].Contains('/'))
+					{
+
+						rezultati[i][j] = "";
+						string cas = dan!.RasporedCasova[i][j];
+						int brojac = cas.Count(c => c == '/');
+						bool provera = false;
+						for (int c = 0; c <= brojac; c++)
+						{
+							string trenutno = cas.Split("/")[c];
+							Ucionica biblioteka = lista_ucionica!.First(ucionica => ucionica.Ime_ucionice == "biblioteka");
+							if (trenutno == "hem")
+							{
+								if (string.IsNullOrEmpty(rezultati[i][j]))
+									rezultati[i][j] = "hemk";
+								else
+									rezultati[i][j] += "/hemk";
+							}
+
+							else if (trenutno == "reg" || trenutno == "dreg" || trenutno == "n")
+							{
+								if (provera) // provara da li je vec uso ovde
+									DrziLutajuce(i, j);
+								else
+								{
+									DrziOdeljenje(i, j);
+									provera = true;
+								}
+							}
+							else if (trenutno == "info")
+							{
+								DodeliKabinet(i, j);
+							}
+							else if (trenutno == "verska")
+                            {
+								rezultati[i][j] += "/biblioteka" + "/";
+                                biblioteka.Slobodna = false;
+							} 
+							else if (trenutno == "g1")
+								Gradjansko("g1", ref g1Ima, ref imeUcioniceZaGradjansko1, i, j);
+							else if (trenutno == "g2")
+								Gradjansko("g2", ref g2Ima, ref imeUcioniceZaGradjansko2, i, j);
+							else if (trenutno == "g3")
+								Gradjansko("g3", ref g3Ima, ref imeUcioniceZaGradjansko3, i, j);
+							else if (trenutno == "g4")
+								Gradjansko("g4", ref g4Ima, ref imeUcioniceZaGradjansko4, i, j);
+							else if (trenutno == "g5")
+								Gradjansko("g5", ref g5Ima, ref imeUcioniceZaGradjansko5, i, j);
+							else if (trenutno == "n1")
+								Nemacki("n1", ref n1Ima, ref imeUcioniceZaNemacki1, i, j);
+							else if (trenutno == "i")
+							{
+								if (jezicka1.Slobodna)
+								{
+									rezultati[i][j] += "/6/";
+									jezicka1.Slobodna = false;
+									imanjeCasaItalijanski = true;
+									imeUcioniceZaItalijanski = "6";
+								}
+								else
+								{
+									if (!imanjeCasaItalijanski)
+									{
+										imeUcioniceZaItalijanski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+										imanjeCasaItalijanski = true;
+									}
+									SpajanjeOdeljenja("i", imeUcioniceZaItalijanski, i, j);
+								}
+
+							}
+							else if (trenutno == "f")
+							{
+								if (jezicka2.Slobodna && rand % 2 == 0) // random nekad upadne nekad ovde nekad za biblioteku
+								{
+									rezultati[i][j] += "/7/";
+									jezicka2.Slobodna = false;
+									imanjeCasaFrancuski = true;
+									imeUcioniceZaFrancuski = "7";
+								}
+								else if (biblioteka.Slobodna && rand % 2 == 1 && !imanjeCasaFrancuski)
+								{
+									rezultati[i][j] += "/biblioteka/";
+									biblioteka.Slobodna = false;
+									imanjeCasaFrancuski = true;
+									imeUcioniceZaFrancuski = "biblioteka";
+								}
+								else
+								{
+									if (!imanjeCasaFrancuski)
+									{
+										imeUcioniceZaFrancuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+										imanjeCasaFrancuski = true;
+									}
+									SpajanjeOdeljenja("f", imeUcioniceZaFrancuski, i, j);
+								}
+							}
+							else if (trenutno == "r")
+							{
+								if (biblioteka.Slobodna && rand % 2 == 0) // random nekad upadne ovde nekad dole za 6
+								{
+									rezultati[i][j] += "/biblioteka/";
+									biblioteka.Slobodna = false;
+									imanjeCasaRuski = true;
+									imeUcioniceZaRuski = "biblioteka";
+								}
+								else if (jezicka2.Slobodna && rand % 2 == 1 && !imanjeCasaRuski)
+								{
+									rezultati[i][j] += "/7/";
+									jezicka2.Slobodna = false;
+									imanjeCasaRuski = true;
+									imeUcioniceZaRuski = "7";
+								}
+								else
+								{
+									if (!imanjeCasaRuski)
+									{
+										imeUcioniceZaRuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+										imanjeCasaRuski = true;
+									}
+									SpajanjeOdeljenja("r", imeUcioniceZaRuski, i, j);
+								}
+							}
+
+						}
+
+					}
+
+					else if (dan!.RasporedCasova[i][j] == "g1")
+					{
+						if (!g1Ima)
+						{
+							imeUcioniceZaGradjansko1 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
+							g1Ima = true;
+						}
+						SpajanjeOdeljenja("g1", imeUcioniceZaGradjansko1, i, j);
+
+					}
+					else if (dan!.RasporedCasova[i][j] == "g2")
+					{
+						if (!g2Ima)
+						{
+							imeUcioniceZaGradjansko2 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
+							g2Ima = true;
+						}
+						SpajanjeOdeljenja("g2", imeUcioniceZaGradjansko2, i, j);
+					}
+					else if (dan!.RasporedCasova[i][j] == "g3")
+					{
+						if (!g3Ima)
+						{
+							imeUcioniceZaGradjansko3 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
+							g3Ima = true;
+						}
+						SpajanjeOdeljenja("g3", imeUcioniceZaGradjansko3, i, j);
+					}
+					else if (dan!.RasporedCasova[i][j] == "g4")
+					{
+						if (!g4Ima)
+						{
+							imeUcioniceZaGradjansko4 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
+							g4Ima = true;
+						}
+						SpajanjeOdeljenja("g4", imeUcioniceZaGradjansko4, i, j);
+					}
+					else if (dan!.RasporedCasova[i][j] == "g5")
+					{
+						if (!g5Ima)
+						{
+							imeUcioniceZaGradjansko5 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
+							g5Ima = true;
+						}
+						SpajanjeOdeljenja("g5", imeUcioniceZaGradjansko5, i, j);
+					}
+					else
+						rezultati[i][j] = ".";
+
+				}
+				for (var j = 0; j < 32; j++)
                 {
+                    if (j == 17)
+                        continue;
                     //lista_ucionica!.Last().Slobodna = true;
                     if (dan!.RasporedCasova[i][j] == "reg" || dan!.RasporedCasova[i][j] == "dreg")
                     {
@@ -820,8 +1027,11 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 DodeliKabinet(i, j);
                             }
-                            else if (trenutno == "/verska") // ne zauzme se biblioteka
-                                rezultati[i][j] += "/bibl" + "/";
+                            else if (trenutno == "verska")
+                            {
+								rezultati[i][j] += "biblioteka/";
+                                biblioteka.Slobodna = false;
+							}
                             else if (trenutno == "g1")
                                 Gradjansko("g1", ref g1Ima, ref imeUcioniceZaGradjansko1, i, j);
                             else if (trenutno == "g2")
