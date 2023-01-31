@@ -38,8 +38,8 @@
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="270" HorizontalAlignment="Left" Margin="838,1282,0,0" Name="d3" VerticalAlignment="Top" Width="500" FontSize="18" />
 
 
-            <Label  Content="Заузетост св. сале" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="96,2006,0,0"/>
-            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Name="rezultatiSv" VerticalAlignment="Top" Width="auto" Margin="38,2062,0,0" FontSize="19" />
+            <Label  Content="Заузетост св. сале" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="186" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="91,1922,0,0"/>
+            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" Name="rezultatiSv" VerticalAlignment="Top" Width="auto" Margin="38,1956,0,0" FontSize="19" />
             <Label  Content="Слободне учионице (без св. сале)" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="334" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="96,1598,0,0"/>
             <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" MaxHeight="500" Height="auto" HorizontalAlignment="Left" Name="rezultatiSlob" VerticalAlignment="Top" Width="auto" Margin="38,1640,0,0" FontSize="19"/>
             <Label  Content="Распоред статичних одељења" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="320" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="108,144,0,0"/>
@@ -63,6 +63,8 @@
             <Button Name="CloseButton" Background="{x:Null}" BorderThickness="0" Click="CloseButton_Click" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0"  Width="30" Height="30" FontSize="16">
                 <Image x:Name="Close" Source="/View/izadji.png"/>
             </Button>
+            <Label  Content="Напомена (грађанско)" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="-1.606,-0.307" Width="230" FontWeight="Bold" FontSize="16" FontFamily="Verdana" FontStyle="Normal" Foreground="#FF332F2F" Margin="973,1916,0,0"/>
+            <DataGrid CanUserSortColumns = "False" CanUserReorderColumns="False" CanUserResizeColumns="False" AreRowDetailsFrozen="True" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" AutoGenerateColumns="True" Height="auto" HorizontalAlignment="Left" x:Name="napomena_gradjansko" VerticalAlignment="Top" Width="auto" Margin="959,1950,0,0" FontSize="19" />
         </Grid>
     </ScrollViewer>
 </Window>

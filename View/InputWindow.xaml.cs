@@ -139,7 +139,7 @@ namespace Raspored_Ucionica
                 zaUpisivanje1[4] += "reg,reg,reg,reg,reg,reg,info,reg,dreg,reg,reg,reg,hem/info,reg,fv,reg,dreg,info,reg/reg,reg,reg,info/reg,reg,fv,reg,reg,reg,n/f/reg,n1/f/reg,reg,n1/reg,reg";
                 zaUpisivanje1[5] += "fv,reg,reg,reg,reg,,reg,reg,reg,dreg,info,reg/reg,hem/info,reg,reg,reg,reg,info,reg,reg,reg,reg,fv,reg,reg,reg,info/reg,reg,reg,n/f/reg,reg,n/f/reg";
                 zaUpisivanje1[6] += "reg,fv,reg,fv,reg,,,reg,reg,dreg,info,reg,info,reg,verska,verska,reg,info,reg,n/f,reg,n/f/reg,reg,n/f/reg,reg,reg,reg/info,reg,reg,reg,reg,reg";
-                zaUpisivanje1[7] += "info,reg,fv,,,,,fv,reg,reg,,reg,info,reg,,,reg,info,,,,,reg,,reg,reg,reg,,verska/g1,verska/g1,reg,reg\n";
+                zaUpisivanje1[7] += "info,reg,fv,,,,,fv,g2,g2,,reg,info,reg,,,reg,info,,,,,reg,,reg,reg,reg,,verska/g1,verska/g1,reg,reg\n";
                             
                 zaUpisivanje1[8] += ",,verska/g2,verska/g2,reg,,reg,,,,,,,,,,,,,,,,,,info,,reg,reg,,reg,reg,";
                 zaUpisivanje1[9] += "info,reg,reg,reg,reg,reg,reg,,info,reg,reg/reg,fv,reg,,reg,reg,reg,info,dreg,reg,reg,reg,reg,reg,info,reg,reg,,info,reg,reg,reg";
@@ -147,7 +147,7 @@ namespace Raspored_Ucionica
                 zaUpisivanje1[11] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,reg,reg,n1/f/reg,reg,n1/f/reg,reg/hem,fv,info,reg,reg,reg/info,reg,reg,reg,info,dreg,reg,reg,reg,reg,fv,reg";
                 zaUpisivanje1[12] += "info,info,reg,reg,reg,reg,reg,reg,reg,reg,fv,reg/reg,reg,reg,reg,reg,info,reg,reg,fv,reg,reg,reg,reg/info,info,reg,reg,reg,reg,reg,reg,reg";
                 zaUpisivanje1[13] += "info,reg,reg/hem,reg,fv,reg,reg,reg,reg,info,reg,reg,reg,reg,reg,reg,info,reg,reg,reg,reg/reg,reg,reg,reg/info,info,fv,reg,reg,reg,reg,reg,reg";
-                zaUpisivanje1[14] += "info,reg,reg/hem,reg,reg,fv,reg,reg,reg,info,reg,info,reg/reg,reg,reg,fv,info,reg,info,verska,reg,reg,verska,reg,info,reg,reg,reg,reg,reg,reg,";
+                zaUpisivanje1[14] += "info,reg,reg/hem,reg,reg,fv,reg,reg,reg,info,reg,info,reg/reg,reg,reg,fv,info,reg,info,verska/g1,reg,reg,verska/g2,reg,info,reg,reg,reg,reg,reg,reg,";
                 zaUpisivanje1[15] += ",reg,reg,,reg,verska,fv,verska,reg,reg,reg,info,g2,,reg,reg,info,reg,info,,fv,,,,info,g1,g1,g1,reg,,reg/info,\n";
                             
                 zaUpisivanje1[16] += ",g3,,,,,g3,,,,,,reg,info,,,,,verska/g4,,,,,verska/g4,,,,,reg,info,reg,";
@@ -160,7 +160,7 @@ namespace Raspored_Ucionica
                 zaUpisivanje1[23] += "reg,verska,,info,fv,info,verska,,reg,verska,reg,reg,fv,,g2,reg,dreg,info,reg,,,,,,reg,reg,reg,,,,reg/info,\n";
                             
                 zaUpisivanje1[24] += "g3,,,,,g3,,,,,,,,,,,verska/g4,verska/g4,,reg,,,,,,info,reg,,,reg,,reg";
-                zaUpisivanje1[25] += "reg,reg,fv,,info,reg,reg,reg,info,reg,g5,verska,reg,g5,reg,reg,fv,reg,reg,reg/hem,reg,,reg,,reg,info,reg,reg,reg,reg,reg,info/reg";
+                zaUpisivanje1[25] += "reg,reg,fv,,info,reg,reg,reg,info,reg,verska/g5,verska,reg,g5,reg,reg,fv,reg,reg,reg/hem,reg,,reg,,reg,info,reg,reg,reg,reg,reg,info/reg";
                 zaUpisivanje1[26] += "reg,reg,dreg,reg,info,reg,reg,reg,info,reg,reg,hem/info,reg,reg,reg,reg,dreg,fv,reg,reg,reg,reg,reg,reg,reg,info,reg,fv,reg,reg/reg,reg,reg";
                 zaUpisivanje1[27] += "reg,reg,dreg,reg,reg,reg,reg,reg,info,reg,reg,hem/info,reg,reg,info,reg,dreg,reg,reg/reg,reg,reg,reg,reg,reg,reg,info,fv,reg,reg/reg,fv,reg,reg";
                 zaUpisivanje1[28] += "reg,reg,reg,reg,reg,reg,reg,reg,info,dreg,reg/hem,reg,reg/reg,fv,info,reg,reg,reg,reg,reg,reg,reg,reg,reg/reg,fv,info,reg,reg,reg/reg,reg,reg,reg";
