@@ -309,15 +309,17 @@ namespace Raspored_Ucionica.ViewModel
                 Ucionica ucionica1 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje.Id_ucionice);
                 odeljenje = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-2");
                 Ucionica ucionica2 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje.Id_ucionice);
-                if ((dan == utorak || dan == cetvrtak) && j == 17)
+                if ((dan == utorak && ucionica1.Slobodna) || (dan == cetvrtak && ucionica2.Slobodna) && j == 17)
                 {
-                    if(dan == utorak)
+                    if (dan == utorak)
                     {
                         rezultati[i][j] = ucionica1.Ime_ucionice;
+                        ucionica1.Slobodna = false;
                     }
                     else
                     {
                         rezultati[i][j] = ucionica2.Ime_ucionice;
+                        ucionica2.Slobodna = false;
                     }
                 }
                 else
@@ -815,6 +817,7 @@ namespace Raspored_Ucionica.ViewModel
                 {
                     NadjiCos();
                 }
+
 				for (var j = 17; j < 18; j++)
 				{
 					//lista_ucionica!.Last().Slobodna = true;
