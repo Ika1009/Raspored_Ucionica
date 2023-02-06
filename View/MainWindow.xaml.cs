@@ -202,8 +202,8 @@ namespace Raspored_Ucionica
             {
                 if(i == -1)
                 {
-                    
-                    Slobodne.Columns.Add("ДАН");
+					Grupe.Columns.Add("ДАН");
+					Slobodne.Columns.Add("ДАН");
                     SvSala.Columns.Add("ДАН");
                     Prvo1.Columns.Add("ДАН");
                     Prvo2.Columns.Add("ДАН");
@@ -369,12 +369,16 @@ namespace Raspored_Ucionica
             }*/
 
             int x = 1, u = 1, s = 1, c = 1, pe = 1;
-            for (int row = 0; row < 8; row++)
+            for (int row = 0; row < 7; row++)
             {
                 DataRow dr = Grupe.NewRow();
-                for (int col = 0; col < 5; col++)
+                for (int col = 0; col <= 5; col++)
                 {
-                    if (col == 0 && x < 8)
+                    if(col == 0)
+                    {
+                        dr[col] = x.ToString() + ". час";
+                    }
+                    if (col == 1 && x < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -421,7 +425,7 @@ namespace Raspored_Ucionica
                         }
                         x++;
                     }
-                    else if(col == 1 && u < 8)
+                    else if(col == 2 && u < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -468,7 +472,7 @@ namespace Raspored_Ucionica
                         }
                         u++;
                     }
-                    else if (col == 2 && s < 8)
+                    else if (col == 3 && s < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -515,7 +519,7 @@ namespace Raspored_Ucionica
                         }
                         s++;
                     }
-                    else if (col == 3 && c < 8)
+                    else if (col == 4 && c < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
@@ -562,7 +566,7 @@ namespace Raspored_Ucionica
                         }
                         c++;
                     }
-                    else if (pe < 8)
+                    else if (col == 5 && pe < 8)
                     {
                         for (int i = 0; i < 32; i++)
                         {
