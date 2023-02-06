@@ -309,7 +309,7 @@ namespace Raspored_Ucionica.ViewModel
                 Ucionica ucionica1 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje.Id_ucionice);
                 odeljenje = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-2");
                 Ucionica ucionica2 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje.Id_ucionice);
-                if ((dan == utorak && ucionica1.Slobodna) || (dan == cetvrtak && ucionica2.Slobodna) && j == 17)
+                if ((dan == utorak && ucionica1 != null && ucionica1.Slobodna) || (dan == cetvrtak && ucionica2 != null && ucionica2.Slobodna) && j == 17)
                 {
                     if (dan == utorak)
                     {
@@ -511,24 +511,24 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 switch (k)
                                 {
-                                    case 0: a = "22"; break;
-                                    case 1: a = "29"; break;
-                                    case 2: a = "23a"; break;
-                                    case 3: a = "Sremac"; break;
-                                    case 4: a = "Multimedijalna"; break;
-                                }
-                                if(a == "")
-                                {
-                                    ucionicaNemacki = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "biblioteka");
-                                    imeUcioniceZaNemacki = ucionicaNemacki.Ime_ucionice;
-
-                                }
-                                else
-                                {
-                                    imeUcioniceZaNemacki = a;
-                                    Kdan.RasporedKabineta[k][i] = "false";
+                                    case 0: a = "22"; Kdan.RasporedKabineta[k][i] = "false";  break;
+                                    case 1: a = "29"; Kdan.RasporedKabineta[k][i] = "false"; break;
+                                    case 2: a = "23a"; Kdan.RasporedKabineta[k][i] = "false"; break;
+                                    case 3: a = "Sremac"; Kdan.RasporedKabineta[k][i] = "false"; break;
+                                    case 4: a = "Multimedijalna"; Kdan.RasporedKabineta[k][i] = "false"; break;
                                 }
                                
+                            }
+                            if (a == "")
+                            {
+                                ucionicaNemacki = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "biblioteka");
+                                imeUcioniceZaNemacki = ucionicaNemacki.Ime_ucionice;
+
+                            }
+                            else
+                            {
+                                imeUcioniceZaNemacki = a;
+                                Kdan.RasporedKabineta[k][i] = "false";
                             }
                         }
                     }
@@ -1097,14 +1097,15 @@ namespace Raspored_Ucionica.ViewModel
                             }
                             else if (trenutno == "f")
                             {
-                                if (jezicka2.Slobodna && rand % 2 == 0) // random nekad upadne nekad ovde nekad za biblioteku
+                               
+                                if (!(dan == ponedeljak && i== 4) && jezicka2.Slobodna && rand % 2 == 0) // random nekad upadne nekad ovde nekad za biblioteku
                                 {
                                     rezultati[i][j] += "/7/";
                                     jezicka2.Slobodna = false;
                                     imanjeCasaFrancuski = true;
                                     imeUcioniceZaFrancuski = "7";
                                 }
-                                else if (biblioteka.Slobodna && rand % 2 == 1 && !imanjeCasaFrancuski)
+                                else if ((dan == ponedeljak && i == 4) || (rand % 2 == 1 && !imanjeCasaFrancuski) && biblioteka.Slobodna)
                                 {
                                     rezultati[i][j] += "/biblioteka/";
                                     biblioteka.Slobodna = false;
