@@ -427,7 +427,7 @@ namespace Raspored_Ucionica.ViewModel
 						}
 						else
                         {
-                            slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
+                            slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4");
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
                             slobodna.Slobodna = false;
                         }
@@ -437,9 +437,10 @@ namespace Raspored_Ucionica.ViewModel
                 {
                     if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala") is null)
                     {
-                        for (int k = 0; k < 5; k++)
+                       string a = "";
+                       for (int k = 0; k < 5; k++)
                         {
-                            string a = "";
+                            
                             if (Kdan.RasporedKabineta[k][i] == "true")
                             {
                                 switch (k)
@@ -454,6 +455,12 @@ namespace Raspored_Ucionica.ViewModel
                                 Kdan.RasporedKabineta[k][i] = "false";
                                 break;
                             }
+                        }
+                        if(a == "")
+                        {
+                                Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Slobodna && ucionica.Ime_ucionice != "P4");
+                                rezultati[i][j] += ucionica.Ime_ucionice + "/";
+                                ucionica.Slobodna = false;
                         }
                     }
                     //Funkcija za korišćenje osmice
@@ -1046,7 +1053,9 @@ namespace Raspored_Ucionica.ViewModel
 
                             else if (trenutno == "reg" || trenutno == "dreg" || trenutno == "n")
                             {
-                                if (provera) // provara da li je vec uso ovde
+                                if (provera && j > 28) // provara da li je vec uso ovde
+                                    DrziLutajuce(i, j);
+                                else if (provera)
                                     DrziLutajuce(i, j);
                                 else
                                 {
