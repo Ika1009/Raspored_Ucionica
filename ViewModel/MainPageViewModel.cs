@@ -651,7 +651,7 @@ namespace Raspored_Ucionica.ViewModel
             {
                 List<Ucionica> osloboditi = new List<Ucionica>();
                 bool[] slobodne = { true, true, true, true, true, true };
-                string[] ucionice = { "22", "29", "23a", "Sremac", "Multimedijalna", "Svecana" };
+                string[] ucionice = { "22", "29", "23a", "Sremac", "Multimedijalna", "8" };
                 Odeljenje trece_dva = lista_odeljenja.First(odeljenje => odeljenje.Ime_odeljenja == "III-2");
                 if (trece_dva.Id_ucionice is null)
                 {
@@ -1053,9 +1053,7 @@ namespace Raspored_Ucionica.ViewModel
 
                             else if (trenutno == "reg" || trenutno == "dreg" || trenutno == "n")
                             {
-                                if (provera && j > 28) // provara da li je vec uso ovde
-                                    DrziLutajuce(i, j);
-                                else if (provera)
+                                if (provera)
                                     DrziLutajuce(i, j);
                                 else
                                 {
