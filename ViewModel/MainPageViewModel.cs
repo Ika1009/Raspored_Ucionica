@@ -697,36 +697,37 @@ namespace Raspored_Ucionica.ViewModel
             void DodeliKabinet(int i, int j)
             {
                 Odeljenje odeljenje = lista_odeljenja.First(odeljenje => odeljenje.Id == j);
-                string ispis = "ВТШ";
+                string ispis = "";
                 for(int k=0; k<5; k++)
                 {
                     if(odeljenje.Ime_odeljenja == Kdan.RasporedKabineta[k][i])
                     {
                         switch (k)
                         {
-                            case 0: ispis = "22"; break;
-                            case 1: ispis = "29"; break;
-                            case 2: ispis = "23a"; break;
-                            case 3: ispis = "Sremac"; break;
-                            case 4: ispis = "Multim."; break;
+                            case 0: ispis += "22/"; break;
+                            case 1: ispis += "29/"; break;
+                            case 2: ispis += "23a/"; break;
+                            case 3: ispis += "Sremac/"; break;
+                            case 4: ispis += "Multim./"; break;
                         }
-                        break;
+                        
                     }
                 }
-                if (ispis == "ВТШ" && dan == ponedeljak && i < 4)
+                if (ispis == "")
                 {
-                    ispis = "8";
-                }
-                if (dan.RasporedCasova[i][j].Contains('/'))
-                {
-                    if (string.IsNullOrEmpty(rezultati[i][j]))
-                        rezultati[i][j] = ispis + "/";
+                    if(dan == ponedeljak && i < 4)
+                    {
+                        rezultati[i][j] = "8";
+                    }
                     else
-                        rezultati[i][j] += "/" + ispis;
+                    {
+                        rezultati[i][j] = "ВТШ ";
+                    }
+     
                 }
                 else
                 {
-                        rezultati[i][j] = ispis;
+                    rezultati[i][j] = ispis;
                 }
 
 
