@@ -24,7 +24,8 @@ namespace Raspored_Ucionica.Model
             string[] split2 = procitano[2].Split(",");
             string[] split3 = procitano[3].Split(",");
             string[] split4 = procitano[4].Split(",");
-
+            string[] split5 = procitano[5].Split(",");
+ 
             Kponedeljak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
@@ -32,6 +33,7 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
                 new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
+                new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7]} // 8
             });
 
             split0 = procitano[6].Split(",");
@@ -39,6 +41,7 @@ namespace Raspored_Ucionica.Model
             split2 = procitano[8].Split(",");
             split3 = procitano[9].Split(",");
             split4 = procitano[10].Split(",");
+            split5 = procitano[11].Split(",");
             Kutorak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
@@ -46,6 +49,7 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
                 new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
+                new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7]} // 8
             });
 
             split0 = procitano[12].Split(",");
@@ -53,6 +57,7 @@ namespace Raspored_Ucionica.Model
             split2 = procitano[14].Split(",");
             split3 = procitano[15].Split(",");
             split4 = procitano[16].Split(",");
+            split5 = procitano[17].Split(",");
             Ksreda = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
@@ -60,6 +65,7 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
                 new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
+                new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7]} // 8
             });
 
             split0 = procitano[18].Split(",");
@@ -67,6 +73,7 @@ namespace Raspored_Ucionica.Model
             split2 = procitano[20].Split(",");
             split3 = procitano[21].Split(",");
             split4 = procitano[22].Split(",");
+            split5 = procitano[23].Split(",");
             Kcetvrtak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
@@ -74,6 +81,7 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
                 new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
+                new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7]} // 8
             });
 
             split0 = procitano[24].Split(",");
@@ -81,6 +89,7 @@ namespace Raspored_Ucionica.Model
             split2 = procitano[26].Split(",");
             split3 = procitano[27].Split(",");
             split4 = procitano[28].Split(",");
+            split5 = procitano[29].Split(",");
             Kpetak = new(new List<List<string>> // optimizovao
             {
                 new List<string>() { split0[0], split0[1], split0[2], split0[3], split0[4], split0[5], split0[6], split0[7]}, //22
@@ -88,6 +97,7 @@ namespace Raspored_Ucionica.Model
                 new List<string>() {split2[0], split2[1], split2[2], split2[3], split2[4], split2[5], split2[6], split2[7]}, //23a
                 new List<string>() {split3[0], split3[1], split3[2], split3[3], split3[4], split3[5], split3[6], split3[7]}, //Sremac
                 new List<string>() {split4[0], split4[1], split4[2], split4[3], split4[4], split4[5], split4[6], split4[7]}, //Multimedijalna(MM)
+                new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],split5[6],split5[7]} // 8
             });
 
 			string path1 = @"RasporedCasovaCSV.csv";
@@ -98,7 +108,7 @@ namespace Raspored_Ucionica.Model
 			split2 = procitano[2].Split(",");
 			split3 = procitano[3].Split(",");
 			split4 = procitano[4].Split(",");
-			string[] split5 = procitano[5].Split(",");
+			split5 = procitano[5].Split(",");
 			string[] split6 = procitano[6].Split(",");
 			string[] split7 = procitano[7].Split(",");
 
@@ -199,7 +209,7 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
             {
                 new Ucionica("P4", 15, true, true),
                 new Ucionica("6", 16, true, true),
-                new Ucionica("8", 20, true),
+               // new Ucionica("8", 20, true),
                 new Ucionica("23b", 20, true),
                 new Ucionica("11", 22, true),
                 new Ucionica("33", 24, true),
