@@ -93,7 +93,7 @@ namespace Raspored_Ucionica
                 zaUpisivanje[2] += "true,true,true,true,true,IV-3,IV-3,true"; //23a
                 zaUpisivanje[3] += "IV-4,IV-4,III-4,III-4,II-5,II-5,II-5,II-5"; //Sremac
 				zaUpisivanje[4] += "true,IV-6,IV-6,III-7,III-6,II-3,II-3,true"; //Multimedijalna(MM)
-                zaUpisivanje[5] += "I-8,I-8,I-7,I-7,true,true,true";
+                zaUpisivanje[5] += "true,I-8,I-8,I-7,I-7,true,true,true";
                 //Utorak    
 				zaUpisivanje[6] += "true,II-1,II-1,I-2,I-2,II-2,II-2,IV-7"; //22
 				zaUpisivanje[7] += "true,III-2,III-2,III-2,III-1,III-1,III-1,III-1"; //29
