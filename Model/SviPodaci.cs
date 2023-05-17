@@ -1,6 +1,7 @@
 ﻿using System.Windows.Data;
 using System.IO;
 using System.Windows;
+using Microsoft.VisualBasic;
 
 namespace Raspored_Ucionica.Model
 {
@@ -289,6 +290,42 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
                 new Odeljenje("IV-7",int.Parse(brojeviUcionice[30]), lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "9").Id),
                 new Odeljenje("IV-8",int.Parse(brojeviUcionice[31]), lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "41").Id),
             };
+           
+        }
+        public void PretvoriIzNjigovogUNas(List<List<string>> item)
+        {
+            for (int a = 0; a<item.Count;a++)
+            {
+                for (int b = 0; b < item[a].Count;b++)
+                {
+                    if (item[a][b] == "informatika") item[a][b] = "info/";
+
+                    else if (item[a][b] == "veronauka") item[a][b] = "verska/";
+                             
+                    else if (item[a][b] == "francuski") item[a][b] = "f/";
+                             
+                    else if (item[a][b] == "nemacki") item[a][b] = "n/";
+                             
+                    else if (item[a][b] == "italijanski") item[a][b] = "i/";
+                             
+                    else if (item[a][b] == "ruski") item[a][b] = "r/";
+
+                    else if(item[a][b] == "hemija1") item[a][b] = "hemk/";
+
+                else if(item[a][b] =="gradjansko1") item[a][b] ="g1/";
+                                      
+               else if(item[a][b] =="gradjansko2") item[a][b] ="g2/";
+                                           
+                else if(item[a][b] =="gradjansko3") item[a][b] ="g3/";
+                                           
+                else if(item[a][b] =="gradjansko4") item[a][b] ="g4/";
+                            
+                else if (item[a][b] == "gradjansko5") item[a][b] = "g5/";
+
+                    else item[a][b] = "reg/";
+                    item[a][b] = item[a][b].Remove(item[a][b].Length - 1,1);
+                }
+            }
 
         }
     }
