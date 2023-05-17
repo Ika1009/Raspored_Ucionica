@@ -298,31 +298,36 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
             {
                 for (int b = 0; b < item[a].Count;b++)
                 {
-                    if (item[a][b] == "informatika") item[a][b] = "info/";
+                    string[] s = item[a][b].ToString().Split("/");
+                    item[a][b] = "";
+                    for (int i = 0; i < s.Length; i++)
+                    {
+                        if (s[i] == "informatika") item[a][b]+= "info/";
 
-                    else if (item[a][b] == "veronauka") item[a][b] = "verska/";
-                             
-                    else if (item[a][b] == "francuski") item[a][b] = "f/";
-                             
-                    else if (item[a][b] == "nemacki") item[a][b] = "n/";
-                             
-                    else if (item[a][b] == "italijanski") item[a][b] = "i/";
-                             
-                    else if (item[a][b] == "ruski") item[a][b] = "r/";
+                        else if (s[i] == "veronauka") item[a][b] += "verska/";
 
-                    else if(item[a][b] == "hemija1") item[a][b] = "hemk/";
+                        else if (s[i] == "francuski") item[a][b] += "f/";
 
-                else if(item[a][b] =="gradjansko1") item[a][b] ="g1/";
-                                      
-               else if(item[a][b] =="gradjansko2") item[a][b] ="g2/";
-                                           
-                else if(item[a][b] =="gradjansko3") item[a][b] ="g3/";
-                                           
-                else if(item[a][b] =="gradjansko4") item[a][b] ="g4/";
-                            
-                else if (item[a][b] == "gradjansko5") item[a][b] = "g5/";
+                        else if (s[i] == "nemacki") item[a][b] += "n/";
 
-                    else item[a][b] = "reg/";
+                        else if (s[i] == "italijanski") item[a][b] += "i/";
+
+                        else if (s[i] == "ruski") item[a][b] +=  "r/";
+
+                        else if (s[i] == "hemija1") item[a][b] += "hemk/";
+
+                        else if (s[i] == "gradjansko1") item[a][b] += "g1/";
+
+                        else if (s[i] == "gradjansko2") item[a][b] += "g2/";
+
+                        else if (s[i] == "gradjansko3") item[a][b] += "g3/";
+
+                        else if (s[i] == "gradjansko4") item[a][b] += "g4/";
+
+                        else if (s[i] == "gradjansko5") item[a][b] += "g5/";
+
+                        else item[a][b] +=  "reg/";
+                    }
                     item[a][b] = item[a][b].Remove(item[a][b].Length - 1,1);
                 }
             }
