@@ -302,7 +302,8 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
                     item[a][b] = "";
                     for (int i = 0; i < s.Length; i++)
                     {
-                        if (s[i] == "informatika") item[a][b]+= "info/";
+                        if (s[i] == "informatika") item[a][b] += "info/";
+                        else if (s[i] == "fizicko") item[a][b] += "fv/";
 
                         else if (s[i] == "veronauka") item[a][b] += "verska/";
 
@@ -312,7 +313,7 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
 
                         else if (s[i] == "italijanski") item[a][b] += "i/";
 
-                        else if (s[i] == "ruski") item[a][b] +=  "r/";
+                        else if (s[i] == "ruski") item[a][b] += "r/";
 
                         else if (s[i] == "hemija1") item[a][b] += "hemk/";
 
@@ -326,7 +327,7 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
 
                         else if (s[i] == "gradjansko5") item[a][b] += "g5/";
 
-                        else item[a][b] +=  "reg/";
+                        else item[a][b] += "reg/";
                     }
                     item[a][b] = item[a][b].Remove(item[a][b].Length - 1,1);
                 }
