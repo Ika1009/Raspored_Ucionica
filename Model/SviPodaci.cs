@@ -292,7 +292,7 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
             };
            
         }
-        public void PretvoriIzNjigovogUNas(List<List<string>> item)
+        public void PretvoriIzNjigovogUNas( ref List<List<string>> item)
         {
             for (int a = 0; a<item.Count;a++)
             {
@@ -302,6 +302,7 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
                     item[a][b] = "";
                     for (int i = 0; i < s.Length; i++)
                     {
+			    s[i] = s[i].ToLower();
                         if (s[i] == "informatika") item[a][b] += "info/";
                         else if (s[i] == "fizicko") item[a][b] += "fv/";
 
