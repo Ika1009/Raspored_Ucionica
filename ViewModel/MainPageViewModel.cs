@@ -1385,8 +1385,8 @@ namespace Raspored_Ucionica.ViewModel
         {
             if (b == "info") return "инф";
             if (b == "biblioteka") return "библ";
-            if (b == "j1") return "7";
-            if (b == "j2") return "8";
+            if (b == "j1") return "6";
+            if (b == "j2") return "7";
             if (b == "svecana sala") return "св. с";
             if (b == "Svecana") return "Свечана";
             char[] s = b.ToCharArray();
