@@ -728,15 +728,33 @@ namespace Raspored_Ucionica
         {
             //try
             //{
+
+            var values = new List<string>() { 
+
+            textbox11.Text, textbox12.Text, textbox13.Text, textbox14.Text,
+            textbox15.Text, textbox16.Text, textbox17.Text, textbox18.Text,
+            textbox21.Text, textbox22.Text, textbox23.Text, textbox24.Text,
+            textbox25.Text, textbox26.Text, textbox27.Text, textbox28.Text,
+            textbox31.Text, textbox32.Text, textbox33.Text, textbox34.Text,
+            textbox35.Text, textbox36.Text, textbox37.Text, textbox38.Text,
+            textbox41.Text, textbox42.Text, textbox43.Text, textbox44.Text,
+            textbox45.Text, textbox46.Text, textbox47.Text, textbox48.Text 
+
+            };
+
+            var nonEmptyValues = values.Where(val => !string.IsNullOrEmpty(val)).ToList();
+            var uniqueValues = new HashSet<string>(nonEmptyValues);
+
+            if (nonEmptyValues.Count != uniqueValues.Count)
+            {
+                // Postoje duplikati, prikaži upozorenje.
+                MessageBox.Show("Duplikati nisu dozvoljeni. Proverite unos i pokušajte ponovo.", "Duplirane Vrednosti", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            // Ako nema dupliakta nastavi...
             Odeljenje();
-            viewModel.boxovi = new List<string>() {textbox11.Text,textbox12.Text,textbox13.Text,textbox14.Text,
-                textbox15.Text,textbox16.Text,textbox17.Text,textbox18.Text,
-                textbox21.Text,textbox22.Text,textbox23.Text,textbox24.Text,
-                textbox25.Text,textbox26.Text,textbox27.Text,textbox28.Text,
-                textbox31.Text,textbox32.Text,textbox33.Text,textbox34.Text,
-                textbox35.Text,textbox36.Text,textbox37.Text,textbox38.Text,
-                textbox41.Text,textbox42.Text,textbox43.Text,textbox44.Text,
-                textbox45.Text,textbox46.Text,textbox47.Text,textbox48.Text};
+            viewModel.boxovi = values;
             MainWindow mainWindow = new MainWindow(viewModel);
             mainWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             mainWindow.Show();
