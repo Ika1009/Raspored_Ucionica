@@ -93,35 +93,35 @@ namespace Raspored_Ucionica
                 zaUpisivanje[2] += "true,true,true,true,true,IV-3,IV-3,true"; //23a
                 zaUpisivanje[3] += "IV-4,IV-4,III-4,III-4,II-5,II-5,II-5,II-5"; //Sremac
 				zaUpisivanje[4] += "true,IV-6,IV-6,III-7,III-6,II-3,II-3,true"; //Multimedijalna(MM)
-                zaUpisivanje[5] += "true,I-8,I-8,I-7,I-7,true,true,true";
+                zaUpisivanje[5] += "true,I-8,I-8,I-7,I-7,true,true,true"; //8
                 //Utorak    
 				zaUpisivanje[6] += "true,II-1,II-1,I-2,I-2,II-2,II-2,IV-7"; //22
 				zaUpisivanje[7] += "true,III-2,III-2,III-2,III-1,III-1,III-1,III-1"; //29
 				zaUpisivanje[8] += "true,I-1,I-1,I-1,I-1,I-1,I-1,true"; //23a
 				zaUpisivanje[9] += "true,IV-5,IV-5,III-5,III-8,III-8,III-3,III-3"; //SremaC
 				zaUpisivanje[10] += "true,true,I-1,I-1,I-1,I-1,II-4,II-4"; //Multimedijalna
-				zaUpisivanje[11] += "true,true,true,true,true,true,true,true";
+				zaUpisivanje[11] += "true,true,true,true,true,true,true,true"; //8
                 //Sreda     
                 zaUpisivanje[12] += "true,II-1,II-1,IV-2,IV-1,III-6,I-4,I-4"; //22
 				zaUpisivanje[13] += "true,III-1,III-1,III-1,I-3,I-3,I-6,I-6"; //29
 				zaUpisivanje[14] += "IV-6,IV-6,II-2,II-2,II-2,II-2,true,true"; //23a
 				zaUpisivanje[15] += "true,II-2,II-2,II-2,II-2,II-2,II-2,IV-7"; //Sremac
 				zaUpisivanje[16] += "II-6,II-6,II-6,II-6,I-3,I-3,I-6,I-6"; //Multimedijalna
-				zaUpisivanje[17] += "true,true,true,true,true,true,true,true";
+				zaUpisivanje[17] += "true,true,true,true,true,true,true,true"; //8
                 //Cetvrtak  
                 zaUpisivanje[18] += "true,II-1,II-1,II-1,II-1,II-1,II-1,true"; //22
 				zaUpisivanje[19] += "true,I-5,I-5,II-7,II-7,II-8,II-8,I-2"; //29
 				zaUpisivanje[20] += "true,true,II-1,II-1,II-1,II-1,III-3,III-3"; //23a
 				zaUpisivanje[21] += "true,true,true,II-7,II-7,II-8,II-8,true"; //Sremac
 				zaUpisivanje[22] += "true,IV-8,II-4,II-4,true,true,I-4,I-4"; //Multimedijalna
-				zaUpisivanje[23] += "true,true,true,true,true,true,true,true";
+				zaUpisivanje[23] += "true,true,true,true,true,true,true,true"; //8
                 //Petak     
                 zaUpisivanje[24] += "true,I-5,I-5,III-5,III-7,IV-8,true,true"; //22
 				zaUpisivanje[25] += "true,I-1,I-1,II-2,II-2,true,true,true"; //29
 				zaUpisivanje[26] += "true,I-2,I-2,I-2,I-2,I-2,I-2,true"; //23a
 				zaUpisivanje[27] += "true,IV-5,IV-5,true,true,true,true,true"; //Sremac
 				zaUpisivanje[28] += "IV-4,IV-4,I-2,I-2,I-2,I-2,true,true"; //Multimedijalna
-                zaUpisivanje[29] += "true,true,true,true,true,true,true,true";
+                zaUpisivanje[29] += "true,true,true,true,true,true,true,true"; //8
 
                 File.WriteAllLines(path,zaUpisivanje);
 
@@ -745,12 +745,12 @@ namespace Raspored_Ucionica
             var nonEmptyValues = values.Where(val => !string.IsNullOrEmpty(val)).ToList();
             var uniqueValues = new HashSet<string>(nonEmptyValues);
 
-            if (nonEmptyValues.Count != uniqueValues.Count)
-            {
-                // Postoje duplikati, prikaži upozorenje.
-                MessageBox.Show("Duplikati nisu dozvoljeni. Proverite unos i pokušajte ponovo.", "Duplirane Vrednosti", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
+            //if (nonEmptyValues.Count != uniqueValues.Count)
+            //{
+            //    // Postoje duplikati, prikaži upozorenje.
+            //    MessageBox.Show("Duplikati nisu dozvoljeni. Proverite unos i pokušajte ponovo.", "Duplirane Vrednosti", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //    return;
+            //}
 
             // Ako nema dupliakta nastavi...
             Odeljenje();
