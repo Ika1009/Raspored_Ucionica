@@ -742,15 +742,15 @@ namespace Raspored_Ucionica
 
             };
 
-            var nonEmptyValues = values.Where(val => !string.IsNullOrEmpty(val)).ToList();
+            var nonEmptyValues = values.Where(val => !string.IsNullOrEmpty(val) && val != "Лутајуће" && val != " " && val != "/").ToList();
             var uniqueValues = new HashSet<string>(nonEmptyValues);
 
-            //if (nonEmptyValues.Count != uniqueValues.Count)
-            //{
-            //    // Postoje duplikati, prikaži upozorenje.
-            //    MessageBox.Show("Duplikati nisu dozvoljeni. Proverite unos i pokušajte ponovo.", "Duplirane Vrednosti", MessageBoxButton.OK, MessageBoxImage.Warning);
-            //    return;
-            //}
+            if (nonEmptyValues.Count != uniqueValues.Count)
+            {
+                // Postoje duplikati, prikaži upozorenje.
+                MessageBox.Show("Duplikati nisu dozvoljeni. Proverite unos i pokušajte ponovo.", "Duplirane Vrednosti", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             // Ako nema dupliakta nastavi...
             Odeljenje();
