@@ -364,6 +364,7 @@ namespace Raspored_Ucionica.ViewModel
                                 Slobodna2 = ucionica;
                             }
                         }
+                    
 
                     //Dodeljivanje - tamo gde je moguće
                     //Ako nije, idemo kroz sve slobodne (cena: nećemo ostati u istoj učionici)
@@ -384,11 +385,12 @@ namespace Raspored_Ucionica.ViewModel
                     }
                     else
                     {
+                        string a = "";
                         if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && (ucionica.Tip is null || ucionica.Ime_ucionice == "7") && ucionica.Ime_ucionice != "svecana sala") is null)
                         {
                             for (int k = 0; k < 6; k++)
                             {
-                                string a = "";
+                                
                                 if (Kdan.RasporedKabineta[k][i] == "true")
                                 {
                                     switch (k)
@@ -405,33 +407,35 @@ namespace Raspored_Ucionica.ViewModel
                                     break;
                                 }
                             }
-                        }
+                            }
                         //Funkcija za korišćenje osmice
-                        else if (slobodna is not null)
+                        if (a == "" && slobodna is not null)
                         {
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
                             slobodna.Slobodna = false;
                         }
-                        else if (lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3)) is not null)
+                        else if (a == "" && lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3)) is not null)
                         {
                             slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala" && ucionica.Velicina >= (Temp.Broj_ucenika - 3));
                             // i ovaj else if promenio zbog optimizacije - Ilija Jedan Jedini 
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
                             slobodna.Slobodna = false;
                         }
-						else if (lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "6" && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4") is not null)
+						else if (a == "" && lista_ucionica.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "6" && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4") is not null)
 						{
 							slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "6" && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "P4");
 							// i ovaj else if promenio zbog optimizacije - Ilija Jedan Jedini 
 							rezultati[i][j] += slobodna.Ime_ucionice + "/";
 							slobodna.Slobodna = false;
 						}
-						else
+						else if(a == "")
                         {
+                            
                             slobodna = lista_ucionica!.First(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4");
                             rezultati[i][j] += slobodna.Ime_ucionice + "/";
                             slobodna.Slobodna = false;
                         }
+                        
                     }
                 }
                 else
