@@ -1,6 +1,6 @@
-## 🏫 HighSchool Classroom Layout Application: Gimnazija Bora Stankovic Edition 📚
+## 🏫 HighSchool Classroom Layout Application: Gymnasium "Bora Stankovic" Edition 📚
 
-Welcome to the innovative classroom layout application tailored for **Gimnazija Bora Stankovic**. Designed with adaptability and precision, this digital tool dynamically aligns with the schedules, student departments, and varying student counts to craft an optimized classroom layout.
+Welcome to the innovative classroom layout application tailored for **Gymnasium "Bora Stankovic"**. Designed with adaptability and precision, this digital tool dynamically aligns with the schedules, student departments, and varying student counts to craft an optimized classroom layout.
 
 ### 🔍 **Features**:
 
