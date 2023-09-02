@@ -303,22 +303,48 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
                     for (int i = 0; i < s.Length; i++)
                     {
 			    s[i] = s[i].ToLower();
-                        if (s[i] == "informatika") item[a][b] += "info/";
-                        else if (s[i] == "fizicko") item[a][b] += "fv/";
+                        //if (s[i] == "informatika") item[a][b] += "info/";
+                        //else if (s[i] == "fizicko") item[a][b] += "fv/";
 
-                        else if (s[i] == "veronauka") item[a][b] += "verska/";
+                        //else if (s[i] == "veronauka") item[a][b] += "verska/";
 
-                        else if (s[i] == "francuski") item[a][b] += "f/";
+                        //else if (s[i] == "francuski") item[a][b] += "f/";
 
-                        else if (s[i] == "nemacki") item[a][b] += "n/";
+                        //else if (s[i] == "nemacki") item[a][b] += "n/";
 
-                        else if (s[i] == "italijanski") item[a][b] += "i/";
+                        //else if (s[i] == "italijanski") item[a][b] += "i/";
 
-                        else if (s[i] == "ruski") item[a][b] += "r/";
+                        //else if (s[i] == "ruski") item[a][b] += "r/";
+
+                        //else if (s[i] == "hemija1") item[a][b] += "hemk/";
+
+                        //else if (s[i] == "gradjansko1") item[a][b] += "g1/";
+
+                        //else if (s[i] == "gradjansko2") item[a][b] += "g2/";
+
+                        //else if (s[i] == "gradjansko3") item[a][b] += "g3/";
+
+                        //else if (s[i] == "gradjansko4") item[a][b] += "g4/";
+
+                        //else if (s[i] == "gradjansko5") item[a][b] += "g5/";
+
+                        //else item[a][b] += "reg/";
+                        if (s[i] == "INF") item[a][b] += "info/";
+                        else if (s[i] == "FZC") item[a][b] += "fv/";
+
+                        else if (s[i] == "VER") item[a][b] += "verska/";
+
+                        else if (s[i] == "F") item[a][b] += "f/";
+
+                        else if (s[i] == "N") item[a][b] += "n/";
+
+                        else if (s[i] == "I") item[a][b] += "i/";
+
+                        else if (s[i] == "R") item[a][b] += "r/";
 
                         else if (s[i] == "hemija1") item[a][b] += "hemk/";
 
-                        else if (s[i] == "gradjansko1") item[a][b] += "g1/";
+                        else if (s[i] == "GV") item[a][b] += "g1/";
 
                         else if (s[i] == "gradjansko2") item[a][b] += "g2/";
 
