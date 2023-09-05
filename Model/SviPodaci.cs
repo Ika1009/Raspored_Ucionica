@@ -104,16 +104,16 @@ namespace Raspored_Ucionica.Model
 			string path1 = @"RasporedCasovaCSV.csv";
 			procitano = File.ReadAllLines(path1);
 
-			split0 = procitano[0].Split(",");
-			split1 = procitano[1].Split(",");
-			split2 = procitano[2].Split(",");
-			split3 = procitano[3].Split(",");
-			split4 = procitano[4].Split(",");
-			split5 = procitano[5].Split(",");
-			string[] split6 = procitano[6].Split(",");
-			string[] split7 = procitano[7].Split(",");
+			split0 = procitano[0].Split(",");Pretvori(split0);
+			split1 = procitano[1].Split(","); Pretvori(split1);
+            split2 = procitano[2].Split(","); Pretvori(split2);
+            split3 = procitano[3].Split(","); Pretvori(split3);
+            split4 = procitano[4].Split(","); Pretvori(split4);
+            split5 = procitano[5].Split(","); Pretvori(split5);
+            string[] split6 = procitano[6].Split(","); Pretvori(split6);
+            string[] split7 = procitano[7].Split(","); Pretvori(split7);
 
-			ponedeljak = new(new List<List<string>> // optimizovao
+            ponedeljak = new(new List<List<string>> // optimizovao
             {
 				new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
 new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
@@ -125,16 +125,16 @@ new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],
 new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}
 			});
 
-			split0 = procitano[9].Split(",");
-			split1 = procitano[10].Split(",");
-			split2 = procitano[11].Split(",");
-			split3 = procitano[12].Split(",");
-			split4 = procitano[13].Split(",");
-			split5 = procitano[14].Split(",");
-			split6 = procitano[15].Split(",");
-			split7 = procitano[16].Split(",");
+			split0 = procitano[9].Split(",");  Pretvori(split0);
+            split1 = procitano[10].Split(","); Pretvori(split1);
+            split2 = procitano[11].Split(","); Pretvori(split2);
+            split3 = procitano[12].Split(","); Pretvori(split3);
+            split4 = procitano[13].Split(","); Pretvori(split4);
+            split5 = procitano[14].Split(","); Pretvori(split5); 
+            split6 = procitano[15].Split(","); Pretvori(split6);
+            split7 = procitano[16].Split(","); Pretvori(split7);
 
-			utorak = new(new List<List<string>>
+            utorak = new(new List<List<string>>
 			{
 							   new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
 new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
@@ -145,16 +145,16 @@ new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],
 new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
 new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}      });
 
-			split0 = procitano[18].Split(",");
-			split1 = procitano[19].Split(",");
-			split2 = procitano[20].Split(",");
-			split3 = procitano[21].Split(",");
-			split4 = procitano[22].Split(",");
-			split5 = procitano[23].Split(",");
-			split6 = procitano[24].Split(",");
-			split7 = procitano[25].Split(",");
+			split0 = procitano[18].Split(","); Pretvori(split0);
+            split1 = procitano[19].Split(","); Pretvori(split1);
+            split2 = procitano[20].Split(","); Pretvori(split2);
+            split3 = procitano[21].Split(","); Pretvori(split3);
+            split4 = procitano[22].Split(","); Pretvori(split4);
+            split5 = procitano[23].Split(","); Pretvori(split5);
+            split6 = procitano[24].Split(","); Pretvori(split6);
+            split7 = procitano[25].Split(","); Pretvori(split7);
 
-			sreda = new(new List<List<string>>
+            sreda = new(new List<List<string>>
 			{
 				   new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
 new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
@@ -165,16 +165,16 @@ new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],
 new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
 new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]}          });
 
-			split0 = procitano[27].Split(",");
-			split1 = procitano[28].Split(",");
-			split2 = procitano[29].Split(",");
-			split3 = procitano[30].Split(",");
-			split4 = procitano[31].Split(",");
-			split5 = procitano[32].Split(",");
-			split6 = procitano[33].Split(",");
-			split7 = procitano[34].Split(",");
+			split0 = procitano[27].Split(","); Pretvori(split0);
+            split1 = procitano[28].Split(","); Pretvori(split1);
+            split2 = procitano[29].Split(","); Pretvori(split2);
+            split3 = procitano[30].Split(","); Pretvori(split3);
+            split4 = procitano[31].Split(","); Pretvori(split4);
+            split5 = procitano[32].Split(","); Pretvori(split5);
+            split6 = procitano[33].Split(","); Pretvori(split6);
+            split7 = procitano[34].Split(","); Pretvori(split7);
 
-			cetvrtak = new(new List<List<string>>
+            cetvrtak = new(new List<List<string>>
 			{
 						  new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
 new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
@@ -185,15 +185,15 @@ new List<string>() {split5[0],split5[1],split5[2],split5[3],split5[4],split5[5],
 new List<string>() {split6[0],split6[1],split6[2],split6[3],split6[4],split6[5],split6[6],split6[7],split6[8],split6[9],split6[10],split6[11],split6[12],split6[13],split6[14],split6[15],split6[16],split6[17],split6[18],split6[19],split6[20],split6[21],split6[22],split6[23],split6[24],split6[25],split6[26],split6[27],split6[28],split6[29],split6[30],split6[31]},
 new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],split7[6],split7[7],split7[8],split7[9],split7[10],split7[11],split7[12],split7[13],split7[14],split7[15],split7[16],split7[17],split7[18],split7[19],split7[20],split7[21],split7[22],split7[23],split7[24],split7[25],split7[26],split7[27],split7[28],split7[29],split7[30],split7[31]} });
 
-			split0 = procitano[36].Split(",");
-			split1 = procitano[37].Split(",");
-			split2 = procitano[38].Split(",");
-			split3 = procitano[39].Split(",");
-			split4 = procitano[40].Split(",");
-			split5 = procitano[41].Split(",");
-			split6 = procitano[42].Split(",");
-			split7 = procitano[43].Split(",");
-			petak = new(new List<List<string>>
+			split0 = procitano[36].Split(","); Pretvori(split0);
+            split1 = procitano[37].Split(","); Pretvori(split1);
+            split2 = procitano[38].Split(","); Pretvori(split2);
+            split3 = procitano[39].Split(","); Pretvori(split3);
+            split4 = procitano[40].Split(","); Pretvori(split4);
+            split5 = procitano[41].Split(","); Pretvori(split5);
+            split6 = procitano[42].Split(","); Pretvori(split6);
+            split7 = procitano[43].Split(","); Pretvori(split7);
+            petak = new(new List<List<string>>
 			{
 			new List<string>() {split0[0],split0[1],split0[2],split0[3],split0[4],split0[5],split0[6],split0[7],split0[8],split0[9],split0[10],split0[11],split0[12],split0[13],split0[14],split0[15],split0[16],split0[17],split0[18],split0[19],split0[20],split0[21],split0[22],split0[23],split0[24],split0[25],split0[26],split0[27],split0[28],split0[29],split0[30],split0[31]},
 			new List<string>() {split1[0],split1[1],split1[2],split1[3],split1[4],split1[5],split1[6],split1[7],split1[8],split1[9],split1[10],split1[11],split1[12],split1[13],split1[14],split1[15],split1[16],split1[17],split1[18],split1[19],split1[20],split1[21],split1[22],split1[23],split1[24],split1[25],split1[26],split1[27],split1[28],split1[29],split1[30],split1[31]},
@@ -292,75 +292,38 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
             };
            
         }
-        public void PretvoriIzNjigovogUNas( ref List<List<string>> item)
+        public void Pretvori(string[] s)
         {
-            for (int a = 0; a<item.Count;a++)
+            
+            for(int i = 0; i < s.Length; i++)
             {
-                for (int b = 0; b < item[a].Count;b++)
+                s[i] = s[i].ToLower();
+                string[] temp = s[i].Split("/");
+                s[i] = "";
+                for (int j = 0; j < temp.Length; j++)
                 {
-                    string[] s = item[a][b].ToString().Split("/");
-                    item[a][b] = "";
-                    for (int i = 0; i < s.Length; i++)
-                    {
-			    s[i] = s[i].ToLower();
-                        //if (s[i] == "informatika") item[a][b] += "info/";
-                        //else if (s[i] == "fizicko") item[a][b] += "fv/";
+                    if (temp[j] == "informatika") s[i] += "info/";
+                    else if (temp[j] == "fizicko") s[i] += "fv/";
+                    else if (temp[j] == "hemkab") s[i] += "hem/";
+                    else if (temp[j] == "veronauka") s[i] += "verska/";
+                    else if (temp[j] == "gradjansko1") s[i] += "g1/";
+                    else if (temp[j] == "gradjansko2") s[i] += "g2/";
+                    else if (temp[j] == "gradjansko3") s[i] += "g3/";
+                    else if (temp[j] == "gradjansko4") s[i] += "g4/";
+                    else if (temp[j] == "gradjansko5") s[i] += "g5/";
+                    else if (temp[j] == "nemacki") s[i] += "n/";
+                    else if (temp[j] == "francuski") s[i] += "f/";
+                    else if (temp[j] == "ruski") s[i] += "r/";
+                    else if (temp[j] == "italijanski") s[i] += "i/";
+                    else   s[i] += "reg/";
+                    
 
-                        //else if (s[i] == "veronauka") item[a][b] += "verska/";
 
-                        //else if (s[i] == "francuski") item[a][b] += "f/";
-
-                        //else if (s[i] == "nemacki") item[a][b] += "n/";
-
-                        //else if (s[i] == "italijanski") item[a][b] += "i/";
-
-                        //else if (s[i] == "ruski") item[a][b] += "r/";
-
-                        //else if (s[i] == "hemija1") item[a][b] += "hemk/";
-
-                        //else if (s[i] == "gradjansko1") item[a][b] += "g1/";
-
-                        //else if (s[i] == "gradjansko2") item[a][b] += "g2/";
-
-                        //else if (s[i] == "gradjansko3") item[a][b] += "g3/";
-
-                        //else if (s[i] == "gradjansko4") item[a][b] += "g4/";
-
-                        //else if (s[i] == "gradjansko5") item[a][b] += "g5/";
-
-                        //else item[a][b] += "reg/";
-                        if (s[i] == "INF") item[a][b] += "info/";
-                        else if (s[i] == "FZC") item[a][b] += "fv/";
-
-                        else if (s[i] == "VER") item[a][b] += "verska/";
-
-                        else if (s[i] == "F") item[a][b] += "f/";
-
-                        else if (s[i] == "N") item[a][b] += "n/";
-
-                        else if (s[i] == "I") item[a][b] += "i/";
-
-                        else if (s[i] == "R") item[a][b] += "r/";
-
-                        else if (s[i] == "hemija1") item[a][b] += "hemk/";
-
-                        else if (s[i] == "GV") item[a][b] += "g1/";
-
-                        else if (s[i] == "gradjansko2") item[a][b] += "g2/";
-
-                        else if (s[i] == "gradjansko3") item[a][b] += "g3/";
-
-                        else if (s[i] == "gradjansko4") item[a][b] += "g4/";
-
-                        else if (s[i] == "gradjansko5") item[a][b] += "g5/";
-
-                        else item[a][b] += "reg/";
-                    }
-                    item[a][b] = item[a][b].Remove(item[a][b].Length - 1,1);
                 }
+                s[i] = s[i].Substring(0, s[i].Length - 1);
             }
-
         }
+      
     }
 }
 
