@@ -297,29 +297,35 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
             
             for(int i = 0; i < s.Length; i++)
             {
-                s[i] = s[i].ToLower();
+              //  s[i] = s[i].ToLower();
                 string[] temp = s[i].Split("/");
                 s[i] = "";
                 for (int j = 0; j < temp.Length; j++)
                 {
-                    if (temp[j] == "informatika") s[i] += "info/";
-                    else if (temp[j] == "fizicko") s[i] += "fv/";
-                    else if (temp[j] == "hemkab") s[i] += "hem/";
-                    else if (temp[j] == "veronauka") s[i] += "verska/";
-                    else if (temp[j] == "gradjansko1") s[i] += "g1/";
-                    else if (temp[j] == "gradjansko2") s[i] += "g2/";
-                    else if (temp[j] == "gradjansko3") s[i] += "g3/";
-                    else if (temp[j] == "gradjansko4") s[i] += "g4/";
-                    else if (temp[j] == "gradjansko5") s[i] += "g5/";
-                    else if (temp[j] == "nemacki") s[i] += "n/";
-                    else if (temp[j] == "francuski") s[i] += "f/";
-                    else if (temp[j] == "ruski") s[i] += "r/";
-                    else if (temp[j] == "italijanski") s[i] += "i/";
-                    else   s[i] += "reg/";
+                    if (temp[j] == temp[j].ToLower())
+                    {
+                        s[i] += temp[j] + "/";
+                        
+                    }
+                    else if (temp[j] == "INF" || temp[j]=="info") s[i] += "info/";
+                    else if (temp[j] == "FZC" || temp[j] == "fv") s[i] += "fv/";
+                    else if (temp[j] == "HEMK" || temp[j] == "hem") s[i] += "hem/";
+                    else if (temp[j] == "VER" || temp[j] == "verska") s[i] += "verska/";
+                    else if (temp[j] == "GR1" || temp[j] == "g1") s[i] += "g1/";
+                    else if (temp[j] == "GR2" || temp[j] == "g2") s[i] += "g2/";
+                    else if (temp[j] == "GR3" || temp[j] == "g3") s[i] += "g3/";
+                    else if (temp[j] == "GR4" || temp[j] == "g4") s[i] += "g4/";
+                    else if (temp[j] == "GR5" || temp[j] == "g5") s[i] += "g5/";
+                    else if (temp[j] == "N" || temp[j] == "n") s[i] += "n/";
+                    else if (temp[j] == "F" || temp[j] == "f") s[i] += "f/";
+                    else if (temp[j] == "R" || temp[j] == "r") s[i] += "r/";
+                    else if (temp[j] == "I" || temp[j] == "i") s[i] += "i/";
+                    else if (temp[j]!= "" && temp[j] != temp[j].ToLower())  s[i] += "reg/";
                     
 
 
                 }
+                if (s[i]!= "")
                 s[i] = s[i].Substring(0, s[i].Length - 1);
             }
         }
