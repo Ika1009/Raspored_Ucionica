@@ -239,6 +239,8 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
                 new Ucionica("20", 36, true),
                 new Ucionica("9", 40, true),
                 new Ucionica("10", 40, true),
+                new Ucionica("hol",1,true,true),
+               // new Ucionica("hol1",1,true,true),
                 new Ucionica("svecana sala",40,true),
 
             };
@@ -314,7 +316,7 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
                     else if (temp[j] == "GR1" || temp[j] == "g1") s[i] += "g1/";
                     else if (temp[j] == "GR2" || temp[j] == "g2") s[i] += "g2/";
                     else if (temp[j] == "GR3" || temp[j] == "g3") s[i] += "g3/";
-                    else if (temp[j] == "GR4" || temp[j] == "g4") s[i] += "g4/";
+                    else if (temp[j] == "GR4" || temp[j] == "g4" || temp[j] == "GR") s[i] += "g4/";
                     else if (temp[j] == "GR5" || temp[j] == "g5") s[i] += "g5/";
                     else if (temp[j] == "N" || temp[j] == "n") s[i] += "n/";
                     else if (temp[j] == "F" || temp[j] == "f") s[i] += "f/";
