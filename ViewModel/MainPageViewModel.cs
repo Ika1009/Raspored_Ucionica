@@ -659,6 +659,7 @@ namespace Raspored_Ucionica.ViewModel
                 }
 
 
+
             }
             void OdrediUcioniceZaLutajuca()
             {
@@ -911,7 +912,7 @@ namespace Raspored_Ucionica.ViewModel
                             if (trenutno == "hem")
                             {
                                 if (string.IsNullOrEmpty(rezultati[i][j]))
-                                    rezultati[i][j] = "hemk";
+                                    rezultati[i][j] = "hemk/";
                                 else
                                     rezultati[i][j] += "/hemk";
                             }
@@ -1104,7 +1105,7 @@ namespace Raspored_Ucionica.ViewModel
                             if (trenutno == "hem")
                             {
                                 if (string.IsNullOrEmpty(rezultati[i][j]))
-                                    rezultati[i][j] = "hemk";
+                                    rezultati[i][j] = "hemk/";
                                 else
                                     rezultati[i][j] += "/hemk";
                             }
@@ -1270,6 +1271,8 @@ namespace Raspored_Ucionica.ViewModel
                 }
                 NadjiSlobodne(i);
 
+                
+
             }
             for (int i = 0; i < 8; i++)
             {
@@ -1279,10 +1282,13 @@ namespace Raspored_Ucionica.ViewModel
                         rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].IndexOf('.'), 1);
                     if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].LastIndexOf('/') == rezultati[i][j].Length - 1)
                         rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].LastIndexOf('/'));
+                    if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].IndexOf('/') == 0)
+                        rezultati[i][j] = rezultati[i][j].Substring(1, rezultati[i][j].Length - 1); 
                     if (rezultati[i][j].IndexOf("//") != -1)
                     {
                         rezultati[i][j] = rezultati[i][j].Replace("//", "/");
                     }
+                    
                 }
             }
             int Dan = 0;
@@ -1300,8 +1306,6 @@ namespace Raspored_Ucionica.ViewModel
             for (int i = 0; i < 8; i++)
             {
                 string UcionicaFrancuski = "-";
-                string UcionicaItalijanski = "-";
-                string UcionicaRuski = "-";
                 for (int j = 0; j < 32; j++)
                 {
                     string[] raspored = dan.RasporedCasova[i][j].Split('/');
@@ -1318,7 +1322,7 @@ namespace Raspored_Ucionica.ViewModel
                                     for (int l = 0; l < slobodne.Length; l++)
                                     {
 
-                                        if (slobodne[l] != "6" && slobodne[l] != "7" && slobodne[l] != "kab" && slobodne[l] != "biblioteka" && slobodne[l] != "" && slobodne[l] != " ")
+                                        if (slobodne[l] != "6" && slobodne[l] != "7" && slobodne[l] != "kab" && slobodne[l] != "biblioteka" && slobodne[l] != "")
                                         {
 
                                             string temp = slobodne[l];
@@ -1336,62 +1340,6 @@ namespace Raspored_Ucionica.ViewModel
                                 }
                             }
                         }
-                        //if (raspored[k] == "i")
-                        //{
-                        //    //MessageBox.Show(rezultat[k] + " rezultat pocetno");
-                        //    if (rezultat[k] == "6" || rezultat[k] == "7" || rezultat[k] == "8" || rezultat[k] == "biblioteka")
-                        //    {
-                        //        if (UcionicaItalijanski == "-")
-                        //        {
-                        //            for (int l = 0; l < slobodne.Length; l++)
-                        //            {
-
-                        //                if (slobodne[l] != "6" && slobodne[l] != "7" && slobodne[l] != "8" && slobodne[l] != "kab" && slobodne[l] != "biblioteka" && slobodne[l] != "" && slobodne[l] != " ")
-                        //                {
-
-                        //                    string temp = slobodne[l];
-                        //                    slobodne[l] = rezultat[k];
-                        //                    rezultat[k] = temp;
-                        //                    UcionicaItalijanski = rezultat[k];
-                        //                    break;
-
-                        //                }
-                        //            }
-                        //        }
-                        //        else
-                        //        {
-                        //            rezultat[k] = UcionicaItalijanski;
-                        //        }
-                        //    }
-                        //}
-                        //if (raspored[k] == "r")
-                        //{
-                        //    //MessageBox.Show(rezultat[k] + " rezultat pocetno");
-                        //    if (rezultat[k] == "6" || rezultat[k] == "7" || rezultat[k] == "8" || rezultat[k] == "biblioteka")
-                        //    {
-                        //        if (UcionicaRuski == "-")
-                        //        {
-                        //            for (int l = 0; l < slobodne.Length; l++)
-                        //            {
-
-                        //                if (slobodne[l] != "6" && slobodne[l] != "7" && slobodne[l] != "8" && slobodne[l] != "kab" && slobodne[l] != "biblioteka" && slobodne[l] != "" && slobodne[l] != " ")
-                        //                {
-
-                        //                    string temp = slobodne[l];
-                        //                    slobodne[l] = rezultat[k];
-                        //                    rezultat[k] = temp;
-                        //                    UcionicaRuski = rezultat[k];
-                        //                    break;
-
-                        //                }
-                        //            }
-                        //        }
-                        //        else
-                        //        {
-                        //            rezultat[k] = UcionicaRuski;
-                        //        }
-                        //    }
-                        //}
 
                     }
                     string konacno = "";

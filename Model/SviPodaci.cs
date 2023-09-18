@@ -239,8 +239,8 @@ new List<string>() {split7[0],split7[1],split7[2],split7[3],split7[4],split7[5],
                 new Ucionica("20", 36, true),
                 new Ucionica("9", 40, true),
                 new Ucionica("10", 40, true),
-                new Ucionica("hol",1,true,true),
-               // new Ucionica("hol1",1,true,true),
+                //new Ucionica("hol",1,true,true),
+                //new Ucionica("hol1",1,true,true),
                 new Ucionica("svecana sala",40,true),
 
             };
