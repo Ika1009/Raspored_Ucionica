@@ -432,7 +432,7 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4") is null)
                                 {
-                                    rezultati[i][j] += "HOL" + "/";
+                                    rezultati[i][j] += "хол" + "/";
                                 }
                                 else
                                 {
@@ -473,7 +473,7 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4") is null)
                                 {
-                                    rezultati[i][j] += "HOL" + "/";
+                                    rezultati[i][j] += "хол" + "/";
                                 }
                                 else
                                 {
@@ -507,7 +507,7 @@ namespace Raspored_Ucionica.ViewModel
                         {
                             if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4") is null)
                             {
-                                rezultati[i][j] += "HOL" + "/";
+                                rezultati[i][j] += "хол" + "/";
                             }
                             else
                             {
