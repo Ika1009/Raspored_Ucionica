@@ -257,7 +257,7 @@ namespace Raspored_Ucionica.ViewModel
             {
                 for (int j = 0; j < 32; j++)
                 {
-                    if (dan!.RasporedCasova[i][j] == "." || dan!.RasporedCasova[i][j] == "" || dan.RasporedCasova[i][j] == "fv" || dan.RasporedCasova[i][j] == "info" ||
+                    if (dan!.RasporedCasova[i][j] == "." || dan!.RasporedCasova[i][j] == "" || dan.RasporedCasova[i][j] == "info/info" || dan.RasporedCasova[i][j] == "fv" || dan.RasporedCasova[i][j] == "info" ||
                         dan!.RasporedCasova[i][j] == "hem/info" || dan!.RasporedCasova[i][j] == "info/hem" ||
                         dan!.RasporedCasova[i][j] == "g1" || dan!.RasporedCasova[i][j] == "g2" || dan!.RasporedCasova[i][j] == "g3" ||
                         dan!.RasporedCasova[i][j] == "g4" || dan!.RasporedCasova[i][j] == "g5")
@@ -883,7 +883,7 @@ namespace Raspored_Ucionica.ViewModel
                     NadjiCos();
                 }
 
-                for (var j = 17; j < 18; j++)
+                for (var j = 25; j < 26; j++)
                 {
                     //lista_ucionica!.Last().Slobodna = true;
                     if (dan!.RasporedCasova[i][j] == "reg" || dan!.RasporedCasova[i][j] == "dreg")
@@ -1076,7 +1076,7 @@ namespace Raspored_Ucionica.ViewModel
                 }
                 for (var j = 0; j < 32; j++)
                 {
-                    if (j == 17)
+                    if (j == 25)
                         continue;
                     //lista_ucionica!.Last().Slobodna = true;
                     if (dan!.RasporedCasova[i][j] == "reg" || dan!.RasporedCasova[i][j] == "dreg")
