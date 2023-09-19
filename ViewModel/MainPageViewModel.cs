@@ -933,7 +933,7 @@ namespace Raspored_Ucionica.ViewModel
                                     provera = true;
                                 }
                             }
-                            else if (trenutno == "info" && (c != 0 && cas.Split("/")[c - 1] != "info"))
+                            else if (trenutno == "info" && c == 0 || (trenutno == "info" && c!=0 && cas.Split("/")[c-1] != "info"))
                             {
                                 DodeliKabinet(i, j);
                             }
@@ -1126,7 +1126,7 @@ namespace Raspored_Ucionica.ViewModel
                                     provera = true;
                                 }
                             }
-                            else if (trenutno == "info" && (c!= 0 && cas.Split("/")[c-1] != "info"))
+                            else if (trenutno == "info" && c == 0 || (trenutno == "info" && c != 0 && cas.Split("/")[c - 1] != "info"))
                             {
                                 DodeliKabinet(i, j);
                             }
