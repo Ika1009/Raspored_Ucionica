@@ -305,13 +305,13 @@ namespace Raspored_Ucionica.ViewModel
                 Ucionica? slobodna = lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna && ucionica.Tip is null && ucionica.Ime_ucionice != "svecana sala");
                 //Prvo proverava da li je odeljenje lutajuće
                 //(funkcija se koristi i za grupe)
-                Odeljenje odeljenje = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-1");
+                Odeljenje odeljenje = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "III-2");
                 Ucionica ucionica1 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje.Id_ucionice);
                 odeljenje = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "III-1");
                 Ucionica ucionica2 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje.Id_ucionice);
-                if ((dan == utorak && ucionica1 != null && ucionica1.Slobodna) || (dan == sreda && ucionica2 != null && ucionica2.Slobodna) && j == 25)
+                if ((dan == petak && ucionica1 != null && ucionica1.Slobodna) || (dan == sreda && ucionica2 != null && ucionica2.Slobodna) && j == 25)
                 {
-                    if (dan == utorak)
+                    if (dan == petak)
                     {
                         rezultati[i][j] = ucionica1.Ime_ucionice;
                         ucionica1.Slobodna = false;
@@ -690,9 +690,9 @@ namespace Raspored_Ucionica.ViewModel
                 else
                     Dan = 4;
                 //Prolazak kroz raspored za svaki dan
-                Odeljenje odeljenje2 = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-1");
+                Odeljenje odeljenje2 = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "III-2");
                 Ucionica ucionica1 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje2.Id_ucionice);
-                odeljenje2 = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "IV-2");
+                odeljenje2 = lista_odeljenja.Find(odeljenje => odeljenje.Ime_odeljenja == "III-1");
                 Ucionica ucionica2 = lista_ucionica.FirstOrDefault(ucionica => ucionica.Id == odeljenje2.Id_ucionice);
                 for (int cas = 0; cas < 8; cas++)
                 {
@@ -706,7 +706,7 @@ namespace Raspored_Ucionica.ViewModel
                             {
                                 Ucionica ucionica = lista_ucionica.First(ucionica => ucionica.Id == lista_odeljenja[odeljenje].Id_ucionice);
 
-                                if (!((dan == utorak && ucionica == ucionica1) || (dan == cetvrtak && ucionica == ucionica2)))
+                                if (!((dan == petak && ucionica == ucionica1) || (dan == sreda && ucionica == ucionica2)))
                                 {
                                     ZaLutajuca[Dan][cas] += ucionica.Ime_ucionice + ",";
                                 }
