@@ -529,7 +529,7 @@ namespace Raspored_Ucionica.ViewModel
                 //}
                 if (!imanjeCasa)
                 {
-                    Ucionica ucionicaGradjansko = lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "svecana sala" && ucionica.Ime_ucionice != "6" && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka");
+                    Ucionica ucionicaGradjansko = lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka");
                     if (ucionicaGradjansko is null)
                     {
                         for (int k = 0; k < 6; k++)
@@ -550,8 +550,7 @@ namespace Raspored_Ucionica.ViewModel
                             }
                             if (a == "")
                             {
-                                ucionicaGradjansko = lista_ucionica.First(ucionica => ucionica.Ime_ucionice == "biblioteka");
-                                imeUcioniceZaGradjansko = ucionicaGradjansko.Ime_ucionice;
+                                imeUcioniceZaGradjansko = "хол";
 
                             }
                             else
@@ -790,7 +789,14 @@ namespace Raspored_Ucionica.ViewModel
                 }
                 else
                 {
-                    rezultati[i][j] = ispis;
+                    if (rezultati[i][j] == "")
+                    {
+                        rezultati[i][j] += "/" + ispis;
+                    }
+                    else
+                    {
+                        rezultati[i][j] += ispis;
+                    }
                 }
 
 
@@ -816,7 +822,7 @@ namespace Raspored_Ucionica.ViewModel
                 {
                     if (!g1Ima)
                     {
-                        imeUcioniceZaGradjansko1 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
+                        imeUcioniceZaGradjansko1 = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka" && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
                         g1Ima = true;
                     }
                     SpajanjeOdeljenja("g1", imeUcioniceZaGradjansko1, 0, i);
@@ -927,7 +933,7 @@ namespace Raspored_Ucionica.ViewModel
                                     provera = true;
                                 }
                             }
-                            else if (trenutno == "info")
+                            else if (trenutno == "info" && (c != 0 && cas.Split("/")[c - 1] != "info"))
                             {
                                 DodeliKabinet(i, j);
                             }
@@ -1120,7 +1126,7 @@ namespace Raspored_Ucionica.ViewModel
                                     provera = true;
                                 }
                             }
-                            else if (trenutno == "info")
+                            else if (trenutno == "info" && (c!= 0 && cas.Split("/")[c-1] != "info"))
                             {
                                 DodeliKabinet(i, j);
                             }
@@ -1208,6 +1214,11 @@ namespace Raspored_Ucionica.ViewModel
                                 {
                                     if (!imanjeCasaRuski)
                                     {
+                                        if(lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4") is null)
+                                        {
+                                            rezultati[i][j] += "хол/";
+                                            break;
+                                        }
                                         imeUcioniceZaRuski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
                                         imanjeCasaRuski = true;
                                     }
@@ -1271,7 +1282,7 @@ namespace Raspored_Ucionica.ViewModel
                 }
                 NadjiSlobodne(i);
 
-                
+
 
             }
             for (int i = 0; i < 8; i++)
@@ -1283,12 +1294,12 @@ namespace Raspored_Ucionica.ViewModel
                     if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].LastIndexOf('/') == rezultati[i][j].Length - 1)
                         rezultati[i][j] = rezultati[i][j].Remove(rezultati[i][j].LastIndexOf('/'));
                     if (rezultati[i][j].IndexOf('/') != -1 && rezultati[i][j].IndexOf('/') == 0)
-                        rezultati[i][j] = rezultati[i][j].Substring(1, rezultati[i][j].Length - 1); 
+                        rezultati[i][j] = rezultati[i][j].Substring(1, rezultati[i][j].Length - 1);
                     if (rezultati[i][j].IndexOf("//") != -1)
                     {
                         rezultati[i][j] = rezultati[i][j].Replace("//", "/");
                     }
-                    
+
                 }
             }
             int Dan = 0;
