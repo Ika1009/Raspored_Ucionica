@@ -1160,7 +1160,14 @@ namespace Raspored_Ucionica.ViewModel
                                 {
                                     if (!imanjeCasaItalijanski)
                                     {
-                                        imeUcioniceZaItalijanski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+                                        if(lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4") is null)
+                                        {
+                                            imeUcioniceZaItalijanski = "хол";
+                                        }
+                                        else
+                                        {
+                                            imeUcioniceZaItalijanski = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4").First().Ime_ucionice;
+                                        }
                                         imanjeCasaItalijanski = true;
                                     }
                                     SpajanjeOdeljenja("i", imeUcioniceZaItalijanski, i, j);
