@@ -385,13 +385,17 @@ namespace Raspored_Ucionica.ViewModel
                         }
                         else
                         {
+                            //if(dan == sreda && i == 3)
+                            //{
+                            //    MessageBox.Show("!");
+                            //}
                             string a = "";
                             if (lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && (ucionica.Tip is null || ucionica.Ime_ucionice == "7") && ucionica.Ime_ucionice != "svecana sala") is null)
                             {
                                 for (int k = 0; k < 6; k++)
                                 {
 
-                                    if (Kdan.RasporedKabineta[k][i] == "true")
+                                    if (Kdan.RasporedKabineta[k][i] == "TRUE")
                                     {
                                         switch (k)
                                         {
@@ -453,7 +457,7 @@ namespace Raspored_Ucionica.ViewModel
                             for (int k = 0; k < 6; k++)
                             {
 
-                                if (Kdan.RasporedKabineta[k][i] == "true")
+                                if (Kdan.RasporedKabineta[k][i] == "TRUE")
                                 {
                                     switch (k)
                                     {
@@ -535,7 +539,7 @@ namespace Raspored_Ucionica.ViewModel
                         for (int k = 0; k < 6; k++)
                         {
                             string a = "";
-                            if (Kdan.RasporedKabineta[k][i] == "true")
+                            if (Kdan.RasporedKabineta[k][i] == "TRUE")
                             {
                                 switch (k)
                                 {
@@ -579,7 +583,7 @@ namespace Raspored_Ucionica.ViewModel
                         for (int k = 0; k < 6; k++)
                         {
                             string a = "";
-                            if (Kdan.RasporedKabineta[k][i] == "true")
+                            if (Kdan.RasporedKabineta[k][i] == "TRUE")
                             {
                                 switch (k)
                                 {
@@ -642,7 +646,7 @@ namespace Raspored_Ucionica.ViewModel
                 for (int r = 0; r < 6; r++)
                 {
                     string ispis = "";
-                    if (Kdan.RasporedKabineta[r][i] == "true")
+                    if (Kdan.RasporedKabineta[r][i] == "TRUE")
                     {
                         switch (r)
                         {
