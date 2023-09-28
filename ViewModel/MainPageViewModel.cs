@@ -258,9 +258,7 @@ namespace Raspored_Ucionica.ViewModel
                 for (int j = 0; j < 32; j++)
                 {
                     if (dan!.RasporedCasova[i][j] == "." || dan!.RasporedCasova[i][j] == "" || dan.RasporedCasova[i][j] == "info/info" || dan.RasporedCasova[i][j] == "fv" || dan.RasporedCasova[i][j] == "info" ||
-                        dan!.RasporedCasova[i][j] == "hem/info" || dan!.RasporedCasova[i][j] == "info/hem" ||
-                        dan!.RasporedCasova[i][j] == "g1" || dan!.RasporedCasova[i][j] == "g2" || dan!.RasporedCasova[i][j] == "g3" ||
-                        dan!.RasporedCasova[i][j] == "g4" || dan!.RasporedCasova[i][j] == "g5")
+                        dan!.RasporedCasova[i][j] == "hem/info" || dan!.RasporedCasova[i][j] == "info/hem" || dan!.RasporedCasova[i][j].Contains("verska") || dan!.RasporedCasova[i][j] == "g1" || dan!.RasporedCasova[i][j] == "g2" || dan!.RasporedCasova[i][j] == "g3" || dan!.RasporedCasova[i][j] == "g4" || dan!.RasporedCasova[i][j] == "g5")
                     {
                         if (lista_odeljenja![j].Id_ucionice is not null) // nije lutajuce
                             OslobodiUcionicu(i, j);
@@ -526,13 +524,10 @@ namespace Raspored_Ucionica.ViewModel
             }
             void Gradjansko(string imeCasa, ref bool imanjeCasa, ref string imeUcioniceZaGradjansko, int i, int j)
             {
-                //if (!imanjeCasa)
-                //{
-                //    imeUcioniceZaGradjansko = lista_ucionica!.Where(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "svecana sala").Last().Ime_ucionice;
-                //    imanjeCasa = true;
-                //}
+
                 if (!imanjeCasa)
                 {
+
                     Ucionica ucionicaGradjansko = lista_ucionica!.FirstOrDefault(ucionica => ucionica.Slobodna == true && ucionica.Ime_ucionice != "P4" && ucionica.Ime_ucionice != "biblioteka");
                     if (ucionicaGradjansko is null)
                     {
@@ -565,13 +560,14 @@ namespace Raspored_Ucionica.ViewModel
                             break;
                         }
                     }
-                    else
+                    else 
                     {
                         imeUcioniceZaGradjansko = ucionicaGradjansko.Ime_ucionice;
                     }
-                    imanjeCasa = true;
-                    SpajanjeOdeljenja(imeCasa, imeUcioniceZaGradjansko, i, j);
                 }
+                imanjeCasa = true;
+                SpajanjeOdeljenja(imeCasa, imeUcioniceZaGradjansko, i, j);
+
             }
             void Nemacki(string imeCasa, ref bool imanjeCasa, ref string imeUcioniceZaNemacki, int i, int j)
             {
