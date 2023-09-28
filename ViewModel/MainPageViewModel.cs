@@ -650,7 +650,7 @@ namespace Raspored_Ucionica.ViewModel
                             case 1: ispis = "29"; break;
                             case 2: ispis = "23а"; break;
                             case 3: ispis = "Сремац"; break;
-                            case 4: ispis = "Мултимедијална"; break;
+                            case 4: ispis = "Мултим."; break;
                             case 5: ispis = "8"; break;
                         }
                         Slobodne[i][k] += ispis + "/";
@@ -1149,6 +1149,10 @@ namespace Raspored_Ucionica.ViewModel
                                 Nemacki("n1", ref n1Ima, ref imeUcioniceZaNemacki1, i, j);
                             else if (trenutno == "i")
                             {
+                                if (dan == sreda && i == 4)
+                                {
+                                    rezultati[i][j] += "/каб. псих/"; break;
+                                }
                                 if (jezicka1.Slobodna)
                                 {
                                     rezultati[i][j] += "/6/";
@@ -1203,6 +1207,10 @@ namespace Raspored_Ucionica.ViewModel
                             }
                             else if (trenutno == "r")
                             {
+                                if (dan == sreda && i == 4)
+                                {
+                                    rezultati[i][j] += "/срем. библ./"; break;
+                                }
                                 if (biblioteka.Slobodna && rand % 2 == 0) // random nekad upadne ovde nekad dole za 6
                                 {
                                     rezultati[i][j] += "/biblioteka/";
@@ -1321,75 +1329,75 @@ namespace Raspored_Ucionica.ViewModel
             else
                 Dan = 4;
 
-            for (int i = 0; i < 8; i++)
-            {
-                string UcionicaFrancuski = "-";
-                for (int j = 0; j < 32; j++)
-                {
-                    string[] raspored = dan.RasporedCasova[i][j].Split('/');
-                    string[] rezultat = rezultati[i][j].Split('/');
-                    string[] slobodne = Slobodne[i][Dan].Split('/');
-                    for (int k = 0; k < raspored.Length; k++)
-                    {
-                        if (raspored[k] == "f")
-                        {
-                            if (rezultat[k] == "6" || rezultat[k] == "7" || rezultat[k] == "biblioteka")
-                            {
-                                if (UcionicaFrancuski == "-")
-                                {
-                                    for (int l = 0; l < slobodne.Length; l++)
-                                    {
+        //    for (int i = 0; i < 8; i++)
+        //    {
+        //        string UcionicaFrancuski = "-";
+        //        for (int j = 0; j < 32; j++)
+        //        {
+        //            string[] raspored = dan.RasporedCasova[i][j].Split('/');
+        //            string[] rezultat = rezultati[i][j].Split('/');
+        //            string[] slobodne = Slobodne[i][Dan].Split('/');
+        //            for (int k = 0; k < raspored.Length; k++)
+        //            {
+        //                if (raspored[k] == "f")
+        //                {
+        //                    if (rezultat[k] == "6" || rezultat[k] == "7" || rezultat[k] == "biblioteka")
+        //                    {
+        //                        if (UcionicaFrancuski == "-")
+        //                        {
+        //                            for (int l = 0; l < slobodne.Length; l++)
+        //                            {
 
-                                        if (slobodne[l] != "6" && slobodne[l] != "7" && slobodne[l] != "kab" && slobodne[l] != "biblioteka" && slobodne[l] != "")
-                                        {
+        //                                if (slobodne[l] != "6" && slobodne[l] != "7" && slobodne[l] != "kab" && slobodne[l] != "biblioteka" && slobodne[l] != "")
+        //                                {
 
-                                            string temp = slobodne[l];
-                                            slobodne[l] = rezultat[k];
-                                            rezultat[k] = temp;
-                                            UcionicaFrancuski = rezultat[k];
-                                            break;
+        //                                    string temp = slobodne[l];
+        //                                    slobodne[l] = rezultat[k];
+        //                                    rezultat[k] = temp;
+        //                                    UcionicaFrancuski = rezultat[k];
+        //                                    break;
 
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    rezultat[k] = UcionicaFrancuski;
-                                }
-                            }
-                        }
+        //                                }
+        //                            }
+        //                        }
+        //                        else
+        //                        {
+        //                            rezultat[k] = UcionicaFrancuski;
+        //                        }
+        //                    }
+        //                }
 
-                    }
-                    string konacno = "";
-                    for (int t = 0; t < rezultat.Length; t++)
-                    {
+        //            }
+        //            string konacno = "";
+        //            for (int t = 0; t < rezultat.Length; t++)
+        //            {
 
-                        if (t != rezultat.Length - 1)
-                        {
-                            konacno += rezultat[t] + "/";
-                        }
-                        else
-                        {
-                            konacno += rezultat[t];
-                        }
-                    }
-                    string sloboda = "";
-                    for (int t = 0; t < slobodne.Length; t++)
-                    {
+        //                if (t != rezultat.Length - 1)
+        //                {
+        //                    konacno += rezultat[t] + "/";
+        //                }
+        //                else
+        //                {
+        //                    konacno += rezultat[t];
+        //                }
+        //            }
+        //            string sloboda = "";
+        //            for (int t = 0; t < slobodne.Length; t++)
+        //            {
 
-                        if (t != slobodne.Length - 1)
-                        {
-                            sloboda += slobodne[t] + "/";
-                        }
-                        else
-                        {
-                            sloboda += slobodne[t];
-                        }
-                    }
-                    rezultati[i][j] = konacno;
-                    Slobodne[i][Dan] = sloboda;
-                }
-            }
+        //                if (t != slobodne.Length - 1)
+        //                {
+        //                    sloboda += slobodne[t] + "/";
+        //                }
+        //                else
+        //                {
+        //                    sloboda += slobodne[t];
+        //                }
+        //            }
+        //            rezultati[i][j] = konacno;
+        //            Slobodne[i][Dan] = sloboda;
+        //        }
+        //    }
 
             return rezultati;
         }
