@@ -721,7 +721,7 @@ namespace Raspored_Ucionica.ViewModel
                 List<Ucionica> osloboditi = new List<Ucionica>();
                 bool[] slobodne = { true, true, true, true, true, true };
                 string[] ucionice = { "22", "29", "23a", "Sremac", "Multimedijalna", "8" };
-                Odeljenje trece_dva = lista_odeljenja.First(odeljenje => odeljenje.Ime_odeljenja == "III-2");
+                Odeljenje trece_dva = lista_odeljenja.First(odeljenje => odeljenje.Ime_odeljenja == "III-1");
                 if (trece_dva.Id_ucionice is null)
                 {
                     slobodne[0] = false;
@@ -737,7 +737,7 @@ namespace Raspored_Ucionica.ViewModel
                     }
                     else
                     {
-                        if (odeljenje.Ime_odeljenja == "III-2")
+                        if (odeljenje.Ime_odeljenja == "III-1")
                         {
                             Cos.Add(ucionice[0]);
                             slobodne[0] = false;
