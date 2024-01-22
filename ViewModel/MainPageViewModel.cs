@@ -697,7 +697,7 @@ namespace Raspored_Ucionica.ViewModel
                 {
                     for (int odeljenje = 0; odeljenje < 32; odeljenje++)
                     {
-                        if ((dan!.RasporedCasova[cas][odeljenje] == "info" || dan!.RasporedCasova[cas][odeljenje] == "info")
+                        if ((dan!.RasporedCasova[cas][odeljenje] == "info" || dan!.RasporedCasova[cas][odeljenje] == "fv")
                             && (((cas != 0 && (dan!.RasporedCasova[cas - 1][odeljenje] == "info" || dan!.RasporedCasova[cas - 1][odeljenje] == "fv"))
                             || (cas != 7 && (dan!.RasporedCasova[cas + 1][odeljenje] == "info" || dan!.RasporedCasova[cas + 1][odeljenje] == "fv")))))
                         {
